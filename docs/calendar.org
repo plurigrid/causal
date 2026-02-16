@@ -1,11 +1,11 @@
 * Calendar
 #+CINDEX: Calendar
-#+VINDEX: casual-calendar
-#+VINDEX: casual-calendar-tmenu
-Casual Calendar is a user interface for Emacs Calendar/Diary. Its top-level library is ~casual-calendar~. Access to numerous calendar and diary commands are made available, most notably support for non-Gregorian calendar systems.
+#+VINDEX: causal-calendar
+#+VINDEX: causal-calendar-tmenu
+Causal Calendar is a user interface for Emacs Calendar/Diary. Its top-level library is ~causal-calendar~. Access to numerous calendar and diary commands are made available, most notably support for non-Gregorian calendar systems.
 
 
-[[file:images/casual-calendar-screenshot.png]]
+[[file:images/causal-calendar-screenshot.png]]
 
 ** Calendar Install
 :PROPERTIES:
@@ -13,20 +13,20 @@ Casual Calendar is a user interface for Emacs Calendar/Diary. Its top-level libr
 :END:
 #+CINDEX: Calendar Install
 
-The main menu for Casual Calendar (~casual-calendar-tmenu)~ is invoked by the command ~casual-calendar~.  Bind this command in the keymap ~calendar-mode-map~ as follows in your initialization file.
+The main menu for Causal Calendar (~causal-calendar-tmenu)~ is invoked by the command ~causal-calendar~.  Bind this command in the keymap ~calendar-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical no
-  (keymap-set calendar-mode-map "C-o" #'casual-calendar)
+  (keymap-set calendar-mode-map "C-o" #'causal-calendar)
 #+end_src
 
 ** Calendar Usage
 #+CINDEX: Calendar Usage
 
-[[file:images/casual-calendar-screenshot.png]]
+[[file:images/causal-calendar-screenshot.png]]
 
-Whenever the ~calendar~ window (showing three months) is raised, the Casual user interface is invoked via the command ~casual-calendar~. This command is typically bound to a keybinding (e.g. {{{kbd(C-o)}}}).
+Whenever the ~calendar~ window (showing three months) is raised, the Causal user interface is invoked via the command ~causal-calendar~. This command is typically bound to a keybinding (e.g. {{{kbd(C-o)}}}).
 
-Casual Calendar organizes its main menu into the following sections:
+Causal Calendar organizes its main menu into the following sections:
 
 - Navigation :: Commands to move the point to a desired date, adjusting the view as necessary.
 
@@ -43,42 +43,42 @@ Casual Calendar organizes its main menu into the following sections:
 Also made available is access to a Settings menu (more below) and to the Info documentation for ~calendar~.
 
 *** Diary & Goto Menu
-#+VINDEX: casual-calendar-diary-and-goto-tmenu
+#+VINDEX: causal-calendar-diary-and-goto-tmenu
 
 From the main menu, choosing “{{{kbd(D)}}} Diary & Goto›” will present choices for diary event insertion and to “goto” a particular date via different specifications.
 
-[[file:images/casual-calendar-diary-menu.png]]
+[[file:images/causal-calendar-diary-menu.png]]
 
 *** Calendar System Date Conversion
-#+VINDEX: casual-calendar-conversions-tmenu
-#+VINDEX: casual-calendar-lunar-tmenu
-#+VINDEX: casual-calendar-astro-tmenu
-#+VINDEX: casual-calendar-islamic-tmenu
-#+VINDEX: casual-calendar-hebrew-tmenu
-#+VINDEX: casual-calendar-bahai-tmenu
-#+VINDEX: casual-calendar-ethiopic-tmenu
-#+VINDEX: casual-calendar-french-tmenu
-#+VINDEX: casual-calendar-julian-tmenu
-#+VINDEX: casual-calendar-coptic-tmenu
-#+VINDEX: casual-calendar-persian-tmenu
-#+VINDEX: casual-calendar-mayan-tmenu
+#+VINDEX: causal-calendar-conversions-tmenu
+#+VINDEX: causal-calendar-lunar-tmenu
+#+VINDEX: causal-calendar-astro-tmenu
+#+VINDEX: causal-calendar-islamic-tmenu
+#+VINDEX: causal-calendar-hebrew-tmenu
+#+VINDEX: causal-calendar-bahai-tmenu
+#+VINDEX: causal-calendar-ethiopic-tmenu
+#+VINDEX: causal-calendar-french-tmenu
+#+VINDEX: causal-calendar-julian-tmenu
+#+VINDEX: causal-calendar-coptic-tmenu
+#+VINDEX: causal-calendar-persian-tmenu
+#+VINDEX: causal-calendar-mayan-tmenu
 
 Calendar supports conversion of dates from Gregorian (default) to a number of different calendar systems. Choose "(c) Conversions›" from the main menu to select from a list of such calendars.
 
-[[file:images/casual-calendar-calendars-menu.png]]
+[[file:images/causal-calendar-calendars-menu.png]]
 
  Supported calendar systems:
 
-- Astronomical (~casual-calendar-astro-tmenu~)
-- Bahá’í (~casual-calendar-bahai-tmenu~)
-- Ethiopic (~casual-calendar-ethiopic-tmenu~)
-- French Revolutionary (~casual-calendar-french-tmenu~)
-- Hebrew (~casual-calendar-hebrew-tmenu~)
-- Islamic (~casual-calendar-islamic-tmenu~)
-- Julian (~casual-calendar-julian-tmenu~)
-- Lunar (Chinese) (~casual-calendar-lunar-tmenu~)
-- Mayan (~casual-calendar-mayan-tmenu~)
-- Persian (~casual-calendar-persian-tmenu~)
+- Astronomical (~causal-calendar-astro-tmenu~)
+- Bahá’í (~causal-calendar-bahai-tmenu~)
+- Ethiopic (~causal-calendar-ethiopic-tmenu~)
+- French Revolutionary (~causal-calendar-french-tmenu~)
+- Hebrew (~causal-calendar-hebrew-tmenu~)
+- Islamic (~causal-calendar-islamic-tmenu~)
+- Julian (~causal-calendar-julian-tmenu~)
+- Lunar (Chinese) (~causal-calendar-lunar-tmenu~)
+- Mayan (~causal-calendar-mayan-tmenu~)
+- Persian (~causal-calendar-persian-tmenu~)
 
 Selecting a calendar system will raise a menu that offers date conversion commands between it and the Gregorian system. In the screenshot below, the Lunar (Chinese) calendar system menu is shown.
 
@@ -91,7 +91,7 @@ To convert a Lunar (Chinese) date to Gregorian:
 
 1. Choose “(G) Goto…” and follow the prompts.
 
-[[file:images/casual-calendar-lunar-menu.png]]
+[[file:images/causal-calendar-lunar-menu.png]]
 
 Certain non-Gregorian calendar systems are supported by the diary (Bahá’í, Hebrew, Islamic, Lunar (Chinese)). For such systems, their menus will offer choices to insert diary events.
 
@@ -100,15 +100,15 @@ Note that inserting non-Gregorian diary events require configuration of the vari
 Both of these variables can be configured from the Calendar Settings menu.
 
 *** Calendar Settings Menu
-#+VINDEX: casual-calendar-settings-tmenu
+#+VINDEX: causal-calendar-settings-tmenu
 
-From the main menu, choosing “{{{kbd(\,)}}} Settings›” will provide a menu (~casual-calendar-settings-tmenu~) of frequently configured calendar and diary-related variables.
+From the main menu, choosing “{{{kbd(\,)}}} Settings›” will provide a menu (~causal-calendar-settings-tmenu~) of frequently configured calendar and diary-related variables.
 
-[[file:images/casual-calendar-settings-menu.png]]
+[[file:images/causal-calendar-settings-menu.png]]
 
 *** Calendar Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Calendar will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Calendar will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-calendar-main-unicode.png]]
+[[file:images/causal-calendar-main-unicode.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

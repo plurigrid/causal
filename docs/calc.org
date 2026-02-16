@@ -1,9 +1,9 @@
 * Calc
 #+CINDEX: Calc
-#+VINDEX: casual-calc-tmenu
-Casual Calc is a user interface for Emacs Calc ([[info:calc#Top]]).
+#+VINDEX: causal-calc-tmenu
+Causal Calc is a user interface for Emacs Calc ([[info:calc#Top]]).
 
-[[file:images/casual-calc-tmenu.png]]
+[[file:images/causal-calc-tmenu.png]]
 
 ** Calc Install
 :PROPERTIES:
@@ -12,24 +12,24 @@ Casual Calc is a user interface for Emacs Calc ([[info:calc#Top]]).
 
 #+CINDEX: Calc Install
 
-To install Casual Calc, add the following lines to your Emacs initialization file with your binding of preference.
+To install Causal Calc, add the following lines to your Emacs initialization file with your binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set calc-mode-map "C-o" #'casual-calc-tmenu)
-  (keymap-set calc-alg-map "C-o" #'casual-calc-tmenu)
+  (keymap-set calc-mode-map "C-o" #'causal-calc-tmenu)
+  (keymap-set calc-alg-map "C-o" #'causal-calc-tmenu)
 #+end_src
 
 
 ** Calc Usage
 #+CINDEX: Calc Usage
 
-[[file:images/casual-calc-tmenu.png]]
+[[file:images/causal-calc-tmenu.png]]
 
-To launch Calc, invoke  ~M-x calc~. When the point is in the Calc window, invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Casual Calc interface.
+To launch Calc, invoke  ~M-x calc~. When the point is in the Calc window, invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Causal Calc interface.
 
 For nearly all menus, algebraic entry via the {{{kbd(')}}} binding is available, as well as basic calculator operations (addition, subtraction, multiplication, division) and stack operations (pop, enter).
 
-Casual Calc organizes its main menu into the following sections:
+Causal Calc organizes its main menu into the following sections:
 
 - Calc :: Commands for common calculator functions.
 - Constants ::  Common math constants.

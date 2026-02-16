@@ -3,12 +3,12 @@
 :CUSTOM_ID: css-top
 :END:
 #+CINDEX: CSS
-#+VINDEX: casual-css-tmenu
+#+VINDEX: causal-css-tmenu
 
-Casual CSS is a user interface for ~css-mode~. 
+Causal CSS is a user interface for ~css-mode~. 
 
-[[file:images/casual-css-screenshot.png]]
-Casual also has support for HTML editing ([[#html-top][HTML]]).
+[[file:images/causal-css-screenshot.png]]
+Causal also has support for HTML editing ([[#html-top][HTML]]).
 
 
 ** CSS Install
@@ -18,18 +18,18 @@ Casual also has support for HTML editing ([[#html-top][HTML]]).
 
 #+CINDEX: CSS Install
 
-In your initialization file, bind the Transient ~casual-css-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-css-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set css-mode-map "M-m" #'casual-css-tmenu)
+  (keymap-set css-mode-map "M-m" #'causal-css-tmenu)
 #+end_src
 
-A different binding ({{{kbd(M-m)}}}) is used as ~casual-css-tmenu~ is intended to work alongside with [[#editkit-install][Casual EditKit]].
+A different binding ({{{kbd(M-m)}}}) is used as ~causal-css-tmenu~ is intended to work alongside with [[#editkit-install][Causal EditKit]].
 
 ** CSS Usage
 #+CINDEX: CSS Usage
 
-[[file:images/casual-css-screenshot.png]]
+[[file:images/causal-css-screenshot.png]]
 
 
 The following sections are offered in the menu:
@@ -44,15 +44,15 @@ The following sections are offered in the menu:
   
 
 #+TEXINFO: @subheading CSS Settings
-#+VINDEX: casual-css-settings-tmenu
+#+VINDEX: causal-css-settings-tmenu
 
-The menu ~casual-css-settings-tmenu~ provides access to different ~css-mode~ settings.
+The menu ~causal-css-settings-tmenu~ provides access to different ~css-mode~ settings.
 
-[[file:images/casual-css-settings-screenshot.png]]
+[[file:images/causal-css-settings-screenshot.png]]
 
 
 #+TEXINFO: @subheading CSS Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual CSS will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal CSS will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

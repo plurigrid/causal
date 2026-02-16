@@ -1,11 +1,11 @@
 * IBuffer
 #+CINDEX: IBuffer
-#+VINDEX: casual-ibuffer-tmenu
-Casual IBuffer provides a user interface to Emacs IBuffer ([[info:emacs#Buffer Menus][emacs#Buffer Menus]]), a mode designed for managing buffers. Its top-level library is ~casual-ibuffer~.
+#+VINDEX: causal-ibuffer-tmenu
+Causal IBuffer provides a user interface to Emacs IBuffer ([[info:emacs#Buffer Menus][emacs#Buffer Menus]]), a mode designed for managing buffers. Its top-level library is ~causal-ibuffer~.
 
 IBuffer is a powerful tool for managing Emacs workflows. As Emacs is often compared to an operating system, through that lens one could compare IBuffer to being a task manager interface, managing instantiated buffers as opposed to processes.
 
-[[file:images/casual-ibuffer-screenshot.png]]
+[[file:images/causal-ibuffer-screenshot.png]]
 
 
 ** IBuffer Install
@@ -15,20 +15,20 @@ IBuffer is a powerful tool for managing Emacs workflows. As Emacs is often compa
 
 #+CINDEX: IBuffer Install
 
-In your initialization file, bind the Transinent ~casual-ibuffer-tmenu~ to your key binding of preference. 
+In your initialization file, bind the Transinent ~causal-ibuffer-tmenu~ to your key binding of preference. 
 
 #+begin_src elisp :lexical no
-  (keymap-set ibuffer-mode-map "C-o" #'casual-ibuffer-tmenu)
+  (keymap-set ibuffer-mode-map "C-o" #'causal-ibuffer-tmenu)
 #+end_src
 
-Like with Casual Dired, it is convenient to have the menus for filtering and sorting bound as well. Listed below shows an example of binding ~casual-ibuffer-filter-tmenu~ and ~casual-ibuffer-sortby-tmenu~ to ~F~ and ~s~ respectively.
+Like with Causal Dired, it is convenient to have the menus for filtering and sorting bound as well. Listed below shows an example of binding ~causal-ibuffer-filter-tmenu~ and ~causal-ibuffer-sortby-tmenu~ to ~F~ and ~s~ respectively.
 
 #+begin_src elisp :lexical no
-  (keymap-set ibuffer-mode-map "F" #'casual-ibuffer-filter-tmenu)
-  (keymap-set ibuffer-mode-map "s" #'casual-ibuffer-sortby-tmenu)
+  (keymap-set ibuffer-mode-map "F" #'causal-ibuffer-filter-tmenu)
+  (keymap-set ibuffer-mode-map "s" #'causal-ibuffer-sortby-tmenu)
 #+end_src
 
-Use these keybindings to configure IBuffer to be consistent with keybindings used by Casual IBuffer.
+Use these keybindings to configure IBuffer to be consistent with keybindings used by Causal IBuffer.
 
 #+begin_src elisp :lexical no
   (keymap-set ibuffer-mode-map "{" #'ibuffer-backwards-next-marked)
@@ -38,7 +38,7 @@ Use these keybindings to configure IBuffer to be consistent with keybindings use
   (keymap-set ibuffer-mode-map "$" #'ibuffer-toggle-filter-group)  
 #+end_src
 
-While not necessary for Casual IBuffer, enabling ~hl-line-mode~ and binding mouse clicks in IBuffer adds to a more comfortable IBuffer experience. Also, adding ~ibuffer-auto-mode~ to ~ibuffer-mode-hook~ will enable auto-updating. 
+While not necessary for Causal IBuffer, enabling ~hl-line-mode~ and binding mouse clicks in IBuffer adds to a more comfortable IBuffer experience. Also, adding ~ibuffer-auto-mode~ to ~ibuffer-mode-hook~ will enable auto-updating. 
 
 #+begin_src elisp :lexical no
   (require 'hl-line)
@@ -52,10 +52,10 @@ While not necessary for Casual IBuffer, enabling ~hl-line-mode~ and binding mous
 ** IBuffer Usage
 #+CINDEX: IBuffer Usage
 
-[[file:images/casual-ibuffer-screenshot.png]]
+[[file:images/causal-ibuffer-screenshot.png]]
 
 
-The main menu of Casual IBuffer (~casual-ibuffer-tmenu~) is organized into the following sections:
+The main menu of Causal IBuffer (~causal-ibuffer-tmenu~) is organized into the following sections:
 
 - Operations :: Commands to operate either on the buffer at point or on marked buffers.
 
@@ -73,7 +73,7 @@ The main menu of Casual IBuffer (~casual-ibuffer-tmenu~) is organized into the f
 
 
 *** IBuffer Marking and Operating
-[[file:images/casual-ibuffer-main-screenshot.png]]
+[[file:images/causal-ibuffer-main-screenshot.png]]
 
 Buffers can be marked using different criteria. Marked buffers can be operated on. Common operations include saving and deleting buffers. Note that deleting a buffer populated with a visited file is /not the same/ as deleting the visited file.
 
@@ -81,14 +81,14 @@ From the main menu shown above, control of the display and find/replace operatio
 
 Note that the menu item “{{{kbd(RET)}}} Visit/Toggle” has "do what I mean"  (DWIM) behavior. If the point is currently on a filter group (described below) then pressing the {{{kbd(RET)}}} key will toggle the visibility of items matching that filter group. Otherwise, it will visit (open) the buffer.
 
-As with other Casual user interfaces, the ability to jump to a bookmark is available.
+As with other Causal user interfaces, the ability to jump to a bookmark is available.
 
 # TODO: Need to add operations, mark, mark-regexp tmenus
 
 *** IBuffer Filtering
-#+VINDEX: casual-ibuffer-filter-tmenu
+#+VINDEX: causal-ibuffer-filter-tmenu
 
-[[file:images/casual-ibuffer-filter-screenshot.png]]
+[[file:images/causal-ibuffer-filter-screenshot.png]]
 
 
 IBuffer is embarrasingly rich in the ways it can filter buffers. Once mastered, IBuffer filtering offers a way to create different views on your buffer list, enabling you to tailor bespoke views for different workflows. Such capability comes with a price though: you'll need to understand how IBuffer wants to organize filters.
@@ -114,7 +114,7 @@ IBuffer organizes filtering with the following taxonomy:
    - filter by special buffers
    - filter by buffers visiting files
 
-    Casual IBuffer makes the design decision to *not* enumerate the above in a menu, delegating the work of filter selection to the command  ~ibuffer-filter-chosen-by-completion~.
+    Causal IBuffer makes the design decision to *not* enumerate the above in a menu, delegating the work of filter selection to the command  ~ibuffer-filter-chosen-by-completion~.
     
 2. *Filter*
 
@@ -162,19 +162,19 @@ Here is where the taxonomy becomes significant as the IBuffer command set unfort
 3. Multiple filter groups can be created by repeating steps 1 and 2 above. Note that when constructing a filter group, the IBuffer window will /not/ provide observability of existing filter groups on the buffer list.
 4. You can save the set of filter groups as a /collection/ in the *Collection* section with the command /(S) Save.../. You will be prompted to name the collection. Note that only one collection can be used at a time in IBuffer.
 
-Out of the box, it is best to think of the IBuffer commands for editing buffer filters as a kit of parts and an arguably incomplete one at that. The Casual IBuffer filter menu (=casual-ibuffer-filter-tmenu=) is my attempt to build a comprehensible filter editor UI from this kit. Whether it succeeds in being comprehensible is left to user feedback.
+Out of the box, it is best to think of the IBuffer commands for editing buffer filters as a kit of parts and an arguably incomplete one at that. The Causal IBuffer filter menu (=causal-ibuffer-filter-tmenu=) is my attempt to build a comprehensible filter editor UI from this kit. Whether it succeeds in being comprehensible is left to user feedback.
 
 
 *** IBuffer Sorting
-#+VINDEX: casual-ibuffer-sortby-tmenu
+#+VINDEX: causal-ibuffer-sortby-tmenu
 
-[[file:images/casual-ibuffer-sortby-screenshot.png]]
+[[file:images/causal-ibuffer-sortby-screenshot.png]]
 
-The buffer list can be sorted using different criteria using the menu ~casual-ibuffer-sortby-tmenu~.
+The buffer list can be sorted using different criteria using the menu ~causal-ibuffer-sortby-tmenu~.
 
 Sort ordering can be reversed via the /Invert/ command.
 
 *** IBuffer Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual IBuffer will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal IBuffer will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

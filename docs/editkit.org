@@ -3,13 +3,13 @@
 :CUSTOM_ID: editkit
 :END:
 #+CINDEX: EditKit
-#+VINDEX: casual-editkit-main-tmenu
+#+VINDEX: causal-editkit-main-tmenu
 
-Casual EditKit provides a user interface for the numerous editing commands offered by Emacs. Its top-level library is ~casual-editkit~. As text editing is a core feature of Emacs, the menus provided here are intended to be made available in a global fashion for buffers that are intended to be edited.
+Causal EditKit provides a user interface for the numerous editing commands offered by Emacs. Its top-level library is ~causal-editkit~. As text editing is a core feature of Emacs, the menus provided here are intended to be made available in a global fashion for buffers that are intended to be edited.
 
-[[file:images/casual-editkit-main-screenshot.png]]
+[[file:images/causal-editkit-main-screenshot.png]]
 
-Casual EditKit endeavors to surface the many different editing commands offered by Emacs via Transient menus. The main menu (~casual-editkit-main-tmenu~) both demonstrates and provides a reference to all EditKit menus. Motivated users can customize this menu to their taste.
+Causal EditKit endeavors to surface the many different editing commands offered by Emacs via Transient menus. The main menu (~causal-editkit-main-tmenu~) both demonstrates and provides a reference to all EditKit menus. Motivated users can customize this menu to their taste.
 
 ** EditKit Install
 :PROPERTIES:
@@ -17,27 +17,27 @@ Casual EditKit endeavors to surface the many different editing commands offered 
 :END:
 #+CINDEX: EditKit Install
 
-A reference menu (~casual-editkit-main-tmenu~) illustrating nearly all the different menus offered by Casual EditKit is provided. This menu can be used “as-is” with your binding of preference. For consistency with other Casual Packages, the binding {{{kbd(C-o)}}} is used in the example below. Other candidate bindings include {{{kbd(M-o)}}} and {{{kbd(F10)}}}. To facilitate default access to this menu, the configuration below sets this binding to be global which can be overridden per mode. This is /not/ mandatory and users are free to integrate Casual EditKit into their Emacs configuration however they see fit. 
+A reference menu (~causal-editkit-main-tmenu~) illustrating nearly all the different menus offered by Causal EditKit is provided. This menu can be used “as-is” with your binding of preference. For consistency with other Causal Packages, the binding {{{kbd(C-o)}}} is used in the example below. Other candidate bindings include {{{kbd(M-o)}}} and {{{kbd(F10)}}}. To facilitate default access to this menu, the configuration below sets this binding to be global which can be overridden per mode. This is /not/ mandatory and users are free to integrate Causal EditKit into their Emacs configuration however they see fit. 
 
 #+begin_src elisp :lexical no
-  (keymap-global-set "C-o" #'casual-editkit-main-tmenu)
+  (keymap-global-set "C-o" #'causal-editkit-main-tmenu)
 #+end_src
 
 Also suggested is to globally bind the window and rectangle menus as shown below.
 
 #+begin_src elisp :lexical no
-  (keymap-global-set "C-c w" #'casual-editkit-windows-tmenu)
-  (keymap-global-set "C-c r" #'casual-editkit-rectangle-tmenu)
+  (keymap-global-set "C-c w" #'causal-editkit-windows-tmenu)
+  (keymap-global-set "C-c r" #'causal-editkit-rectangle-tmenu)
 #+end_src
 
-For motivated users desiring a bespoke solution, it is recommended that they use Casual EditKit as a library of menus to build their own workflows.
+For motivated users desiring a bespoke solution, it is recommended that they use Causal EditKit as a library of menus to build their own workflows.
 
 ** EditKit Usage
 #+CINDEX: EditKit Usage
 
-[[file:images/casual-editkit-main-screenshot.png]]
+[[file:images/causal-editkit-main-screenshot.png]]
 
-The main menu of Casual EditKit (~casual-editkit-main-tmenu~) is organized into the following sections:
+The main menu of Causal EditKit (~causal-editkit-main-tmenu~) is organized into the following sections:
 
 - File :: Commands related to opening files or buffers are provided here.
 
@@ -51,198 +51,198 @@ The main menu of Casual EditKit (~casual-editkit-main-tmenu~) is organized into 
 
 - Miscellaneous (unlabeled) :: Commands related to bookmarks, window management, project (Emacs file organization), search & replace, and macros are found here.
 
-Casual EditKit has numerous menus to cover a variety of edit related commands.
+Causal EditKit has numerous menus to cover a variety of edit related commands.
 
 *** Register commands
 #+CINDEX: Registers
-#+VINDEX: casual-editkit-registers-tmenu
+#+VINDEX: causal-editkit-registers-tmenu
 
-Support for register commands ([[info:emacs#Registers]]) is provided by the menu ~casual-editkit-registers-tmenu~. It is available via the menu item “{{{kbd(r)}}} Registers›” in the navigation row at the bottom of ~casual-editkit-main-tmenu~.
+Support for register commands ([[info:emacs#Registers]]) is provided by the menu ~causal-editkit-registers-tmenu~. It is available via the menu item “{{{kbd(r)}}} Registers›” in the navigation row at the bottom of ~causal-editkit-main-tmenu~.
 
 Register commands for saving and recalling text, point, window configuration, and keyboard macros are provided by this menu.
 
-[[file:images/casual-editkit-registers-screenshot.png]]
+[[file:images/causal-editkit-registers-screenshot.png]]
 
 
 *** Edit commands
 #+CINDEX: Edit Commands
-#+VINDEX: casual-editkit-edit-tmenu
+#+VINDEX: causal-editkit-edit-tmenu
 
-The menu ~casual-editkit-edit-tmenu~ contains commands and sub-menus related to editing text. 
+The menu ~causal-editkit-edit-tmenu~ contains commands and sub-menus related to editing text. 
 
-[[file:images/casual-editkit-edit-screenshot.png]]
+[[file:images/causal-editkit-edit-screenshot.png]]
 
 Depending on the buffer mode, text can be operated on with different granularity as words, sentences, paragraphs, balanced expressions, functions (defuns). The following sub-menus illustrate what operations can be done on the different text granularity.
 
-#+TEXINFO: @subheading Mark› (casual-editkit-mark-tmenu)
+#+TEXINFO: @subheading Mark› (causal-editkit-mark-tmenu)
 #+CINDEX: Mark commands
-#+VINDEX: casual-editkit-mark-tmenu
+#+VINDEX: causal-editkit-mark-tmenu
 
 Text can be marked with different granularity with this menu. Note that the menu item “{{{kbd(d)}}} Defun” is only supported for modes derived from ~prog-mode~. 
 
-[[file:images/casual-editkit-mark-screenshot.png]]
+[[file:images/causal-editkit-mark-screenshot.png]]
 
-#+TEXINFO: @subheading Copy› (casual-editkit-copy-tmenu)
+#+TEXINFO: @subheading Copy› (causal-editkit-copy-tmenu)
 #+CINDEX: Copy commands
-#+VINDEX: casual-editkit-copy-tmenu
+#+VINDEX: causal-editkit-copy-tmenu
 Text can be copied with different granularity with this menu.
 
-[[file:images/casual-editkit-copy-screenshot.png]]
+[[file:images/causal-editkit-copy-screenshot.png]]
 
-#+TEXINFO: @subheading Kill (Cut)› (casual-editkit-kill-tmenu)
+#+TEXINFO: @subheading Kill (Cut)› (causal-editkit-kill-tmenu)
 #+CINDEX: Kill commands
 #+CINDEX: Cut commands
-#+VINDEX: casual-editkit-kill-tmenu
+#+VINDEX: causal-editkit-kill-tmenu
 Text can be cut (killed) with different granularity with this menu.
 
-[[file:images/casual-editkit-kill-screenshot.png]]
+[[file:images/causal-editkit-kill-screenshot.png]]
 
-#+TEXINFO: @subheading Move› (casual-editkit-move-tmenu)
+#+TEXINFO: @subheading Move› (causal-editkit-move-tmenu)
 #+CINDEX: Move commands
-#+VINDEX: casual-editkit-move-tmenu
-#+VINDEX: casual-editkit-move-word-tmenu
-#+VINDEX: casual-editkit-move-sentence-tmenu
-#+VINDEX: casual-editkit-move-sexp-tmenu
+#+VINDEX: causal-editkit-move-tmenu
+#+VINDEX: causal-editkit-move-word-tmenu
+#+VINDEX: causal-editkit-move-sentence-tmenu
+#+VINDEX: causal-editkit-move-sexp-tmenu
 
 Text can be moved forwards or backwards with different granularity with this menu. Note that selecting a granularity will raise another menu to allow selection of direction (forward, backward) the text is to be moved. To enable repeat operation, that menu is persisted and must be dismissed either with either ~C-q~ (dismiss all) or  ~C-g~ (dismiss to previous menu).
 
-[[file:images/casual-editkit-move-screenshot.png]]
+[[file:images/causal-editkit-move-screenshot.png]]
 
-If “{{{kbd(w)}}} Word›” is selected, then the following menu ~casual-editkit-move-word-tmenu~ is displayed.
+If “{{{kbd(w)}}} Word›” is selected, then the following menu ~causal-editkit-move-word-tmenu~ is displayed.
 
-[[file:images/casual-editkit-move-word-screenshot.png]]
+[[file:images/causal-editkit-move-word-screenshot.png]]
 
-Similar menus for moving a sentence (~casual-editkit-move-sentence-tmenu~) and balanced expression (~casual-editkit-move-sexp-tmenu~) are available.
+Similar menus for moving a sentence (~causal-editkit-move-sentence-tmenu~) and balanced expression (~causal-editkit-move-sexp-tmenu~) are available.
 
-#+TEXINFO: @subheading Transpose› (casual-editkit-transpose-tmenu)
+#+TEXINFO: @subheading Transpose› (causal-editkit-transpose-tmenu)
 #+CINDEX: Transpose commands
-#+VINDEX: casual-editkit-transpose-tmenu
+#+VINDEX: causal-editkit-transpose-tmenu
 Text can be transposed with different granularity with this menu. 
 
-[[file:images/casual-editkit-transpose-screenshot.png]]
+[[file:images/causal-editkit-transpose-screenshot.png]]
 
-#+TEXINFO: @subheading Transform› (casual-editkit-transform-tmenu)
+#+TEXINFO: @subheading Transform› (causal-editkit-transform-tmenu)
 #+CINDEX: Transform commands
-#+VINDEX: casual-editkit-transform-tmenu
+#+VINDEX: causal-editkit-transform-tmenu
 Text can be transformed with different granularity with this menu. Supported transformations are capitalization, lower and upper casing of text.
 
-[[file:images/casual-editkit-transform-screenshot.png]]
+[[file:images/causal-editkit-transform-screenshot.png]]
 
-#+TEXINFO: @subheading Delete› (casual-editkit-delete-tmenu)
+#+TEXINFO: @subheading Delete› (causal-editkit-delete-tmenu)
 #+CINDEX: Delete commands
-#+VINDEX: casual-editkit-delete-tmenu
+#+VINDEX: causal-editkit-delete-tmenu
 Operations involving text deletion are included in this menu, including joining lines and zapping to a character.
 
-[[file:images/casual-editkit-delete-screenshot.png]]
+[[file:images/causal-editkit-delete-screenshot.png]]
 
-#+TEXINFO: @subheading Sort› (casual-editkit-sort-tmenu)
+#+TEXINFO: @subheading Sort› (causal-editkit-sort-tmenu)
 #+CINDEX: Sort commands
-#+VINDEX: casual-editkit-sort-tmenu
+#+VINDEX: causal-editkit-sort-tmenu
 Sorting operations on different sections of text are supported, as well as support for sorting off a field. Press ~?~ or ~C-h~ to get help for a specific command.
 
-[[file:images/casual-editkit-sort-screenshot.png]]
+[[file:images/causal-editkit-sort-screenshot.png]]
 
-#+TEXINFO: @subheading Reformat› (casual-editkit-reformat-tmenu)
+#+TEXINFO: @subheading Reformat› (causal-editkit-reformat-tmenu)
 #+CINDEX: Reformat commands
-#+VINDEX: casual-editkit-reformat-tmenu
+#+VINDEX: causal-editkit-reformat-tmenu
 Commands to reformat text such as filling, centering, and repunctuating sentences are provided here. Press ~?~ or ~C-h~ to get help for a specific command.
 
-[[file:images/casual-editkit-reformat-screenshot.png]]
+[[file:images/causal-editkit-reformat-screenshot.png]]
 
 
-#+TEXINFO: @subheading Rectangle› (casual-editkit-rectangle-tmenu)
+#+TEXINFO: @subheading Rectangle› (causal-editkit-rectangle-tmenu)
 #+CINDEX: Rectangle commands
-#+VINDEX: casual-editkit-rectangle-tmenu
+#+VINDEX: causal-editkit-rectangle-tmenu
 
-This menu offers all the rectangle commands. It is packaged as a sub-menu of ~casual-editkit-edit-tmenu~. 
+This menu offers all the rectangle commands. It is packaged as a sub-menu of ~causal-editkit-edit-tmenu~. 
 
-[[file:images/casual-editkit-rectangle-screenshot.png]]
+[[file:images/causal-editkit-rectangle-screenshot.png]]
 
-Users wishing more direct access to this menu can bind ~casual-editkit-rectangle-tmenu~ as shown in the [[#editkit-install][install section]].
+Users wishing more direct access to this menu can bind ~causal-editkit-rectangle-tmenu~ as shown in the [[#editkit-install][install section]].
 
 
 *** Window management
 #+CINDEX: Window management
-#+VINDEX: casual-editkit-windows-tmenu
-The menu ~casual-editkit-windows-tmenu~ provides support for different Emacs window management commands. Note that in Emacs, a window ([[info:elisp#Basic Windows]]) is defined differently than its usage in contemporary graphical user interfaces.
+#+VINDEX: causal-editkit-windows-tmenu
+The menu ~causal-editkit-windows-tmenu~ provides support for different Emacs window management commands. Note that in Emacs, a window ([[info:elisp#Basic Windows]]) is defined differently than its usage in contemporary graphical user interfaces.
 
-[[file:images/casual-editkit-window-screenshot.png]]
+[[file:images/causal-editkit-window-screenshot.png]]
 
 Note that the section “Transpose” is only available if the package [[https://melpa.org/#/transpose-frame][transpose-frame]] is installed.
 
-Users wishing more direct access to this menu can bind ~casual-editkit-windows-tmenu~ as shown in the [[#editkit-install][install section]].
+Users wishing more direct access to this menu can bind ~causal-editkit-windows-tmenu~ as shown in the [[#editkit-install][install section]].
 
 
 #+TEXINFO: @subheading Window Deletion
 #+CINDEX: Window deletion
-#+VINDEX: casual-editkit-window-delete-tmenu
+#+VINDEX: causal-editkit-window-delete-tmenu
 
 This menu provides support for deleting windows. Note the commands apply to other windows, not the current one in focus.
 
-[[file:images/casual-editkit-window-delete-screenshot.png]]
+[[file:images/causal-editkit-window-delete-screenshot.png]]
 
 #+TEXINFO: @subheading Window Menu Unicode Symbol Support
 
-If the variable ~casual-lib-use-unicode~ is set to ~t~, then Unicode symbols are used in the labels.
+If the variable ~causal-lib-use-unicode~ is set to ~t~, then Unicode symbols are used in the labels.
 
-[[file:images/casual-editkit-window-unicode-screenshot.png]]
+[[file:images/causal-editkit-window-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 
 *** Search & Replace commands
 #+CINDEX: Search & Replace commands
-#+VINDEX: casual-editkit-search-tmenu
-Operations related to search and replace are captured by the menu ~casual-editkit-search-tmenu~. Note that this menu uses Transient prefix arguments (~--backward~ and ~--regexp~). This is because some commands have variants involving direction and whether to search using a regexp. Commands that support direction will by default operate forward of the current point if ~--backward~ is not enabled.
+#+VINDEX: causal-editkit-search-tmenu
+Operations related to search and replace are captured by the menu ~causal-editkit-search-tmenu~. Note that this menu uses Transient prefix arguments (~--backward~ and ~--regexp~). This is because some commands have variants involving direction and whether to search using a regexp. Commands that support direction will by default operate forward of the current point if ~--backward~ is not enabled.
 
-[[file:images/casual-editkit-search-screenshot.png]]
+[[file:images/causal-editkit-search-screenshot.png]]
 
 *** Open commands
 #+CINDEX: Open commands
-#+VINDEX: casual-editkit-open-tmenu
-Commands related to opening a file (either for writing or read-only) are supported by the menu ~casual-editkit-open-tmenu~. Included are commands for visiting and renaming a file or buffer. The *Project* sub-menu is also offered here.
+#+VINDEX: causal-editkit-open-tmenu
+Commands related to opening a file (either for writing or read-only) are supported by the menu ~causal-editkit-open-tmenu~. Included are commands for visiting and renaming a file or buffer. The *Project* sub-menu is also offered here.
 
-[[file:images/casual-editkit-open-screenshot.png]]
+[[file:images/causal-editkit-open-screenshot.png]]
 
 *** Project commands
 #+CINDEX: Project commands
-#+VINDEX: casual-editkit-project-tmenu
-Project-related commands are listed in the menu ~casual-editkit-project-tmenu~.
+#+VINDEX: causal-editkit-project-tmenu
+Project-related commands are listed in the menu ~causal-editkit-project-tmenu~.
 
-[[file:images/casual-editkit-project-screenshot.png]]
+[[file:images/causal-editkit-project-screenshot.png]]
 
 *** Bookmark commands
 #+CINDEX: Bookmark commands
-#+VINDEX: casual-editkit-bookmarks-tmenu
-Commands edit, add, or jump to a bookmark are captured in the menu ~casual-editkit-bookmarks-tmenu~.
+#+VINDEX: causal-editkit-bookmarks-tmenu
+Commands edit, add, or jump to a bookmark are captured in the menu ~causal-editkit-bookmarks-tmenu~.
 
-[[file:images/casual-editkit-bookmarks-screenshot.png]]
+[[file:images/causal-editkit-bookmarks-screenshot.png]]
 
 *** Emoji & Symbol Insertion
 #+CINDEX: Emoji & Symbols
-#+VINDEX: casual-editkit-emoji-symbol-tmenu
+#+VINDEX: causal-editkit-emoji-symbol-tmenu
 
-Insert emoji and symbol characters with the menu ~casual-editkit-emoji-symbol-tmenu~. Smart quotes are also supported by this menu and can be applied to a text region. This menu also offers the command ~electric-quote-mode~ which is bound to {{{kbd(Q)}}}.
+Insert emoji and symbol characters with the menu ~causal-editkit-emoji-symbol-tmenu~. Smart quotes are also supported by this menu and can be applied to a text region. This menu also offers the command ~electric-quote-mode~ which is bound to {{{kbd(Q)}}}.
 
-[[file:images/casual-editkit-emoji-symbols-screenshot.png]]
+[[file:images/causal-editkit-emoji-symbols-screenshot.png]]
 
 *** Tool commands
 #+CINDEX: Tool commands
-#+VINDEX: casual-editkit-tools-tmenu
-The menu ~casual-editkit-tools-tmenu~ holds an assorted collection of different tools/utilities provided by Emacs. Motivated users can use this Transient prefix as starting point to create a menu customized to their needs.
+#+VINDEX: causal-editkit-tools-tmenu
+The menu ~causal-editkit-tools-tmenu~ holds an assorted collection of different tools/utilities provided by Emacs. Motivated users can use this Transient prefix as starting point to create a menu customized to their needs.
 
-[[file:images/casual-editkit-tools-screenshot.png]]
+[[file:images/causal-editkit-tools-screenshot.png]]
 
 *** Narrow/Widen Commands
 #+CINDEX: Narrow/Widen Commands
-#+VINDEX: casual-editkit-narrow-tmenu
-Support for narrowing and widening ([[info:emacs#Narrowing]]) a buffer is supported by the menu ~casual-editkit-narrow-tmenu~. Mode specific narrowing behavior is supported for Org and ~prog-mode~ derived buffers.
+#+VINDEX: causal-editkit-narrow-tmenu
+Support for narrowing and widening ([[info:emacs#Narrowing]]) a buffer is supported by the menu ~causal-editkit-narrow-tmenu~. Mode specific narrowing behavior is supported for Org and ~prog-mode~ derived buffers.
 
-[[file:images/casual-editkit-narrow-screenshot.png]]
+[[file:images/causal-editkit-narrow-screenshot.png]]
 
 This menu can be modified ([[info:transient#Modifying Existing Transients]]) to support narrowing in other modes, particularly those that are packaged with Emacs. For example, if one wanted narrowing support for Markdown ([[https://jblevins.org/projects/markdown-mode/][markdown-mode]]), the following initialization code can be used.
 
 #+begin_src elisp :lexical no
-  (transient-append-suffix 'casual-editkit-narrow-tmenu '(0 0)
+  (transient-append-suffix 'causal-editkit-narrow-tmenu '(0 0)
      ["Markdown"
       :if (lambda () (derived-mode-p 'markdown-mode))
       ("s" "Subtree" markdown-narrow-to-subtree)
@@ -252,15 +252,15 @@ This menu can be modified ([[info:transient#Modifying Existing Transients]]) to 
 
 *** Macro
 #+CINDEX: Macro commands
-#+VINDEX: casual-editkit-macro-tmenu
-Commands for managing macros are provided for by the menu ~casual-editkit-macro-tmenu~. Note that macro creation commands are /not/ supported as they are tightly-bound to keybindings. 
+#+VINDEX: causal-editkit-macro-tmenu
+Commands for managing macros are provided for by the menu ~causal-editkit-macro-tmenu~. Note that macro creation commands are /not/ supported as they are tightly-bound to keybindings. 
 
-[[file:images/casual-editkit-macro-screenshot.png]]
+[[file:images/causal-editkit-macro-screenshot.png]]
 
 *** EditKit Settings
 #+CINDEX: EditKit Settings
-#+VINDEX: casual-editkit-settings-tmenu
-Configuration of common editing-related settings are provided by the menu ~casual-editkit-settings-tmenu~. Most all settings are set via the ~customize-variable~ interface with the following exceptions for:
+#+VINDEX: causal-editkit-settings-tmenu
+Configuration of common editing-related settings are provided by the menu ~causal-editkit-settings-tmenu~. Most all settings are set via the ~customize-variable~ interface with the following exceptions for:
 
 - “Auto-fill Mode (~auto-fill-mode~)”
 - “Indent Tabs Mode (~indent-tabs-mode~)”
@@ -268,6 +268,6 @@ Configuration of common editing-related settings are provided by the menu ~casua
 
 Those commands will instead apply to the current buffer. The variables listed above can be more permanently set via the ~customize-variable~ command.
 
-[[file:images/casual-editkit-settings-screenshot.png]]
+[[file:images/causal-editkit-settings-screenshot.png]]
 
 

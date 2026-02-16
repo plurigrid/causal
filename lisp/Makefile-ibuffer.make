@@ -15,11 +15,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-ibuffer
-ELISP_INCLUDES=casual-ibuffer-utils.el		\
-casual-ibuffer-settings.el
-ELISP_PACKAGES=casual-ibuffer-filter.el
-ELISP_TEST_INCLUDES=casual-ibuffer-test-utils.el
+PACKAGE_NAME=causal-ibuffer
+ELISP_INCLUDES=causal-ibuffer-utils.el		\
+causal-ibuffer-settings.el
+ELISP_PACKAGES=causal-ibuffer-filter.el
+ELISP_TEST_INCLUDES=causal-ibuffer-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

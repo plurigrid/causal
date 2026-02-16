@@ -1,10 +1,10 @@
-* Casual Development
-Casual is an open source project and as such is always open for contributors to its development.
+* Causal Development
+Causal is an open source project and as such is always open for contributors to its development.
 
 This document provides guidance on how to contribute to its development from a programming perspective.
 
 * Development Environment
-Casual is developed primarily using a GNU toolchain. GNU tools required are:
+Causal is developed primarily using a GNU toolchain. GNU tools required are:
 
 - make
 - awk
@@ -13,33 +13,33 @@ Casual is developed primarily using a GNU toolchain. GNU tools required are:
 
 Also needed is the Python [[https://pypi.org/project/semver/][semver]] module. This will require an installation of Python 3.x, ideally at 3.9 or higher.
 
-For source code management, Casual uses ~git~.
+For source code management, Causal uses ~git~.
 
-Given a clone of this repository, ensure that the directory holding ~casual.el~ is in your ~info-path~.
+Given a clone of this repository, ensure that the directory holding ~causal.el~ is in your ~info-path~.
 
 * Branches
-For Casual development, there are two git branches of note:
+For Causal development, there are two git branches of note:
 
-- [[https://github.com/kickingvegas/casual/tree/main][main]] for releases to the general public.
-- [[https://github.com/kickingvegas/casual/tree/development][development]] for staging of stable pre-release functionality.
+- [[https://github.com/kickingvegas/causal/tree/main][main]] for releases to the general public.
+- [[https://github.com/kickingvegas/causal/tree/development][development]] for staging of stable pre-release functionality.
 
 Planned changes for the next release are done on feature branches that are merged via pull request into ~development~. Upon QA of ~development~, those changes are merged to ~main~ for release to the general public.
 
 * Test Regression
-Running the Casual test regression suite is done via Makefile. In the top-level directory of Casual, run this from the command line.
+Running the Causal test regression suite is done via Makefile. In the top-level directory of Causal, run this from the command line.
 
 #+begin_src text
   $ make tests
 #+end_src
 
-Casual uses the [[https://www.gnu.org/software/emacs/manual/html_node/ert/][ERT]] framework to compose and manage tests.
+Causal uses the [[https://www.gnu.org/software/emacs/manual/html_node/ert/][ERT]] framework to compose and manage tests.
 
 One can run a test for a single file by using a "phony" target with a suffix of ~.elt~ in the ~lisp/~ directory containing all the source files.
 
-For example, in the ~lisp/~ directory, run this command to exercise all tests for functions in ~casual-version.el~.
+For example, in the ~lisp/~ directory, run this command to exercise all tests for functions in ~causal-version.el~.
 
 #+begin_src test
-  $ make casual-version.elt
+  $ make causal-version.elt
 #+end_src
 
 
@@ -47,21 +47,21 @@ For example, in the ~lisp/~ directory, run this command to exercise all tests fo
 
 Before you submit a pull request (PR):
 
-- If it is a *new* feature, please propose an [[https://github.com/kickingvegas/casual/issues][enhancement issue]] instead.
+- If it is a *new* feature, please propose an [[https://github.com/kickingvegas/causal/issues][enhancement issue]] instead.
   - Your enhancement issue should be in the form of a products requirement document (PRD).
   - PRs without an approved PRD associated with it will be summarily rejected.
   - Contributing to code development for a PRD requires advance approval from the maintainer. PRs submitted outside of this flow will be rejected.
 - PRs must pass the test regression suite.
   - New behavior introduced in a PR should have unit tests associated with it.
-    - Typically this entails exercising all items in a Transient menu. Look at usage of ~casualt-suffix-testbench-runner~ in ~casual-lib-test-utils.el~ to see how this is done.
+    - Typically this entails exercising all items in a Transient menu. Look at usage of ~causalt-suffix-testbench-runner~ in ~causal-lib-test-utils.el~ to see how this is done.
 - PRs must be made against the ~development~ branch on GitHub.
   - If the pull request is made against ~main~ but can be re-targeted to ~development~, it will be reviewed.
   - A pull request with merge conflicts to ~development~ will be summarily rejected.
       
-All of the above is intended to ensure that Casual releases are of high quality.
+All of the above is intended to ensure that Causal releases are of high quality.
 
 * UX Guidelines
 
 - Menus must not exceed 80 characters in length.
-  - Rationale: Casual follows suit with current Elisp format to conform to the line width of an ADM-3A terminal.
+  - Rationale: Causal follows suit with current Elisp format to conform to the line width of an ADM-3A terminal.
 

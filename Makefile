@@ -43,7 +43,7 @@
 #   $ make new-sprint
 
 LISP_DIR=./lisp
-MAIN_EL=$(realpath $(LISP_DIR)/casual.el)
+MAIN_EL=$(realpath $(LISP_DIR)/causal.el)
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
 VERSION := $(shell ./scripts/read-version.sh $(MAIN_EL))
@@ -54,8 +54,8 @@ VERSION_LAST_TAG := $(shell git tag --sort=-creatordate | head -n 1)
 
 .PHONY: tests					\
 create-pr					\
-bump-casual					\
-bump-casual-info				\
+bump-causal					\
+bump-causal-info				\
 bump						\
 checkout-development				\
 checkout-main					\
@@ -73,15 +73,15 @@ tests:
 	$(MAKE) -C $(LISP_DIR) tests
 
 ## Bump Patch Version
-bump-casual:
+bump-causal:
 	sed -i 's/;; Version: $(VERSION)/;; Version: $(VERSION_BUMP)/' $(MAIN_EL)
 
-# bump-casual-info: VERSION_BUMP:=$(shell python -m semver nextver $(VERSION) $(BUMP_LEVEL))
-bump-casual-info:
-	sed -i 's/+MACRO: version $(VERSION)/+MACRO: version $(VERSION_BUMP)/' docs/casual.org
+# bump-causal-info: VERSION_BUMP:=$(shell python -m semver nextver $(VERSION) $(BUMP_LEVEL))
+bump-causal-info:
+	sed -i 's/+MACRO: version $(VERSION)/+MACRO: version $(VERSION_BUMP)/' docs/causal.org
 
-bump: bump-casual bump-casual-info
-	git commit -m 'Bump version to $(VERSION_BUMP)' $(MAIN_EL) docs/casual.org
+bump: bump-causal bump-causal-info
+	git commit -m 'Bump version to $(VERSION_BUMP)' $(MAIN_EL) docs/causal.org
 	git push
 
 checkout-development:

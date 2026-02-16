@@ -15,38 +15,38 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-calc
+PACKAGE_NAME=causal-calc
 
 ELISP_INCLUDES =				\
-casual-calc--calc.el				\
-casual-calc-utils.el				\
-casual-calc-algebra.el				\
-casual-calc-predicates.el			\
-casual-calc-labels.el				\
-casual-calc-fileio.el				\
-casual-calc-radix.el				\
-casual-calc-angle-measure.el			\
-casual-calc-stack.el				\
-casual-calc-variables.el			\
-casual-calc-graphics.el
+causal-calc--calc.el				\
+causal-calc-utils.el				\
+causal-calc-algebra.el				\
+causal-calc-predicates.el			\
+causal-calc-labels.el				\
+causal-calc-fileio.el				\
+causal-calc-radix.el				\
+causal-calc-angle-measure.el			\
+causal-calc-stack.el				\
+causal-calc-variables.el			\
+causal-calc-graphics.el
 
 ELISP_PACKAGES=					\
-casual-calc-binary.el				\
-casual-calc-complex.el				\
-casual-calc-conversion.el			\
-casual-calc-logarithmic.el			\
-casual-calc-random.el				\
-casual-calc-rounding.el				\
-casual-calc-settings.el				\
-casual-calc-time.el				\
-casual-calc-trail.el				\
-casual-calc-trigonometric.el			\
-casual-calc-units.el				\
-casual-calc-vector.el				\
-casual-calc-financial.el			\
-casual-calc-symbolic.el
+causal-calc-binary.el				\
+causal-calc-complex.el				\
+causal-calc-conversion.el			\
+causal-calc-logarithmic.el			\
+causal-calc-random.el				\
+causal-calc-rounding.el				\
+causal-calc-settings.el				\
+causal-calc-time.el				\
+causal-calc-trail.el				\
+causal-calc-trigonometric.el			\
+causal-calc-units.el				\
+causal-calc-vector.el				\
+causal-calc-financial.el			\
+causal-calc-symbolic.el
 
-ELISP_TEST_INCLUDES=casual-calc-test-utils.el
+ELISP_TEST_INCLUDES=causal-calc-test-utils.el
 
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\

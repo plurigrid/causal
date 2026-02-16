@@ -1,10 +1,10 @@
 * Make
 #+CINDEX: Make
-#+VINDEX: casual-make-tmenu 
+#+VINDEX: causal-make-tmenu 
 
-Casual Make is a user interface for ~make-mode~, a mode tailored for editing a Makefile.
+Causal Make is a user interface for ~make-mode~, a mode tailored for editing a Makefile.
 
-[[file:images/casual-make-screenshot.png]]
+[[file:images/causal-make-screenshot.png]]
 
 ** Make Install
 :PROPERTIES:
@@ -12,20 +12,20 @@ Casual Make is a user interface for ~make-mode~, a mode tailored for editing a M
 :END:
 #+CINDEX: Make Install
 
-In your initialization file, bind the Transient ~casual-make-tmenu~ to your key binding of preference. Two suggested bindings are {{{kbd(M-m)}}} or {{{kbd(C-c m)}}}.
+In your initialization file, bind the Transient ~causal-make-tmenu~ to your key binding of preference. Two suggested bindings are {{{kbd(M-m)}}} or {{{kbd(C-c m)}}}.
 
 #+begin_src elisp :lexical no
-  (keymap-set makefile-mode-map "M-m" #'casual-make-tmenu)
+  (keymap-set makefile-mode-map "M-m" #'causal-make-tmenu)
 #+end_src
 
 ** Make Usage
 #+CINDEX: Make Usage
 
-[[file:images/casual-make-screenshot.png]]
+[[file:images/causal-make-screenshot.png]]
 
-It is recommended that some basic knowledge of the *make* command is known before using Casual Make.
+It is recommended that some basic knowledge of the *make* command is known before using Causal Make.
 
-When in a Makefile buffer, use {{{kbd(M-m)}}} (or your binding of choice) to raise the menu ~casual-make-tmenu~. You will be presented with a menu with the following sections:
+When in a Makefile buffer, use {{{kbd(M-m)}}} (or your binding of choice) to raise the menu ~causal-make-tmenu~. You will be presented with a menu with the following sections:
 
 - Edit :: Commands for editing the makefile. Note that the backslash and comment commands require a region to be selected.
 
@@ -35,30 +35,30 @@ When in a Makefile buffer, use {{{kbd(M-m)}}} (or your binding of choice) to rai
 
 - Navigate :: Commands to support navigation within the makefile.
 
-Unless you edit makefiles frequently, it is unlikely to recall what an automatic variable declaration means. Casual Make provides the command ~casual-make-identify-autovar-region~ to identify a region-selected automatic variable via the menu item “{{{kbd(.)}}} Identify Auto Var” in ~casual-make-tmenu~. A short description of the automatic variable is shown in the mini-buffer.
+Unless you edit makefiles frequently, it is unlikely to recall what an automatic variable declaration means. Causal Make provides the command ~causal-make-identify-autovar-region~ to identify a region-selected automatic variable via the menu item “{{{kbd(.)}}} Identify Auto Var” in ~causal-make-tmenu~. A short description of the automatic variable is shown in the mini-buffer.
 
 *** Makefile Type Selection
 #+CINDEX: Makefile Type Selection
-#+VINDEX: casual-make-mode-select-tmenu
+#+VINDEX: causal-make-mode-select-tmenu
 
-As there are different variants of *make* and makefile formats, you can configure the mode for different specific makefile types. This can be done by selecting “{{{kbd(t)}}} Makefile Type›” in ~casual-make-tmenu~.
+As there are different variants of *make* and makefile formats, you can configure the mode for different specific makefile types. This can be done by selecting “{{{kbd(t)}}} Makefile Type›” in ~causal-make-tmenu~.
 
-[[file:images/casual-make-mode-select-screenshot.png]]
+[[file:images/causal-make-mode-select-screenshot.png]]
 
-The symbol for this menu is ~casual-make-mode-select-tmenu~.
+The symbol for this menu is ~causal-make-mode-select-tmenu~.
 
 *** Automatic Variables
 #+CINDEX: Automatic Variables
-#+VINDEX: casual-make-automatic-variables-tmenu
+#+VINDEX: causal-make-automatic-variables-tmenu
 
-Casual Make provides a menu to enter GNU Make-style [[info:make#Automatic Variables][automatic variables]].  Note that each keybinding is identical to the automatic variable it represents to both reinforce its declaration and to avoid making another mapping. This menu is available from the menu item “{{{kbd(a)}}} Automatic Variables›”  in ~casual-make-tmenu~.
+Causal Make provides a menu to enter GNU Make-style [[info:make#Automatic Variables][automatic variables]].  Note that each keybinding is identical to the automatic variable it represents to both reinforce its declaration and to avoid making another mapping. This menu is available from the menu item “{{{kbd(a)}}} Automatic Variables›”  in ~causal-make-tmenu~.
 
-[[file:images/casual-make-automatic-variables-screenshot.png]]
+[[file:images/causal-make-automatic-variables-screenshot.png]]
 
-The symbol for this menu is ~casual-make-automatic-variables-tmenu~.
+The symbol for this menu is ~causal-make-automatic-variables-tmenu~.
 
 *** Make Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Make will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Make will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 

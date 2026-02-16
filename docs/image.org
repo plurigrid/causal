@@ -1,12 +1,12 @@
 * Image
 #+CINDEX: Image
-#+VINDEX: casual-image-tmenu
+#+VINDEX: causal-image-tmenu
 
-Casual Image is a user interface for Image Mode ([[info:emacs#Image Mode]]). Its top level library is ~casual-image~.
+Causal Image is a user interface for Image Mode ([[info:emacs#Image Mode]]). Its top level library is ~causal-image~.
 
 Resizing an image is supported if ImageMagick 6 or 7 is installed. This interface deviates significantly with naming conventions used by ~image-mode~ to be more in alignment with conventional image editing tools.
 
-[[file:images/casual-image-main-screenshot.png]]
+[[file:images/causal-image-main-screenshot.png]]
 
 ** Image Install
 :PROPERTIES:
@@ -15,19 +15,19 @@ Resizing an image is supported if ImageMagick 6 or 7 is installed. This interfac
 
 #+CINDEX: Image Install
 
-The main menu for Casual Image is ~casual-image-tmenu~. Bind this menu in the keymap ~image-mode-map~ as follows in your initialization file.
+The main menu for Causal Image is ~causal-image-tmenu~. Bind this menu in the keymap ~image-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical no
-  (keymap-set image-mode-map "C-o" #'casual-image-tmenu)
+  (keymap-set image-mode-map "C-o" #'causal-image-tmenu)
 #+end_src
 
 
 ** Image Usage
 #+CINDEX: Image Usage
 
-[[file:images/casual-image-main-screenshot.png]]
+[[file:images/causal-image-main-screenshot.png]]
 
-The main menu for Casual Image (~casual-image-tmenu~) is organized into the following sections:
+The main menu for Causal Image (~causal-image-tmenu~) is organized into the following sections:
 
 - View :: Commands to control the display of the image. None of these commands will mutate the image file.
 
@@ -45,13 +45,13 @@ The main menu for Casual Image (~casual-image-tmenu~) is organized into the foll
 
 *** Image Resize
 #+CINDEX: Image Resize
-#+VINDEX: casual-image-resize-tmenu
+#+VINDEX: causal-image-resize-tmenu
 
-If ImageMagick (version 6 or 7) is installed, Casual Image can resize an image using it. The Transient ~casual-image-resize-tmenu~ is a streamlined interface to the ImageMagick ~-resize~ function.
+If ImageMagick (version 6 or 7) is installed, Causal Image can resize an image using it. The Transient ~causal-image-resize-tmenu~ is a streamlined interface to the ImageMagick ~-resize~ function.
 
 Note that if the image file has been modified, the resize interface will be disabled. Save the image file before resizing.
 
-[[file:images/casual-image-resize-screenshot.png]]
+[[file:images/causal-image-resize-screenshot.png]]
 
 #+TEXINFO: @subheading Image Resize Options
 - (g) Geometry - [[https://imagemagick.org/script/command-line-processing.php#geometry][ImageMagick specifier]] for the resize geometry.
@@ -59,27 +59,27 @@ Note that if the image file has been modified, the resize interface will be disa
 - (t) Type - Specify if /adaptive/ or /interpolative/ resizing should be used. If nothing is specified then /standard/ resizing is used.
 
 *** Image Settings
-#+VINDEX: casual-image-settings-tmenu
+#+VINDEX: causal-image-settings-tmenu
 
-The menu ~casual-image-settings-tmenu~ provides access to different ~image-mode~ settings.
+The menu ~causal-image-settings-tmenu~ provides access to different ~image-mode~ settings.
 
 # TODO: Insert screenshot
 
 *** Image Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Image will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Image will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-image-main-unicode-screenshot.png]]
+[[file:images/causal-image-main-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 
 *** Image Mode Command Naming
 
-Casual Image makes a number of opinionated changes to the naming of commands provided by ~image-mode~. 
+Causal Image makes a number of opinionated changes to the naming of commands provided by ~image-mode~. 
 
-The table below shows the mapping between names used by Casual to commands provided by ~image-mode~.
+The table below shows the mapping between names used by Causal to commands provided by ~image-mode~.
 
-| Casual Name           | Image Mode Name                   | Notes                                                                                            |
+| Causal Name           | Image Mode Name                   | Notes                                                                                            |
 |-----------------------+-----------------------------------+--------------------------------------------------------------------------------------------------|
 | Zoom In               | ~image-increase-size~               | “Zoom” is more commonly used.                                                                    |
 | Zoom Out              | ~image-decrease-size~               | “Zoom” is more commonly used.                                                                    |

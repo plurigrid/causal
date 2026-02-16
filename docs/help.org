@@ -1,10 +1,10 @@
 * Help
 #+CINDEX: Help
-#+VINDEX: casual-help-tmenu
+#+VINDEX: causal-help-tmenu
 
-Casual Help is a user interface for ~help-mode~, a major mode for viewing help text and navigating references in it.
+Causal Help is a user interface for ~help-mode~, a major mode for viewing help text and navigating references in it.
 
-[[file:images/casual-help-screenshot.png]]
+[[file:images/causal-help-screenshot.png]]
 
 ** Help Install
 :PROPERTIES:
@@ -13,30 +13,30 @@ Casual Help is a user interface for ~help-mode~, a major mode for viewing help t
 
 #+CINDEX: Help Install
 
-In your initialization file, bind the Transient ~casual-help-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-help-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set help-mode-map "C-o" #'casual-help-tmenu)
+  (keymap-set help-mode-map "C-o" #'causal-help-tmenu)
 #+end_src
 
-~casual-help-tmenu~ deviates from the default bindings of ~help-mode-map~ as shown in the table below.
+~causal-help-tmenu~ deviates from the default bindings of ~help-mode-map~ as shown in the table below.
 
-| Default Binding | Casual Binding | Command                               | Notes                                      |
+| Default Binding | Causal Binding | Command                               | Notes                                      |
 |-----------------+----------------+---------------------------------------+--------------------------------------------|
-| l               | M-[            | help-go-back                          | Make consistent with Casual Info behavior. |
-| r               | M-]            | help-go-forward                       | Make consistent with Casual Info behavior. |
+| l               | M-[            | help-go-back                          | Make consistent with Causal Info behavior. |
+| r               | M-]            | help-go-forward                       | Make consistent with Causal Info behavior. |
 | n               | N              | help-goto-next-page                   | Use to navigate to next page.              |
 | p               | P              | help-goto-previous-page               | Use to navigate to previous page.          |
-|                 | n              | casual-lib-browser-forward-paragraph  | Use to navigate paragraph forward.         |
-|                 | p              | casual-lib-browser-backward-paragraph | Use to navigate paragraph backward.        |
+|                 | n              | causal-lib-browser-forward-paragraph  | Use to navigate paragraph forward.         |
+|                 | p              | causal-lib-browser-backward-paragraph | Use to navigate paragraph backward.        |
 
-The following keybindings are recommended to support consistent behavior between ~help-mode~ and ~casual-help-tmenu~.
+The following keybindings are recommended to support consistent behavior between ~help-mode~ and ~causal-help-tmenu~.
 
 #+begin_src elisp :lexical no
   (keymap-set help-mode-map "M-[" #'help-go-back)
   (keymap-set help-mode-map "M-]" #'help-go-forward)
-  (keymap-set help-mode-map "p" #'casual-lib-browse-backward-paragraph)
-  (keymap-set help-mode-map "n" #'casual-lib-browse-forward-paragraph)
+  (keymap-set help-mode-map "p" #'causal-lib-browse-backward-paragraph)
+  (keymap-set help-mode-map "n" #'causal-lib-browse-forward-paragraph)
   (keymap-set help-mode-map "P" #'help-goto-previous-page)
   (keymap-set help-mode-map "N" #'help-goto-next-page)
   (keymap-set help-mode-map "j" #'forward-button)
@@ -46,7 +46,7 @@ The following keybindings are recommended to support consistent behavior between
 ** Help Usage
 #+CINDEX: Help Usage
 
-After invoking help via a ~describe-~ command, invoke ~casual-help-tmenu~ using the binding ~C-o~ (or your binding of preference).
+After invoking help via a ~describe-~ command, invoke ~causal-help-tmenu~ using the binding ~C-o~ (or your binding of preference).
 
 The following sections are offered in the menu:
 
@@ -58,14 +58,14 @@ The following sections are offered in the menu:
 - Source :: Show the Elisp source. If the help displayed is for a customizable variable, then show a customize menu item.
 
 #+TEXINFO: @subheading Help Mode Settings
-#+VINDEX: casual-help-settings-tmenu
+#+VINDEX: causal-help-settings-tmenu
 
-The menu ~casual-help-settings-tmenu~ provides access to different ~help-mode~ settings.
+The menu ~causal-help-settings-tmenu~ provides access to different ~help-mode~ settings.
 
 # TODO: Insert screenshot
   
 #+TEXINFO: @subheading Help Mode Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Help will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Help will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

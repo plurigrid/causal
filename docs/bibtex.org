@@ -1,13 +1,13 @@
 * BibTeX
 #+CINDEX: BibTeX
 #+CINDEX: bibtex
-#+VINDEX: casual-bibtex-tmenu
+#+VINDEX: causal-bibtex-tmenu
 
-Casual BibTeX is an opinionated user interface for BibTeX mode ([[info:emacs#TeX Mode][info "(emacs) TeX Mode"]]), a major mode for working with BibTeX files ([[https://bibtex.eu][BibTeX Guide]]).
+Causal BibTeX is an opinionated user interface for BibTeX mode ([[info:emacs#TeX Mode][info "(emacs) TeX Mode"]]), a major mode for working with BibTeX files ([[https://bibtex.eu][BibTeX Guide]]).
 
 A BibTeX file is typically named using the suffix ~.bib~ to identify its file type.
 
-To appreciate the benefits of Casual BibTeX, it helps to understand what BibTex is and what BibTeX mode offers.
+To appreciate the benefits of Causal BibTeX, it helps to understand what BibTex is and what BibTeX mode offers.
 
 BibTeX is a database schema for bibliography data. This data is best understood as a collection of records (or entries) that is stored in a plain-text file. Multiple text files can be supported. While most tooling for BibTeX is tuned for LaTeX documentation workflows, BibTeX can be used as generalized storage for bibliography data. Org provides extensive support for citing using BibTeX ([[info:org#Citation handling][info "(org) Citation handling"]]).
 
@@ -17,11 +17,11 @@ Emacs distinguishes itself from other editors in that support for working with B
 
 The ~bibtex~ package provides commands for both navigating and editing BibTeX data structures (entries and the fields within an entry) in a quasi-"form-based" way.
 
-Casual BibTeX organizes and augments BibTeX mode commands into a keyboard-driven menu.
+Causal BibTeX organizes and augments BibTeX mode commands into a keyboard-driven menu.
 
-The screenshot below shows the menu for Casual BibTeX.
+The screenshot below shows the menu for Causal BibTeX.
 
-[[file:images/casual-bibtex-screenshot.png]]
+[[file:images/causal-bibtex-screenshot.png]]
 
 ** BibTeX Install
 :PROPERTIES:
@@ -30,13 +30,13 @@ The screenshot below shows the menu for Casual BibTeX.
 
 #+CINDEX: BibTeX Install
 
-In your initialization file, bind the Transient ~casual-bibtex-tmenu~ to your key binding of preference in ~bibtex-mode-map~. The binding {{{kbd(M-m)}}} is suggested so as to not conflict with {{{kbd(C-o)}}} that is bound to ~casual-editkit-main-tmenu~. ([[#editkit-install][EditKit Install]])
+In your initialization file, bind the Transient ~causal-bibtex-tmenu~ to your key binding of preference in ~bibtex-mode-map~. The binding {{{kbd(M-m)}}} is suggested so as to not conflict with {{{kbd(C-o)}}} that is bound to ~causal-editkit-main-tmenu~. ([[#editkit-install][EditKit Install]])
 
 #+begin_src elisp :lexical no
-  (keymap-set bibtex-mode-map "M-m" #'casual-bibtex-tmenu)
+  (keymap-set bibtex-mode-map "M-m" #'causal-bibtex-tmenu)
 #+end_src
 
-~casual-bibtex-tmenu~ is opinionated in making editing and navigation commands emulate a form-based interface ([[https://simple.wikipedia.org/wiki/Form-based_interface#:~:text=A%20form%2Dbased%20interface%20is,the%20fields%20that%20accept%20it.][form-based interface]]) in a ~bibtex-mode~ window. The following keybindings are recommended to support consistent behavior between ~bibtex-mode-map~ and ~casual-bibtex-tmenu~.
+~causal-bibtex-tmenu~ is opinionated in making editing and navigation commands emulate a form-based interface ([[https://simple.wikipedia.org/wiki/Form-based_interface#:~:text=A%20form%2Dbased%20interface%20is,the%20fields%20that%20accept%20it.][form-based interface]]) in a ~bibtex-mode~ window. The following keybindings are recommended to support consistent behavior between ~bibtex-mode-map~ and ~causal-bibtex-tmenu~.
 
 #+begin_src elisp :lexical no
   (add-hook 'bibtex-mode-hook 'hl-line-mode)
@@ -52,7 +52,7 @@ In your initialization file, bind the Transient ~casual-bibtex-tmenu~ to your ke
   (keymap-set bibtex-mode-map "<next>" #'bibtex-next-entry)
 
   (keymap-set bibtex-mode-map "C-c C-o" #'bibtex-url)
-  (keymap-set bibtex-mode-map "C-c C-c" #'casual-bibtex-fill-and-clean)
+  (keymap-set bibtex-mode-map "C-c C-c" #'causal-bibtex-fill-and-clean)
 
   (keymap-set bibtex-mode-map "<clear>" #'bibtex-empty-field)
   (keymap-set bibtex-mode-map "M-<clear>" #'bibtex-kill-field)
@@ -63,9 +63,9 @@ In your initialization file, bind the Transient ~casual-bibtex-tmenu~ to your ke
 ** BibTeX Usage
 #+CINDEX: BibTeX Usage
 
-[[file:images/casual-bibtex-screenshot.png]]
+[[file:images/causal-bibtex-screenshot.png]]
 
-The main menu for Casual BibTeX (~casual-bibtex-tmenu~) is organized into the following sections:
+The main menu for Causal BibTeX (~causal-bibtex-tmenu~) is organized into the following sections:
 
 - Field :: Commands to edit or navigate fields within an entry.
 - Entry :: Commands to edit or navigate entries within a BibTeX file.
@@ -74,9 +74,9 @@ The main menu for Casual BibTeX (~casual-bibtex-tmenu~) is organized into the fo
 *** BibTeX Navigation
 #+CINDEX: BibTeX Navigation
 
-[[file:images/casual-bibtex-screenshot.png]]
+[[file:images/causal-bibtex-screenshot.png]]
 
-Casual BibTeX re-purposes conventional Emacs navigation bindings so that instead of navigating a text edit buffer, it instead navigates BibTeX structures (entry, field).
+Causal BibTeX re-purposes conventional Emacs navigation bindings so that instead of navigating a text edit buffer, it instead navigates BibTeX structures (entry, field).
 
 The following table shows the bindings for BibTeX navigation.
 
@@ -84,8 +84,8 @@ The following table shows the bindings for BibTeX navigation.
 |----------------+---------------------------------------------------|
 | {{{kbd(C-n)}}} | bibtex-next-field (bound to {{{kbd(n)}}} in menu) |
 | {{{kbd(C-p)}}} | previous-line (bound to {{{kbd(p)}}} in menu)     |
-| {{{kbd(C-a)}}} | casual-bibtex-beginning-of-field                  |
-| {{{kbd(C-e)}}} | casual-bibtex-end-of-field                        |
+| {{{kbd(C-a)}}} | causal-bibtex-beginning-of-field                  |
+| {{{kbd(C-e)}}} | causal-bibtex-end-of-field                        |
 | {{{kbd(M-p)}}} | bibtex-previous-entry                             |
 | {{{kbd(M-n)}}} | bibtex-next-entry                                 |
 | {{{kbd(<)}}}   | bibtex-beginning-of-entry                         |
@@ -94,9 +94,9 @@ The following table shows the bindings for BibTeX navigation.
 *** Creating, Updating, and Deleting BibTeX Structures
 #+CINDEX: BibTeX CRUD
 
-[[file:images/casual-bibtex-screenshot.png]]
+[[file:images/causal-bibtex-screenshot.png]]
 
-In Casual BibTeX, CRUD (CReate, Update, Delete) operations for entry and field structures are intended to be achieved through their respective commands. This contrasts with manual editing of a buffer to achieve the same end, which is prone to errors.
+In Causal BibTeX, CRUD (CReate, Update, Delete) operations for entry and field structures are intended to be achieved through their respective commands. This contrasts with manual editing of a buffer to achieve the same end, which is prone to errors.
 
 #+TEXINFO: @subheading Creating an Entry
 
@@ -144,12 +144,12 @@ The ability to search and jump to a position in a BibTeX database are offered by
 :CUSTOM_ID: bibtex-settings
 :END:
 #+CINDEX: BibTeX Settings
-#+VINDEX: casual-bibtex-settings-tmenu
+#+VINDEX: causal-bibtex-settings-tmenu
 
-[[file:images/casual-bibtex-settings-screenshot.png]]
+[[file:images/causal-bibtex-settings-screenshot.png]]
 
 
-The menu ~casual-bibtex-settings-tmenu~ offers access to commonly configured BibTeX mode settings.
+The menu ~causal-bibtex-settings-tmenu~ offers access to commonly configured BibTeX mode settings.
 
 Settings are organized into the following sections:
 
@@ -162,12 +162,12 @@ Settings are organized into the following sections:
 
 By default BibTeX mode does not format (or "fill") an entry upon cleaning. To support filling an entry upon clean, add the command ~bibtex-fill-entry~ to ~bibtex-clean-entry-hook~ using the “{{{kbd(C)}}} Clean” command as shown below:
 
-[[file:images/casual-bibtex-clean-entry-hook.png]]
+[[file:images/causal-bibtex-clean-entry-hook.png]]
 *** BibTeX Mode Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual BibTeX will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal BibTeX will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-bibtex-unicode-screenshot.png]]
+[[file:images/causal-bibtex-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 

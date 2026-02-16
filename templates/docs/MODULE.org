@@ -1,10 +1,10 @@
 * $MODULE
 #+CINDEX: $MODULE
-#+VINDEX: casual-$MODULE-tmenu
+#+VINDEX: causal-$MODULE-tmenu
 
-Casual $MODULE is a user interface for ~$MODULE-mode~, 
+Causal $MODULE is a user interface for ~$MODULE-mode~, 
 
-[[file:images/casual-$MODULE-screenshot.png]]
+[[file:images/causal-$MODULE-screenshot.png]]
 
 ** $MODULE Install
 :PROPERTIES:
@@ -13,16 +13,16 @@ Casual $MODULE is a user interface for ~$MODULE-mode~,
 
 #+CINDEX: $MODULE Install
 
-In your initialization file, bind the Transient ~casual-$MODULE-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-$MODULE-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set $MODULE-mode-map "C-o" #'casual-$MODULE-tmenu)
+  (keymap-set $MODULE-mode-map "C-o" #'causal-$MODULE-tmenu)
 #+end_src
 
 ** $MODULE Usage
 #+CINDEX: $MODULE Usage
 
-[[file:images/casual-$MODULE-screenshot.png]]
+[[file:images/causal-$MODULE-screenshot.png]]
 
 
 The following sections are offered in the menu:
@@ -31,8 +31,8 @@ The following sections are offered in the menu:
 
 #+TEXINFO: @subheading $MODULE Settings
 
-[[file:images/casual-$MODULE-settings.png]]
+[[file:images/causal-$MODULE-settings.png]]
 
 
 #+TEXINFO: @subheading $MODULE Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual $MODULE will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal $MODULE will use Unicode symbols as appropriate in its menus.

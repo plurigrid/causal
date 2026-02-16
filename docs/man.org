@@ -1,10 +1,10 @@
 * Man
 #+CINDEX: Man
-#+VINDEX: casual-man-tmenu
+#+VINDEX: causal-man-tmenu
 
-Casual Man is a user interface for ~Man-mode~, a Man page reader.
+Causal Man is a user interface for ~Man-mode~, a Man page reader.
 
-[[file:images/casual-man-screenshot.png]]
+[[file:images/causal-man-screenshot.png]]
 
 ** Man Install
 :PROPERTIES:
@@ -13,43 +13,43 @@ Casual Man is a user interface for ~Man-mode~, a Man page reader.
 
 #+CINDEX: Man Install
 
-In your initialization file, bind the Transient ~casual-man-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-man-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set Man-mode-map "C-o" #'casual-man-tmenu)
+  (keymap-set Man-mode-map "C-o" #'causal-man-tmenu)
 #+end_src
 
-~casual-man-tmenu~ deviates from the default bindings of ~Man-mode-map~ as shown in the table below.
+~causal-man-tmenu~ deviates from the default bindings of ~Man-mode-map~ as shown in the table below.
 
-| Default Binding | Casual Binding | Command                               | Notes                                                   |
+| Default Binding | Causal Binding | Command                               | Notes                                                   |
 |-----------------+----------------+---------------------------------------+---------------------------------------------------------|
-| n               | [              | Man-previous-section                  | Make consistent with Casual Dired and IBuffer behavior. |
-| p               | ]              | Man-next-section                      | Make consistent with Casual Dired and IBuffer behavior. |
+| n               | [              | Man-previous-section                  | Make consistent with Causal Dired and IBuffer behavior. |
+| p               | ]              | Man-next-section                      | Make consistent with Causal Dired and IBuffer behavior. |
 | k               | K              | Man-kill                              | Reserve k for navigation.                               |
 |                 | k              | previous-line                         |                                                         |
 |                 | j              | next-line                             |                                                         |
-|                 | n              | casual-lib-browser-forward-paragraph  | Use to navigate paragraph forward.                      |
-|                 | p              | casual-lib-browser-backward-paragraph | Use to navigate paragraph backward.                     |
+|                 | n              | causal-lib-browser-forward-paragraph  | Use to navigate paragraph forward.                      |
+|                 | p              | causal-lib-browser-backward-paragraph | Use to navigate paragraph backward.                     |
 
-The following keybindings are recommended to support consistent behavior between ~Man-mode~ and ~casual-man-tmenu~.
+The following keybindings are recommended to support consistent behavior between ~Man-mode~ and ~causal-man-tmenu~.
 
 #+begin_src elisp :lexical no
-  (keymap-set Man-mode-map "n" #'casual-lib-browse-forward-paragraph)
-  (keymap-set Man-mode-map "p" #'casual-lib-browse-backward-paragraph)
+  (keymap-set Man-mode-map "n" #'causal-lib-browse-forward-paragraph)
+  (keymap-set Man-mode-map "p" #'causal-lib-browse-backward-paragraph)
   (keymap-set Man-mode-map "[" #'Man-previous-section)
   (keymap-set Man-mode-map "]" #'Man-next-section)
   (keymap-set Man-mode-map "j" #'next-line)
   (keymap-set Man-mode-map "k" #'previous-line)
   (keymap-set Man-mode-map "K" #'Man-kill)
-  (keymap-set Man-mode-map "o" #'casual-man-occur-options)
+  (keymap-set Man-mode-map "o" #'causal-man-occur-options)
 #+end_src
 
 ** Man Usage
 #+CINDEX: Man Usage
 
-[[file:images/casual-man-screenshot.png]]
+[[file:images/causal-man-screenshot.png]]
 
-The Man page reader can be invoked via ~M-x man~, where the user is prompted for a search key. This search key is typically the name of a command that has an associated Man page. In the Man page window, pressing {{{kbd(C-o)}}} (or your binding of preference) will raise the menu ~casual-man-tmenu~.
+The Man page reader can be invoked via ~M-x man~, where the user is prompted for a search key. This search key is typically the name of a command that has an associated Man page. In the Man page window, pressing {{{kbd(C-o)}}} (or your binding of preference) will raise the menu ~causal-man-tmenu~.
 
 The following sections are offered in the menu:
 
@@ -60,22 +60,22 @@ The following sections are offered in the menu:
 - Page :: If the Man page reader is configured to display all manual pages for a given search key, navigation commands for multiple pages is provided.
 
 #+TEXINFO: @subheading Options Navigation
-#+VINDEX: casual-man-occur-options
+#+VINDEX: causal-man-occur-options
 
-~casual-man-tmenu~ provides the menu item {{{kbd(o)}}} which runs the command ~casual-man-occur-options~. This will invoke ~occur~ with a regexp that searches for command line options (for example, "--foo", "-a") that can be navigated via the ~occur~ interface.
+~causal-man-tmenu~ provides the menu item {{{kbd(o)}}} which runs the command ~causal-man-occur-options~. This will invoke ~occur~ with a regexp that searches for command line options (for example, "--foo", "-a") that can be navigated via the ~occur~ interface.
 
 #+TEXINFO: @subheading Man Settings
-#+VINDEX: casual-man-settings-tmenu
+#+VINDEX: causal-man-settings-tmenu
 
-By default, the Man page reader will /not/ display all manual pages for given search key. This can be changed in the Settings menu ~casual-man-settings-tmenu~ that can be invoked by pressing {{{kbd(\,)}}} in ~casual-man-tmenu~. 
+By default, the Man page reader will /not/ display all manual pages for given search key. This can be changed in the Settings menu ~causal-man-settings-tmenu~ that can be invoked by pressing {{{kbd(\,)}}} in ~causal-man-tmenu~. 
 
 Press ‘s’ and configure ~Man-switches~ to have the value "-a" to get all manual pages.
 
   
-[[file:images/casual-man-settings.png]]
+[[file:images/causal-man-settings.png]]
 
 
 #+TEXINFO: @subheading Man Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Man will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Man will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

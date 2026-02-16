@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Casual User Guide to GitHub Pages
+name: Deploy Causal User Guide to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -37,9 +37,9 @@ jobs:
           sudo apt-get install emacs        
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Generate Casual User Guide
+      - name: Generate Causal User Guide
         run: |
-          echo Generating Casual User Guide
+          echo Generating Causal User Guide
           make -C docs gen-html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

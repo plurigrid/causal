@@ -16,10 +16,10 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-image
-ELISP_INCLUDES=casual-image-utils.el casual-image-settings.el
+PACKAGE_NAME=causal-image
+ELISP_INCLUDES=causal-image-utils.el causal-image-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-image-test-utils.el
+ELISP_TEST_INCLUDES=causal-image-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

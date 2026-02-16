@@ -15,10 +15,10 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-dired
-ELISP_INCLUDES=casual-dired-variables.el casual-dired-utils.el
-ELISP_PACKAGES=casual-dired-settings.el casual-dired-sort-by.el
-ELISP_TEST_INCLUDES=casual-dired-test-utils.el
+PACKAGE_NAME=causal-dired
+ELISP_INCLUDES=causal-dired-variables.el causal-dired-utils.el
+ELISP_PACKAGES=causal-dired-settings.el causal-dired-sort-by.el
+ELISP_TEST_INCLUDES=causal-dired-test-utils.el
 PACKAGE_PATHS=-L $(CASUAL_LIB_LISP_DIR)
 
 include Makefile--rules.make

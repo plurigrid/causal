@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-timezone
-ELISP_INCLUDES=casual-timezone-utils.el	\
-casual-timezone-settings.el
+PACKAGE_NAME=causal-timezone
+ELISP_INCLUDES=causal-timezone-utils.el	\
+causal-timezone-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-timezone-test-utils.el
+ELISP_TEST_INCLUDES=causal-timezone-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

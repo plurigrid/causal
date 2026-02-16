@@ -1,10 +1,10 @@
 * EWW
 #+CINDEX: EWW
-#+VINDEX: casual-eww-tmenu
+#+VINDEX: causal-eww-tmenu
 
-Casual EWW is a user interface for Emacs Web Wowser ([[info:eww#Top]]), a web browser that runs inside Emacs.
+Causal EWW is a user interface for Emacs Web Wowser ([[info:eww#Top]]), a web browser that runs inside Emacs.
 
-[[file:images/casual-eww-screenshot.png]]
+[[file:images/causal-eww-screenshot.png]]
 
 ** EWW Install
 :PROPERTIES:
@@ -13,22 +13,22 @@ Casual EWW is a user interface for Emacs Web Wowser ([[info:eww#Top]]), a web br
 
 #+CINDEX: EWW Install
 
-In your initialization file, bind the Transient ~casual-eww-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-eww-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set eww-mode-map "C-o" #'casual-eww-tmenu)
+  (keymap-set eww-mode-map "C-o" #'causal-eww-tmenu)
 #+end_src
 
-Do so similarly to access ~casual-eww-bookmarks-tmenu~ in the EWW bookmarks list.
+Do so similarly to access ~causal-eww-bookmarks-tmenu~ in the EWW bookmarks list.
 
 #+begin_src elisp :lexical no
-  (keymap-set eww-bookmark-mode-map "C-o" #'casual-eww-bookmarks-tmenu)
+  (keymap-set eww-bookmark-mode-map "C-o" #'causal-eww-bookmarks-tmenu)
 #+end_src
 
-While not mandatory, the following bindings can make the EWW keymaps consistent with those used by Casual.
+While not mandatory, the following bindings can make the EWW keymaps consistent with those used by Causal.
 
 #+BEGIN_SRC elisp :lexical no
-  (keymap-set eww-mode-map "C-o" #'casual-eww-tmenu)
+  (keymap-set eww-mode-map "C-o" #'causal-eww-tmenu)
   (keymap-set eww-mode-map "C-c C-o" #'eww-browse-with-external-browser)
   (keymap-set eww-mode-map "j" #'shr-next-link)
   (keymap-set eww-mode-map "k" #'shr-previous-link)
@@ -36,13 +36,13 @@ While not mandatory, the following bindings can make the EWW keymaps consistent 
   (keymap-set eww-mode-map "]" #'eww-next-url)
   (keymap-set eww-mode-map "M-]" #'eww-forward-url)
   (keymap-set eww-mode-map "M-[" #'eww-back-url)
-  (keymap-set eww-mode-map "n" #'casual-lib-browse-forward-paragraph)
-  (keymap-set eww-mode-map "p" #'casual-lib-browse-backward-paragraph)
-  (keymap-set eww-mode-map "P" #'casual-eww-backward-paragraph-link)
-  (keymap-set eww-mode-map "N" #'casual-eww-forward-paragraph-link)
+  (keymap-set eww-mode-map "n" #'causal-lib-browse-forward-paragraph)
+  (keymap-set eww-mode-map "p" #'causal-lib-browse-backward-paragraph)
+  (keymap-set eww-mode-map "P" #'causal-eww-backward-paragraph-link)
+  (keymap-set eww-mode-map "N" #'causal-eww-forward-paragraph-link)
   (keymap-set eww-mode-map "M-l" #'eww)
 
-  (keymap-set eww-bookmark-mode-map "C-o" #'casual-eww-bookmarks-tmenu)
+  (keymap-set eww-bookmark-mode-map "C-o" #'causal-eww-bookmarks-tmenu)
   (keymap-set eww-bookmark-mode-map "p" #'previous-line)
   (keymap-set eww-bookmark-mode-map "n" #'next-line)
   (keymap-set eww-bookmark-mode-map "<double-mouse-1>" #'eww-bookmark-browse)
@@ -51,9 +51,9 @@ While not mandatory, the following bindings can make the EWW keymaps consistent 
 ** EWW Usage
 #+CINDEX: EWW Usage
 
-In an EWW window, invoke ~casual-eww-tmenu~ as shown below.
+In an EWW window, invoke ~causal-eww-tmenu~ as shown below.
 
-[[file:images/casual-eww-screenshot.png]]
+[[file:images/causal-eww-screenshot.png]]
 
 The following sections are offered in the menu:
 
@@ -73,34 +73,34 @@ The following sections are offered in the menu:
 - EWW Bookmarks :: Commands associated with EWW bookmarks.
 
 #+TEXINFO: @subheading EWW Settings
-#+VINDEX: casual-eww-settings-tmenu
+#+VINDEX: causal-eww-settings-tmenu
 
 Customize common EWW settings from this menu. These settings can be persisted to be used across restarts of Emacs.
 
-[[file:images/casual-eww-settings-screenshot.png]]
+[[file:images/causal-eww-settings-screenshot.png]]
 
 
 #+TEXINFO: @subheading EWW Display
-#+VINDEX: casual-eww-display-tmenu
+#+VINDEX: causal-eww-display-tmenu
 
-The menu ~casual-eww-display-tmenu~ provides commands to toggle different display attributes of a web page.
+The menu ~causal-eww-display-tmenu~ provides commands to toggle different display attributes of a web page.
 
-[[file:images/casual-eww-display-screenshot.png]]
+[[file:images/causal-eww-display-screenshot.png]]
 
 
 #+TEXINFO: @subheading EWW Bookmarks
-#+VINDEX: casual-eww-bookmarks-tmenu
+#+VINDEX: causal-eww-bookmarks-tmenu
 
-The menu ~casual-eww-bookmarks-tmenu~ provides commands for managing the EWW bookmark list.
+The menu ~causal-eww-bookmarks-tmenu~ provides commands for managing the EWW bookmark list.
 
-[[file:images/casual-eww-bookmarks-screenshot.png]]
+[[file:images/causal-eww-bookmarks-screenshot.png]]
 
 Note that the EWW bookmarks list has a very limited feature set.
 
 #+TEXINFO: @subheading EWW Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual EWW will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal EWW will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-eww-unicode-screenshot.png]]
+[[file:images/causal-eww-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

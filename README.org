@@ -1,40 +1,40 @@
-[[https://melpa.org/#/casual][file:https://melpa.org/packages/casual-badge.svg]] [[https://stable.melpa.org/#/casual][file:https://stable.melpa.org/packages/casual-badge.svg]]
+[[https://melpa.org/#/causal][file:https://melpa.org/packages/causal-badge.svg]] [[https://stable.melpa.org/#/causal][file:https://stable.melpa.org/packages/causal-badge.svg]]
 
-* Casual
+* Causal
 
-Casual is a project to re-imagine the primary user interface for Emacs using keyboard-driven menus.
+Causal is a project to re-imagine the primary user interface for Emacs using keyboard-driven menus.
 
 Emacs has many commands that are easy to forget if not used frequently. Menus are a user interface (UI) affordance that offers discoverability and recognition. While menus are commonly associated with mouse-driven UI, the inclusion of [[https://github.com/magit/transient][Transient]] in Emacs core allows for building menus that are keyboard-driven instead. This appeals to users that prefer keyboard-driven workflows.
 
-Casual organizes itself primarily around the different built-in modes Emacs provides. For each mode Casual supports, there is a bespoke designed library of Transient menus for that mode's command set.
+Causal organizes itself primarily around the different built-in modes Emacs provides. For each mode Causal supports, there is a bespoke designed library of Transient menus for that mode's command set.
 
-Casual has no aims to be a mutually exclusive user interface. All existing user interfaces to commands (keybinding, mini-buffer prompt, mouse menus) are still available to the user.
+Causal has no aims to be a mutually exclusive user interface. All existing user interfaces to commands (keybinding, mini-buffer prompt, mouse menus) are still available to the user.
 
-To learn more about the motivations and design considerations for Casual as well as seeing it at work, please watch the presentation [[https://emacsconf.org/2024/talks/casual/][“Re-imagining the Emacs User Experience with Casual Suite”]] from EmacsConf 2024.
+To learn more about the motivations and design considerations for Causal as well as seeing it at work, please watch the presentation [[https://emacsconf.org/2024/talks/causal/][“Re-imagining the Emacs User Experience with Causal Suite”]] from EmacsConf 2024.
 
-Please refer to the [[https://kickingvegas.github.io/casual][Casual User Guide]] for detailed information about it. This user guide is available both in Emacs Info and HTML formats.
+Please refer to the [[https://kickingvegas.github.io/causal][Causal User Guide]] for detailed information about it. This user guide is available both in Emacs Info and HTML formats.
 
 
 * Asks
-As Casual is new, we are looking for early adopters! Your [[https://github.com/kickingvegas/casual/discussions][feedback]] is welcome as it will likely impact Casual's evolution, particularly with regards to UI.
+As Causal is new, we are looking for early adopters! Your [[https://github.com/kickingvegas/causal/discussions][feedback]] is welcome as it will likely impact Causal's evolution, particularly with regards to UI.
 
 * Development
-For users who wish to help contribute to Casual or personally customize it for their own usage, please read the [[docs/developer.org][developer documentation]].
+For users who wish to help contribute to Causal or personally customize it for their own usage, please read the [[docs/developer.org][developer documentation]].
 
 * Sponsorship
-It costs money to make, enhance, and maintain Casual as ideologically free software. If you enjoy using Casual, please buy me a coffee to help support its development and maintenance.
+It costs money to make, enhance, and maintain Causal as ideologically free software. If you enjoy using Causal, please buy me a coffee to help support its development and maintenance.
 
 [[https://www.buymeacoffee.com/kickingvegas][file:docs/images/default-yellow.png]]
 
 * See Also
-While the package ~casual~ focuses on user interfaces for built-in Emacs modes, there are other third party packages which receive the “Casual” treatment. Two such packages are:
+While the package ~causal~ focuses on user interfaces for built-in Emacs modes, there are other third party packages which receive the “Causal” treatment. Two such packages are:
 
-- [[https://github.com/kickingvegas/casual-avy][Casual Avy]] (Elisp package: ~casual-avy~)
+- [[https://github.com/kickingvegas/causal-avy][Causal Avy]] (Elisp package: ~causal-avy~)
   - An interface for the highly capable Avy navigation package.
-- [[https://github.com/kickingvegas/casual-symbol-overlay][Casual Symbol Overlay]] (Elisp package: ~casual-symbol-overlay~)
+- [[https://github.com/kickingvegas/causal-symbol-overlay][Causal Symbol Overlay]] (Elisp package: ~causal-symbol-overlay~)
   - An interface for the Symbol Overlay package.
 
-Users interested in getting all current and future Casual interfaces for both built-in and third party packages should install [[https://github.com/kickingvegas/casual-suite][Casual Suite]], which includes all of the above packages including ~casual~. 
+Users interested in getting all current and future Causal interfaces for both built-in and third party packages should install [[https://github.com/kickingvegas/causal-suite][Causal Suite]], which includes all of the above packages including ~causal~. 
 
 * Acknowledgments
 A heartfelt thanks to all the contributors to [[https://github.com/magit/transient][Transient]], [[https://magit.vc][Magit]], [[https://orgmode.org][Org Mode]], and [[https://www.gnu.org/software/emacs/][Emacs]]. This package would not be possible without your efforts.

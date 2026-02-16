@@ -19,8 +19,8 @@ TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
 INSTALL_DIR=..
 
 MODULE ?= foo
-CASUAL_MODULE=casual-$(MODULE)
-CASUAL_TEMPLATE=casual-MODULE
+CASUAL_MODULE=causal-$(MODULE)
+CASUAL_TEMPLATE=causal-MODULE
 
 .PHONY: source-files test-files doc-files
 

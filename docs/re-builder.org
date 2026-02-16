@@ -1,10 +1,10 @@
 * RE-Builder
 #+CINDEX: RE-Builder
-#+VINDEX: casual-re-builder-tmenu
+#+VINDEX: causal-re-builder-tmenu
 
-Casual RE-Builder is a user interface for RE-Builder. Its top level library is ~casual-re-builder~.
+Causal RE-Builder is a user interface for RE-Builder. Its top level library is ~causal-re-builder~.
 
-[[file:images/casual-re-builder-screenshot.png]]
+[[file:images/causal-re-builder-screenshot.png]]
 
 ** RE-Builder Install
 :PROPERTIES:
@@ -13,19 +13,19 @@ Casual RE-Builder is a user interface for RE-Builder. Its top level library is ~
 
 #+CINDEX: RE-Builder Install
 
-The main menu for Casual RE-Builder is ~casual-re-builder-tmenu~. Bind this menu to your preference in the keymaps ~reb-mode-map~ and ~reb-lisp-mode-map~ as follows in your initialization file.
+The main menu for Causal RE-Builder is ~causal-re-builder-tmenu~. Bind this menu to your preference in the keymaps ~reb-mode-map~ and ~reb-lisp-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical no
-  (keymap-set reb-mode-map "C-o" #'casual-re-builder-tmenu)
-  (keymap-set reb-lisp-mode-map "C-o" #'casual-re-builder-tmenu)
+  (keymap-set reb-mode-map "C-o" #'causal-re-builder-tmenu)
+  (keymap-set reb-lisp-mode-map "C-o" #'causal-re-builder-tmenu)
 #+end_src
 
 ** RE-Builder Usage
 #+CINDEX: RE-Builder Usage
 
-[[file:images/casual-re-builder-screenshot.png]]
+[[file:images/causal-re-builder-screenshot.png]]
 
-When the command ~re-builder~ is invoked, a buffer named "✳︎RE-Builder✳︎" is created. Activate Casual RE-Builder with the binding {{{kbd(C-o}}} (or one of your preference). 
+When the command ~re-builder~ is invoked, a buffer named "✳︎RE-Builder✳︎" is created. Activate Causal RE-Builder with the binding {{{kbd(C-o}}} (or one of your preference). 
 
 At the top of the menu shows the title "RE-Builder" with the target buffer enclosed in parenthesis. The regexp pattern will be applied to the target buffer. The target buffer can be changed with the “{{{kbd(b)}}} Target buffer” menu item.
 
@@ -45,7 +45,7 @@ Once a desired regexp pattern is defined, there are two menu items that can be u
 - “{{{kbd(g)}}} Interactive grep” will copy the regexp so that it can be used with command that take a GNU grep regex argument.
   - Example commands that do this are ~dired-do-find-regexp~ and ~dired-do-find-regexp-and-replace~.
   - This command presumes that you have GNU grep installed and configured for use by Emacs.
-  - ❗️At current this is an experimental feature. The regexp exported from RE-Builder may not work. If so please report an [[https://github.com/kickingvegas/casual-re-builder/issues][issue]] describing the desired regexp and the target text.
+  - ❗️At current this is an experimental feature. The regexp exported from RE-Builder may not work. If so please report an [[https://github.com/kickingvegas/causal-re-builder/issues][issue]] describing the desired regexp and the target text.
   - This can only be used when the regexp syntax is set to ~string~.    
 
 #+TEXINFO: @subheading Regexp Syntax Help
@@ -55,13 +55,13 @@ The menu item {{{kbd(i)}}} will invoke the Info page for regexp syntax with resp
 Select “{{{kbd(q)}}} Quit” to exit the RE-Builder tool.
 
 #+TEXINFO: @subheading RE-Builder Settings
-#+VINDEX: casual-re-builder-settings-tmenu
+#+VINDEX: causal-re-builder-settings-tmenu
 
-The menu ~casual-re-builder-settings-tmenu~ provides access to different RE-Builder settings.
+The menu ~causal-re-builder-settings-tmenu~ provides access to different RE-Builder settings.
 
 # TODO: Insert screenshot
 
 #+TEXINFO: @subheading RE-Builder Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual RE-Builder will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal RE-Builder will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

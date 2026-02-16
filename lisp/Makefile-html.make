@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-html
-ELISP_INCLUDES=casual-html-utils.el	\
-casual-html-settings.el
+PACKAGE_NAME=causal-html
+ELISP_INCLUDES=causal-html-utils.el	\
+causal-html-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-html-test-utils.el
+ELISP_TEST_INCLUDES=causal-html-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

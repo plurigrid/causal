@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-isearch
-ELISP_INCLUDES=casual-isearch-utils.el		\
-casual-isearch-settings.el
+PACKAGE_NAME=causal-isearch
+ELISP_INCLUDES=causal-isearch-utils.el		\
+causal-isearch-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-isearch-test-utils.el
+ELISP_TEST_INCLUDES=causal-isearch-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

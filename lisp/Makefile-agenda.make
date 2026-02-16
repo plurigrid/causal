@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-agenda
-ELISP_INCLUDES=casual-agenda-utils.el		\
-casual-agenda-settings.el
+PACKAGE_NAME=causal-agenda
+ELISP_INCLUDES=causal-agenda-utils.el		\
+causal-agenda-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-agenda-test-utils.el
+ELISP_TEST_INCLUDES=causal-agenda-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-bibtex
-ELISP_INCLUDES=casual-bibtex-utils.el	\
-casual-bibtex-settings.el
+PACKAGE_NAME=causal-bibtex
+ELISP_INCLUDES=causal-bibtex-utils.el	\
+causal-bibtex-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-bibtex-test-utils.el
+ELISP_TEST_INCLUDES=causal-bibtex-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

@@ -1,4 +1,4 @@
-It costs money to make, enhance, and maintain Casual as ideologically free software. If you enjoy using Casual, please buy me a coffee to help support its development and maintenance.
+It costs money to make, enhance, and maintain Causal as ideologically free software. If you enjoy using Causal, please buy me a coffee to help support its development and maintenance.
 
 [[file:images/default-yellow.png]]
 

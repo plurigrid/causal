@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-csv
-ELISP_INCLUDES=casual-csv-utils.el		\
-casual-csv-settings.el
+PACKAGE_NAME=causal-csv
+ELISP_INCLUDES=causal-csv-utils.el		\
+causal-csv-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-csv-test-utils.el
+ELISP_TEST_INCLUDES=causal-csv-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

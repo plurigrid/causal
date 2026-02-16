@@ -1,10 +1,10 @@
 * Info
 #+CINDEX: Info
-#+VINDEX: casual-info-tmenu
+#+VINDEX: causal-info-tmenu
 
-Casual Info is a user interface for the Emacs Info Reader. Its top level library is ~casual-info~.
+Causal Info is a user interface for the Emacs Info Reader. Its top level library is ~causal-info~.
 
-[[file:images/casual-info-screenshot.png]]
+[[file:images/causal-info-screenshot.png]]
 
 ** Info Install
 :PROPERTIES:
@@ -12,13 +12,13 @@ Casual Info is a user interface for the Emacs Info Reader. Its top level library
 :END:
 
 #+CINDEX: Info Install
-The main menu for Casual Info is ~casual-info-tmenu~. Bind this menu in the keymap ~Info-mode-map~ as follows in your initialization file.
+The main menu for Causal Info is ~causal-info-tmenu~. Bind this menu in the keymap ~Info-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical no
-  (keymap-set Info-mode-map "C-o" #'casual-info-tmenu)
+  (keymap-set Info-mode-map "C-o" #'causal-info-tmenu)
 #+end_src
 
-While not required, adding this configuration to your Emacs initialization file will synchronize keybindings between Casual Info and the Info reader. A nice visual improvement is to use ~hl-line-mode~ to highlight the line where the cursor is at. Enabling ~scroll-lock-mode~ will enable scrolling the buffer for content that is larger than its window size with the navigation keys.
+While not required, adding this configuration to your Emacs initialization file will synchronize keybindings between Causal Info and the Info reader. A nice visual improvement is to use ~hl-line-mode~ to highlight the line where the cursor is at. Enabling ~scroll-lock-mode~ will enable scrolling the buffer for content that is larger than its window size with the navigation keys.
 
 #+begin_src elisp :lexical no
   ;; # Info
@@ -26,8 +26,8 @@ While not required, adding this configuration to your Emacs initialization file 
   (keymap-set Info-mode-map "M-[" #'Info-history-back)
   (keymap-set Info-mode-map "M-]" #'Info-history-forward)
   ;; Bind p and n to paragraph navigation
-  (keymap-set Info-mode-map "p" #'casual-info-browse-backward-paragraph)
-  (keymap-set Info-mode-map "n" #'casual-info-browse-forward-paragraph)
+  (keymap-set Info-mode-map "p" #'causal-info-browse-backward-paragraph)
+  (keymap-set Info-mode-map "n" #'causal-info-browse-forward-paragraph)
   ;; Bind h and l to navigate to previous and next nodes
   ;; Bind j and k to navigate to next and previous references
   (keymap-set Info-mode-map "h" #'Info-prev)
@@ -47,11 +47,11 @@ While not required, adding this configuration to your Emacs initialization file 
 ** Info Usage
 #+CINDEX: Info Usage
 
-[[file:images/casual-info-screenshot.png]]
+[[file:images/causal-info-screenshot.png]]
 
-Invoke ~M-x info~ to launch the Info reader. Move the point inside the Info window and invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Casual Info menu.
+Invoke ~M-x info~ to launch the Info reader. Move the point inside the Info window and invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Causal Info menu.
 
-The main menu for Casual Info is organized into the following sections:
+The main menu for Causal Info is organized into the following sections:
 
 - Overview :: Commands that navigate you to a starting point in the info documentation.
 
@@ -68,6 +68,6 @@ The main menu for Casual Info is organized into the following sections:
 - Quick :: Miscellaneous commands for working with an Info document. Included are commands for bookmarks, copying the current node name, and cloning the buffer.
 
 #+TEXINFO: @subheading Info Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Info will use Unicode symbols as appropriate in its menus. 
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Info will use Unicode symbols as appropriate in its menus. 
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

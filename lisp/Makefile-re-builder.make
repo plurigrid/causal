@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-re-builder
-ELISP_INCLUDES=casual-re-builder-utils.el	\
-casual-re-builder-settings.el
+PACKAGE_NAME=causal-re-builder
+ELISP_INCLUDES=causal-re-builder-utils.el	\
+causal-re-builder-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-re-builder-test-utils.el
+ELISP_TEST_INCLUDES=causal-re-builder-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

@@ -16,10 +16,10 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-info
-ELISP_INCLUDES=casual-info-variables.el casual-info-utils.el
-ELISP_PACKAGES=casual-info-settings.el
-ELISP_TEST_INCLUDES=casual-info-test-utils.el
+PACKAGE_NAME=causal-info
+ELISP_INCLUDES=causal-info-variables.el causal-info-utils.el
+ELISP_PACKAGES=causal-info-settings.el
+ELISP_TEST_INCLUDES=causal-info-test-utils.el
 PACKAGE_PATHS=-L $(CASUAL_LIB_LISP_DIR)
 
 include Makefile--rules.make

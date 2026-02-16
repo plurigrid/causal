@@ -1,14 +1,14 @@
 * Timezone
 #+CINDEX: Timezone
-#+VINDEX: casual-timezone-tmenu
+#+VINDEX: causal-timezone-tmenu
 
-Casual Timezone is a library of commands to work with different time zones. Answer the questions "what time is it over there?" or conversely "what is the time over there, here?" with ease using this. Its top level library is ~casual-timezone~. Commands from Casual Timezone are found in the menu ~casual-timezone-tmenu~, which itself is integrated into the menu ~casual-editkit-tools-tmenu~.
+Causal Timezone is a library of commands to work with different time zones. Answer the questions "what time is it over there?" or conversely "what is the time over there, here?" with ease using this. Its top level library is ~causal-timezone~. Commands from Causal Timezone are found in the menu ~causal-timezone-tmenu~, which itself is integrated into the menu ~causal-editkit-tools-tmenu~.
 
-Casual Timezone only supports systems that have a [[https://en.wikipedia.org/wiki/Tz_database][tz database]].
+Causal Timezone only supports systems that have a [[https://en.wikipedia.org/wiki/Tz_database][tz database]].
 
-Casual Timezone supports viewing multiple time zones in a tabular view with the command ~casual-timezone-planner~ as shown below:
+Causal Timezone supports viewing multiple time zones in a tabular view with the command ~causal-timezone-planner~ as shown below:
 
-[[file:images/casual-timezone-planner-screenshot.png]]
+[[file:images/causal-timezone-planner-screenshot.png]]
 
 ** Timezone Install
 :PROPERTIES:
@@ -16,43 +16,43 @@ Casual Timezone supports viewing multiple time zones in a tabular view with the 
 :END:
 #+CINDEX: Timezone Install
 
-Casual Timezone is configured as part of Casual EditKit in the Tools menu (~casual-editkit-tools-tmenu~). Refer to the [[#editkit-install][EditKit Install]] section for instructions on how to install it.
+Causal Timezone is configured as part of Causal EditKit in the Tools menu (~causal-editkit-tools-tmenu~). Refer to the [[#editkit-install][EditKit Install]] section for instructions on how to install it.
 
-The main menu for Casual Timezone can be invoked directly using ~M-x~ ~casual-timezone-tmenu~.
+The main menu for Causal Timezone can be invoked directly using ~M-x~ ~causal-timezone-tmenu~.
 
 ** Timezone Usage
 #+CINDEX: Timezone Usage
 
-[[file:images/casual-timezone-tmenu-screenshot.png]]
+[[file:images/causal-timezone-tmenu-screenshot.png]]
 
-The main menu for Casual Timezone (~casual-timezone-tmenu~) offers the following commands:
+The main menu for Causal Timezone (~causal-timezone-tmenu~) offers the following commands:
 
-- ~casual-timezone-local-time-to-remote~ (menu binding: ~l~) will convert a local date to its equivalent in remote time zone.
+- ~causal-timezone-local-time-to-remote~ (menu binding: ~l~) will convert a local date to its equivalent in remote time zone.
 
-- ~casual-timezone-remote-time-to-local~ (menu binding: ~r~) will convert a date in a remote time zone to its local equivalent.
+- ~causal-timezone-remote-time-to-local~ (menu binding: ~r~) will convert a date in a remote time zone to its local equivalent.
 
-- ~casual-timezone-planner~ (menu binding: ~z~) will generate a table comparing hours between the local and a remote time zone on a certain date. Multiple remote time zones can be specified.
+- ~causal-timezone-planner~ (menu binding: ~z~) will generate a table comparing hours between the local and a remote time zone on a certain date. Multiple remote time zones can be specified.
 
 
 #+TEXINFO: @subheading Timezone Planner
-#+VINDEX: casual-timezone-planner
+#+VINDEX: causal-timezone-planner
 
-[[file:images/casual-timezone-planner-screenshot.png]]
+[[file:images/causal-timezone-planner-screenshot.png]]
 
-The command ~casual-timezone-planner~ will prompt the user for one or more time zones and a date to compare in tabular form the local time with the zones selected. Multiple time zones are comma-separated.
+The command ~causal-timezone-planner~ will prompt the user for one or more time zones and a date to compare in tabular form the local time with the zones selected. Multiple time zones are comma-separated.
 
 In this table, the point can be navigated using the {{{kbd(p)}}}, {{{kbd(n)}}}, {{{kbd(TAB)}}}, and {{{kbd(S-TAB)}}} bindings.
 
 Use the {{{kbd(T)}}} binding to copy the timestamp under the current point to the ~kill-ring~. The {{{kbd(t)}}} binding will copy all timestamps on the current line to the ~kill-ring~.
 
 *** Timezone Formatting
-#+VINDEX: casual-timezone-datestamp-format
-#+VINDEX: casual-timezone-convert-datestamp-format
+#+VINDEX: causal-timezone-datestamp-format
+#+VINDEX: causal-timezone-convert-datestamp-format
 
-The formatted representation of time in Casual Timezone is set by the following customizable variables:
+The formatted representation of time in Causal Timezone is set by the following customizable variables:
 
-- ~casual-timezone-datestamp-format~
-- ~casual-timezone-convert-datestamp-format~
+- ~causal-timezone-datestamp-format~
+- ~causal-timezone-convert-datestamp-format~
 
 The format specification of these variables conforms to the specification defined in [[info:elisp#Time Parsing][format-time-string]].
 
@@ -60,39 +60,39 @@ The following table shows which format variable applies to which command.
 
 | Command                              | Format                                   |
 |--------------------------------------+------------------------------------------|
-| ~casual-timezone-planner~              | ~casual-timezone-datestamp-format~         |
-| ~casual-timezone-local-time-to-remote~ | ~casual-timezone-convert-datestamp-format~ |
-| ~casual-timezone-remote-time-to-local~ | ~casual-timezone-convert-datestamp-format~ |
+| ~causal-timezone-planner~              | ~causal-timezone-datestamp-format~         |
+| ~causal-timezone-local-time-to-remote~ | ~causal-timezone-convert-datestamp-format~ |
+| ~causal-timezone-remote-time-to-local~ | ~causal-timezone-convert-datestamp-format~ |
 
-These variables can be customized via the Transient menu ~casual-timezone-settings-tmenu~.
+These variables can be customized via the Transient menu ~causal-timezone-settings-tmenu~.
 
 *** Planner Configuration
-#+VINDEX: casual-timezone-working-hours-range
-#+VINDEX: casual-timezone-working-hour-glyph
-#+VINDEX: casual-timezone-planner-working-highlight
+#+VINDEX: causal-timezone-working-hours-range
+#+VINDEX: causal-timezone-working-hour-glyph
+#+VINDEX: causal-timezone-planner-working-highlight
 
 The following variables can control how working hours are displayed in the timezone planner.
 
-- ~casual-timezone-working-hours-range~  will set the range (start, stop) of working hours. The values are integers that map to 24-hour time (0..23).
-- ~casual-timezone-working-hour-glyph~ will set the glyph used to denote a working hour (default is ☼).
-- ~casual-timezone-planner-working-highlight~ will set the face used to highlight a working hour.
+- ~causal-timezone-working-hours-range~  will set the range (start, stop) of working hours. The values are integers that map to 24-hour time (0..23).
+- ~causal-timezone-working-hour-glyph~ will set the glyph used to denote a working hour (default is ☼).
+- ~causal-timezone-planner-working-highlight~ will set the face used to highlight a working hour.
 
-These variables can be customized via the Transient menu ~casual-timezone-settings-tmenu~.
+These variables can be customized via the Transient menu ~causal-timezone-settings-tmenu~.
 
 *** Zoneinfo Database
-#+VINDEX: casual-timezone-zone-info-database
+#+VINDEX: causal-timezone-zone-info-database
 
-The variable ~casual-timezone-zone-info-database~ is default set to the path "/usr/share/zoneinfo/tzdata.zi". Customize this variable if the zoneinfo database is located at a different path.
+The variable ~causal-timezone-zone-info-database~ is default set to the path "/usr/share/zoneinfo/tzdata.zi". Customize this variable if the zoneinfo database is located at a different path.
 
 *** Timezone Settings
-#+VINDEX: casual-timezone-settings-tmenu
+#+VINDEX: causal-timezone-settings-tmenu
 
-The menu ~casual-timezone-settings-tmenu~ provides access to different Casual Timezone settings.
+The menu ~causal-timezone-settings-tmenu~ provides access to different Causal Timezone settings.
 
 # TODO: Insert screenshot
 
 *** Timezone Unicode Symbol Support
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Timezone will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Timezone will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 

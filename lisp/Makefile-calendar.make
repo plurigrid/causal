@@ -16,12 +16,12 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-calendar
-ELISP_INCLUDES=casual-calendar-constants.el \
-casual-calendar-utils.el	\
-casual-calendar-settings.el
+PACKAGE_NAME=causal-calendar
+ELISP_INCLUDES=causal-calendar-constants.el \
+causal-calendar-utils.el	\
+causal-calendar-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-calendar-test-utils.el
+ELISP_TEST_INCLUDES=causal-calendar-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

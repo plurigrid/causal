@@ -1,11 +1,11 @@
 * I-Search
 #+CINDEX: isearch
 #+CINDEX: I-Search
-#+VINDEX: casual-isearch-tmenu
+#+VINDEX: causal-isearch-tmenu
 
-Casual I-Search is a user interface for Emacs Incremental Search ([[info:emacs#Incremental Search][emacs#Incremental Search)]]. Its top level library is ~casual-isearch~.
+Causal I-Search is a user interface for Emacs Incremental Search ([[info:emacs#Incremental Search][emacs#Incremental Search)]]. Its top level library is ~causal-isearch~.
 
-[[file:images/casual-isearch-tmenu.png]]
+[[file:images/causal-isearch-tmenu.png]]
 
 ** I-Search Install
 :PROPERTIES:
@@ -13,19 +13,19 @@ Casual I-Search is a user interface for Emacs Incremental Search ([[info:emacs#I
 :END:
 #+CINDEX: I-Search Install
 
-The main menu for Casual I-Search is ~casual-isearch-tmenu~. Bind this menu to {{{kbd(C-o)}}} (or your binding of preference) in the keymap ~isearch-mode-map~ as follows in your initialization file.
+The main menu for Causal I-Search is ~causal-isearch-tmenu~. Bind this menu to {{{kbd(C-o)}}} (or your binding of preference) in the keymap ~isearch-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical yes
-  (keymap-set isearch-mode-map "C-o" #'casual-isearch-tmenu)
+  (keymap-set isearch-mode-map "C-o" #'causal-isearch-tmenu)
 #+end_src
 
 
 ** I-Search Usage
 #+CINDEX: I-Search Usage
 
-[[file:images/casual-isearch-tmenu.png]]
+[[file:images/causal-isearch-tmenu.png]]
 
-The main menu for Casual I-Search is organized into the following sections:
+The main menu for Causal I-Search is organized into the following sections:
 
 - Edit Search String :: Commands to edit the search string. The type/extent of the string (word, symbol, line, thing) can be specified here.
 
@@ -37,24 +37,24 @@ The main menu for Casual I-Search is organized into the following sections:
 
 - Navigation :: Navigation commands for matched strings.
 
-When in search mode (typically via the keybinding {{{kbd(C-s)}}} or {{{kbd(C-r)}}}), pressing the keybinding {{{kbd(C-o)}}} (or binding of your preference) will raise the Transient menu ~casual-isearch-tmenu~. Once raised, only the /I-Search/ commands in the *Toggle*, *Replace*, and *Misc* sections will automatically dismiss the menu when selected. All other /I-Search/ commands will /not/ dismiss the menu.
+When in search mode (typically via the keybinding {{{kbd(C-s)}}} or {{{kbd(C-r)}}}), pressing the keybinding {{{kbd(C-o)}}} (or binding of your preference) will raise the Transient menu ~causal-isearch-tmenu~. Once raised, only the /I-Search/ commands in the *Toggle*, *Replace*, and *Misc* sections will automatically dismiss the menu when selected. All other /I-Search/ commands will /not/ dismiss the menu.
 
 Use {{{kbd(C-g)}}} to dismiss this Transient menu.
 
 
 #+TEXINFO: @subheading I-Search Settings
-#+VINDEX: casual-isearch-settings-tmenu
+#+VINDEX: causal-isearch-settings-tmenu
 
-The menu ~casual-isearch-settings-tmenu~ provides access to different I-Search settings.
+The menu ~causal-isearch-settings-tmenu~ provides access to different I-Search settings.
 
-[[file:images/casual-isearch-settings-tmenu.png]]
+[[file:images/causal-isearch-settings-tmenu.png]]
 
 
 #+TEXINFO: @subheading I-Search Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual I-Search will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal I-Search will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-isearch-unicode.png]]
+[[file:images/causal-isearch-unicode.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 

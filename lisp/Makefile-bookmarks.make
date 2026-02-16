@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-bookmarks
-ELISP_INCLUDES=casual-bookmarks-utils.el	\
-casual-bookmarks-settings.el
+PACKAGE_NAME=causal-bookmarks
+ELISP_INCLUDES=causal-bookmarks-utils.el	\
+causal-bookmarks-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-bookmarks-test-utils.el
+ELISP_TEST_INCLUDES=causal-bookmarks-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

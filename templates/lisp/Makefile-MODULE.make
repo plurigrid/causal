@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-$MODULE
-ELISP_INCLUDES=casual-$MODULE-utils.el	\
-casual-$MODULE-settings.el
+PACKAGE_NAME=causal-$MODULE
+ELISP_INCLUDES=causal-$MODULE-utils.el	\
+causal-$MODULE-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-$MODULE-test-utils.el
+ELISP_TEST_INCLUDES=causal-$MODULE-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

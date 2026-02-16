@@ -4,12 +4,12 @@
 :END:
 
 #+CINDEX: HTML
-#+VINDEX: casual-html-tmenu
+#+VINDEX: causal-html-tmenu
 
-Casual HTML is a user interface for ~html-mode~ ([[info:emacs#HTML Mode][html-mode]]). 
+Causal HTML is a user interface for ~html-mode~ ([[info:emacs#HTML Mode][html-mode]]). 
 
-[[file:images/casual-html-screenshot.png]]
-Casual also has support for CSS editing ([[#css-top][CSS]]).
+[[file:images/causal-html-screenshot.png]]
+Causal also has support for CSS editing ([[#css-top][CSS]]).
 
 ** HTML Install
 :PROPERTIES:
@@ -18,18 +18,18 @@ Casual also has support for CSS editing ([[#css-top][CSS]]).
 
 #+CINDEX: HTML Install
 
-In your initialization file, bind the Transient ~casual-html-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-html-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set html-mode-map "M-m" #'casual-html-tmenu)
+  (keymap-set html-mode-map "M-m" #'causal-html-tmenu)
 #+end_src
 
-A different binding ({{{kbd(M-m)}}}) is used as ~casual-html-tmenu~ is intended to work alongside with [[#editkit-install][Casual EditKit]].
+A different binding ({{{kbd(M-m)}}}) is used as ~causal-html-tmenu~ is intended to work alongside with [[#editkit-install][Causal EditKit]].
 
-It is convenient to also bind ~casual-html-tags-tmenu~ as well.
+It is convenient to also bind ~causal-html-tags-tmenu~ as well.
 
 #+begin_src elisp :lexical no
-  (keymap-set html-mode-map "C-c m" #'casual-html-tags-tmenu)
+  (keymap-set html-mode-map "C-c m" #'causal-html-tags-tmenu)
 #+end_src
 
 If HTML Tree-sitter support is enabled, use the keymap ~html-ts-mode-map~ in place of ~html-mode-map~.
@@ -37,7 +37,7 @@ If HTML Tree-sitter support is enabled, use the keymap ~html-ts-mode-map~ in pla
 ** HTML Usage
 #+CINDEX: HTML Usage
 
-[[file:images/casual-html-screenshot.png]]
+[[file:images/causal-html-screenshot.png]]
 
 The following sections are offered in the menu:
 
@@ -50,24 +50,24 @@ Note that the item “{{{kbd(d)}}} Delete” (bound to ~sgml-delete-tag~) is not
 
 
 #+TEXINFO: @subheading HTML Tags
-#+VINDEX: casual-html-tags-tmenu
+#+VINDEX: causal-html-tags-tmenu
 
 This menu provides support for HTML tag-related commands provided by ~html-mode~.
 
-[[file:images/casual-html-tags-screenshot.png]]
+[[file:images/causal-html-tags-screenshot.png]]
 
 #+TEXINFO: @subheading HTML Settings
-#+VINDEX: casual-html-settings-tmenu
+#+VINDEX: causal-html-settings-tmenu
 
-SGML/HTML mode related settings can be customized using the menu ~casual-html-settings-tmenu~.
+SGML/HTML mode related settings can be customized using the menu ~causal-html-settings-tmenu~.
 
-[[file:images/casual-html-settings-screenshot.png]]
+[[file:images/causal-html-settings-screenshot.png]]
 
 #+TEXINFO: @subheading HTML Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual html will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal html will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-html-unicode-screenshot.png]]
+[[file:images/causal-html-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
 

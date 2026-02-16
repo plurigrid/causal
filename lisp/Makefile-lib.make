@@ -18,8 +18,8 @@ include Makefile--defines.make
 
 ELISP_INCLUDES=
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-lib-test-utils.el
-PACKAGE_NAME=casual-lib
+ELISP_TEST_INCLUDES=causal-lib-test-utils.el
+PACKAGE_NAME=causal-lib
 PACKAGE_PATHS=
 
 .PHONY: tests compile regression

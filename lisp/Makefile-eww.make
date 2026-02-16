@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-eww
-ELISP_INCLUDES=casual-eww-utils.el	\
-casual-eww-settings.el
+PACKAGE_NAME=causal-eww
+ELISP_INCLUDES=causal-eww-utils.el	\
+causal-eww-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-eww-test-utils.el
+ELISP_TEST_INCLUDES=causal-eww-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

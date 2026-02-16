@@ -15,12 +15,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-editkit
-ELISP_INCLUDES=casual-editkit-constants.el	\
-casual-editkit-settings.el			\
-casual-editkit-utils.el
+PACKAGE_NAME=causal-editkit
+ELISP_INCLUDES=causal-editkit-constants.el	\
+causal-editkit-settings.el			\
+causal-editkit-utils.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-editkit-test-utils.el
+ELISP_TEST_INCLUDES=causal-editkit-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

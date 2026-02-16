@@ -1,10 +1,10 @@
 * CSV
 #+CINDEX: CSV
-#+VINDEX: casual-csv-tmenu
+#+VINDEX: causal-csv-tmenu
 
-Casual CSV is a user interface for ~csv-mode~, a mode for working with CSV files.
+Causal CSV is a user interface for ~csv-mode~, a mode for working with CSV files.
 
-[[file:images/casual-csv-edit-screenshot.png]]
+[[file:images/causal-csv-edit-screenshot.png]]
 
 ** CSV Install
 :PROPERTIES:
@@ -13,10 +13,10 @@ Casual CSV is a user interface for ~csv-mode~, a mode for working with CSV files
 
 #+CINDEX: CSV Install
 
-In your initialization file, bind the Transient ~casual-csv-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-csv-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set csv-mode-map "M-m" #'casual-csv-tmenu)
+  (keymap-set csv-mode-map "M-m" #'causal-csv-tmenu)
 #+end_src
 
 While not required, the following configuration is recommended for working with CSV files.
@@ -37,7 +37,7 @@ While not required, the following configuration is recommended for working with 
 ** CSV Usage
 #+CINDEX: CSV Usage
 
-[[file:images/casual-csv-edit-screenshot.png]]
+[[file:images/causal-csv-edit-screenshot.png]]
 
 The following sections are offered in the menu:
 
@@ -53,30 +53,30 @@ The following sections are offered in the menu:
 
 If the buffer is in view (read-only) mode, then only relevant commands are displayed.
 
-[[file:images/casual-csv-view-screenshot.png]]
+[[file:images/causal-csv-view-screenshot.png]]
 
 If the buffer is editable, a common to desire to instead work on a copy of the CSV file to avoid making unwanted changes. This can be done using the “{{{kbd(d)}}} Duplicate” command.
 
 #+TEXINFO: @subheading CSV Align
-#+VINDEX: casual-csv-align-tmenu
+#+VINDEX: causal-csv-align-tmenu
 
-The display of the CSV buffer can be controlled with the menu ~casual-csv-align-tmenu~.
+The display of the CSV buffer can be controlled with the menu ~causal-csv-align-tmenu~.
 
-[[file:images/casual-csv-align-screenshot.png]]
+[[file:images/causal-csv-align-screenshot.png]]
 
 
 #+TEXINFO: @subheading CSV Settings
-#+VINDEX: casual-csv-settings-tmenu
+#+VINDEX: causal-csv-settings-tmenu
 
-The menu ~casual-csv-settings-tmenu~ provides access to different ~csv-mode~ settings.
+The menu ~causal-csv-settings-tmenu~ provides access to different ~csv-mode~ settings.
 
-[[file:images/casual-csv-settings-screenshot.png]]
+[[file:images/causal-csv-settings-screenshot.png]]
 
 
 #+TEXINFO: @subheading CSV Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual CSV will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal CSV will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-csv-edit-unicode-screenshot.png]]
+[[file:images/causal-csv-edit-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

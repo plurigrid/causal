@@ -1,10 +1,10 @@
 * Eshell
 #+CINDEX: Eshell
-#+VINDEX: casual-eshell-tmenu
+#+VINDEX: causal-eshell-tmenu
 
-Casual Eshell is a user interface for ~Eshell~, a shell-like command interpreter implemented in Emacs Lisp.
+Causal Eshell is a user interface for ~Eshell~, a shell-like command interpreter implemented in Emacs Lisp.
 
-[[file:images/casual-eshell-screenshot.png]]
+[[file:images/causal-eshell-screenshot.png]]
 
 ** Eshell Install
 :PROPERTIES:
@@ -13,17 +13,17 @@ Casual Eshell is a user interface for ~Eshell~, a shell-like command interpreter
 
 #+CINDEX: Eshell Install
 
-In your initialization file, bind the Transient ~casual-eshell-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient ~causal-eshell-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set eshell-mode-map "C-o" #'casual-eshell-tmenu)
+  (keymap-set eshell-mode-map "C-o" #'causal-eshell-tmenu)
 #+end_src
 
 
 ** Eshell Usage
 #+CINDEX: Eshell Usage
 
-Eshell can be invoked via ~M-x eshell~. In the Eshell window, press {{{kbd(C-o)}}} (or your binding of preference) to raise the menu ~casual-eshell-tmenu~.
+Eshell can be invoked via ~M-x eshell~. In the Eshell window, press {{{kbd(C-o)}}} (or your binding of preference) to raise the menu ~causal-eshell-tmenu~.
 
 The following sections are offered in the menu:
 
@@ -35,30 +35,30 @@ The following sections are offered in the menu:
 - Process :: Signal commands to send to the process. This section is only visible when a process is running.
   
 
-  [[file:images/casual-eshell-process-screenshot.png]]
+  [[file:images/causal-eshell-process-screenshot.png]]
 
 
 #+TEXINFO: @subheading Eshell Settings
-#+VINDEX: casual-eshell-settings-tmenu
+#+VINDEX: causal-eshell-settings-tmenu
 
-The menu ~casual-eshell-settings-tmenu~ provides access to different ~eshell-mode~ settings.
+The menu ~causal-eshell-settings-tmenu~ provides access to different ~eshell-mode~ settings.
 
 # TODO: Insert screenshot
 
 #+TEXINFO: @subheading Eshell Info
-#+VINDEX: casual-eshell-info-tmenu
+#+VINDEX: causal-eshell-info-tmenu
 
-The menu ~casual-eshell-info-tmenu~ provides access to different ~eshell-mode~ documentation in its Info manual.
+The menu ~causal-eshell-info-tmenu~ provides access to different ~eshell-mode~ documentation in its Info manual.
 
 # TODO: Insert screenshot
 
   
 #+TEXINFO: @subheading Eshell Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Eshell will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Eshell will use Unicode symbols as appropriate in its menus.
 
 
-[[file:images/casual-eshell-unicode-screenshot.png]]
+[[file:images/causal-eshell-unicode-screenshot.png]]
 
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

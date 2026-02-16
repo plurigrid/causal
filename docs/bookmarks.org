@@ -1,10 +1,10 @@
 * Bookmarks
 #+CINDEX: Bookmarks
-#+VINDEX: casual-bookmarks-tmenu
+#+VINDEX: causal-bookmarks-tmenu
 
-Casual Bookmarks is a user interface for the Emacs Bookmarks list ([[info:emacs#Bookmarks]]). Its top-level library is ~casual-bookmarks~.
+Causal Bookmarks is a user interface for the Emacs Bookmarks list ([[info:emacs#Bookmarks]]). Its top-level library is ~causal-bookmarks~.
 
-[[file:images/casual-bookmarks-screenshot.png]]
+[[file:images/causal-bookmarks-screenshot.png]]
 
 ** Bookmarks Install
 :PROPERTIES:
@@ -13,28 +13,28 @@ Casual Bookmarks is a user interface for the Emacs Bookmarks list ([[info:emacs#
 
 #+CINDEX: Bookmarks Install
 
-To install Casual Bookmarks, add the following line to your Emacs initialization file with your binding of preference.
+To install Causal Bookmarks, add the following line to your Emacs initialization file with your binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set bookmark-bmenu-mode-map "C-o" #'casual-bookmarks-tmenu)
+  (keymap-set bookmark-bmenu-mode-map "C-o" #'causal-bookmarks-tmenu)
 #+end_src
 
-Use these keybindings to configure the bookmark list to be consistent with keybindings used by Casual Bookmarks.
+Use these keybindings to configure the bookmark list to be consistent with keybindings used by Causal Bookmarks.
 
 #+begin_src elisp :lexical no
   (keymap-set bookmark-bmenu-mode-map "J" #'bookmark-jump)
 #+end_src
 
-Casual Bookmarks also includes the keymap ~casual-bookmarks-main-menu~ which inserts a /Bookmarks/ menu into the main menu bar as shown below.
+Causal Bookmarks also includes the keymap ~causal-bookmarks-main-menu~ which inserts a /Bookmarks/ menu into the main menu bar as shown below.
 
 [[file:images/bookmarks-main-menu.png]]
 
 To enable this, add the following configuration to your initialization file.
 
 #+begin_src elisp :lexical no
-  (require 'casual-bookmarks)
+  (require 'causal-bookmarks)
   (easy-menu-add-item global-map '(menu-bar)
-                      casual-bookmarks-main-menu
+                      causal-bookmarks-main-menu
                       "Tools")
 #+end_src
 
@@ -52,10 +52,10 @@ The above guidance largely extends the work done in the blog post [[http://yummy
 ** Bookmarks Usage
 #+CINDEX: Bookmarks Usage
 
-[[file:images/casual-bookmarks-screenshot.png]]
+[[file:images/causal-bookmarks-screenshot.png]]
 
 
-Casual Bookmarks organizes its main menu into the following sections:
+Causal Bookmarks organizes its main menu into the following sections:
 
 - Operations :: Commands that can operate on a bookmark such as editing or opening them.
 
@@ -71,14 +71,14 @@ Casual Bookmarks organizes its main menu into the following sections:
 
 
 #+TEXINFO: @subheading Sorting
-#+VINDEX: casual-bookmarks-sortby-tmenu
+#+VINDEX: causal-bookmarks-sortby-tmenu
 
-Support for sorting the bookmarks list is provided by the menu ~casual-bookmarks-sortby-tmenu~.
+Support for sorting the bookmarks list is provided by the menu ~causal-bookmarks-sortby-tmenu~.
 
 #+TEXINFO: @subheading Unicode Symbol Support
 
-[[file:images/casual-bookmarks-unicode-screenshot.png]]
+[[file:images/causal-bookmarks-unicode-screenshot.png]]
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Bookmarks will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Bookmarks will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

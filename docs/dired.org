@@ -1,17 +1,17 @@
 * Dired
 #+CINDEX: Dired
-#+VINDEX: casual-dired-tmenu
-Casual Dired provides a user interface for Dired ([[info:emacs#Dired]]), the Emacs file manager. Its top-level library is ~casual-dired~.
+#+VINDEX: causal-dired-tmenu
+Causal Dired provides a user interface for Dired ([[info:emacs#Dired]]), the Emacs file manager. Its top-level library is ~causal-dired~.
 
-[[file:images/casual-dired-screenshot.png]]
+[[file:images/causal-dired-screenshot.png]]
 
 ** Dired Requirements
-Casual Dired requires that the ~ls~ utility from GNU coreutils ≥ 8.32 be installed.
+Causal Dired requires that the ~ls~ utility from GNU coreutils ≥ 8.32 be installed.
 
 The following links provide guidance for installing GNU coreutils on different platforms.
 
 *** macOS
-Note that the default packaged ~ls~ on macOS is BSD-flavored which is not supported by Casual Dired. Users wishing to use Casual Dired on macOS are recommended to install GNU coreutils and configure their Emacs to point to its version of ~ls~ accordingly.
+Note that the default packaged ~ls~ on macOS is BSD-flavored which is not supported by Causal Dired. Users wishing to use Causal Dired on macOS are recommended to install GNU coreutils and configure their Emacs to point to its version of ~ls~ accordingly.
 
 - [[https://ports.macports.org/port/coreutils/][MacPorts]]
 - [[https://formulae.brew.sh/formula/coreutils#default][Homebrew]]
@@ -28,37 +28,37 @@ For users running on Microsoft Windows, use [[https://www.gnu.org/software/emacs
 :END:
 #+CINDEX: Dired Install
 
-The main menu for Dired is ~casual-dired-tmenu~. Bind this menu in the keymap ~dired-mode-map~ as follows in your initialization file.
+The main menu for Dired is ~causal-dired-tmenu~. Bind this menu in the keymap ~dired-mode-map~ as follows in your initialization file.
 
 #+begin_src elisp :lexical no
-  (keymap-set dired-mode-map "C-o" #'casual-dired-tmenu)
+  (keymap-set dired-mode-map "C-o" #'causal-dired-tmenu)
 #+end_src
 
-In addition, it is convenient to have both the sort-by (~casual-dired-sort-by-tmenu~) and search & replace (~casual-dired-search-replace-tmenu~) menus bound. Listed below is an example of binding the sort-by and search & replace menus to ~s~ and ~/~ respectively.
+In addition, it is convenient to have both the sort-by (~causal-dired-sort-by-tmenu~) and search & replace (~causal-dired-search-replace-tmenu~) menus bound. Listed below is an example of binding the sort-by and search & replace menus to ~s~ and ~/~ respectively.
 
 #+begin_src elisp :lexical no
-  (keymap-set dired-mode-map "s" #'casual-dired-sort-by-tmenu)
-  (keymap-set dired-mode-map "/" #'casual-dired-search-replace-tmenu)
+  (keymap-set dired-mode-map "s" #'causal-dired-sort-by-tmenu)
+  (keymap-set dired-mode-map "/" #'causal-dired-search-replace-tmenu)
 #+end_src
 
-Included is a standard keymap for Dired sorting commands (~casual-dired-sort-menu~) which can be included in a context menu for a mouse-driven workflow. An example of this is shown below:
+Included is a standard keymap for Dired sorting commands (~causal-dired-sort-menu~) which can be included in a context menu for a mouse-driven workflow. An example of this is shown below:
 
 #+begin_src elisp :lexical no
-  (require 'casual-dired)
+  (require 'causal-dired)
 
-  (defun casual-dired-context-menu-addons (menu click)
+  (defun causal-dired-context-menu-addons (menu click)
     "Customize context MENU with CLICK event."
-    (easy-menu-add-item menu nil casual-dired-sort-menu)
+    (easy-menu-add-item menu nil causal-dired-sort-menu)
     menu)
 
-  (add-hook 'context-menu-functions #'casual-dired-context-menu-addons)
+  (add-hook 'context-menu-functions #'causal-dired-context-menu-addons)
   (add-hook 'dired-mode-hook 'context-menu-mode)
 #+end_src
 
 
 #+TEXINFO: @subheading Configuration
 
-As Dired has been around for a long time, the different ways of configuring it are myriad. Described below is a configuration used by the author that is consistent with the bindings used in Casual Dired.
+As Dired has been around for a long time, the different ways of configuring it are myriad. Described below is a configuration used by the author that is consistent with the bindings used in Causal Dired.
 
 #+begin_src elisp :lexical no
   (require 'dired)
@@ -68,11 +68,11 @@ As Dired has been around for a long time, the different ways of configuring it a
   (require 'mouse)
   (require 'image-dired)
   (require 'image-dired-dired)
-  (require 'casual-dired)
+  (require 'causal-dired)
 
-  (keymap-set dired-mode-map "C-o" #'casual-dired-tmenu)
-  (keymap-set dired-mode-map "s" #'casual-dired-sort-by-tmenu)
-  (keymap-set dired-mode-map "/" #'casual-dired-search-replace-tmenu)
+  (keymap-set dired-mode-map "C-o" #'causal-dired-tmenu)
+  (keymap-set dired-mode-map "s" #'causal-dired-sort-by-tmenu)
+  (keymap-set dired-mode-map "/" #'causal-dired-search-replace-tmenu)
 
   (add-hook 'dired-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'context-menu-mode)
@@ -100,20 +100,20 @@ As Dired has been around for a long time, the different ways of configuring it a
 
 #+TEXINFO: @subheading Dired Variables
 
-The Casual Dired main menu offers “{{{kbd(\,)}}} Settings›” to customize a set of commonly used Dired variables. 
+The Causal Dired main menu offers “{{{kbd(\,)}}} Settings›” to customize a set of commonly used Dired variables. 
 
-[[file:images/casual-dired-settings-screenshot.png]]
+[[file:images/causal-dired-settings-screenshot.png]]
 
 If you have GNU ~ls~ installed and configured, use the {{{kbd(l)}}} key to set the variable ~dired-use-ls-dired~ to ~t~ (“{{{kbd(l)}}} Use GNU ‘ls’ with --dired”). Otherwise this should be disabled.
 
 ** Dired Usage
 #+CINDEX: Dired Usage
 
-[[file:images/casual-dired-screenshot.png]]
+[[file:images/causal-dired-screenshot.png]]
 
-Invoke ~M-x dired~ to launch Dired. When the point is in the Dired window, invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Casual Dired menu (~casual-dired-tmenu~).
+Invoke ~M-x dired~ to launch Dired. When the point is in the Dired window, invoke {{{kbd(C-o)}}} (or a binding of your choosing) to launch the Causal Dired menu (~causal-dired-tmenu~).
 
-Casual Dired organizes its main menu into the following sections:
+Causal Dired organizes its main menu into the following sections:
 
 - File :: File-related commands are placed here. Most of the commands will also operate on marked files (see *Mark* item below).
 
@@ -134,21 +134,21 @@ Casual Dired organizes its main menu into the following sections:
 
 *** Dired Enhanced Sorting
 #+CINDEX: Dired Enhanced Sorting
-#+VINDEX: casual-dired-sort-by-tmenu
+#+VINDEX: causal-dired-sort-by-tmenu
 
-Casual Dired offers enhanced sorting capabilities through GNU ~ls~. Use this to sort your Dired buffer to preference. Filter dot files (.*) by disabling the ~--all~ option is available here.
+Causal Dired offers enhanced sorting capabilities through GNU ~ls~. Use this to sort your Dired buffer to preference. Filter dot files (.*) by disabling the ~--all~ option is available here.
 
-[[file:images/casual-dired-sort-by-screenshot.png]]
+[[file:images/causal-dired-sort-by-screenshot.png]]
 
 With the *Sort By* menu raised, one can save the switch settings for future use via the binding {{{kbd(C-x C-s)}}} (~transient-save~). Note this is a global setting and will apply to all future calls to the *Sort By* menu.
 
 *** Dired Search & Replace
 #+CINDEX: Dired Search & Replace
-#+VINDEX: casual-dired-search-replace-tmenu
+#+VINDEX: causal-dired-search-replace-tmenu
 
-Search and replace in multiple marked files using the “{{{kbd(/)}}} Search & Replace›” menu  (~casual-dired-search-replace-tmenu~) in ~casual-dired-tmenu~. This will raise a menu of Dired commands that will work on marked files.
+Search and replace in multiple marked files using the “{{{kbd(/)}}} Search & Replace›” menu  (~causal-dired-search-replace-tmenu~) in ~causal-dired-tmenu~. This will raise a menu of Dired commands that will work on marked files.
 
-[[file:images/casual-dired-search-replace.png]]
+[[file:images/causal-dired-search-replace.png]]
 
 While most Dired commands use Emacs-style regular expression syntax ([[info:elisp#Regular Expressions]]), there are two commands that instead take instead *grep*-style syntax:
 
@@ -158,33 +158,33 @@ While most Dired commands use Emacs-style regular expression syntax ([[info:elis
 The *grep*-style syntax is dependent on the ~grep~ implementation that is installed and used by Emacs.
 
 *** Bulk Dired Operations
-#+VINDEX: casual-dired-utils-tmenu
+#+VINDEX: causal-dired-utils-tmenu
 
-Casual Dired organizes a number of Dired commands that work on a set of marked files. These commands are presented in the “{{{kbd(#)}}} Utils›” menu (~casual-dired-utils-tmenu~) in ~casual-dired-tmenu~.
+Causal Dired organizes a number of Dired commands that work on a set of marked files. These commands are presented in the “{{{kbd(#)}}} Utils›” menu (~causal-dired-utils-tmenu~) in ~causal-dired-tmenu~.
 
-[[file:images/casual-dired-utils-screenshot.png]]
+[[file:images/causal-dired-utils-screenshot.png]]
 
 *** Dired Link
-#+VINDEX: casual-dired-link-tmenu
+#+VINDEX: causal-dired-link-tmenu
 
-Create symbolic and hard links via the “{{{kbd(l)}}} Link›” menu (~casual-dired-link-tmenu~) in ~casual-dired-tmenu~. Both absolute and relative symbolic links (symlinks) are supported.
+Create symbolic and hard links via the “{{{kbd(l)}}} Link›” menu (~causal-dired-link-tmenu~) in ~causal-dired-tmenu~. Both absolute and relative symbolic links (symlinks) are supported.
 
-[[file:images/casual-dired-link.png]]
+[[file:images/causal-dired-link.png]]
 
 
 *** Dired Elisp
-#+VINDEX: casual-dired-elisp-tmenu
+#+VINDEX: causal-dired-elisp-tmenu
 
-Support for running bulk commands for Elisp development are provided by the menu ~casual-dired-elisp-tmenu~.
+Support for running bulk commands for Elisp development are provided by the menu ~causal-dired-elisp-tmenu~.
 
 # TODO: Insert screenshot
 
 
 *** Dired Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Dired will use Unicode symbols as appropriate in its menus. An example is shown below.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Dired will use Unicode symbols as appropriate in its menus. An example is shown below.
 
-[[file:images/casual-dired-screenshot-unicode.png]]
+[[file:images/causal-dired-screenshot-unicode.png]]
 
 To ensure proper layout and spacing, your default typeface should be fixed-width or monospace and *must* support the Unicode symbols used.
 

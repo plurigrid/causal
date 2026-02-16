@@ -16,11 +16,11 @@
 
 include Makefile--defines.make
 
-PACKAGE_NAME=casual-ediff
-ELISP_INCLUDES=casual-ediff-utils.el	\
-casual-ediff-settings.el
+PACKAGE_NAME=causal-ediff
+ELISP_INCLUDES=causal-ediff-utils.el	\
+causal-ediff-settings.el
 ELISP_PACKAGES=
-ELISP_TEST_INCLUDES=casual-ediff-test-utils.el
+ELISP_TEST_INCLUDES=causal-ediff-test-utils.el
 PACKAGE_PATHS=					\
 -L $(EMACS_ELPA_DIR)/compat-current		\
 -L $(EMACS_ELPA_DIR)/seq-current		\

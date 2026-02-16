@@ -21,7 +21,7 @@ else
 endif
 
 TIMESTAMP := $(shell /bin/date "+%Y%m%d_%H%M%S")
-PKG_NAME=casual
+PKG_NAME=causal
 
 $(PKG_NAME).info: $(PKG_NAME).texi
 	texi2any $<
@@ -36,9 +36,9 @@ clean: clean-html
 .PHONY: gen-info
 gen-info:
 	$(EXEC_NAME) -Q --batch									\
--l casualdocs.el										\
-casual.org											\
---eval "(with-current-buffer (find-file-noselect \"casual.org\") (org-texinfo-export-to-info))"
+-l causaldocs.el										\
+causal.org											\
+--eval "(with-current-buffer (find-file-noselect \"causal.org\") (org-texinfo-export-to-info))"
 
 html:
 	mkdir html

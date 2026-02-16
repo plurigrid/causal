@@ -1,10 +1,10 @@
 * Elisp
 #+CINDEX: Elisp
-#+VINDEX: casual-elisp-tmenu
+#+VINDEX: causal-elisp-tmenu
 
-Casual Elisp is a user interface for ~emacs-lisp-mode~. It provides a menu for commands useful for Elisp development.
+Causal Elisp is a user interface for ~emacs-lisp-mode~. It provides a menu for commands useful for Elisp development.
 
-[[file:images/casual-elisp-screenshot.png]]
+[[file:images/causal-elisp-screenshot.png]]
 
 ** Elisp Install
 :PROPERTIES:
@@ -13,19 +13,19 @@ Casual Elisp is a user interface for ~emacs-lisp-mode~. It provides a menu for c
 
 #+CINDEX: Elisp Install
 
-In your initialization file, bind the Transient ~casual-elisp-tmenu~ to your key binding of preference. Suggested bindings include {{{kbd(M-m)}}} and {{{kbd(C-c m)}}}. This menu is intended to be auxiliary to [[#editkit][Casual EditKit]].
+In your initialization file, bind the Transient ~causal-elisp-tmenu~ to your key binding of preference. Suggested bindings include {{{kbd(M-m)}}} and {{{kbd(C-c m)}}}. This menu is intended to be auxiliary to [[#editkit][Causal EditKit]].
 
 #+begin_src elisp :lexical no
-  (keymap-set emacs-lisp-mode-map "M-m" #'casual-elisp-tmenu)
+  (keymap-set emacs-lisp-mode-map "M-m" #'causal-elisp-tmenu)
 #+end_src
 
 
 ** Elisp Usage
 #+CINDEX: Elisp Usage
 
-[[file:images/casual-elisp-screenshot.png]]
+[[file:images/causal-elisp-screenshot.png]]
 
-Invoke the Casual Elisp main menu ~casual-elisp-tmenu~ via the binding {{{kbd(M-m)}}} (or your binding of preference) in an Elisp window. Typically this is whenever an =.el= file is opened.
+Invoke the Causal Elisp main menu ~causal-elisp-tmenu~ via the binding {{{kbd(M-m)}}} (or your binding of preference) in an Elisp window. Typically this is whenever an =.el= file is opened.
 
 The following sections are offered in the menu:
 
@@ -45,22 +45,22 @@ The following sections are offered in the menu:
 #+TEXINFO: @subheading Edebug Support
 #+CINDEX: Edebug
 
-Using the command prefix {{{kbd(C-u)}}} when ~casual-elisp-tmenu~ is raised will change the “{{{kbd(d)}}} Defun✦” menu item to “{{{kbd(d)}}} Edebug” to support instrumenting a function for Edebug ([[info:elisp#Edebug]]).
+Using the command prefix {{{kbd(C-u)}}} when ~causal-elisp-tmenu~ is raised will change the “{{{kbd(d)}}} Defun✦” menu item to “{{{kbd(d)}}} Edebug” to support instrumenting a function for Edebug ([[info:elisp#Edebug]]).
 
-[[file:images/casual-elisp-edebug-screenshot.png]]
+[[file:images/causal-elisp-edebug-screenshot.png]]
 
 
 #+TEXINFO: @subheading Elisp Settings
-#+VINDEX: casual-elisp-settings-tmenu
+#+VINDEX: causal-elisp-settings-tmenu
 
-The menu ~casual-elisp-settings-tmenu~ provides access to different ~emacs-lisp-mode~ settings.
+The menu ~causal-elisp-settings-tmenu~ provides access to different ~emacs-lisp-mode~ settings.
 
 # TODO: Insert screenshot
 
 #+TEXINFO: @subheading Elisp Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Elisp will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Elisp will use Unicode symbols as appropriate in its menus.
 
-[[file:images/casual-elisp-unicode-screenshot.png]]
+[[file:images/causal-elisp-unicode-screenshot.png]]
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].
