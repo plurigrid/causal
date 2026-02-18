@@ -40,6 +40,7 @@
 (require 'causal-lib)
 (require 'causal-proofreader-utils)
 (require 'causal-proofreader-settings)
+(require 'causal-catcolab nil t)         ; optional — load if present
 
 ;;; Proof Navigation Commands (backend-dispatching wrappers)
 
@@ -284,7 +285,13 @@
     ("i" "Imenu…" imenu)]
 
    ["Window"
-    ("w" "Layout›" causal-proofreader-window-tmenu)]]
+    ("w" "Layout›" causal-proofreader-window-tmenu)]
+
+   ["CatColab"
+    ("C" "CatColab›" causal-catcolab-tmenu
+     :if (lambda () (featurep 'causal-catcolab)))
+    ("O" "Proof → Olog" causal-catcolab-save-proof-as-olog
+     :if (lambda () (featurep 'causal-catcolab)))]]
 
   [:class transient-row
    (causal-lib-quit-one)
