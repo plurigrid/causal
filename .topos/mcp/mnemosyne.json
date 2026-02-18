@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "mnemosyne": {
+      "command": "uv",
+      "args": ["run", "neem-mcp-server"],
+      "env": {
+        "MNEMOSYNE_FASTAPI_URL": "http://127.0.0.1:8001",
+        "LOG_LEVEL": "ERROR"
+      },
+      "description": "sophia-labs/mnemosyne-mcp — RDF knowledge graph for proof transcripts",
+      "source": "https://github.com/sophia-labs/mnemosyne-mcp",
+      "tools": [
+        "list_graphs", "create_graph", "delete_graph",
+        "sparql_query", "sparql_update",
+        "read_document", "write_document", "append_to_document",
+        "get_block", "query_blocks", "update_block",
+        "list_wire_predicates", "create_wire", "get_wires", "traverse_wires"
+      ]
+    }
+  }
+}
