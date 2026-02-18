@@ -41,6 +41,7 @@
 (require 'causal-proofreader-utils)
 (require 'causal-proofreader-settings)
 (require 'causal-catcolab nil t)         ; optional — load if present
+(require 'sophia-mnemosyne nil t)        ; optional — load if present
 
 ;;; Proof Navigation Commands (backend-dispatching wrappers)
 
@@ -180,6 +181,22 @@
   "Insert `rfl' tactic." (interactive)
   (causal-proofreader--insert-tactic "rfl"))
 
+;;; Knowledge Graph Integration
+
+(defun causal-proofreader-save-to-mnemosyne ()
+  "Save current proof buffer to Mnemosyne knowledge graph."
+  (interactive)
+  (if (fboundp 'sophia-mnemosyne-save-buffer)
+      (sophia-mnemosyne-save-buffer)
+    (user-error "sophia-mnemosyne not loaded")))
+
+(defun causal-proofreader-wire-proof-dep (from to)
+  "Create a proof-dependency wire FROM → TO in Mnemosyne."
+  (interactive "sFrom (lemma/theorem): \nsTo (dependency): ")
+  (if (fboundp 'sophia-mnemosyne-create-wire)
+      (sophia-mnemosyne-create-wire from to "proof:dependsOn")
+    (user-error "sophia-mnemosyne not loaded")))
+
 ;;; Window Layout
 
 (defun causal-proofreader-layout-three ()
@@ -287,11 +304,15 @@
    ["Window"
     ("w" "Layout›" causal-proofreader-window-tmenu)]
 
-   ["CatColab"
+   ["Export"
     ("C" "CatColab›" causal-catcolab-tmenu
      :if (lambda () (featurep 'causal-catcolab)))
     ("O" "Proof → Olog" causal-catcolab-save-proof-as-olog
-     :if (lambda () (featurep 'causal-catcolab)))]]
+     :if (lambda () (featurep 'causal-catcolab)))
+    ("M" "Save to Mnemosyne" causal-proofreader-save-to-mnemosyne
+     :if (lambda () (featurep 'sophia-mnemosyne)))
+    ("W" "Wire dependency…" causal-proofreader-wire-proof-dep
+     :if (lambda () (featurep 'sophia-mnemosyne)))]]
 
   [:class transient-row
    (causal-lib-quit-one)
