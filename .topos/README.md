@@ -1,19 +1,40 @@
 # .topos — Causal ProofReader Knowledge Layer
 
-Transcripts, skills, and MCP integrations for `casual-proofreader`.
+Transcripts, skills, and MCP integrations for `causal-proofreader`.
 
 ## Structure
 
 ```
 .topos/
-├── README.md              # This file
-├── mcp/                   # MCP server configs
-│   └── mnemosyne.json     # sophia-labs/mnemosyne-mcp integration
-├── transcripts/           # Proof session transcripts
-├── skills/                # Local skill definitions
-│   └── casual-proofreader/
-└── references/            # Papers, notes
+├── README.md
+├── mcp/
+│   └── mnemosyne.json           # sophia-labs/mnemosyne-mcp config
+├── transcripts/
+│   └── 2026-02-18-init.md
+├── scripts/
+│   └── setup-mnemosyne-all-clis.bb  # Configure neem for 7 AI CLIs
+├── skills/
+│   ├── casual-proofreader/      # Transient menus for proof assistants
+│   │   └── SKILL.md
+│   ├── sophia-emacs/            # Mnemosyne RDF from Emacs + all CLIs
+│   │   └── SKILL.md
+│   ├── catcolab/                # CatColab categorical modeling
+│   │   └── SKILL.md
+│   └── proofreader-interleave/  # Outside-in membrane skill
+│       └── SKILL.md
+└── references/
 ```
+
+## Elisp Packages
+
+| File | Description |
+|---|---|
+| `lisp/causal-proofreader.el` | Transient UI for Proof General / Lean 4 / Narya |
+| `lisp/causal-proofreader-utils.el` | Backend detection, Unicode DB, dispatch |
+| `lisp/causal-proofreader-settings.el` | Settings menu |
+| `lisp/sophia-mnemosyne.el` | Emacs client for Mnemosyne RDF knowledge graph |
+| `lisp/causal-catcolab.el` | Transient UI for CatColab (ologs, causal loops, Petri nets) |
+| `lisp/causal-catcolab-utils.el` | JSON-RPC 2.0 client for CatColab backend |
 
 ## MCP Integration: Mnemosyne
 
@@ -25,8 +46,11 @@ provides RDF knowledge graph storage for proof artifacts:
 - **Wires** → semantic connections between proof steps (bridge types)
 - **SPARQL** → query proof relationships
 
-## GF(3) Triad
+Configured for 7 CLIs: Claude Code, Codex, Gemini, Copilot, Droid, Vibe, Kimi.
+
+## GF(3) Triads
 
 ```
-casual-proofreader (0) ⊗ proofgeneral-narya (-1) ⊗ lean-proof-walk (+1) = 0
+causal-proofreader (0) ⊗ catcolab (-1) ⊗ sophia-emacs (+1) = 0
+sophia-emacs (+1) ⊗ causal-proofreader (0) ⊗ narya-proofs (-1) = 0
 ```
