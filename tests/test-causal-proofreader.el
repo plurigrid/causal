@@ -103,7 +103,7 @@
     (insert "lemma foo : ? := ?")
     (goto-char (point-max))
     (causal-proofreader-prev-hole)
-    (should (= (point) 13))))
+    (should (= (point) 18))))
 
 ;;; Settings Tests
 
