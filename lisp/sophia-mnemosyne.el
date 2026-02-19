@@ -34,7 +34,8 @@
 ;; SETUP
 ;; 1. Install neem: cd ~/i/mnemosyne-mcp && uv tool install -e .
 ;; 2. Start backend: neem serve
-;; 3. Configure CLIs: bash ~/i/causal/.topos/scripts/setup-mnemosyne-all-clis.sh
+;; 3. Configure CLIs: bb ~/i/causal/.topos/scripts/setup-mnemosyne-all-clis.bb
+;; 4. Self-operating LLM: (require 'sophia-mnemosyne-llm)
 
 ;;; Code:
 
