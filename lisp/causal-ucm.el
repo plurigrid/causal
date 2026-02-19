@@ -36,6 +36,7 @@
 
 (require 'causal-ucm-settings)
 (require 'causal-ucm-utils)
+(require 'causal-ucm-scratch)
 
 ;;;###autoload (autoload 'causal-ucm-tmenu "causal-ucm" nil t)
 (transient-define-prefix causal-ucm-tmenu ()
@@ -129,8 +130,17 @@
     ("R" "Reset" causal-ucm-reset)
     ("g" "Reflog" causal-ucm-reflog)]]
 
-  ["Utilities"
-   ["Misc"
+  ["Scratch Pads"
+   ["Open"
+    :pad-keys t
+    ("N" "New definition" causal-ucm-scratch-new)
+    ("E" "Edit term…" causal-ucm-scratch-term)
+    ("W" "Edit namespace…" causal-ucm-scratch-namespace)
+    ("X" "Explore term…" causal-ucm-scratch-explore)
+    ("K" "Test term…" causal-ucm-scratch-test)
+    ("J" "Merge branch…" causal-ucm-scratch-merge)]
+
+   ["Utilities"
     :pad-keys t
     ("n" "Move/Rename" causal-ucm-move)
     ("w" "Alias term" causal-ucm-alias-term)

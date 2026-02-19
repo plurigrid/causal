@@ -41,7 +41,8 @@ isearch-tests					\
 make-mode-tests					\
 man-tests					\
 re-builder-tests				\
-timezone-tests
+timezone-tests					\
+ucm-tests
 
 .PHONY: lib-tests
 lib-tests:
@@ -143,3 +144,7 @@ re-builder-tests:
 .PHONY: timezone-tests
 timezone-tests:
 	$(MAKE) -C $(SRC_DIR) -f Makefile-timezone.make tests
+
+.PHONY: ucm-tests
+ucm-tests:
+	$(MAKE) -C $(SRC_DIR) -f Makefile-ucm.make tests
