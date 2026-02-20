@@ -34,6 +34,7 @@
 (require 'cl-lib)
 (require 'transient)
 (require 'causal-lib)
+(require 'causal-self-walker-mc nil t)
 
 ;;; Customization
 
@@ -49,6 +50,16 @@
 
 (defcustom causal-self-walker-max-retries 3
   "Maximum tactic retries per step before backtracking."
+  :type 'integer
+  :group 'causal-self-walker)
+
+(defcustom causal-self-walker-use-mc nil
+  "When non-nil, use abductive Monte Carlo tactic proposals during walk."
+  :type 'boolean
+  :group 'causal-self-walker)
+
+(defcustom causal-self-walker-mc-top-k 3
+  "Number of top MC proposals to try per step."
   :type 'integer
   :group 'causal-self-walker)
 
@@ -268,30 +279,68 @@ Returns non-nil on success."
         t)
     (error nil)))
 
+;;; MC Integration
+
+(defun causal-self-walker--mc-available-p ()
+  "Return non-nil if the MC module is loaded."
+  (featurep 'causal-self-walker-mc))
+
+(defun causal-self-walker--mc-step (step)
+  "Attempt a step using MC-ranked tactic proposals.
+Returns the tactic name on success, nil on failure."
+  (when (causal-self-walker--mc-available-p)
+    (let* ((goal (causal-self-walker--scan-goal))
+           (vocab (causal-self-walker-tactic-vocab))
+           (proposals (causal-self-walker-mc-propose
+                       goal vocab causal-self-walker--seed))
+           (top-k (cl-subseq proposals 0
+                             (min causal-self-walker-mc-top-k
+                                  (length proposals))))
+           (accepted nil))
+      (cl-loop for entry in top-k
+               for tactic = (car entry)
+               for score = (cdr entry)
+               until accepted
+               do (let ((ok (causal-self-walker--try-step-forward)))
+                    (when ok
+                      (setq accepted tactic))))
+      accepted)))
+
 ;;;###autoload
 (defun causal-self-walker-run ()
   "Run the self-walker on the current proof buffer.
 Steps through the proof, recording each state transition,
-and exports the result as a CatColab olog on completion."
+and exports the result as a CatColab olog on completion.
+When `causal-self-walker-use-mc' is non-nil and the MC module
+is loaded, uses abductive Monte Carlo tactic proposals."
   (interactive)
-  (message "Self-walker: initializing...")
+  (message "Self-walker: initializing%s..."
+           (if (and causal-self-walker-use-mc
+                    (causal-self-walker--mc-available-p))
+               " (MC mode)" ""))
   (causal-self-walker--init)
   (let ((step 0)
         (max-steps causal-self-walker-max-steps)
+        (use-mc (and causal-self-walker-use-mc
+                     (causal-self-walker--mc-available-p)))
         (done nil))
     (while (and (not done) (< step max-steps))
       (cl-incf step)
-      (let ((accepted (causal-self-walker--try-step-forward)))
+      (let ((accepted (if use-mc
+                          (causal-self-walker--mc-step step)
+                        (causal-self-walker--try-step-forward))))
         (if accepted
             (let* ((hyps (causal-self-walker--scan-hypotheses))
-                   (goal (causal-self-walker--scan-goal)))
+                   (goal (causal-self-walker--scan-goal))
+                   (tactic-name (if (stringp accepted) accepted "step-forward"))
+                   (source-fn (if use-mc "mc-propose" "causal-proof-step-forward")))
               (if (causal-self-walker--no-goals-p goal)
                   (progn
                     (causal-self-walker--record-state
-                     step hyps "No Goals" "" "proof-complete" 'qed)
+                     step hyps "No Goals" tactic-name source-fn 'qed)
                     (setq done t))
                 (causal-self-walker--record-state
-                 step hyps goal "step-forward" "causal-proof-step-forward" 'active)))
+                 step hyps goal tactic-name source-fn 'active)))
           (causal-self-walker--record-state
            step nil "" "step-forward" "causal-proof-step-forward" 'rejected)
           (setq done t))))
@@ -302,9 +351,10 @@ and exports the result as a CatColab olog on completion."
                    'qed))
       (when (y-or-n-p "Proof complete! Export to CatColab olog? ")
         (causal-catcolab-save-proof-as-olog)))
-    (message "Self-walker: %s after %d steps (seed #x%X)"
+    (message "Self-walker: %s after %d steps (seed #x%X)%s"
              (if done "finished" "halted (max steps)")
-             step causal-self-walker--seed)))
+             step causal-self-walker--seed
+             (if use-mc " [MC]" ""))))
 
 ;;;###autoload
 (defun causal-self-walker-show-chain ()
@@ -417,6 +467,15 @@ Each proof state becomes an olog object; transitions become morphisms."
         causal-self-walker--tactic-vocab nil)
   (message "Self-walker: reset."))
 
+;;; Toggle
+
+;;;###autoload
+(defun causal-self-walker-toggle-mc ()
+  "Toggle Monte Carlo tactic proposal mode."
+  (interactive)
+  (setq causal-self-walker-use-mc (not causal-self-walker-use-mc))
+  (message "Self-walker MC mode: %s" (if causal-self-walker-use-mc "ON" "OFF")))
+
 ;;; Transient Menu
 
 ;;;###autoload (autoload 'causal-self-walker-tmenu "causal-self-walker" nil t)
@@ -437,6 +496,13 @@ Each proof state becomes an olog object; transitions become morphisms."
    ["Inspect"
     ("c" "Show chain" causal-self-walker-show-chain)
     ("v" "Show tactic vocab" causal-self-walker-show-vocab)]
+
+   ["Monte Carlo"
+    ("m" "MC proposals" causal-self-walker-mc-show-proposals
+     :if (lambda () (causal-self-walker--mc-available-p)))
+    ("M" "Toggle MC mode" causal-self-walker-toggle-mc
+     :description (lambda ()
+                    (format "MC mode: %s" (if causal-self-walker-use-mc "ON" "OFF"))))]
 
    ["Export"
     ("o" "Final state > Olog" causal-self-walker-export-olog
