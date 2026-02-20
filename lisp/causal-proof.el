@@ -58,6 +58,7 @@
 (require 'causal-proof-settings)
 (require 'causal-catcolab nil t)
 (require 'causal-xypic nil t)
+(require 'causal-self-walker nil t)
 (require 'sophia-mnemosyne nil t)
 
 ;;; ── Navigation ───────────────────────────────────────────────────────
@@ -297,6 +298,8 @@
    ["Diagrams & Export"
     ("x" "XY-pic 2-cells>" causal-xypic-tmenu
      :if (lambda () (featurep 'causal-xypic)))
+    ("S" "Self-walk>" causal-self-walker-tmenu
+     :if (lambda () (featurep 'causal-self-walker)))
     ("C" "CatColab>" causal-catcolab-tmenu
      :if (lambda () (featurep 'causal-catcolab)))
     ("O" "Proof > Olog" causal-catcolab-save-proof-as-olog
