@@ -45,7 +45,12 @@
     (:up-arrow         . '("↑" "Prev"))
     (:down-arrow       . '("↓" "Next"))
     (:window           . '("⊞" "Layout"))
-    (:bridge           . '("≡" "Bridge")))
+    (:bridge           . '("≡" "Bridge"))
+    (:morphism         . '("→" "->"))
+    (:object           . '("●" "Ob"))
+    (:theory           . '("𝕋" "Th"))
+    (:elaborate        . '("⊨" "Elab"))
+    (:geb              . '("λ" "Geb")))
   "Unicode symbol DB for ProofReader Transient menus.")
 
 (defun causal-proofreader-unicode-get (key)
@@ -71,11 +76,18 @@ returned, otherwise a plain ASCII-range string."
   "Return non-nil if narya-mode is active."
   (derived-mode-p 'narya-mode))
 
+(defun causal-proofreader--doublett-mode-p ()
+  "Return non-nil if in a CatColab DoubleTT buffer (.dtt or doublett-mode)."
+  (or (derived-mode-p 'doublett-mode)
+      (and buffer-file-name
+           (string-match-p "\\.dtt\\'" buffer-file-name))))
+
 (defun causal-proofreader--backend ()
   "Detect which proof assistant backend is active.
-Returns one of: `proof-general', `lean', `narya', or nil."
+Returns one of: `proof-general', `lean', `narya', `doublett', or nil."
   (cond
    ((causal-proofreader--narya-mode-p) 'narya)
+   ((causal-proofreader--doublett-mode-p) 'doublett)
    ((causal-proofreader--lean-mode-p) 'lean)
    ((causal-proofreader--proof-general-p) 'proof-general)
    (t nil)))
@@ -84,21 +96,24 @@ Returns one of: `proof-general', `lean', `narya', or nil."
   "Return human-readable name of active proof backend."
   (pcase (causal-proofreader--backend)
     ('narya "Narya")
+    ('doublett "DoubleTT")
     ('lean "Lean")
     ('proof-general "Proof General")
     (_ "No backend")))
 
 ;;; Dispatch Helpers
 
-(defun causal-proofreader--dispatch (pg-fn lean-fn narya-fn &optional fallback-msg)
+(defun causal-proofreader--dispatch (pg-fn lean-fn narya-fn &optional fallback-msg doublett-fn)
   "Dispatch to appropriate function based on active backend.
 PG-FN for Proof General, LEAN-FN for Lean, NARYA-FN for Narya.
+Optional DOUBLETT-FN for CatColab DoubleTT (falls back to NARYA-FN).
 FALLBACK-MSG shown if no backend detected."
   (let ((backend (causal-proofreader--backend)))
     (pcase backend
       ('proof-general (call-interactively pg-fn))
       ('lean (call-interactively lean-fn))
       ('narya (call-interactively narya-fn))
+      ('doublett (call-interactively (or doublett-fn narya-fn)))
       (_ (message (or fallback-msg "No proof assistant detected in current buffer."))))))
 
 (provide 'causal-proofreader-utils)
