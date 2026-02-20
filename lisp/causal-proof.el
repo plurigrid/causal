@@ -307,7 +307,9 @@
     ("M" "Save to Mnemosyne" causal-proof-save-to-mnemosyne
      :if (lambda () (featurep 'sophia-mnemosyne)))
     ("W" "Wire dep…" causal-proof-wire-dep
-     :if (lambda () (featurep 'sophia-mnemosyne)))]]
+     :if (lambda () (featurep 'sophia-mnemosyne)))
+    ("P" "Paperproof" causal-self-walker-paperproof-view
+     :if (lambda () (featurep 'causal-self-walker-paperproof)))]]
 
   [:class transient-row
    (causal-lib-quit-one)

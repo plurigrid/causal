@@ -36,6 +36,7 @@
 (require 'causal-lib)
 (require 'causal-self-walker-mc nil t)
 (require 'causal-self-walker-skill-gen nil t)
+(require 'causal-self-walker-paperproof nil t)
 
 ;;; Customization
 
@@ -519,7 +520,18 @@ Each proof state becomes an olog object; transitions become morphisms."
                          (featurep 'causal-self-walker-skill-gen))))
     ("G" "Preview skill" causal-self-walker-skill-gen-preview
      :if (lambda () (and causal-self-walker--chain
-                         (featurep 'causal-self-walker-skill-gen))))]]
+                         (featurep 'causal-self-walker-skill-gen))))]
+
+   ["Paperproof"
+    ("P" "View proof tree" causal-self-walker-paperproof-view
+     :if (lambda () (and causal-self-walker--chain
+                         (featurep 'causal-self-walker-paperproof))))
+    ("j" "Export JSON" causal-self-walker-paperproof-export-json
+     :if (lambda () (and causal-self-walker--chain
+                         (featurep 'causal-self-walker-paperproof))))
+    ("H" "Export HTML" causal-self-walker-paperproof-export-html
+     :if (lambda () (and causal-self-walker--chain
+                         (featurep 'causal-self-walker-paperproof))))]]
 
   [:class transient-row
    (causal-lib-quit-one)
