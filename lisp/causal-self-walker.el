@@ -35,6 +35,7 @@
 (require 'transient)
 (require 'causal-lib)
 (require 'causal-self-walker-mc nil t)
+(require 'causal-self-walker-skill-gen nil t)
 
 ;;; Customization
 
@@ -510,7 +511,15 @@ Each proof state becomes an olog object; transitions become morphisms."
                          (fboundp 'causal-catcolab-save-proof-as-olog))))
     ("O" "Full chain > Olog" causal-self-walker-export-chain-as-olog
      :if (lambda () (and causal-self-walker--chain
-                         (fboundp 'causal-catcolab-new-ref))))]]
+                         (fboundp 'causal-catcolab-new-ref))))]
+
+   ["ASI Skills"
+    ("g" "Generate skill" causal-self-walker-skill-gen-export
+     :if (lambda () (and causal-self-walker--chain
+                         (featurep 'causal-self-walker-skill-gen))))
+    ("G" "Preview skill" causal-self-walker-skill-gen-preview
+     :if (lambda () (and causal-self-walker--chain
+                         (featurep 'causal-self-walker-skill-gen))))]]
 
   [:class transient-row
    (causal-lib-quit-one)
