@@ -42,6 +42,7 @@
     ("Nordstrom"  . "849VQHMV+H2")
     ("TaskRabbit" . "849VQHMR+X6")
     ("DoorDash"   . "849VQHFJ+X6")
+    ("Allbirds"   . "849VQHFJ+X6")
     ("Adafruit"   . "87G8Q2JM+2V")
     ("DigiKey"    . "86P8WR55+PX")
     ("Amazon"     . "849VQHFJ+X6"))
@@ -230,6 +231,21 @@
                               (format "Browse %s -- send top 3 picks" category)
                               "Exploratory: order 2 sizes, return what doesn't fit.")))
 
+;;; --- UCP LIVE: Allbirds (first live UCP merchant) ---
+
+(transient-define-suffix commerce-dispatch-allbirds-ucp ()
+  :key "a"
+  :description (lambda () (format "%s Allbirds UCP LIVE — MCP checkout (wide toe box)"
+                                  (commerce--gf3-indicator -1)))
+  (interactive)
+  (let ((item (completing-read "Allbirds shoe: "
+                               '("Tree Runners" "Wool Runners" "Tree Dashers"
+                                 "Wool Runner Mizzles" "Tree Loungers")
+                               nil nil "Tree Runners")))
+    (commerce-dispatch--place "Allbirds"
+                              (format "%s (size 7.5W, wide toe box)" item)
+                              "UCP LIVE: allbirds.com/api/ucp/mcp | Google Pay / Shopify Card | ships to hotels")))
+
 ;;; --- ELECTRONICS: Adafruit / SparkFun / DigiKey / Amazon ---
 
 (transient-define-suffix commerce-dispatch-electronics ()
@@ -347,6 +363,8 @@
    ("+" "PLUS: Rent-A-Human (TaskRabbit)>" commerce-dispatch-physical)
    ("0" "ERGODIC: Instacart / Nordstrom / DoorDash>" commerce-dispatch-hybrid)
    ("-" "MINUS: Online / Returns>" commerce-dispatch-online)]
+  ["UCP Live"
+   ("a" "Allbirds UCP (wide toe box shoes)" commerce-dispatch-allbirds-ucp)]
   ["One-Key Commerce"
    ("i" "Instacart item" commerce-dispatch-instacart)
    ("z" "Zappos item (free returns)" commerce-dispatch-zappos)

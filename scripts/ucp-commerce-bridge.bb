@@ -204,17 +204,22 @@
 
   ;; DA: Discovery (simulate — real merchants need live UCP endpoints)
   (println "── DA: Merchant Discovery ──────────────────────────────────────")
-  (let [merchants [{:name "Adafruit"  :url "https://www.adafruit.com"  :ucp false}
+  (let [merchants [{:name "Allbirds"  :url "https://www.allbirds.com"  :ucp true
+                    :mcp "https://www.allbirds.com/api/ucp/mcp"
+                    :caps ["checkout" "fulfillment" "discount"]
+                    :pay  ["Google Pay" "Shopify Card"]}
+                   {:name "Adafruit"  :url "https://www.adafruit.com"  :ucp false}
                    {:name "Amazon"    :url "https://www.amazon.com"    :ucp false}
                    {:name "SparkFun"  :url "https://www.sparkfun.com"  :ucp false}
                    {:name "DigiKey"   :url "https://www.digikey.com"   :ucp false}]]
     (doseq [m merchants]
-      (println (format "  [DA] %s — UCP endpoint: %s"
-                       (:name m)
-                       (if (:ucp m) "LIVE" "NOT YET (pre-UCP merchant)")))))
-  (println "  [DA] NOTE: UCP adoption is early. Most electronics merchants")
-  (println "       do not yet serve /.well-known/ucp profiles.")
-  (println "       When they do, DA will auto-discover and cache them.")
+      (if (:ucp m)
+        (do (println (format "  [DA] %s — UCP LIVE at %s" (:name m) (:mcp m)))
+            (println (format "       Capabilities: %s" (str/join ", " (:caps m))))
+            (println (format "       Payment: %s" (str/join ", " (:pay m))))
+            (audit! "DA" "discover" (:name m) "ok"))
+        (println (format "  [DA] %s — NOT YET (pre-UCP)" (:name m))))))
+  (println "  [DA] Allbirds is LIVE. Other electronics merchants pending UCP adoption.")
   (println)
 
   ;; DB: Cart creation (simulate with Hero BOM items)

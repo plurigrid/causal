@@ -53,7 +53,7 @@
 
 (def channels
   [{:letter "A" :name "amazon"         :trit  1 :class :marketplace  :desc "Amazon Prime — universal marketplace, 1-2 day"}
-   {:letter "B" :name "build-direct"   :trit -1 :class :specialist   :desc "Direct from manufacturer/brand site"}
+   {:letter "B" :name "allbirds-ucp"   :trit -1 :class :ucp-live     :desc "Allbirds UCP LIVE — MCP checkout via Shopify, Google Pay (wide toe box shoes)"}
    {:letter "C" :name "cobbler-craft"  :trit  0 :class :artisan      :desc "Local artisan/craftsperson via referral"}
    {:letter "D" :name "delivery-app"   :trit  1 :class :same-day     :desc "Instacart/DoorDash/Shipt — same-day from local store"}
    {:letter "E" :name "ebay-resale"    :trit -1 :class :resale       :desc "eBay authenticated resale/pre-owned"}
@@ -85,7 +85,8 @@
 
 (def categories
   {:shoes      {:constraints ["size" "width" "toe_box" "heel" "arch"]
-                :channels    #{"A" "B" "D" "E" "H" "N" "Q" "S" "V" "Z"}}
+                :channels    #{"A" "B" "D" "E" "H" "N" "Q" "S" "V" "Z"}
+                :ucp-live    #{"B"}}  ;; B=Allbirds: LIVE UCP MCP checkout
    :mattress   {:constraints ["size" "firmness" "material" "height"]
                 :channels    #{"A" "B" "G" "I" "L" "S" "V"}}
    :furniture  {:constraints ["dimensions" "material" "color" "assembly"]
@@ -135,7 +136,7 @@
    {:item "towels"            :cat :bathroom   :pri 1 :constraints {"type" "bath+hand" "count" "4" "material" "cotton"}}
    {:item "trash-can"         :cat :misc       :pri 1 :constraints {"description" "small bedroom + bathroom"}}
    {:item "hangers"           :cat :misc       :pri 2 :constraints {"description" "20-30 non-slip"}}
-   {:item "shoes"             :cat :shoes      :pri 2 :constraints {"size" "7.5W" "width" "wide" "toe_box" "wide" "heel" "attached"}}
+   {:item "shoes-allbirds"    :cat :shoes      :pri 2 :constraints {"size" "7.5W" "width" "wide" "toe_box" "wide" "heel" "attached" "ucp" "allbirds.com/api/ucp/mcp"}}
    {:item "cleaning-supplies" :cat :cleaning   :pri 1 :constraints {"type" "all-purpose,glass,bathroom" "eco" "preferred"}}
    {:item "kitchen-basics"    :cat :kitchen    :pri 2 :constraints {"type" "pot,pan,utensils,plates,cups" "material" "stainless/ceramic"}}
    {:item "power-strip"       :cat :appliance  :pri 1 :constraints {"type" "surge-protector" "outlets" "6+"}}
@@ -435,7 +436,12 @@
       (println "  Hero electronics:     S (Adafruit/SparkFun/Digikey) or V (vendor direct)")
       (println "  Hero mechanical:      S (McMaster/Misumi) or A (Amazon)")
       (println "  Hero 3D-printed:      S (PCBWay/JLCPCB/local makerspace)")
-      (println "  Hero compute (RPi):   A or R (Micro Center)"))
+      (println "  Hero compute (RPi):   A or R (Micro Center)")
+      (println)
+      (println "  UCP LIVE MERCHANTS:")
+      (println "  Wide toe box shoes:   B (Allbirds UCP — MCP at allbirds.com/api/ucp/mcp)")
+      (println "    → Google Pay / Shopify Card, direct agent checkout, no browser needed")
+      (println "    → Tree Runners, Wool Runners: wide toe box, zero-drop, ships to hotels"))
 
     ;; default
     (do
