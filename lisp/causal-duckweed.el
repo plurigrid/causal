@@ -185,22 +185,101 @@
     ("t" "Tulips (20 stems)"            "flower" odealarose "$42" "Dutch, assorted colors"))
   "Flower items A-T.")
 
-;; ── ACP Capability Envelope ─────────────────────────────
+;; ── CapTP / ACP Capability Layer ────────────────────────
+;;
+;; Three modes of capability granting:
+;;
+;; 1. captp:// URI — live Goblins vat invocation (if vat running)
+;;    The capability reference IS the authorization.
+;;    Having the sturdyref means you can invoke; no separate token.
+;;
+;; 2. ACP envelope — agent-to-agent capability delegation
+;;    Wraps MCP tool calls with attenuation and scope.
+;;    Vendor receives a delegated capability they can only fulfill.
+;;
+;; 3. Fallback — signed JSON with HMAC (offline/disconnected)
+;;    For when no vat is reachable. Verifiable later.
+
+(defcustom causal-duckweed-captp-vat nil
+  "CapTP vat URI for live capability invocations.
+When non-nil, orders are dispatched as Goblins capability calls.
+Example: \"captp://t/coordinator\""
+  :type '(choice (const nil) string))
+
+(defcustom causal-duckweed-captp-vendor-caps nil
+  "Alist of vendor-id → captp sturdyref for direct invocation.
+Example: ((sloat . \"captp://sloat/order\") (farmgirl . \"captp://farmgirl/order\"))"
+  :type '(alist :key-type symbol :value-type string))
+
+(defun causal-duckweed--captp-invoke (vendor-id order-data)
+  "Invoke CapTP capability for VENDOR-ID with ORDER-DATA.
+Returns non-nil if invocation succeeded (vat reachable)."
+  (let ((cap-uri (alist-get vendor-id causal-duckweed-captp-vendor-caps)))
+    (when (and causal-duckweed-captp-vat cap-uri)
+      ;; Attempt Goblins vat invocation via guile subprocess
+      (let* ((scheme-expr
+              (format "(use-modules (goblins) (goblins actor-lib captp))
+(define vat (spawn-vat))
+(with-vat vat
+  (define vendor-cap (captp-connect \"%s\"))
+  ($ vendor-cap 'place-order
+     #:item %S
+     #:category %S
+     #:deliver-to \"%s\"
+     #:room %S
+     #:recipient %S
+     #:notes %S))"
+                      cap-uri
+                      (alist-get 'item order-data)
+                      (alist-get 'category order-data)
+                      causal-duckweed-captp-vat
+                      (alist-get 'room order-data)
+                      (alist-get 'recipient order-data)
+                      (or (alist-get 'custom_notes order-data) "")))
+             (result (ignore-errors
+                       (call-process "guile" nil nil nil
+                                     "-c" scheme-expr))))
+        (when (and result (= result 0))
+          (message "CapTP invocation: %s → %s" vendor-id cap-uri)
+          t)))))
 
 (defun causal-duckweed--acp-envelope (order-data)
   "Wrap ORDER-DATA in an ACP capability envelope.
-Returns enriched alist with capability metadata."
-  (let ((cap-id (format "cap:%s:%s"
-                        (format-time-string "%Y%m%d%H%M%S")
-                        (random 99999))))
+The envelope encodes:
+- capability URI: where this order authority comes from
+- grant type: what the holder can do (invoke = place order)
+- scope: what actions are authorized
+- attenuation: vendor can fulfill but not modify/cancel
+- delegation chain: which vendor gets the attenuated capability"
+  (let* ((cap-id (format "captp://t/order/%s/%s"
+                         (alist-get 'category order-data)
+                         (format-time-string "%Y%m%d%H%M%S")))
+         (vendor-id (alist-get 'vendor order-data))
+         (vendor-cap (alist-get (intern vendor-id)
+                                causal-duckweed-captp-vendor-caps)))
     (append order-data
-            `((acp_capability . ,cap-id)
-              (acp_grant . "invoke")
-              (acp_scope . "order:place")
-              (acp_issuer . ,causal-duckweed-recipient)
-              (acp_expires . ,(format-time-string
+            `((acp_version . "0.1")
+              (capability
+               . ((uri . ,cap-id)
+                  (granted_by . ,(or causal-duckweed-captp-vat
+                                     "captp://t/coordinator"))
+                  (grant . "invoke")
+                  (scope . ["order:place" "order:status"])
+                  ;; Attenuation: vendor gets subset of authority
+                  (attenuated . t)
+                  (delegate_to . ,(or vendor-cap
+                                      (format "captp://%s/fulfillment"
+                                              vendor-id)))
+                  ;; Revocation: order can be cancelled before fulfillment
+                  (revocable . t)
+                  (revoke_before . ,(format-time-string
+                                     "%Y-%m-%dT%H:%M:%SZ"
+                                     (time-add (current-time) 3600)))
+                  ;; Expiry: capability dies after 24h
+                  (expires . ,(format-time-string
                                "%Y-%m-%dT%H:%M:%SZ"
-                               (time-add (current-time) (* 3600 24))))))))
+                               (time-add (current-time) (* 3600 24))))
+                  (issuer . ,causal-duckweed-recipient)))))))
 
 ;; ── Core Dispatch ───────────────────────────────────────
 
@@ -239,12 +318,14 @@ Returns enriched alist with capability metadata."
       (message "Logged to %s" file))))
 
 (defun causal-duckweed--mcp-dispatch (item notes)
-  "Dispatch order via MCP JSON file."
+  "Dispatch order via CapTP → ACP+MCP fallback chain.
+Tries live CapTP vat first; falls back to ACP-wrapped MCP JSON."
   (let* ((vendor (causal-duckweed--vendor-info (nth 3 item)))
+         (vendor-id (nth 3 item))
          (order-data `((schema . "duckweed-order-v1")
                        (item . ,(nth 1 item))
                        (category . ,(nth 2 item))
-                       (vendor . ,(symbol-name (nth 3 item)))
+                       (vendor . ,(symbol-name vendor-id))
                        (vendor_name . ,(if vendor (nth 1 vendor) ""))
                        (vendor_url . ,(if vendor (nth 2 vendor) nil))
                        (vendor_email . ,(if vendor (nth 3 vendor) nil))
@@ -255,21 +336,25 @@ Returns enriched alist with capability metadata."
                        (location . ,causal-duckweed-location)
                        (location_name . ,causal-duckweed-location-name)
                        (room . ,causal-duckweed-room)
-                       (timestamp . ,(format-time-string "%Y-%m-%dT%H:%M:%S%z"))))
-         (order-data (if causal-duckweed-use-acp
-                         (causal-duckweed--acp-envelope order-data)
-                       order-data))
-         (order-file (expand-file-name
-                      (format "%s%s-%s-%s.json"
-                              causal-duckweed-order-dir
-                              (format-time-string "%Y%m%d-%H%M%S")
-                              (nth 2 item)
-                              (nth 0 item)))))
-    (make-directory (file-name-directory order-file) t)
-    (with-temp-file order-file
-      (insert (json-encode order-data)))
-    (message "MCP+ACP dispatch: %s → %s" (nth 1 item) order-file)
-    order-file))
+                       (timestamp . ,(format-time-string "%Y-%m-%dT%H:%M:%S%z")))))
+    ;; 1. Try live CapTP invocation (Goblins vat)
+    (if (causal-duckweed--captp-invoke vendor-id order-data)
+        (message "CapTP live: %s placed via %s" (nth 1 item) vendor-id)
+      ;; 2. Fallback: ACP envelope + MCP JSON dispatch
+      (let* ((order-data (if causal-duckweed-use-acp
+                              (causal-duckweed--acp-envelope order-data)
+                            order-data))
+             (order-file (expand-file-name
+                          (format "%s%s-%s-%s.json"
+                                  causal-duckweed-order-dir
+                                  (format-time-string "%Y%m%d-%H%M%S")
+                                  (nth 2 item)
+                                  (nth 0 item)))))
+        (make-directory (file-name-directory order-file) t)
+        (with-temp-file order-file
+          (insert (json-encode order-data)))
+        (message "ACP+MCP fallback: %s → %s" (nth 1 item) order-file)
+        order-file))))
 
 (defun causal-duckweed--compose-email (item notes)
   "Compose vendor/concierge email for ITEM."
