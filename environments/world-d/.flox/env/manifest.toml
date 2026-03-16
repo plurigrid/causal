@@ -1,0 +1,59 @@
+## Flox Environment Manifest — World D (#BA2645)
+## UCP Commerce Hamming Swarm: DA, DB, DC, DE, DF, DG
+## 24 entities, GF(3): {-1:0, 0:24, +1:0} — all ERGODIC
+version = 1
+
+[install]
+nodejs.pkg-path = "nodejs_22"
+python3.pkg-path = "python3"
+uv.pkg-path = "uv"
+babashka.pkg-path = "babashka"
+jq.pkg-path = "jq"
+curl.pkg-path = "curl"
+
+[vars]
+WORLD_LETTER = "D"
+WORLD_COLOR = "#BA2645"
+WORLD_SEED = "1069"
+GF3_MINUS = "0"
+GF3_ERGODIC = "24"
+GF3_PLUS = "0"
+UCP_PROFILE_CACHE = "$FLOX_ENV_CACHE/ucp-profiles"
+UCP_ORDERS_DIR = "/tmp/ucp-orders"
+HAMMING_AGENTS = "DA,DB,DC,DE,DF,DG"
+
+[hook]
+on-activate = '''
+  mkdir -p "$FLOX_ENV_CACHE/ucp-profiles"
+  mkdir -p /tmp/ucp-orders
+
+  # Install UCP SDK + Shippo MCP + MCP proxy if not present
+  if [ ! -d "$FLOX_ENV_CACHE/node_modules/@ucp-js" ]; then
+    echo "[D] Installing UCP SDK + Shippo MCP + ucp-mcp-proxy..."
+    cd "$FLOX_ENV_CACHE"
+    npm init -y --silent 2>/dev/null
+    npm install --save @ucp-js/sdk ucp-mcp-proxy @shippo/shippo-mcp 2>/dev/null
+    echo "[D] UCP toolchain installed."
+  fi
+
+  export NODE_PATH="$FLOX_ENV_CACHE/node_modules"
+  export PATH="$FLOX_ENV_CACHE/node_modules/.bin:$PATH"
+'''
+
+[profile]
+common = '''
+  export NODE_PATH="$FLOX_ENV_CACHE/node_modules"
+  export PATH="$FLOX_ENV_CACHE/node_modules/.bin:$PATH"
+  echo "World D (#BA2645) — UCP Commerce Hamming Swarm"
+  echo "  Agents: DA(discover) DB(basket) DC(checkout) DE(eligibility) DF(fulfill) DG(govern)"
+  echo "  UCP SDK: @ucp-js/sdk | Shippo: @shippo/shippo-mcp | Proxy: ucp-mcp-proxy"
+  echo "  uvx available: $(which uvx 2>/dev/null || echo 'via uv tool run')"
+'''
+
+[services]
+# UCP-MCP proxy bridges stdio MCP to remote UCP HTTP endpoints
+# Start with: flox services start
+# ucp-proxy.command = "npx ucp-mcp-proxy --config $FLOX_ENV_PROJECT/ucp-proxy.json"
+
+[options]
+systems = ["aarch64-darwin", "x86_64-linux"]
