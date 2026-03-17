@@ -88,8 +88,13 @@ working hour in `causal-timezone-planner'."
   :type 'string
   :group 'causal)
 
-(defcustom causal-timezone-zone-info-database "/usr/share/zoneinfo/tzdata.zi"
-  "Path to the tzdata.zi file used by `causal-timezone-zone-info'."
+(defcustom causal-timezone-zone-info-database
+  (file-name-concat (or (getenv "TZDIR") "/usr/share/zoneinfo")
+                    "tzdata.zi")
+  "Path to the tzdata.zi file used by `causal-timezone-zone-info'.
+
+Defaults to $TZDIR/tzdata.zi when the TZDIR environment variable
+is set and /usr/share/zoneinfo/tzdata.zi otherwise."
   :type 'file
   :group 'causal)
 

@@ -1,8 +1,8 @@
 * Ediff
 #+CINDEX: Ediff
-#+VINDEX: causal-ediff-tmenu
+#+VINDEX: causal-ediff
 
-Causal Ediff is a user interface for Ediff ([[info:ediff#Top][Ediff]]), a visual interface for the Unix diff and patch utilities. Causal Ediff strives to improve the usability of Ediff by simplifying the following workflows:
+Causal Ediff (library: ~causal-ediff~) is a user interface for Ediff ([[info:ediff#Top][Ediff]]), a visual interface for the Unix diff and patch utilities. Causal Ediff strives to improve the usability of Ediff by simplifying the following workflows:
 
 - Comparing a modified and uncommitted version-controlled file with its most recent commit.
 - Resolving a merge conflicted file.
@@ -65,6 +65,7 @@ Causal Ediff recommends the following variables be set as follows:
 
 ** Ediff Usage
 #+CINDEX: Ediff Usage
+#+VINDEX: causal-ediff-tmenu
 
 [[file:images/causal-ediff-basic-screenshot.png]]
 

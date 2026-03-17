@@ -20,6 +20,12 @@ PACKAGE_NAME=causal-info
 ELISP_INCLUDES=causal-info-variables.el causal-info-utils.el
 ELISP_PACKAGES=causal-info-settings.el
 ELISP_TEST_INCLUDES=causal-info-test-utils.el
-PACKAGE_PATHS=-L $(CASUAL_LIB_LISP_DIR)
+PACKAGE_PATHS=					\
+-L $(EMACS_ELPA_DIR)/compat-current		\
+-L $(EMACS_ELPA_DIR)/seq-current		\
+-L $(EMACS_ELPA_DIR)/transient-current		\
+-L $(EMACS_ELPA_DIR)/cond-let-current		\
+-L $(CASUAL_LISP_DIR)
+
 
 include Makefile--rules.make

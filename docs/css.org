@@ -3,9 +3,9 @@
 :CUSTOM_ID: css-top
 :END:
 #+CINDEX: CSS
-#+VINDEX: causal-css-tmenu
+#+VINDEX: causal-css
 
-Causal CSS is a user interface for ~css-mode~. 
+Causal CSS (library: ~causal-css~) is a user interface for ~css-mode~. 
 
 [[file:images/causal-css-screenshot.png]]
 Causal also has support for HTML editing ([[#html-top][HTML]]).
@@ -28,6 +28,7 @@ A different binding ({{{kbd(M-m)}}}) is used as ~causal-css-tmenu~ is intended t
 
 ** CSS Usage
 #+CINDEX: CSS Usage
+#+VINDEX: causal-css-tmenu
 
 [[file:images/causal-css-screenshot.png]]
 
@@ -43,7 +44,7 @@ The following sections are offered in the menu:
   - “{{{kbd(h)}}} Highlight Line” toggles ~hl-line-mode~ to avoid interfering the display of color specifications.
   
 
-#+TEXINFO: @subheading CSS Settings
+#+TEXINFO: @subsubheading CSS Settings
 #+VINDEX: causal-css-settings-tmenu
 
 The menu ~causal-css-settings-tmenu~ provides access to different ~css-mode~ settings.
@@ -51,7 +52,7 @@ The menu ~causal-css-settings-tmenu~ provides access to different ~css-mode~ set
 [[file:images/causal-css-settings-screenshot.png]]
 
 
-#+TEXINFO: @subheading CSS Unicode Symbol Support
+#+TEXINFO: @subsubheading CSS Unicode Symbol Support
 
 By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal CSS will use Unicode symbols as appropriate in its menus.
 

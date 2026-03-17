@@ -1,8 +1,7 @@
 * Calendar
 #+CINDEX: Calendar
 #+VINDEX: causal-calendar
-#+VINDEX: causal-calendar-tmenu
-Causal Calendar is a user interface for Emacs Calendar/Diary. Its top-level library is ~causal-calendar~. Access to numerous calendar and diary commands are made available, most notably support for non-Gregorian calendar systems.
+Causal Calendar (library: ~causal-calendar~) is a user interface for Emacs Calendar/Diary. Its top-level library is ~causal-calendar~. Access to numerous calendar and diary commands are made available, most notably support for non-Gregorian calendar systems.
 
 
 [[file:images/causal-calendar-screenshot.png]]
@@ -21,6 +20,7 @@ The main menu for Causal Calendar (~causal-calendar-tmenu)~ is invoked by the co
 
 ** Calendar Usage
 #+CINDEX: Calendar Usage
+#+VINDEX: causal-calendar-tmenu
 
 [[file:images/causal-calendar-screenshot.png]]
 

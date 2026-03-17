@@ -1,8 +1,8 @@
 * Eshell
 #+CINDEX: Eshell
-#+VINDEX: causal-eshell-tmenu
+#+VINDEX: causal-eshell
 
-Causal Eshell is a user interface for ~Eshell~, a shell-like command interpreter implemented in Emacs Lisp.
+Causal Eshell (library: ~causal-eshell~) is a user interface for ~Eshell~, a shell-like command interpreter implemented in Emacs Lisp.
 
 [[file:images/causal-eshell-screenshot.png]]
 
@@ -22,6 +22,7 @@ In your initialization file, bind the Transient ~causal-eshell-tmenu~ to your ke
 
 ** Eshell Usage
 #+CINDEX: Eshell Usage
+#+VINDEX: causal-eshell-tmenu
 
 Eshell can be invoked via ~M-x eshell~. In the Eshell window, press {{{kbd(C-o)}}} (or your binding of preference) to raise the menu ~causal-eshell-tmenu~.
 
@@ -38,14 +39,14 @@ The following sections are offered in the menu:
   [[file:images/causal-eshell-process-screenshot.png]]
 
 
-#+TEXINFO: @subheading Eshell Settings
+#+TEXINFO: @subsubheading Eshell Settings
 #+VINDEX: causal-eshell-settings-tmenu
 
 The menu ~causal-eshell-settings-tmenu~ provides access to different ~eshell-mode~ settings.
 
 # TODO: Insert screenshot
 
-#+TEXINFO: @subheading Eshell Info
+#+TEXINFO: @subsubheading Eshell Info
 #+VINDEX: causal-eshell-info-tmenu
 
 The menu ~causal-eshell-info-tmenu~ provides access to different ~eshell-mode~ documentation in its Info manual.
@@ -53,7 +54,7 @@ The menu ~causal-eshell-info-tmenu~ provides access to different ~eshell-mode~ d
 # TODO: Insert screenshot
 
   
-#+TEXINFO: @subheading Eshell Unicode Symbol Support
+#+TEXINFO: @subsubheading Eshell Unicode Symbol Support
 
 By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Eshell will use Unicode symbols as appropriate in its menus.
 

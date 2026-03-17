@@ -19,6 +19,12 @@ PACKAGE_NAME=causal-dired
 ELISP_INCLUDES=causal-dired-variables.el causal-dired-utils.el
 ELISP_PACKAGES=causal-dired-settings.el causal-dired-sort-by.el
 ELISP_TEST_INCLUDES=causal-dired-test-utils.el
-PACKAGE_PATHS=-L $(CASUAL_LIB_LISP_DIR)
+PACKAGE_PATHS=					\
+-L $(EMACS_ELPA_DIR)/compat-current		\
+-L $(EMACS_ELPA_DIR)/seq-current		\
+-L $(EMACS_ELPA_DIR)/transient-current		\
+-L $(EMACS_ELPA_DIR)/cond-let-current		\
+-L $(CASUAL_LISP_DIR)
+
 
 include Makefile--rules.make

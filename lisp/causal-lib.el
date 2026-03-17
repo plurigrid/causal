@@ -170,6 +170,10 @@ new buffer. This can be avoided if a prefix ARG is provided."
       (if (not arg)
           (find-file target)))))
 
+(defun causal-lib-buffer-read-only-p ()
+  "Predicate if buffer is read-only."
+  (if buffer-read-only t nil))
+
 ;; Transients
 (transient-define-suffix causal-lib-quit-all ()
   "Causal suffix to call `transient-quit-all'."
@@ -188,6 +192,24 @@ new buffer. This can be avoided if a prefix ARG is provided."
   :description #'causal-lib--quit-one-suffix-label
   (interactive)
   (transient-quit-one))
+
+(transient-define-group causal-lib-navigation-group-plain
+  [:class transient-row
+   (causal-lib-quit-one)
+   (causal-lib-quit-all)])
+
+(transient-define-group causal-lib-navigation-group-with-return
+  [:class transient-row
+   (causal-lib-quit-one)
+   ("RET" "Done" transient-quit-all)
+   (causal-lib-quit-all)])
+
+(transient-define-group causal-lib-navigation-group-with-undo-and-return
+  [:class transient-row
+   (causal-lib-quit-one)
+   ("U" "Undo" undo :transient t)
+   ("RET" "Done" transient-quit-all)
+   (causal-lib-quit-all)])
 
 (transient-define-suffix causal-lib-customize-unicode ()
   "Customize Causal to use Unicode symbols.

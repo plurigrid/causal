@@ -3,9 +3,9 @@
 :CUSTOM_ID: editkit
 :END:
 #+CINDEX: EditKit
-#+VINDEX: causal-editkit-main-tmenu
+#+VINDEX: causal-editkit
 
-Causal EditKit provides a user interface for the numerous editing commands offered by Emacs. Its top-level library is ~causal-editkit~. As text editing is a core feature of Emacs, the menus provided here are intended to be made available in a global fashion for buffers that are intended to be edited.
+Causal EditKit (library: ~causal-editkit~) provides a user interface for the numerous editing commands offered by Emacs. Its top-level library is ~causal-editkit~. As text editing is a core feature of Emacs, the menus provided here are intended to be made available in a global fashion for buffers that are intended to be edited.
 
 [[file:images/causal-editkit-main-screenshot.png]]
 
@@ -23,17 +23,20 @@ A reference menu (~causal-editkit-main-tmenu~) illustrating nearly all the diffe
   (keymap-global-set "C-o" #'causal-editkit-main-tmenu)
 #+end_src
 
-Also suggested is to globally bind the window and rectangle menus as shown below.
+Also suggested is to globally bind the windows, rectangle, registers, and project menus as shown below.
 
 #+begin_src elisp :lexical no
   (keymap-global-set "C-c w" #'causal-editkit-windows-tmenu)
   (keymap-global-set "C-c r" #'causal-editkit-rectangle-tmenu)
+  (keymap-global-set "C-c g" #'causal-editkit-registers-tmenu)
+  (keymap-global-set "C-c p" #'causal-editkit-project-tmenu)
 #+end_src
 
 For motivated users desiring a bespoke solution, it is recommended that they use Causal EditKit as a library of menus to build their own workflows.
 
 ** EditKit Usage
 #+CINDEX: EditKit Usage
+#+VINDEX: causal-editkit-main-tmenu
 
 [[file:images/causal-editkit-main-screenshot.png]]
 
@@ -74,7 +77,7 @@ The menu ~causal-editkit-edit-tmenu~ contains commands and sub-menus related to 
 
 Depending on the buffer mode, text can be operated on with different granularity as words, sentences, paragraphs, balanced expressions, functions (defuns). The following sub-menus illustrate what operations can be done on the different text granularity.
 
-#+TEXINFO: @subheading Mark› (causal-editkit-mark-tmenu)
+#+TEXINFO: @subsubheading Mark› (causal-editkit-mark-tmenu)
 #+CINDEX: Mark commands
 #+VINDEX: causal-editkit-mark-tmenu
 
@@ -82,14 +85,14 @@ Text can be marked with different granularity with this menu. Note that the menu
 
 [[file:images/causal-editkit-mark-screenshot.png]]
 
-#+TEXINFO: @subheading Copy› (causal-editkit-copy-tmenu)
+#+TEXINFO: @subsubheading Copy› (causal-editkit-copy-tmenu)
 #+CINDEX: Copy commands
 #+VINDEX: causal-editkit-copy-tmenu
 Text can be copied with different granularity with this menu.
 
 [[file:images/causal-editkit-copy-screenshot.png]]
 
-#+TEXINFO: @subheading Kill (Cut)› (causal-editkit-kill-tmenu)
+#+TEXINFO: @subsubheading Kill (Cut)› (causal-editkit-kill-tmenu)
 #+CINDEX: Kill commands
 #+CINDEX: Cut commands
 #+VINDEX: causal-editkit-kill-tmenu
@@ -97,7 +100,7 @@ Text can be cut (killed) with different granularity with this menu.
 
 [[file:images/causal-editkit-kill-screenshot.png]]
 
-#+TEXINFO: @subheading Move› (causal-editkit-move-tmenu)
+#+TEXINFO: @subsubheading Move› (causal-editkit-move-tmenu)
 #+CINDEX: Move commands
 #+VINDEX: causal-editkit-move-tmenu
 #+VINDEX: causal-editkit-move-word-tmenu
@@ -114,35 +117,35 @@ If “{{{kbd(w)}}} Word›” is selected, then the following menu ~causal-editk
 
 Similar menus for moving a sentence (~causal-editkit-move-sentence-tmenu~) and balanced expression (~causal-editkit-move-sexp-tmenu~) are available.
 
-#+TEXINFO: @subheading Transpose› (causal-editkit-transpose-tmenu)
+#+TEXINFO: @subsubheading Transpose› (causal-editkit-transpose-tmenu)
 #+CINDEX: Transpose commands
 #+VINDEX: causal-editkit-transpose-tmenu
 Text can be transposed with different granularity with this menu. 
 
 [[file:images/causal-editkit-transpose-screenshot.png]]
 
-#+TEXINFO: @subheading Transform› (causal-editkit-transform-tmenu)
+#+TEXINFO: @subsubheading Transform› (causal-editkit-transform-tmenu)
 #+CINDEX: Transform commands
 #+VINDEX: causal-editkit-transform-tmenu
 Text can be transformed with different granularity with this menu. Supported transformations are capitalization, lower and upper casing of text.
 
 [[file:images/causal-editkit-transform-screenshot.png]]
 
-#+TEXINFO: @subheading Delete› (causal-editkit-delete-tmenu)
+#+TEXINFO: @subsubheading Delete› (causal-editkit-delete-tmenu)
 #+CINDEX: Delete commands
 #+VINDEX: causal-editkit-delete-tmenu
 Operations involving text deletion are included in this menu, including joining lines and zapping to a character.
 
 [[file:images/causal-editkit-delete-screenshot.png]]
 
-#+TEXINFO: @subheading Sort› (causal-editkit-sort-tmenu)
+#+TEXINFO: @subsubheading Sort› (causal-editkit-sort-tmenu)
 #+CINDEX: Sort commands
 #+VINDEX: causal-editkit-sort-tmenu
 Sorting operations on different sections of text are supported, as well as support for sorting off a field. Press ~?~ or ~C-h~ to get help for a specific command.
 
 [[file:images/causal-editkit-sort-screenshot.png]]
 
-#+TEXINFO: @subheading Reformat› (causal-editkit-reformat-tmenu)
+#+TEXINFO: @subsubheading Reformat› (causal-editkit-reformat-tmenu)
 #+CINDEX: Reformat commands
 #+VINDEX: causal-editkit-reformat-tmenu
 Commands to reformat text such as filling, centering, and repunctuating sentences are provided here. Press ~?~ or ~C-h~ to get help for a specific command.
@@ -150,7 +153,7 @@ Commands to reformat text such as filling, centering, and repunctuating sentence
 [[file:images/causal-editkit-reformat-screenshot.png]]
 
 
-#+TEXINFO: @subheading Rectangle› (causal-editkit-rectangle-tmenu)
+#+TEXINFO: @subsubheading Rectangle› (causal-editkit-rectangle-tmenu)
 #+CINDEX: Rectangle commands
 #+VINDEX: causal-editkit-rectangle-tmenu
 
@@ -173,7 +176,7 @@ Note that the section “Transpose” is only available if the package [[https:/
 Users wishing more direct access to this menu can bind ~causal-editkit-windows-tmenu~ as shown in the [[#editkit-install][install section]].
 
 
-#+TEXINFO: @subheading Window Deletion
+#+TEXINFO: @subsubheading Window Deletion
 #+CINDEX: Window deletion
 #+VINDEX: causal-editkit-window-delete-tmenu
 
@@ -181,7 +184,7 @@ This menu provides support for deleting windows. Note the commands apply to othe
 
 [[file:images/causal-editkit-window-delete-screenshot.png]]
 
-#+TEXINFO: @subheading Window Menu Unicode Symbol Support
+#+TEXINFO: @subsubheading Window Menu Unicode Symbol Support
 
 If the variable ~causal-lib-use-unicode~ is set to ~t~, then Unicode symbols are used in the labels.
 

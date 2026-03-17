@@ -2,9 +2,9 @@
 #+CINDEX: Compile
 #+CINDEX: compilation-mode
 #+CINDEX: grep-mode
-#+VINDEX: causal-compile-tmenu
+#+VINDEX: causal-compile
 
-Causal Compile is a user interface for the output of the ~compile~ command ([[info:emacs#Compilation]]). The output buffer's major mode is ~compilation-mode~ whose commands are surfaced by Causal Compile.
+Causal Compile (library: ~causal-compile~) is a user interface for the output of the ~compile~ command ([[info:emacs#Compilation]]). The output buffer's major mode is ~compilation-mode~ whose commands are surfaced by Causal Compile.
 
 In similar fashion, output of Emacs-wrapped Grep commands ([[info:emacs#Grep Searching]]) is also supported by Causal Compile. This is because the output of Grep commands use the major mode ~grep-mode~ which is derived from ~compilation-mode~. 
 
@@ -62,6 +62,7 @@ Similar treatment for ~grep-mode-map~ can be done.
 
 ** Compile Usage
 #+CINDEX: Compile Usage
+#+VINDEX: causal-compile-tmenu
 
 [[file:images/causal-compile-screenshot.png]]
 
@@ -77,12 +78,12 @@ The following sections are offered in the menu:
 If the output window is from a Grep command, ~causal-compile-tmenu~ will adjust its labels accordingly as shown below.
 
 [[file:images/causal-compile-grep-screenshot.png]]
-#+TEXINFO: @subheading Compile Settings
+#+TEXINFO: @subsubheading Compile Settings
 #+VINDEX: causal-compile-settings-tmenu
 
 The menu ~causal-compile-settings-tmenu~ provides access to different ~compilation-mode~ settings.
   
-#+TEXINFO: @subheading Compile Mode Unicode Symbol Support
+#+TEXINFO: @subsubheading Compile Mode Unicode Symbol Support
 
 By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Compile will use Unicode symbols as appropriate in its menus.
 

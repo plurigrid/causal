@@ -5,7 +5,7 @@
 ;; Author: Charles Choi <kickingvegas@gmail.com>
 ;; URL: https://github.com/kickingvegas/causal
 ;; Keywords: tools, wp
-;; Version: 2.13.2
+;; Version: 2.14.3
 ;; Package-Requires: ((emacs "29.1") (transient "0.9.0") (csv-mode "1.27"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -105,6 +105,9 @@
 ;; - Man (Elisp library: `causal-man.el')
 ;;   An interface to `Man-mode', the Emacs Man page reader.
 
+;; - Org (Elisp library: `causal-org.el')
+;;   An interface to `org-mode', an authoring tool for Org documents.
+
 ;; - Re-Builder (Elisp library: `causal-re-builder.el')
 ;;   An interface for the Emacs regular expression tool.
 
@@ -144,7 +147,7 @@ causal-re-builder, causal-lib.
 Note that the package causal-lib will not be deleted if any of the packages
 causal-suite, causal-avy, or causal-symbol-overlay is installed."
   (interactive
-   (list (y-or-n-p "Upgrade Causal to version 2?")))
+   (list (yes-or-no-p "Upgrade Causal to version 2?")))
 
   (when enable
     (let ((pkglist (list
@@ -169,7 +172,7 @@ causal-suite, causal-avy, or causal-symbol-overlay is installed."
                 (package-refresh-contents)))
             pkglist))))
 
-(defun causal-get-package-version (pkg)
+(defun causal-get-package-version (pkg)	;this is an unused, non-interactive function?
   "Get package version of symbol PKG."
   (let* ((pkg-name (symbol-name pkg))
          (pkg-buf (find-library pkg-name))

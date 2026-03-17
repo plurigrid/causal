@@ -1,8 +1,8 @@
 * Bookmarks
 #+CINDEX: Bookmarks
-#+VINDEX: causal-bookmarks-tmenu
+#+VINDEX: causal-bookmarks
 
-Causal Bookmarks is a user interface for the Emacs Bookmarks list ([[info:emacs#Bookmarks]]). Its top-level library is ~causal-bookmarks~.
+Causal Bookmarks (library: ~causal-bookmarks~) is a user interface for the Emacs Bookmarks list ([[info:emacs#Bookmarks]]). Its top-level library is ~causal-bookmarks~.
 
 [[file:images/causal-bookmarks-screenshot.png]]
 
@@ -51,6 +51,7 @@ The above guidance largely extends the work done in the blog post [[http://yummy
 
 ** Bookmarks Usage
 #+CINDEX: Bookmarks Usage
+#+VINDEX: causal-bookmarks-tmenu
 
 [[file:images/causal-bookmarks-screenshot.png]]
 
@@ -70,12 +71,12 @@ Causal Bookmarks organizes its main menu into the following sections:
 - Column :: Commands to navigate and control the display of the table layout for bookmarks.
 
 
-#+TEXINFO: @subheading Sorting
+#+TEXINFO: @subsubheading Sorting
 #+VINDEX: causal-bookmarks-sortby-tmenu
 
 Support for sorting the bookmarks list is provided by the menu ~causal-bookmarks-sortby-tmenu~.
 
-#+TEXINFO: @subheading Unicode Symbol Support
+#+TEXINFO: @subsubheading Unicode Symbol Support
 
 [[file:images/causal-bookmarks-unicode-screenshot.png]]
 

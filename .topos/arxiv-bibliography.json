@@ -1,0 +1,5315 @@
+{
+  "total": 572,
+  "entries": [
+    {
+      "id": "2308.00861",
+      "url": "https://arxiv.org/abs/2308.00861",
+      "files": [
+        "asi/plugins/asi/skills/active-interleave/SKILL.md",
+        "asi/plugins/asi/skills/anima-theory/SKILL.md",
+        "asi/plugins/asi/skills/cognitive-surrogate/SKILL.md",
+        "asi/plugins/asi/skills/cybernetic-immune/SKILL.md",
+        "asi/plugins/asi/skills/discopy-operads/SKILL.md",
+        "asi/plugins/asi/skills/discopy/SKILL.md",
+        "asi/plugins/asi/skills/entropy-sequencer/SKILL.md",
+        "asi/plugins/asi/skills/fokker-planck-analyzer/SKILL.md",
+        "asi/plugins/asi/skills/goblins/SKILL.md",
+        "asi/plugins/asi/skills/guile-goblins-hoot/SKILL.md",
+        "asi/plugins/asi/skills/langevin-dynamics/SKILL.md",
+        "asi/plugins/asi/skills/proofgeneral-narya/SKILL.md",
+        "asi/plugins/asi/skills/scheme/SKILL.md",
+        "asi/plugins/asi/skills/topos-unified/SKILL.md",
+        "asi/skills/active-interleave/SKILL.md"
+      ],
+      "count": 15,
+      "title": "Active Inference in String Diagrams: A Categorical Account of Predictive Processing and Free Energy"
+    },
+    {
+      "id": "1603.04641",
+      "url": "https://arxiv.org/abs/1603.04641",
+      "files": [
+        "OPEN-GAME-ENGINE-AUTHORS.md",
+        "VDAP-PHASE-1-GUIDE.md",
+        "asi/SWAN_HEDGES_TOPOLOGICAL_ASI_INTEGRATION.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/crdt/SKILL.md",
+        "asi/plugins/asi/skills/julia-scientific/SKILL.md",
+        "asi/plugins/asi/skills/open-games/SKILL.md",
+        "asi/skills/crdt/SKILL.md",
+        "asi/skills/julia-scientific/SKILL.md",
+        "boxxy/docs/CANONICAL_RESEARCH.md",
+        "duck/SONNET5-OPEN-GAMES-ANALYSIS.md",
+        "nashator/cybercat-oge/Tutorial/TUTORIAL.md"
+      ],
+      "count": 12,
+      "title": "Compositional game theory"
+    },
+    {
+      "id": "2105.06332",
+      "url": "https://arxiv.org/abs/2105.06332",
+      "files": [
+        "asi/SWAN_HEDGES_TOPOLOGICAL_ASI_INTEGRATION.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/_integrated/SKILL.md",
+        "asi/plugins/asi/skills/bisimulation-game/SKILL.md",
+        "asi/plugins/asi/skills/cybernetic-immune/SKILL.md",
+        "asi/plugins/asi/skills/discopy/SKILL.md",
+        "asi/plugins/asi/skills/julia-scientific/SKILL.md",
+        "asi/plugins/asi/skills/structured-decomp/SKILL.md",
+        "asi/skills/asi-integrated/SKILL.md",
+        "asi/skills/julia-scientific/SKILL.md",
+        "boxxy/docs/CANONICAL_RESEARCH.md"
+      ],
+      "count": 11,
+      "title": "Towards Foundations of Categorical Cybernetics"
+    },
+    {
+      "id": "2511.20321",
+      "url": "https://arxiv.org/abs/2511.20321",
+      "files": [
+        "asi/plugins/asi/skills/active-inference-robotics.md",
+        "asi/plugins/asi/skills/active-inference-robotics/SKILL.md",
+        "asi/plugins/asi/skills/entropy-regularized-inference.md",
+        "asi/plugins/asi/skills/sim2real-predictive-coding.md",
+        "asi/skills/_archive/active-inference-robotics.md",
+        "asi/skills/_archive/entropy-regularized-inference.md",
+        "asi/skills/_archive/sim2real-predictive-coding.md",
+        "asi/skills/active-inference-robotics/SKILL.md",
+        "asi/skills/entropy-regularized-inference/SKILL.md",
+        "asi/skills/sim2real-predictive-coding/SKILL.md"
+      ],
+      "count": 10,
+      "title": "Active Inference in Discrete State Spaces from First Principles"
+    },
+    {
+      "id": "1705.07442",
+      "url": "https://arxiv.org/abs/1705.07442",
+      "files": [
+        "rzk-lang-rzk/README.md",
+        "rzk-lang-rzk/docs/docs/en/index.md",
+        "rzk-lang-rzk/docs/docs/en/reference/extension-types.rzk.md",
+        "rzk-lang-rzk/docs/docs/en/reference/introduction.rzk.md",
+        "rzk-lang-rzk/docs/docs/en/reference/tope-disjunction-elimination.rzk.md",
+        "rzk-lang-rzk/docs/docs/ru/index.md",
+        "rzk-lang-rzk/docs/docs/ru/reference/extension-types.rzk.md",
+        "rzk-lang-rzk/docs/docs/ru/reference/introduction.rzk.md",
+        "rzk-lang-rzk/docs/docs/ru/reference/tope-disjunction-elimination.rzk.md"
+      ],
+      "count": 9,
+      "title": "A type theory for synthetic $\\infty$-categories"
+    },
+    {
+      "id": "2106.04703",
+      "url": "https://arxiv.org/abs/2106.04703",
+      "files": [
+        "asi/plugins/asi/skills/acsets-hatchery/SKILL.md",
+        "asi/skills/acsets-hatchery/SKILL.md",
+        "asi/skills/energy-dynamics-acset/AFFORDANCE.org",
+        "asi/skills/energy-dynamics-acset/COMPLETION.org",
+        "asi/skills/energy-dynamics-acset/SKILL.md",
+        "asi/skills/energy-dynamics-acset/THEORY.md",
+        "notebooks/Catlab.jl/docs/src/apis/categorical_algebra.md"
+      ],
+      "count": 7,
+      "title": "Categorical Data Structures for Technical Computing"
+    },
+    {
+      "id": "2404.16140",
+      "url": "https://arxiv.org/abs/2404.16140",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/julia-scientific/SKILL.md",
+        "asi/skills/energy-dynamics-acset/AFFORDANCE.org",
+        "asi/skills/energy-dynamics-acset/COMPLETION.org",
+        "asi/skills/energy-dynamics-acset/SKILL.md",
+        "asi/skills/energy-dynamics-acset/THEORY.md",
+        "asi/skills/julia-scientific/SKILL.md"
+      ],
+      "count": 7,
+      "title": "Organizing Physics with Open Energy-Driven Systems"
+    },
+    {
+      "id": "1904.09966",
+      "url": "https://arxiv.org/abs/1904.09966",
+      "files": [
+        "CONDENSED-ANIMA-NETWORK-ADDED.md",
+        "asi/ies/music-topos/CONDENSED_ANALYTIC_STACKS_SATURATION_REPORT.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/condensed-analytic-stacks/SKILL.md",
+        "asi/skills/condensed-analytic-stacks/SKILL.md"
+      ],
+      "count": 5,
+      "title": "Pyknotic objects, I. Basic notions"
+    },
+    {
+      "id": "2108.02755",
+      "url": "https://arxiv.org/abs/2108.02755",
+      "files": [
+        "ai-economist/README.md",
+        "ai-economist/ai_economist/foundation/scenarios/one_step_economy/one_step_economy.py",
+        "ai-economist/tutorials/rllib/run_configuration_parameter_descriptions.md",
+        "ai-economist/tutorials/rllib/tf_models.py",
+        "ai-economist/tutorials/two_level_curriculum_learning_with_rllib.md"
+      ],
+      "count": 5,
+      "title": "The AI Economist: Optimal Economic Policy Design via Two-level Deep Reinforcement Learning"
+    },
+    {
+      "id": "2512.09218",
+      "url": "https://arxiv.org/abs/2512.09218",
+      "files": [
+        "asi/ies/music-topos/BEHAVIOR_SPACE_TACTICAL_MODEL.md",
+        "asi/ies/music-topos/COMPLETE_RESEARCH_SYNTHESIS.md",
+        "asi/ies/music-topos/QIGONG_SUCCESSORS_RESEARCH.md",
+        "asi/ies/music-topos/RAMANUJAN_SPECTRAL_FRAMEWORK.md",
+        "asi/ies/music-topos/TACTICAL_ADVANTAGE_MAP.md"
+      ],
+      "count": 5,
+      "title": "Dynamic Graph Coloring: Sequential, Parallel, and Distributed"
+    },
+    {
+      "id": "2012.06333",
+      "url": "https://arxiv.org/abs/2012.06333",
+      "files": [
+        "asi/plugins/asi/skills/sheaf-laplacian-coordination/SKILL.md",
+        "asi/skills/koho-sheafnn/SKILL.md",
+        "asi/skills/sheaf-laplacian-coordination/SKILL.md",
+        "asi/skills/sheaf-uncertainty/SKILL.md"
+      ],
+      "count": 4,
+      "title": "Sheaf Neural Networks"
+    },
+    {
+      "id": "2202.04579",
+      "url": "https://arxiv.org/abs/2202.04579",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/sheaf-laplacian-coordination/SKILL.md",
+        "asi/skills/sheaf-laplacian-coordination/SKILL.md",
+        "asi/skills/sheaf-uncertainty/SKILL.md"
+      ],
+      "count": 4,
+      "title": "Neural Sheaf Diffusion: A Topological Perspective on Heterophily and Oversmoothing in GNNs"
+    },
+    {
+      "id": "2406.04334",
+      "url": "https://arxiv.org/abs/2406.04334",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/transformers/models/qwen3_omni_moe/modeling_qwen3_omni_moe.py",
+        "mlx-env/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py",
+        "mlx-env/lib/python3.11/site-packages/transformers/models/qwen3_vl/modular_qwen3_vl.py",
+        "mlx-env/lib/python3.11/site-packages/transformers/models/qwen3_vl_moe/modeling_qwen3_vl_moe.py"
+      ],
+      "count": 4,
+      "title": "DeepStack: Deeply Stacking Visual Tokens is Surprisingly Simple and Effective for LMMs"
+    },
+    {
+      "id": "2412.19605",
+      "url": "https://arxiv.org/abs/2412.19605",
+      "files": [
+        "asi/ies/music-topos/CONDENSED_ANALYTIC_STACKS_SATURATION_REPORT.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/condensed-analytic-stacks/SKILL.md",
+        "asi/skills/condensed-analytic-stacks/SKILL.md"
+      ],
+      "count": 4,
+      "title": "Infinitary combinatorics in condensed math and strong homology"
+    },
+    {
+      "id": "2506.04912",
+      "url": "https://arxiv.org/abs/2506.04912",
+      "files": [
+        "asi/plugins/asi/skills/alife/SKILL.md",
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/SKILL.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 4,
+      "title": "Differentiable Logic Cellular Automata: From Game of Life to Pattern Generation"
+    },
+    {
+      "id": "2507.08566",
+      "url": "https://arxiv.org/abs/2507.08566",
+      "files": [
+        "asi/ies/music-topos/CONDENSED_ANALYTIC_STACKS_SATURATION_REPORT.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/condensed-analytic-stacks/SKILL.md",
+        "asi/skills/condensed-analytic-stacks/SKILL.md"
+      ],
+      "count": 4,
+      "title": "Categorical K\u00fcnneth formulas for analytic stacks"
+    },
+    {
+      "id": "1606.08415",
+      "url": "https://arxiv.org/abs/1606.08415",
+      "files": [
+        "mlx-audio-lfm/mlx_audio/tts/models/chatterbox_turbo/models/t3/gpt2.py",
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/activations.py",
+        "mlx-env/lib/python3.11/site-packages/transformers/activations.py"
+      ],
+      "count": 3,
+      "title": "Gaussian Error Linear Units (GELUs)"
+    },
+    {
+      "id": "1703.06907",
+      "url": "https://arxiv.org/abs/1703.06907",
+      "files": [
+        "asi/plugins/asi/skills/sim2real-predictive-coding.md",
+        "asi/skills/_archive/sim2real-predictive-coding.md",
+        "asi/skills/sim2real-predictive-coding/SKILL.md"
+      ],
+      "count": 3,
+      "title": "Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World"
+    },
+    {
+      "id": "1803.05316",
+      "url": "https://arxiv.org/abs/1803.05316",
+      "files": [
+        "asi/plugins/asi/skills/ies-triadic/SKILL.md",
+        "asi/skills/ies-triadic/SKILL.md",
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/category_theory.md"
+      ],
+      "count": 3,
+      "title": "Seven Sketches in Compositionality: An Invitation to Applied Category Theory"
+    },
+    {
+      "id": "2106.09685",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "comfy-pilot/VOICE_ASSISTANT_GUIDE.md",
+        "comfy-pilot/VOICE_SYSTEM_SUMMARY.md"
+      ],
+      "count": 3,
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models"
+    },
+    {
+      "id": "2111.03784",
+      "url": "https://arxiv.org/abs/2111.03784",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/algebraic-rewriting/SKILL.md",
+        "asi/skills/algebraic-rewriting/SKILL.md"
+      ],
+      "count": 3,
+      "title": "Computational category-theoretic rewriting"
+    },
+    {
+      "id": "2202.00666",
+      "url": "https://arxiv.org/abs/2202.00666",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_client.py",
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_generated/_async_client.py",
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_generated/types/text_generation.py"
+      ],
+      "count": 3,
+      "title": "Locally Typical Sampling"
+    },
+    {
+      "id": "2301.10226",
+      "url": "https://arxiv.org/abs/2301.10226",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_client.py",
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_generated/_async_client.py",
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/inference/_generated/types/text_generation.py"
+      ],
+      "count": 3,
+      "title": "A Watermark for Large Language Models"
+    },
+    {
+      "id": "2407.20292",
+      "url": "https://arxiv.org/abs/2407.20292",
+      "files": [
+        "asi/plugins/asi/skills/entropy-regularized-inference.md",
+        "asi/skills/_archive/entropy-regularized-inference.md",
+        "asi/skills/entropy-regularized-inference/SKILL.md"
+      ],
+      "count": 3,
+      "title": "From pixels to planning: scale-free active inference"
+    },
+    {
+      "id": "2412.03676",
+      "url": "https://arxiv.org/abs/2412.03676",
+      "files": [
+        "asi/plugins/asi/skills/entropy-regularized-inference.md",
+        "asi/skills/_archive/entropy-regularized-inference.md",
+        "asi/skills/entropy-regularized-inference/SKILL.md"
+      ],
+      "count": 3,
+      "title": "JPC: Flexible Inference for Predictive Coding Networks in JAX"
+    },
+    {
+      "id": "2501.02931",
+      "url": "https://arxiv.org/abs/2501.02931",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/ies-triadic/SKILL.md",
+        "asi/skills/ies-triadic/SKILL.md"
+      ],
+      "count": 3,
+      "title": "Self-Attention as a Parametric Endofunctor: A Categorical Framework for Transformer Architectures"
+    },
+    {
+      "id": "2505.13763",
+      "url": "https://arxiv.org/abs/2505.13763",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/behaviour-surprisal-analysis/SKILL.md",
+        "asi/skills/behaviour-surprisal-analysis/SKILL.md"
+      ],
+      "count": 3,
+      "title": "Language Models Are Capable of Metacognitive Monitoring and Control of Their Internal Activations"
+    },
+    {
+      "id": "0907.2460",
+      "url": "https://arxiv.org/abs/0907.2460",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 2,
+      "title": "A unified framework for generalized multicategories"
+    },
+    {
+      "id": "0908.3347",
+      "url": "https://arxiv.org/abs/0908.3347",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "notebooks/Catlab.jl/docs/literate/wiring_diagrams/diagrams_and_expressions.jl"
+      ],
+      "count": 2,
+      "title": "A survey of graphical languages for monoidal categories"
+    },
+    {
+      "id": "1412.6980",
+      "url": "https://arxiv.org/abs/1412.6980",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Adam: A Method for Stochastic Optimization"
+    },
+    {
+      "id": "1602.03552",
+      "url": "https://arxiv.org/abs/1602.03552",
+      "files": [
+        "MNX-EIP1559-INTEGRATION-ANALYSIS.md",
+        "session-artifacts/docs/SESSION-SUMMARY.md"
+      ],
+      "count": 2,
+      "title": "Learning Privately from Multiparty Data"
+    },
+    {
+      "id": "1603.09320",
+      "url": "https://arxiv.org/abs/1603.09320",
+      "files": [
+        "asi/docs/PADIC_EMBEDDINGS.md",
+        "asi/skills/padic-ultrametric-embedding/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Efficient and robust approximate nearest neighbor search using Hierarchical Navigable Small World graphs"
+    },
+    {
+      "id": "1702.07588",
+      "url": "https://arxiv.org/abs/1702.07588",
+      "files": [
+        "lux/documentation/bookmark/cryptography.md",
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 2,
+      "title": "Practical Homomorphic Encryption Over the Integers"
+    },
+    {
+      "id": "1703.02287",
+      "url": "https://arxiv.org/abs/1703.02287",
+      "files": [
+        "asi/plugins/asi/skills/skill-embedding-vss/SKILL.md",
+        "asi/skills/skill-embedding-vss/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Fundamental Theory of Torsion Gravity"
+    },
+    {
+      "id": "1706.03762",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/positional_encoding.py",
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/transformer.py"
+      ],
+      "count": 2,
+      "title": "Attention Is All You Need"
+    },
+    {
+      "id": "1808.09700",
+      "url": "https://arxiv.org/abs/1808.09700",
+      "files": [
+        "protocols/tob-skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md",
+        "skills/plugins/testing-handbook-skills/skills/coverage-analysis/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Evaluating Fuzz Testing"
+    },
+    {
+      "id": "1812.05433",
+      "url": "https://arxiv.org/abs/1812.05433",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Lenia - Biology of Artificial Life"
+    },
+    {
+      "id": "1901.02860",
+      "url": "https://arxiv.org/abs/1901.02860",
+      "files": [
+        "mlx-audio-lfm/mlx_audio/tts/models/chatterbox/s3gen/transformer/embedding.py",
+        "mlx-audio-lfm/mlx_audio/tts/models/chatterbox_turbo/models/s3gen/encoder.py"
+      ],
+      "count": 2,
+      "title": "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context"
+    },
+    {
+      "id": "1909.05858",
+      "url": "https://arxiv.org/abs/1909.05858",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx_lm/sample_utils.py",
+        "mlx-env/lib/python3.11/site-packages/mlx_vlm/utils.py"
+      ],
+      "count": 2,
+      "title": "CTRL: A Conditional Transformer Language Model for Controllable Generation"
+    },
+    {
+      "id": "1910.03656",
+      "url": "https://arxiv.org/abs/1910.03656",
+      "files": [
+        "OPEN-GAME-ENGINE-AUTHORS.md",
+        "nashator/cybercat-oge/Tutorial/TUTORIAL.md"
+      ],
+      "count": 2,
+      "title": "Bayesian open games"
+    },
+    {
+      "id": "1910.05109",
+      "url": "https://arxiv.org/abs/1910.05109",
+      "files": [
+        "lux/documentation/bookmark/algorithm/parsing.md",
+        "lux/documentation/bookmark/data/format/base64.md"
+      ],
+      "count": 2,
+      "title": "Base64 encoding and decoding at almost the speed of a memory copy"
+    },
+    {
+      "id": "2001.03244",
+      "url": "https://arxiv.org/abs/2001.03244",
+      "files": [
+        "hydra/docs/adr/2025-02-12_032-network-properties-etcd.md",
+        "hydra/docs/docs/dev/architecture/networking.md"
+      ],
+      "count": 2,
+      "title": "Self-stabilizing Uniform Reliable Broadcast"
+    },
+    {
+      "id": "2004.13332",
+      "url": "https://arxiv.org/abs/2004.13332",
+      "files": [
+        "ai-economist/README.md",
+        "ai-economist/ai_economist/foundation/scenarios/simple_wood_and_stone/layout_from_file.py"
+      ],
+      "count": 2,
+      "title": "The AI Economist: Improving Equality and Productivity with AI-Driven Tax Policies"
+    },
+    {
+      "id": "2007.14442",
+      "url": "https://arxiv.org/abs/2007.14442",
+      "files": [
+        "asi/plugins/asi/skills/voice-channel-uwd/SKILL.md",
+        "asi/skills/voice-channel-uwd/SKILL.md"
+      ],
+      "count": 2,
+      "title": "An Algebra of Resource Sharing Machines"
+    },
+    {
+      "id": "2101.12046",
+      "url": "https://arxiv.org/abs/2101.12046",
+      "files": [
+        "asi/plugins/asi/skills/discopy-operads/SKILL.md",
+        "asi/skills/discopy-operads/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Wiring diagrams as normal forms for computing in symmetric monoidal categories"
+    },
+    {
+      "id": "2103.14030",
+      "url": "https://arxiv.org/abs/2103.14030",
+      "files": [
+        "asi/skills/citation-management/references/citation_validation.md",
+        "asi/skills/citation-management/references/metadata_extraction.md"
+      ],
+      "count": 2,
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows"
+    },
+    {
+      "id": "2104.09864",
+      "url": "https://arxiv.org/abs/2104.09864",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/positional_encoding.py",
+        "mlx-env/lib/python3.11/site-packages/mlx_vlm/models/kimi_vl/vision.py"
+      ],
+      "count": 2,
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding"
+    },
+    {
+      "id": "2107.03374",
+      "url": "https://arxiv.org/abs/2107.03374",
+      "files": [
+        "vtcode/docs/benchmarks/HUMANEVAL_2025-10-22.md",
+        "vtcode/docs/benchmarks/README.md"
+      ],
+      "count": 2,
+      "title": "Evaluating Large Language Models Trained on Code"
+    },
+    {
+      "id": "2108.02904",
+      "url": "https://arxiv.org/abs/2108.02904",
+      "files": [
+        "ai-economist/README.md",
+        "ai-economist/ai_economist/foundation/scenarios/covid19/covid19_env.py"
+      ],
+      "count": 2,
+      "title": "Building a Foundation for Data-Driven, Interpretable, and Robust Policy Design using the AI Economist"
+    },
+    {
+      "id": "2204.05653",
+      "url": "https://arxiv.org/abs/2204.05653",
+      "files": [
+        "rzk-lang-rzk/docs/docs/en/index.md",
+        "rzk-lang-rzk/docs/docs/ru/index.md"
+      ],
+      "count": 2,
+      "title": "Free Monads, Intrinsic Scoping, and Higher-Order Preunification"
+    },
+    {
+      "id": "2205.06806",
+      "url": "https://arxiv.org/abs/2205.06806",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Goal-Guided Neural Cellular Automata: Learning to Control Self-Organising Systems"
+    },
+    {
+      "id": "2211.00895",
+      "url": "https://arxiv.org/abs/2211.00895",
+      "files": [
+        "mlx-audio-lfm/examples/streaming_transcription.py",
+        "mlx-audio-lfm/mlx_audio/stt/models/whisper/streaming.py"
+      ],
+      "count": 2,
+      "title": "Pop2Piano : Pop Audio-based Piano Cover Generation"
+    },
+    {
+      "id": "2211.01602",
+      "url": "https://arxiv.org/abs/2211.01602",
+      "files": [
+        "asi/plugins/asi/skills/covariant-modification/SKILL.md",
+        "asi/skills/covariant-modification/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Optimal Behavior Prior: Data-Efficient Human Models for Improved Human-AI Collaboration"
+    },
+    {
+      "id": "2212.13345",
+      "url": "https://arxiv.org/abs/2212.13345",
+      "files": [
+        "asi/plugins/asi/skills/forward-forward-learning/SKILL.md",
+        "asi/skills/forward-forward-learning/SKILL.md"
+      ],
+      "count": 2,
+      "title": "The Forward-Forward Algorithm: Some Preliminary Investigations"
+    },
+    {
+      "id": "2301.01445",
+      "url": "https://arxiv.org/abs/2301.01445",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 2,
+      "title": "A compositional account of motifs, mechanisms, and dynamics in biochemical regulatory networks"
+    },
+    {
+      "id": "2302.05575",
+      "url": "https://arxiv.org/abs/2302.05575",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/plugins/asi/skills/structured-decomp/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Compositional Algorithms on Compositional Data: Deciding Sheaves on Presheaves"
+    },
+    {
+      "id": "2305.18945",
+      "url": "https://arxiv.org/abs/2305.18945",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt",
+        "asi/skills/discopy-functor/SKILL.md"
+      ],
+      "count": 2,
+      "title": "String Diagrams for $\u03bb$-calculi and Functional Computation"
+    },
+    {
+      "id": "2307.02540",
+      "url": "https://arxiv.org/abs/2307.02540",
+      "files": [
+        "asi/plugins/asi/skills/voice-channel-uwd/SKILL.md",
+        "asi/skills/voice-channel-uwd/SKILL.md"
+      ],
+      "count": 2,
+      "title": "3D Ising CFT and Exact Diagonalization on Icosahedron: The Power of Conformal Perturbation Theory"
+    },
+    {
+      "id": "2309.08340",
+      "url": "https://arxiv.org/abs/2309.08340",
+      "files": [
+        "rzk-lang-rzk/docs/docs/en/index.md",
+        "rzk-lang-rzk/docs/docs/ru/index.md"
+      ],
+      "count": 2,
+      "title": "Formalizing the $\\infty$-Categorical Yoneda Lemma"
+    },
+    {
+      "id": "2312.09122",
+      "url": "https://arxiv.org/abs/2312.09122",
+      "files": [
+        "asi/ies/music-topos/CONDENSED_ANALYTIC_STACKS_SATURATION_REPORT.md",
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 2,
+      "title": "Whitehead's problem and condensed mathematics"
+    },
+    {
+      "id": "2401.13203",
+      "url": "https://arxiv.org/abs/2401.13203",
+      "files": [
+        "asi/ies/music-topos/INDEX.md",
+        "asi/ies/music-topos/docs/ARCHITECTURE.md"
+      ],
+      "count": 2,
+      "title": "Style-Consistent 3D Indoor Scene Synthesis with Decoupled Objects"
+    },
+    {
+      "id": "2404.06279",
+      "url": "https://arxiv.org/abs/2404.06279",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "NoiseNCA: Noisy Seed Improves Spatio-Temporal Continuity of Neural Cellular Automata"
+    },
+    {
+      "id": "2406.04235",
+      "url": "https://arxiv.org/abs/2406.04235",
+      "files": [
+        "asi/plugins/asi/skills/alife/SKILL.md",
+        "asi/skills/alife/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Toward Artificial Open-Ended Evolution within Lenia using Quality-Diversity"
+    },
+    {
+      "id": "2408.14925",
+      "url": "https://arxiv.org/abs/2408.14925",
+      "files": [
+        "asi/plugins/asi/skills/forward-forward-learning/SKILL.md",
+        "asi/skills/forward-forward-learning/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Distance-Forward Learning: Enhancing the Forward-Forward Algorithm Towards High-Performance On-Chip Learning"
+    },
+    {
+      "id": "2409.14252",
+      "url": "https://arxiv.org/abs/2409.14252",
+      "files": [
+        "asi/plugins/asi/skills/time-travel-crdt/SKILL.md",
+        "asi/skills/time-travel-crdt/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Collaborative Text Editing with Eg-walker: Better, Faster, Smaller"
+    },
+    {
+      "id": "2410.00037",
+      "url": "https://arxiv.org/abs/2410.00037",
+      "files": [
+        "comfy-pilot/VOICE_ASSISTANT_GUIDE.md",
+        "comfy-pilot/VOICE_SYSTEM_SUMMARY.md"
+      ],
+      "count": 2,
+      "title": "Moshi: a speech-text foundation model for real-time dialogue"
+    },
+    {
+      "id": "2412.17799",
+      "url": "https://arxiv.org/abs/2412.17799",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Automating the Search for Artificial Life with Foundation Models"
+    },
+    {
+      "id": "2505.08778",
+      "url": "https://arxiv.org/abs/2505.08778",
+      "files": [
+        "asi/plugins/asi/skills/alife/SKILL.md",
+        "asi/skills/alife/SKILL.md"
+      ],
+      "count": 2,
+      "title": "ARC-NCA: Towards Developmental Solutions to the Abstraction and Reasoning Corpus"
+    },
+    {
+      "id": "2505.11581",
+      "url": "https://arxiv.org/abs/2505.11581",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Questioning Representational Optimism in Deep Learning: The Fractured Entangled Representation Hypothesis"
+    },
+    {
+      "id": "2506.08569",
+      "url": "https://arxiv.org/abs/2506.08569",
+      "files": [
+        "asi/plugins/asi/skills/alife/SKILL.md",
+        "asi/skills/alife/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Flow-Lenia: Emergent evolutionary dynamics in mass conservative continuous cellular automata"
+    },
+    {
+      "id": "2506.20622",
+      "url": "https://arxiv.org/abs/2506.20622",
+      "files": [
+        "asi/plugins/asi/skills/alife/extracts/ALIFE2025_full.md",
+        "asi/skills/alife/extracts/ALIFE2025_full.md"
+      ],
+      "count": 2,
+      "title": "Behavioral Traits as Dynamical Systems: Utilizing Entropy to Analyze Longitudinal Psychometric Data in Coupled Ordinary Differential Equations"
+    },
+    {
+      "id": "2507.00647",
+      "url": "https://arxiv.org/abs/2507.00647",
+      "files": [
+        "asi/plugins/asi/skills/sheaf-laplacian-coordination/SKILL.md",
+        "asi/skills/sheaf-laplacian-coordination/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Cooperative Sheaf Neural Networks"
+    },
+    {
+      "id": "2512.02918",
+      "url": "https://arxiv.org/abs/2512.02918",
+      "files": [
+        "asi/skills/move-fuzzing/SKILL.md",
+        "asi/skills/move-smart-contract-audit/SKILL.md"
+      ],
+      "count": 2,
+      "title": "Belobog: Move Language Fuzzing Framework For Real-World Smart Contracts"
+    },
+    {
+      "id": "0707.1919",
+      "url": "https://arxiv.org/abs/0707.1919",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Search for Effect of Influence from Future in Large Hadron Collider"
+    },
+    {
+      "id": "0806.3115",
+      "url": "https://arxiv.org/abs/0806.3115",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "Using rational numbers to key nested sets"
+    },
+    {
+      "id": "0807.2874",
+      "url": "https://arxiv.org/abs/0807.2874",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Polynomial functors and trees"
+    },
+    {
+      "id": "0906.4931",
+      "url": "https://arxiv.org/abs/0906.4931",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Polynomial functors and polynomial monads"
+    },
+    {
+      "id": "1003.4394",
+      "url": "https://arxiv.org/abs/1003.4394",
+      "files": [
+        "asi/skills/neuro-symbolic-bridge/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Mathematical Foundations for a Compositional Distributional Model of Meaning"
+    },
+    {
+      "id": "1004.2515",
+      "url": "https://arxiv.org/abs/1004.2515",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Nonnegative Decomposition of Multivariate Information"
+    },
+    {
+      "id": "1005.1392",
+      "url": "https://arxiv.org/abs/1005.1392",
+      "files": [
+        "CITATION-NETWORKS-ADDED-SUMMARY.md"
+      ],
+      "count": 1,
+      "title": "Overlap properties of geometric expanders"
+    },
+    {
+      "id": "1102.1889",
+      "url": "https://arxiv.org/abs/1102.1889",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Ologs: a categorical framework for knowledge representation"
+    },
+    {
+      "id": "1106.1791",
+      "url": "https://arxiv.org/abs/1106.1791",
+      "files": [
+        "asi/ies/music-topos/docs/ecosystem-analysis/ENTROPY_SKILL_CATEGORIZATION.md"
+      ],
+      "count": 1,
+      "title": "A Characterization of Entropy in Terms of Information Loss"
+    },
+    {
+      "id": "1205.4104",
+      "url": "https://arxiv.org/abs/1205.4104",
+      "files": [
+        "asi/ies/music-topos/TIM_ROUGHGARDEN_EDUCATIONAL_CONTENT_INDEX.md"
+      ],
+      "count": 1,
+      "title": "Combinatorial Auctions with Restricted Complements"
+    },
+    {
+      "id": "1205.5935",
+      "url": "https://arxiv.org/abs/1205.5935",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics.md"
+      ],
+      "count": 1,
+      "title": "Geometric Algebra"
+    },
+    {
+      "id": "1209.4340",
+      "url": "https://arxiv.org/abs/1209.4340",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/scipy/stats/_continuous_distns.py"
+      ],
+      "count": 1,
+      "title": "Moments and Absolute Moments of the Normal Distribution"
+    },
+    {
+      "id": "1302.6946",
+      "url": "https://arxiv.org/abs/1302.6946",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Category theory for scientists (Old version)"
+    },
+    {
+      "id": "1309.6504",
+      "url": "https://arxiv.org/abs/1309.6504",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Computational Complexity of the Game of Set and its Theoretical Applications"
+    },
+    {
+      "id": "1311.3606",
+      "url": "https://arxiv.org/abs/1311.3606",
+      "files": [
+        "asi/SKILL_UPDATES_COMPLETE_SUMMARY.md"
+      ],
+      "count": 1,
+      "title": "Guided proposals for simulating multi-dimensional diffusion bridges"
+    },
+    {
+      "id": "1311.3903",
+      "url": "https://arxiv.org/abs/1311.3903",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Categorical Theory of Patches"
+    },
+    {
+      "id": "1401.7821",
+      "url": "https://arxiv.org/abs/1401.7821",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Spatial Modelling Techniques in Microsoft Excel"
+    },
+    {
+      "id": "1402.3067",
+      "url": "https://arxiv.org/abs/1402.3067",
+      "files": [
+        "asi/ies/music-topos/docs/ecosystem-analysis/ENTROPY_SKILL_CATEGORIZATION.md"
+      ],
+      "count": 1,
+      "title": "A Bayesian Characterization of Relative Entropy"
+    },
+    {
+      "id": "1406.2661",
+      "url": "https://arxiv.org/abs/1406.2661",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Generative Adversarial Networks"
+    },
+    {
+      "id": "1406.6773",
+      "url": "https://arxiv.org/abs/1406.6773",
+      "files": [
+        "asi/ies/music-topos/TIM_ROUGHGARDEN_EDUCATIONAL_CONTENT_INDEX.md"
+      ],
+      "count": 1,
+      "title": "Approximately Optimal Mechanism Design: Motivation, Examples, and Lessons Learned"
+    },
+    {
+      "id": "1407.3744",
+      "url": "https://arxiv.org/abs/1407.3744",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Graphs, hypergraphs, and properads"
+    },
+    {
+      "id": "1502.01852",
+      "url": "https://arxiv.org/abs/1502.01852",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/init.py"
+      ],
+      "count": 1,
+      "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification"
+    },
+    {
+      "id": "1502.03167",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/normalization.py"
+      ],
+      "count": 1,
+      "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"
+    },
+    {
+      "id": "1505.04861",
+      "url": "https://arxiv.org/abs/1505.04861",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/scipy/linalg/tests/test_solvers.py"
+      ],
+      "count": 1,
+      "title": "Solvability of Matrix Riccati Inequalities"
+    },
+    {
+      "id": "1506.02438",
+      "url": "https://arxiv.org/abs/1506.02438",
+      "files": [
+        "ai-economist/tutorials/rllib/run_configuration_parameter_descriptions.md"
+      ],
+      "count": 1,
+      "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation"
+    },
+    {
+      "id": "1507.03854",
+      "url": "https://arxiv.org/abs/1507.03854",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Making the stabilizer ZX-calculus complete for scalars"
+    },
+    {
+      "id": "1508.07909",
+      "url": "https://arxiv.org/abs/1508.07909",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/tokenizers/implementations/char_level_bpe.py"
+      ],
+      "count": 1,
+      "title": "Neural Machine Translation of Rare Words with Subword Units"
+    },
+    {
+      "id": "1509.01066",
+      "url": "https://arxiv.org/abs/1509.01066",
+      "files": [
+        "asi/skills/omg-tension-resolver/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Safe Controller Optimization for Quadrotors with Gaussian Processes"
+    },
+    {
+      "id": "1511.05493",
+      "url": "https://arxiv.org/abs/1511.05493",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Gated Graph Sequence Neural Networks"
+    },
+    {
+      "id": "1512.03337",
+      "url": "https://arxiv.org/abs/1512.03337",
+      "files": [
+        "asi/skills/phylogenetic-operad-acset/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Operads and Phylogenetic Trees"
+    },
+    {
+      "id": "1512.07681",
+      "url": "https://arxiv.org/abs/1512.07681",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/cop__context_oriented.md"
+      ],
+      "count": 1,
+      "title": "A Context-Oriented Extension of F#"
+    },
+    {
+      "id": "1602.08504",
+      "url": "https://arxiv.org/abs/1602.08504",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/dependent.md"
+      ],
+      "count": 1,
+      "title": "Algebraic Presentations of Dependent Type Theories"
+    },
+    {
+      "id": "1603.06687",
+      "url": "https://arxiv.org/abs/1603.06687",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/scipy/stats/tests/test_continuous_fit_censored.py"
+      ],
+      "count": 1,
+      "title": "statmod: Probability Calculations for the Inverse Gaussian Distribution"
+    },
+    {
+      "id": "1603.08389",
+      "url": "https://arxiv.org/abs/1603.08389",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Umwelt of an Embodied Agent -- A Measure-Theoretic Definition"
+    },
+    {
+      "id": "1604.03607",
+      "url": "https://arxiv.org/abs/1604.03607",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "Lara: A Key-Value Algebra underlying Arrays and Relations"
+    },
+    {
+      "id": "1607.04822",
+      "url": "https://arxiv.org/abs/1607.04822",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "HoTTSQL: Proving Query Rewrites with Univalent SQL Semantics"
+    },
+    {
+      "id": "1607.06450",
+      "url": "https://arxiv.org/abs/1607.06450",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/normalization.py"
+      ],
+      "count": 1,
+      "title": "Layer Normalization"
+    },
+    {
+      "id": "1607.08022",
+      "url": "https://arxiv.org/abs/1607.08022",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/normalization.py"
+      ],
+      "count": 1,
+      "title": "Instance Normalization: The Missing Ingredient for Fast Stylization"
+    },
+    {
+      "id": "1609.00061",
+      "url": "https://arxiv.org/abs/1609.00061",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Pixel Arrays: A fast and elementary method for solving nonlinear systems"
+    },
+    {
+      "id": "1609.00434",
+      "url": "https://arxiv.org/abs/1609.00434",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The quantum Rabi model: solution and dynamics"
+    },
+    {
+      "id": "1612.03654",
+      "url": "https://arxiv.org/abs/1612.03654",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Deciphering the imprint of topology on nonlinear dynamical network stability"
+    },
+    {
+      "id": "1612.07816",
+      "url": "https://arxiv.org/abs/1612.07816",
+      "files": [
+        "protocols/quic/s2n-quic/specs/www.rfc-editor.org/rfc/rfc9308.txt"
+      ],
+      "count": 1,
+      "title": "Using UDP for Internet Transport Evolution"
+    },
+    {
+      "id": "1701.01535",
+      "url": "https://arxiv.org/abs/1701.01535",
+      "files": [
+        "lux/documentation/bookmark/os__operating_system.md"
+      ],
+      "count": 1,
+      "title": "High-Assurance Separation Kernels: A Survey on Formal Methods"
+    },
+    {
+      "id": "1701.03757",
+      "url": "https://arxiv.org/abs/1701.03757",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "Deep Probabilistic Programming"
+    },
+    {
+      "id": "1701.07615",
+      "url": "https://arxiv.org/abs/1701.07615",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/in/distributed.md"
+      ],
+      "count": 1,
+      "title": "On the Design of Distributed Programming Models"
+    },
+    {
+      "id": "1702.03118",
+      "url": "https://arxiv.org/abs/1702.03118",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/transformers/activations.py"
+      ],
+      "count": 1,
+      "title": "Sigmoid-Weighted Linear Units for Neural Network Function Approximation in Reinforcement Learning"
+    },
+    {
+      "id": "1702.08409",
+      "url": "https://arxiv.org/abs/1702.08409",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "Query Combinators"
+    },
+    {
+      "id": "1703.00526",
+      "url": "https://arxiv.org/abs/1703.00526",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Massive vector field on curved background: non-minimal coupling, quantization and divergences"
+    },
+    {
+      "id": "1703.04368",
+      "url": "https://arxiv.org/abs/1703.04368",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Symbol Grounding via Chaining of Morphisms"
+    },
+    {
+      "id": "1703.05468",
+      "url": "https://arxiv.org/abs/1703.05468",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "Database Learning: Toward a Database that Becomes Smarter Every Time"
+    },
+    {
+      "id": "1704.00605",
+      "url": "https://arxiv.org/abs/1704.00605",
+      "files": [
+        "lux/documentation/bookmark/data/format/base64.md"
+      ],
+      "count": 1,
+      "title": "Faster Base64 Encoding and Decoding Using AVX2 Instructions"
+    },
+    {
+      "id": "1704.02051",
+      "url": "https://arxiv.org/abs/1704.02051",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "A Compositional Framework for Reaction Networks"
+    },
+    {
+      "id": "1704.02230",
+      "url": "https://arxiv.org/abs/1704.02230",
+      "files": [
+        "boxxy/docs/CANONICAL_RESEARCH.md"
+      ],
+      "count": 1,
+      "title": "Coherence for lenses and open games"
+    },
+    {
+      "id": "1706.00231",
+      "url": "https://arxiv.org/abs/1706.00231",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/logic.md"
+      ],
+      "count": 1,
+      "title": "Automatic Differentiation using Constraint Handling Rules in Prolog"
+    },
+    {
+      "id": "1707.00015",
+      "url": "https://arxiv.org/abs/1707.00015",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/tool/text_editor/structural.md"
+      ],
+      "count": 1,
+      "title": "Deuce: A Lightweight User Interface for Structured Editing"
+    },
+    {
+      "id": "1707.02327",
+      "url": "https://arxiv.org/abs/1707.02327",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/license/open_source.md"
+      ],
+      "count": 1,
+      "title": "Why Modern Open Source Projects Fail"
+    },
+    {
+      "id": "1708.00183",
+      "url": "https://arxiv.org/abs/1708.00183",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "DROP: Dimensionality Reduction Optimization for Time Series"
+    },
+    {
+      "id": "1709.08086",
+      "url": "https://arxiv.org/abs/1709.08086",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The algebra of entanglement and the geometry of composition"
+    },
+    {
+      "id": "1710.00676",
+      "url": "https://arxiv.org/abs/1710.00676",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/discrete.md"
+      ],
+      "count": 1,
+      "title": "The system of integer functions, an efficient version of discrete mathematical analysis"
+    },
+    {
+      "id": "1710.05941",
+      "url": "https://arxiv.org/abs/1710.05941",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/transformers/activations.py"
+      ],
+      "count": 1,
+      "title": "Searching for Activation Functions"
+    },
+    {
+      "id": "1710.09437",
+      "url": "https://arxiv.org/abs/1710.09437",
+      "files": [
+        "asi/ies/music-topos/A16Z_PARADIGM_RESEARCH_INDEX.md"
+      ],
+      "count": 1,
+      "title": "Casper the Friendly Finality Gadget"
+    },
+    {
+      "id": "1710.09756",
+      "url": "https://arxiv.org/abs/1710.09756",
+      "files": [
+        "TWEAG-COMPREHENSIVE-RESEARCH.md"
+      ],
+      "count": 1,
+      "title": "Linear Haskell: practical linearity in a higher-order polymorphic language"
+    },
+    {
+      "id": "1710.10258",
+      "url": "https://arxiv.org/abs/1710.10258",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Temporal Type Theory: A topos-theoretic approach to systems and behavior"
+    },
+    {
+      "id": "1712.01208",
+      "url": "https://arxiv.org/abs/1712.01208",
+      "files": [
+        "lux/documentation/bookmark/data/base.md"
+      ],
+      "count": 1,
+      "title": "The Case for Learned Index Structures"
+    },
+    {
+      "id": "1712.06469",
+      "url": "https://arxiv.org/abs/1712.06469",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "$\\infty$-Operads as Analytic Monads"
+    },
+    {
+      "id": "1801.09553",
+      "url": "https://arxiv.org/abs/1801.09553",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/calculus.md"
+      ],
+      "count": 1,
+      "title": "Extending the Algebraic Manipulability of Differentials"
+    },
+    {
+      "id": "1802.03426",
+      "url": "https://arxiv.org/abs/1802.03426",
+      "files": [
+        "asi/skills/padic-ultrametric-embedding/SKILL.md"
+      ],
+      "count": 1,
+      "title": "UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction"
+    },
+    {
+      "id": "1802.04314",
+      "url": "https://arxiv.org/abs/1802.04314",
+      "files": [
+        "asi/skills/topomodelx-hodge/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Optimized phase sensing in a truncated SU(1,1) interferometer"
+    },
+    {
+      "id": "1802.07044",
+      "url": "https://arxiv.org/abs/1802.07044",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Description Length of Deep Learning Models"
+    },
+    {
+      "id": "1803.02924",
+      "url": "https://arxiv.org/abs/1803.02924",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/sklearn/utils/optimize.py"
+      ],
+      "count": 1,
+      "title": "A Newton-CG Algorithm with Complexity Guarantees for Smooth Unconstrained Optimization"
+    },
+    {
+      "id": "1803.04585",
+      "url": "https://arxiv.org/abs/1803.04585",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Categorizing Variants of Goodhart's Law"
+    },
+    {
+      "id": "1803.06263",
+      "url": "https://arxiv.org/abs/1803.06263",
+      "files": [
+        "asi/ies/music-topos/MOEBIUS_VERIFICATION_RESEARCH.md"
+      ],
+      "count": 1,
+      "title": "A brief guide to reversing and extended symmetries of dynamical systems"
+    },
+    {
+      "id": "1803.08494",
+      "url": "https://arxiv.org/abs/1803.08494",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/normalization.py"
+      ],
+      "count": 1,
+      "title": "Group Normalization"
+    },
+    {
+      "id": "1803.10228",
+      "url": "https://arxiv.org/abs/1803.10228",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/differentiable_programming.md"
+      ],
+      "count": 1,
+      "title": "Demystifying Differentiable Programming: Shift/Reset the Penultimate Backpropagator"
+    },
+    {
+      "id": "1804.04235",
+      "url": "https://arxiv.org/abs/1804.04235",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/optimizers/optimizers.py"
+      ],
+      "count": 1,
+      "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost"
+    },
+    {
+      "id": "1804.06458",
+      "url": "https://arxiv.org/abs/1804.06458",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "Deep Probabilistic Programming Languages: A Qualitative Study"
+    },
+    {
+      "id": "1805.10451",
+      "url": "https://arxiv.org/abs/1805.10451",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/machine_learning.md"
+      ],
+      "count": 1,
+      "title": "Geometric Understanding of Deep Learning"
+    },
+    {
+      "id": "1805.10941",
+      "url": "https://arxiv.org/abs/1805.10941",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/numba/np/random/random_methods.py"
+      ],
+      "count": 1,
+      "title": "Fast Random Integer Generation in an Interval"
+    },
+    {
+      "id": "1806.01603",
+      "url": "https://arxiv.org/abs/1806.01603",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/machine_learning.md"
+      ],
+      "count": 1,
+      "title": "Layer rotation: a surprisingly powerful indicator of generalization in deep networks?"
+    },
+    {
+      "id": "1806.06725",
+      "url": "https://arxiv.org/abs/1806.06725",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/scipy/special/_add_newdocs.py"
+      ],
+      "count": 1,
+      "title": "Numerical Evaluation of Elliptic Functions, Elliptic Integrals and Modular Forms"
+    },
+    {
+      "id": "1806.07572",
+      "url": "https://arxiv.org/abs/1806.07572",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Neural Tangent Kernel: Convergence and Generalization in Neural Networks"
+    },
+    {
+      "id": "1807.04938",
+      "url": "https://arxiv.org/abs/1807.04938",
+      "files": [
+        "asi/ies/music-topos/TIM_ROUGHGARDEN_EDUCATIONAL_CONTENT_INDEX.md"
+      ],
+      "count": 1,
+      "title": "The latest gossip on BFT consensus"
+    },
+    {
+      "id": "1807.05308",
+      "url": "https://arxiv.org/abs/1807.05308",
+      "files": [
+        "lux/documentation/bookmark/os__operating_system.md"
+      ],
+      "count": 1,
+      "title": "TabulaROSA: Tabular Operating System Architecture for Massively Parallel Heterogeneous Compute Engines"
+    },
+    {
+      "id": "1807.08416",
+      "url": "https://arxiv.org/abs/1807.08416",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics.md"
+      ],
+      "count": 1,
+      "title": "Some Fundamental Theorems in Mathematics"
+    },
+    {
+      "id": "1808.01348",
+      "url": "https://arxiv.org/abs/1808.01348",
+      "files": [
+        "lux/documentation/bookmark/cryptography.md"
+      ],
+      "count": 1,
+      "title": "CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem"
+    },
+    {
+      "id": "1808.01513",
+      "url": "https://arxiv.org/abs/1808.01513",
+      "files": [
+        "asi/skills/koho-sheafnn/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Toward a Spectral Theory of Cellular Sheaves"
+    },
+    {
+      "id": "1808.03172",
+      "url": "https://arxiv.org/abs/1808.03172",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics.md"
+      ],
+      "count": 1,
+      "title": "An Invitation to Noncommutative Algebra"
+    },
+    {
+      "id": "1808.08124",
+      "url": "https://arxiv.org/abs/1808.08124",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Insect cyborgs: Bio-mimetic feature generators improve machine learning accuracy on limited data"
+    },
+    {
+      "id": "1809.00738",
+      "url": "https://arxiv.org/abs/1809.00738",
+      "files": [
+        "asi/SWAN_HEDGES_TOPOLOGICAL_ASI_INTEGRATION.md"
+      ],
+      "count": 1,
+      "title": "Categories of Optics"
+    },
+    {
+      "id": "1809.02161",
+      "url": "https://arxiv.org/abs/1809.02161",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/optimization.md"
+      ],
+      "count": 1,
+      "title": "Future Directions for Optimizing Compilers"
+    },
+    {
+      "id": "1809.05930",
+      "url": "https://arxiv.org/abs/1809.05930",
+      "files": [
+        "lux/documentation/bookmark/communication/documentation.md"
+      ],
+      "count": 1,
+      "title": "Visually Representing the Landscape of Mathematical Structures"
+    },
+    {
+      "id": "1809.06421",
+      "url": "https://arxiv.org/abs/1809.06421",
+      "files": [
+        "lux/documentation/bookmark/business/funding/public.md"
+      ],
+      "count": 1,
+      "title": "A Flexible Design for Funding Public Goods"
+    },
+    {
+      "id": "1809.10756",
+      "url": "https://arxiv.org/abs/1809.10756",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "An Introduction to Probabilistic Programming"
+    },
+    {
+      "id": "1810.09679",
+      "url": "https://arxiv.org/abs/1810.09679",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/in/distributed.md"
+      ],
+      "count": 1,
+      "title": "numpywren: serverless linear algebra"
+    },
+    {
+      "id": "1811.06810",
+      "url": "https://arxiv.org/abs/1811.06810",
+      "files": [
+        "boxxy/docs/CANONICAL_RESEARCH.md"
+      ],
+      "count": 1,
+      "title": "Sequential games and nondeterministic selection functions"
+    },
+    {
+      "id": "1902.05873",
+      "url": "https://arxiv.org/abs/1902.05873",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/in/distributed.md"
+      ],
+      "count": 1,
+      "title": "Spectrum: A Framework for Adapting Consensus Protocols"
+    },
+    {
+      "id": "1903.01366",
+      "url": "https://arxiv.org/abs/1903.01366",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/linear_algebra.md"
+      ],
+      "count": 1,
+      "title": "Graphical Calculus for products and convolutions"
+    },
+    {
+      "id": "1903.01955",
+      "url": "https://arxiv.org/abs/1903.01955",
+      "files": [
+        "lux/documentation/bookmark/os__operating_system.md"
+      ],
+      "count": 1,
+      "title": "The Lustre Storage Architecture"
+    },
+    {
+      "id": "1904.07004",
+      "url": "https://arxiv.org/abs/1904.07004",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "All $(\\infty,1)$-toposes have strict univalent universes"
+    },
+    {
+      "id": "1904.07298",
+      "url": "https://arxiv.org/abs/1904.07298",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/dependent.md"
+      ],
+      "count": 1,
+      "title": "A Path To DOT: Formalizing Fully Path-Dependent Types"
+    },
+    {
+      "id": "1904.09828",
+      "url": "https://arxiv.org/abs/1904.09828",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Magic: The Gathering is Turing Complete"
+    },
+    {
+      "id": "1904.12226",
+      "url": "https://arxiv.org/abs/1904.12226",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/infrastructure/container.md"
+      ],
+      "count": 1,
+      "title": "The Ideal Versus the Real: Revisiting the History of Virtual Machines and Containers"
+    },
+    {
+      "id": "1905.00402",
+      "url": "https://arxiv.org/abs/1905.00402",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/logic.md"
+      ],
+      "count": 1,
+      "title": "Next-Paradigm Programming Languages: What Will They Look Like and What Changes Will They Bring?"
+    },
+    {
+      "id": "1905.01289",
+      "url": "https://arxiv.org/abs/1905.01289",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/linear_algebra.md"
+      ],
+      "count": 1,
+      "title": "Convolution, attention and structure embedding"
+    },
+    {
+      "id": "1905.02175",
+      "url": "https://arxiv.org/abs/1905.02175",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Adversarial Examples Are Not Bugs, They Are Features"
+    },
+    {
+      "id": "1905.03030",
+      "url": "https://arxiv.org/abs/1905.03030",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Meta-learning of Sequential Strategies"
+    },
+    {
+      "id": "1905.09381",
+      "url": "https://arxiv.org/abs/1905.09381",
+      "files": [
+        "asi/skills/coqgym/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Learning to Prove Theorems via Interacting with Proof Assistants"
+    },
+    {
+      "id": "1905.10501",
+      "url": "https://arxiv.org/abs/1905.10501",
+      "files": [
+        "asi/skills/neuro-symbolic-bridge/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Learning to Reason in Large Theories without Imitation"
+    },
+    {
+      "id": "1907.00509",
+      "url": "https://arxiv.org/abs/1907.00509",
+      "files": [
+        "lux/documentation/bookmark/abstraction/function/polymorphism/rank.md"
+      ],
+      "count": 1,
+      "title": "The Semantics of Rank Polymorphism"
+    },
+    {
+      "id": "1908.00441",
+      "url": "https://arxiv.org/abs/1908.00441",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/refinement.md"
+      ],
+      "count": 1,
+      "title": "Refinement Kinds: Type-safe Programming with Practical Type-level Computation (Extended Version)"
+    },
+    {
+      "id": "1908.02633",
+      "url": "https://arxiv.org/abs/1908.02633",
+      "files": [
+        "notebooks/Catlab.jl/src/theories/Monoidal.jl"
+      ],
+      "count": 1,
+      "title": "Supplying bells and whistles in symmetric monoidal categories"
+    },
+    {
+      "id": "1908.05647",
+      "url": "https://arxiv.org/abs/1908.05647",
+      "files": [
+        "lux/documentation/bookmark/resource/memory/management.md"
+      ],
+      "count": 1,
+      "title": "Counting Immutable Beans: Reference Counting Optimized for Purely Functional Programming"
+    },
+    {
+      "id": "1908.06841",
+      "url": "https://arxiv.org/abs/1908.06841",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Ternary circuits: why R=3 is not the Optimal Radix for Computation"
+    },
+    {
+      "id": "1908.07563",
+      "url": "https://arxiv.org/abs/1908.07563",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/paradigm/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "Reactive Probabilistic Programming"
+    },
+    {
+      "id": "1908.08681",
+      "url": "https://arxiv.org/abs/1908.08681",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/activations.py"
+      ],
+      "count": 1,
+      "title": "Mish: A Self Regularized Non-Monotonic Activation Function"
+    },
+    {
+      "id": "1908.10660",
+      "url": "https://arxiv.org/abs/1908.10660",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Foundations of brick diagrams"
+    },
+    {
+      "id": "1909.11556",
+      "url": "https://arxiv.org/abs/1909.11556",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx_vlm/models/florence2/language.py"
+      ],
+      "count": 1,
+      "title": "Reducing Transformer Depth on Demand with Structured Dropout"
+    },
+    {
+      "id": "1909.11694",
+      "url": "https://arxiv.org/abs/1909.11694",
+      "files": [
+        "asi/ies/music-topos/RAMANUJAN_SPECTRAL_FRAMEWORK.md"
+      ],
+      "count": 1,
+      "title": "Ramanujan Graphs and the Spectral Gap of Supercomputing Topologies"
+    },
+    {
+      "id": "1909.13768",
+      "url": "https://arxiv.org/abs/1909.13768",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/differentiable_programming.md"
+      ],
+      "count": 1,
+      "title": "Backpropagation in the Simply Typed Lambda-calculus with Linear Negation"
+    },
+    {
+      "id": "1910.07467",
+      "url": "https://arxiv.org/abs/1910.07467",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx/nn/layers/normalization.py"
+      ],
+      "count": 1,
+      "title": "Root Mean Square Layer Normalization"
+    },
+    {
+      "id": "1910.09017",
+      "url": "https://arxiv.org/abs/1910.09017",
+      "files": [
+        "lux/documentation/bookmark/data/base/graph.md"
+      ],
+      "count": 1,
+      "title": "Demystifying Graph Databases: Analysis and Taxonomy of Data Organization, System Designs, and Graph Queries"
+    },
+    {
+      "id": "1910.09700",
+      "url": "https://arxiv.org/abs/1910.09700",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/templates/modelcard_template.md"
+      ],
+      "count": 1,
+      "title": "Quantifying the Carbon Emissions of Machine Learning"
+    },
+    {
+      "id": "1910.11189",
+      "url": "https://arxiv.org/abs/1910.11189",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Augmented virtual double categories"
+    },
+    {
+      "id": "1912.04977",
+      "url": "https://arxiv.org/abs/1912.04977",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Advances and Open Problems in Federated Learning"
+    },
+    {
+      "id": "2001.07488",
+      "url": "https://arxiv.org/abs/2001.07488",
+      "files": [
+        "lux/documentation/bookmark/algorithm/optics.md"
+      ],
+      "count": 1,
+      "title": "Profunctor Optics, a Categorical Update"
+    },
+    {
+      "id": "2001.10488",
+      "url": "https://arxiv.org/abs/2001.10488",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Statistical Consequences of Fat Tails: Real World Preasymptotics, Epistemology, and Applications"
+    },
+    {
+      "id": "2002.02268",
+      "url": "https://arxiv.org/abs/2002.02268",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/optimization.md"
+      ],
+      "count": 1,
+      "title": "A Language for Describing Optimization Strategies"
+    },
+    {
+      "id": "2002.09511",
+      "url": "https://arxiv.org/abs/2002.09511",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/tool/text_editor.md"
+      ],
+      "count": 1,
+      "title": "Chronofold: a data structure for versioned text"
+    },
+    {
+      "id": "2003.04883",
+      "url": "https://arxiv.org/abs/2003.04883",
+      "files": [
+        "asi/skills/coqgym/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Maximum Likelihood Speed Estimation of Moving Objects in Video Signals"
+    },
+    {
+      "id": "2005.04305",
+      "url": "https://arxiv.org/abs/2005.04305",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Measuring the Algorithmic Efficiency of Neural Networks"
+    },
+    {
+      "id": "2005.04869",
+      "url": "https://arxiv.org/abs/2005.04869",
+      "files": [
+        "asi/skills/omg-tension-resolver/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Towards a Scalable and Flexible Simulation and Testing Environment Toolbox for Intelligent Microgrid Control"
+    },
+    {
+      "id": "2005.11290",
+      "url": "https://arxiv.org/abs/2005.11290",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Internal Parametricity for Cubical Type Theory"
+    },
+    {
+      "id": "2005.12798",
+      "url": "https://arxiv.org/abs/2005.12798",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Opinion Dynamics on Discourse Sheaves"
+    },
+    {
+      "id": "2005.14165",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "files": [
+        "worlds/s/PayloadsAllTheThings/Prompt Injection/README.md"
+      ],
+      "count": 1,
+      "title": "Language Models are Few-Shot Learners"
+    },
+    {
+      "id": "2006.10621",
+      "url": "https://arxiv.org/abs/2006.10621",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On the Predictability of Pruning Across Scales"
+    },
+    {
+      "id": "2006.10637",
+      "url": "https://arxiv.org/abs/2006.10637",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Temporal Graph Networks for Deep Learning on Dynamic Graphs"
+    },
+    {
+      "id": "2006.11248",
+      "url": "https://arxiv.org/abs/2006.11248",
+      "files": [
+        "asi/ies/music-topos/ALON_BOPPANA_OPTIMALITY_PROOF.md"
+      ],
+      "count": 1,
+      "title": "An Alon-Boppana theorem for powered graphs and generalized Ramanujan graphs"
+    },
+    {
+      "id": "2008.06030",
+      "url": "https://arxiv.org/abs/2008.06030",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/tool/text_editor.md"
+      ],
+      "count": 1,
+      "title": "On the design of text editors"
+    },
+    {
+      "id": "2008.07912",
+      "url": "https://arxiv.org/abs/2008.07912",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/machine_learning.md"
+      ],
+      "count": 1,
+      "title": "Inductive logic programming at 30: a new introduction"
+    },
+    {
+      "id": "2009.03300",
+      "url": "https://arxiv.org/abs/2009.03300",
+      "files": [
+        "worlds/c/hacktricks/src/AI/AI-llm-architecture/7.2.-fine-tuning-to-follow-instructions.md"
+      ],
+      "count": 1,
+      "title": "Measuring Massive Multitask Language Understanding"
+    },
+    {
+      "id": "2009.08449",
+      "url": "https://arxiv.org/abs/2009.08449",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "'Less Than One'-Shot Learning: Learning N Classes From M<N Samples"
+    },
+    {
+      "id": "2010.03509",
+      "url": "https://arxiv.org/abs/2010.03509",
+      "files": [
+        "asi/SKILL_UPDATES_COMPLETE_SUMMARY.md"
+      ],
+      "count": 1,
+      "title": "Automatic Backward Filtering Forward Guiding for Markov processes and graphical models"
+    },
+    {
+      "id": "2010.05676",
+      "url": "https://arxiv.org/abs/2010.05676",
+      "files": [
+        "asi/skills/discopy-functor/SKILL.md"
+      ],
+      "count": 1,
+      "title": "The Nakayama functor and its completion for Gorenstein algebras"
+    },
+    {
+      "id": "2011.15021",
+      "url": "https://arxiv.org/abs/2011.15021",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/dependent.md"
+      ],
+      "count": 1,
+      "title": "Multimodal Dependent Type Theory"
+    },
+    {
+      "id": "2012.03826",
+      "url": "https://arxiv.org/abs/2012.03826",
+      "files": [
+        "ArkhaiPufferEnv/pufferlib/sweep.py"
+      ],
+      "count": 1,
+      "title": "HEBO Pushing The Limits of Sample-Efficient Hyperparameter Optimisation"
+    },
+    {
+      "id": "2101.12299",
+      "url": "https://arxiv.org/abs/2101.12299",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/gradual.md"
+      ],
+      "count": 1,
+      "title": "Putting gradual types to work"
+    },
+    {
+      "id": "2102.00096",
+      "url": "https://arxiv.org/abs/2102.00096",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Categorical Semantics for Hierarchical Petri Nets"
+    },
+    {
+      "id": "2102.07620",
+      "url": "https://arxiv.org/abs/2102.07620",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Perfectoid Diamonds and n-Awareness. A Meta-Model of Subjective Experience"
+    },
+    {
+      "id": "2102.09823",
+      "url": "https://arxiv.org/abs/2102.09823",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/optimization/compiler/tail_recursion_modulo_cons.md"
+      ],
+      "count": 1,
+      "title": "Tail Modulo Cons"
+    },
+    {
+      "id": "2103.02515",
+      "url": "https://arxiv.org/abs/2103.02515",
+      "files": [
+        "lux/documentation/bookmark/data/structure/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "Ribbon filter: practically smaller than Bloom and Xor"
+    },
+    {
+      "id": "2103.03198",
+      "url": "https://arxiv.org/abs/2103.03198",
+      "files": [
+        "lux/documentation/bookmark/society/law.md"
+      ],
+      "count": 1,
+      "title": "Catala: A Programming Language for the Law"
+    },
+    {
+      "id": "2103.09780",
+      "url": "https://arxiv.org/abs/2103.09780",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Reality as a Vector in Hilbert Space"
+    },
+    {
+      "id": "2103.14468",
+      "url": "https://arxiv.org/abs/2103.14468",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Some properties of the parking function poset"
+    },
+    {
+      "id": "2105.06320",
+      "url": "https://arxiv.org/abs/2105.06320",
+      "files": [
+        "asi/ies/music-topos/BEHAVIORAL_ENTROPY_RESEARCH_SYNTHESIS.md"
+      ],
+      "count": 1,
+      "title": "Applying information theory and entropy to eliminate errors in mouse-tracking results"
+    },
+    {
+      "id": "2105.06763",
+      "url": "https://arxiv.org/abs/2105.06763",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Translating Extensive Form Games to Open Games with Agency"
+    },
+    {
+      "id": "2105.07888",
+      "url": "https://arxiv.org/abs/2105.07888",
+      "files": [
+        "CONDENSED-ANIMA-NETWORK-ADDED.md"
+      ],
+      "count": 1,
+      "title": "Animated Condensed Sets and Their Homotopy Groups"
+    },
+    {
+      "id": "2105.12282",
+      "url": "https://arxiv.org/abs/2105.12282",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Operadic Modeling of Dynamical Systems: Mathematics and Computation"
+    },
+    {
+      "id": "2105.14579",
+      "url": "https://arxiv.org/abs/2105.14579",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Intensional Kleene and Rice Theorems for Abstract Program Semantics"
+    },
+    {
+      "id": "2106.01340",
+      "url": "https://arxiv.org/abs/2106.01340",
+      "files": [
+        "asi/ies/music-topos/TIM_ROUGHGARDEN_EDUCATIONAL_CONTENT_INDEX.md"
+      ],
+      "count": 1,
+      "title": "Transaction Fee Mechanism Design"
+    },
+    {
+      "id": "2106.04399",
+      "url": "https://arxiv.org/abs/2106.04399",
+      "files": [
+        "asi/skills/neuro-symbolic-bridge/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation"
+    },
+    {
+      "id": "2106.06278",
+      "url": "https://arxiv.org/abs/2106.06278",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/set.md"
+      ],
+      "count": 1,
+      "title": "Union and intersection contracts are hard, actually"
+    },
+    {
+      "id": "2107.02828",
+      "url": "https://arxiv.org/abs/2107.02828",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Cognitive cascades: How to model (and potentially counter) the spread of fake news"
+    },
+    {
+      "id": "2107.07982",
+      "url": "https://arxiv.org/abs/2107.07982",
+      "files": [
+        "tropical-papers/markdown/barbarossa-tropical-probabilistic-ppl.md"
+      ],
+      "count": 1,
+      "title": "Tropical Laurent series, their tropical roots, and localization results for the eigenvalues of nonlinear matrix functions"
+    },
+    {
+      "id": "2107.10545",
+      "url": "https://arxiv.org/abs/2107.10545",
+      "files": [
+        "lux/documentation/bookmark/computation.md"
+      ],
+      "count": 1,
+      "title": "Fundamental Constructs in Programming Languages"
+    },
+    {
+      "id": "2108.05318",
+      "url": "https://arxiv.org/abs/2108.05318",
+      "files": [
+        "SETH-FREY-COAUTHORS-HOTT-ECOSYSTEM.md"
+      ],
+      "count": 1,
+      "title": "Composing games into complex institutions"
+    },
+    {
+      "id": "2108.07258",
+      "url": "https://arxiv.org/abs/2108.07258",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On the Opportunities and Risks of Foundation Models"
+    },
+    {
+      "id": "2108.08481",
+      "url": "https://arxiv.org/abs/2108.08481",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Neural Operator: Learning Maps Between Function Spaces"
+    },
+    {
+      "id": "2108.13976",
+      "url": "https://arxiv.org/abs/2108.13976",
+      "files": [
+        "ai-economist/README.md"
+      ],
+      "count": 1,
+      "title": "WarpDrive: Extremely Fast End-to-End Deep Multi-Agent Reinforcement Learning on a GPU"
+    },
+    {
+      "id": "2109.06554",
+      "url": "https://arxiv.org/abs/2109.06554",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Talking Space: inference from spatial linguistic meanings"
+    },
+    {
+      "id": "2109.08341",
+      "url": "https://arxiv.org/abs/2109.08341",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "THyMe+: Temporal Hypergraph Motifs and Fast Algorithms for Exact Counting"
+    },
+    {
+      "id": "2110.02719",
+      "url": "https://arxiv.org/abs/2110.02719",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Information Geometry of Unsupervised Reinforcement Learning"
+    },
+    {
+      "id": "2110.03789",
+      "url": "https://arxiv.org/abs/2110.03789",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Knowledge Sheaves: A Sheaf-Theoretic Framework for Knowledge Graph Embedding"
+    },
+    {
+      "id": "2110.05327",
+      "url": "https://arxiv.org/abs/2110.05327",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Compositionality as we see it, everywhere around us"
+    },
+    {
+      "id": "2111.00876",
+      "url": "https://arxiv.org/abs/2111.00876",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On the Expressivity of Markov Reward"
+    },
+    {
+      "id": "2111.03354",
+      "url": "https://arxiv.org/abs/2111.03354",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/set.md"
+      ],
+      "count": 1,
+      "title": "Programming with union, intersection, and negation types"
+    },
+    {
+      "id": "2111.03460",
+      "url": "https://arxiv.org/abs/2111.03460",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Pregeometric Spaces from Wolfram Model Rewriting Systems as Homotopy Types"
+    },
+    {
+      "id": "2111.07461",
+      "url": "https://arxiv.org/abs/2111.07461",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Topos View of Blockchain Consensus Protocols"
+    },
+    {
+      "id": "2111.08851",
+      "url": "https://arxiv.org/abs/2111.08851",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/umap/parametric_umap.py"
+      ],
+      "count": 1,
+      "title": "Deep Neural Networks for Rank-Consistent Ordinal Regression Based On Conditional Probabilities"
+    },
+    {
+      "id": "2111.10315",
+      "url": "https://arxiv.org/abs/2111.10315",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Compositional Thermostatics"
+    },
+    {
+      "id": "2112.07978",
+      "url": "https://arxiv.org/abs/2112.07978",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Entanglement between superconducting qubits and a tardigrade"
+    },
+    {
+      "id": "2112.14714",
+      "url": "https://arxiv.org/abs/2112.14714",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/optimization/rewrite_rules.md"
+      ],
+      "count": 1,
+      "title": "Automated Code Optimization with E-Graphs"
+    },
+    {
+      "id": "2201.01174",
+      "url": "https://arxiv.org/abs/2201.01174",
+      "files": [
+        "lux/documentation/bookmark/data/structure/probabilistic.md"
+      ],
+      "count": 1,
+      "title": "Binary Fuse Filters: Fast and Smaller Than Xor Filters"
+    },
+    {
+      "id": "2201.02177",
+      "url": "https://arxiv.org/abs/2201.02177",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
+    },
+    {
+      "id": "2201.13250",
+      "url": "https://arxiv.org/abs/2201.13250",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Differentiating and Integrating ZX Diagrams with Applications to Quantum Machine Learning"
+    },
+    {
+      "id": "2201.13259",
+      "url": "https://arxiv.org/abs/2201.13259",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Trajectory balance: Improved credit assignment in GFlowNets"
+    },
+    {
+      "id": "2202.01814",
+      "url": "https://arxiv.org/abs/2202.01814",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On Shilnikov attractors of three-dimensional flows and maps"
+    },
+    {
+      "id": "2202.08587",
+      "url": "https://arxiv.org/abs/2202.08587",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/machine_learning/gradient.md"
+      ],
+      "count": 1,
+      "title": "Gradients without Backpropagation"
+    },
+    {
+      "id": "2202.12992",
+      "url": "https://arxiv.org/abs/2202.12992",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Decomposing past and future: Integrated information decomposition based on shared probability mass exclusions"
+    },
+    {
+      "id": "2203.03144",
+      "url": "https://arxiv.org/abs/2203.03144",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Open Source Software Sustainability: Combining Institutional Analysis and Socio-Technical Networks"
+    },
+    {
+      "id": "2203.06717",
+      "url": "https://arxiv.org/abs/2203.06717",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx_vlm/models/fastvlm/vision.py"
+      ],
+      "count": 1,
+      "title": "Scaling Up Your Kernels to 31x31: Revisiting Large Kernel Design in CNNs"
+    },
+    {
+      "id": "2203.16351",
+      "url": "https://arxiv.org/abs/2203.16351",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Actegories for the Working Amthematician"
+    },
+    {
+      "id": "2203.16697",
+      "url": "https://arxiv.org/abs/2203.16697",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/synthesis.md"
+      ],
+      "count": 1,
+      "title": "Type-Directed Program Synthesis for RESTful APIs"
+    },
+    {
+      "id": "2205.08373",
+      "url": "https://arxiv.org/abs/2205.08373",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Compositional Modeling with Stock and Flow Diagrams"
+    },
+    {
+      "id": "2205.15402",
+      "url": "https://arxiv.org/abs/2205.15402",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A generalization of cellular automata over groups"
+    },
+    {
+      "id": "2206.02279",
+      "url": "https://arxiv.org/abs/2206.02279",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Assembly Theory Explains and Quantifies the Emergence of Selection and Evolution"
+    },
+    {
+      "id": "2206.07185",
+      "url": "https://arxiv.org/abs/2206.07185",
+      "files": [
+        "lux/documentation/bookmark/resource/memory/management/borrow.md"
+      ],
+      "count": 1,
+      "title": "Aeneas: Rust Verification by Functional Translation"
+    },
+    {
+      "id": "2206.08119",
+      "url": "https://arxiv.org/abs/2206.08119",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Learning to Infer Structures of Network Games"
+    },
+    {
+      "id": "2206.09206",
+      "url": "https://arxiv.org/abs/2206.09206",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/analysis/static.md"
+      ],
+      "count": 1,
+      "title": "Fusing Industry and Academia at GitHub (Experience Report)"
+    },
+    {
+      "id": "2206.12301",
+      "url": "https://arxiv.org/abs/2206.12301",
+      "files": [
+        "lux/documentation/bookmark/play/game/ranking.md"
+      ],
+      "count": 1,
+      "title": "On the Limitations of Elo: Real-World Games, are Transitive, not Additive"
+    },
+    {
+      "id": "2206.12338",
+      "url": "https://arxiv.org/abs/2206.12338",
+      "files": [
+        "boxxy/docs/CANONICAL_RESEARCH.md"
+      ],
+      "count": 1,
+      "title": "Diegetic Representation of Feedback in Open Games"
+    },
+    {
+      "id": "2206.13468",
+      "url": "https://arxiv.org/abs/2206.13468",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An Atlas for the Pinhole Camera"
+    },
+    {
+      "id": "2207.06091",
+      "url": "https://arxiv.org/abs/2207.06091",
+      "files": [
+        "asi/skills/structured-decompositions/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Structured Decompositions: Structural and Algorithmic Compositionality"
+    },
+    {
+      "id": "2207.09734",
+      "url": "https://arxiv.org/abs/2207.09734",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Free Energy Principle drives neuromorphic development"
+    },
+    {
+      "id": "2208.12289",
+      "url": "https://arxiv.org/abs/2208.12289",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Truchet-tile structure of a topologically aperiodic metal-organic framework"
+    },
+    {
+      "id": "2208.14960",
+      "url": "https://arxiv.org/abs/2208.14960",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Stationary Kernels and Gaussian Processes on Lie Groups and their Homogeneous Spaces I: the compact case"
+    },
+    {
+      "id": "2209.06315",
+      "url": "https://arxiv.org/abs/2209.06315",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/testing/inline.md"
+      ],
+      "count": 1,
+      "title": "Inline Tests"
+    },
+    {
+      "id": "2209.14709",
+      "url": "https://arxiv.org/abs/2209.14709",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Grothendieck's point of view and complexity in the black hole paradox"
+    },
+    {
+      "id": "2210.01776",
+      "url": "https://arxiv.org/abs/2210.01776",
+      "files": [
+        "asi/skills/diffdock/SKILL.md"
+      ],
+      "count": 1,
+      "title": "DiffDock: Diffusion Steps, Twists, and Turns for Molecular Docking"
+    },
+    {
+      "id": "2210.03629",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "files": [
+        "vtcode/docs/CODING_AGENT_BEST_PRACTICES_SYNTHESIS.md"
+      ],
+      "count": 1,
+      "title": "ReAct: Synergizing Reasoning and Acting in Language Models"
+    },
+    {
+      "id": "2210.05189",
+      "url": "https://arxiv.org/abs/2210.05189",
+      "files": [
+        "lux/documentation/bookmark/ai__artificial_intelligence/machine_learning/decision_tree.md"
+      ],
+      "count": 1,
+      "title": "Neural Networks are Decision Trees"
+    },
+    {
+      "id": "2210.07746",
+      "url": "https://arxiv.org/abs/2210.07746",
+      "files": [
+        "CONDENSED-ANIMA-NETWORK-ADDED.md"
+      ],
+      "count": 1,
+      "title": "Formalising the $h$-principle and sphere eversion"
+    },
+    {
+      "id": "2210.12761",
+      "url": "https://arxiv.org/abs/2210.12761",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Path integrals, particular kinds, and strange things"
+    },
+    {
+      "id": "2210.17323",
+      "url": "https://arxiv.org/abs/2210.17323",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx_lm/quant/gptq.py"
+      ],
+      "count": 1,
+      "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers"
+    },
+    {
+      "id": "2211.00006",
+      "url": "https://arxiv.org/abs/2211.00006",
+      "files": [
+        "lux/documentation/bookmark/observability/logging.md"
+      ],
+      "count": 1,
+      "title": "High-Level Event Mining: A Framework"
+    },
+    {
+      "id": "2211.12629",
+      "url": "https://arxiv.org/abs/2211.12629",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Complete Diagrammatic Calculus for Boolean Satisfiability"
+    },
+    {
+      "id": "2211.16597",
+      "url": "https://arxiv.org/abs/2211.16597",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/language/design.md"
+      ],
+      "count": 1,
+      "title": "Right and wrong: ten choices in language design"
+    },
+    {
+      "id": "2212.01354",
+      "url": "https://arxiv.org/abs/2212.01354",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Designing Ecosystems of Intelligence from First Principles"
+    },
+    {
+      "id": "2212.04356",
+      "url": "https://arxiv.org/abs/2212.04356",
+      "files": [
+        "comfy-pilot/VOICE_SYSTEM_SUMMARY.md"
+      ],
+      "count": 1,
+      "title": "Robust Speech Recognition via Large-Scale Weak Supervision"
+    },
+    {
+      "id": "2212.12538",
+      "url": "https://arxiv.org/abs/2212.12538",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Mathematical Foundations for a Compositional Account of the Bayesian Brain"
+    },
+    {
+      "id": "2301.04690",
+      "url": "https://arxiv.org/abs/2301.04690",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Functorial Perspective on (Multi)computational Irreducibility"
+    },
+    {
+      "id": "2301.08700",
+      "url": "https://arxiv.org/abs/2301.08700",
+      "files": [
+        "protocols/tob-publications/README.md"
+      ],
+      "count": 1,
+      "title": "Blind Spots: Automatically detecting ignored program inputs"
+    },
+    {
+      "id": "2301.08941",
+      "url": "https://arxiv.org/abs/2301.08941",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/statistics.md"
+      ],
+      "count": 1,
+      "title": "On the Algebraic Properties of Flame Graphs"
+    },
+    {
+      "id": "2301.13088",
+      "url": "https://arxiv.org/abs/2301.13088",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Stationary Kernels and Gaussian Processes on Lie Groups and their Homogeneous Spaces II: non-compact symmetric spaces"
+    },
+    {
+      "id": "2302.01415",
+      "url": "https://arxiv.org/abs/2302.01415",
+      "files": [
+        "lux/documentation/bookmark/computation/effect/higher_order.md"
+      ],
+      "count": 1,
+      "title": "A Framework for Higher-Order Effects & Handlers"
+    },
+    {
+      "id": "2302.05815",
+      "url": "https://arxiv.org/abs/2302.05815",
+      "files": [
+        "rzk-lang-rzk/README.md"
+      ],
+      "count": 1,
+      "title": "E-unification for Second-Order Abstract Syntax"
+    },
+    {
+      "id": "2302.07855",
+      "url": "https://arxiv.org/abs/2302.07855",
+      "files": [
+        "asi/skills/riehl-post-rigorous/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Could $\\infty$-category theory be taught to undergraduates?"
+    },
+    {
+      "id": "2302.11824",
+      "url": "https://arxiv.org/abs/2302.11824",
+      "files": [
+        "mlx-audio-lfm/mlx_audio/sts/models/mossformer2_se/flash_sharea_ffconvm.py"
+      ],
+      "count": 1,
+      "title": "MossFormer: Pushing the Performance Limit of Monaural Speech Separation using Gated Single-Head Transformer with Convolution-Augmented Joint Self-Attentions"
+    },
+    {
+      "id": "2302.12469",
+      "url": "https://arxiv.org/abs/2302.12469",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Unsupervised Discovery of Semantic Latent Directions in Diffusion Models"
+    },
+    {
+      "id": "2303.00924",
+      "url": "https://arxiv.org/abs/2303.00924",
+      "files": [
+        "lux/to_do.md"
+      ],
+      "count": 1,
+      "title": "HasChor: Functional Choreographic Programming for All (Functional Pearl)"
+    },
+    {
+      "id": "2303.03163",
+      "url": "https://arxiv.org/abs/2303.03163",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Basic ZX-calculus for students and professionals"
+    },
+    {
+      "id": "2303.06614",
+      "url": "https://arxiv.org/abs/2303.06614",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Synthetic Experience Replay"
+    },
+    {
+      "id": "2303.10798",
+      "url": "https://arxiv.org/abs/2303.10798",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An aperiodic monotile"
+    },
+    {
+      "id": "2303.13865",
+      "url": "https://arxiv.org/abs/2303.13865",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Compositionality in algorithms for smoothing"
+    },
+    {
+      "id": "2304.01433",
+      "url": "https://arxiv.org/abs/2304.01433",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "TPU v4: An Optically Reconfigurable Supercomputer for Machine Learning with Hardware Support for Embeddings"
+    },
+    {
+      "id": "2304.08455",
+      "url": "https://arxiv.org/abs/2304.08455",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Event horizon gluing and black hole formation in vacuum: the very slowly rotating case"
+    },
+    {
+      "id": "2304.12244",
+      "url": "https://arxiv.org/abs/2304.12244",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/huggingface_hub/hub_mixin.py"
+      ],
+      "count": 1,
+      "title": "WizardLM: Empowering large pre-trained language models to follow complex instructions"
+    },
+    {
+      "id": "2305.02991",
+      "url": "https://arxiv.org/abs/2305.02991",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/program/construction/meta/macro.md"
+      ],
+      "count": 1,
+      "title": "Notes on Refactoring Exponential Macros in Common Lisp"
+    },
+    {
+      "id": "2305.08753",
+      "url": "https://arxiv.org/abs/2305.08753",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Neural Oscillators are Universal"
+    },
+    {
+      "id": "2305.11506",
+      "url": "https://arxiv.org/abs/2305.11506",
+      "files": [
+        "worlds/c/hacktricks/src/macos-hardening/macos-security-and-privilege-escalation/macos-proces-abuse/macos-chromium-injection.md"
+      ],
+      "count": 1,
+      "title": "Chrowned by an Extension: Abusing the Chrome DevTools Protocol through the Debugger API"
+    },
+    {
+      "id": "2305.17218",
+      "url": "https://arxiv.org/abs/2305.17218",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Meta-MeTTa: an operational semantics for MeTTa"
+    },
+    {
+      "id": "2305.18654",
+      "url": "https://arxiv.org/abs/2305.18654",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Faith and Fate: Limits of Transformers on Compositionality"
+    },
+    {
+      "id": "2305.18793",
+      "url": "https://arxiv.org/abs/2305.18793",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/probability/causal_inference.md"
+      ],
+      "count": 1,
+      "title": "A First Course in Causal Inference"
+    },
+    {
+      "id": "2306.01829",
+      "url": "https://arxiv.org/abs/2306.01829",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Ticking clocks in quantum theory"
+    },
+    {
+      "id": "2306.03009",
+      "url": "https://arxiv.org/abs/2306.03009",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Using Sequences of Life-events to Predict Human Lives"
+    },
+    {
+      "id": "2306.04828",
+      "url": "https://arxiv.org/abs/2306.04828",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Fast and Effective GNN Training through Sequences of Random Path Graphs"
+    },
+    {
+      "id": "2306.08585",
+      "url": "https://arxiv.org/abs/2306.08585",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "How to compute a 256-bit elliptic curve private key with only 50 million Toffoli gates"
+    },
+    {
+      "id": "2306.12672",
+      "url": "https://arxiv.org/abs/2306.12672",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "From Word Models to World Models: Translating from Natural Language to the Probabilistic Language of Thought"
+    },
+    {
+      "id": "2307.06448",
+      "url": "https://arxiv.org/abs/2307.06448",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Internal parametricity, without an interval"
+    },
+    {
+      "id": "2307.08529",
+      "url": "https://arxiv.org/abs/2307.08529",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Synthetic Lagrangian Turbulence by Generative Diffusion Models"
+    },
+    {
+      "id": "2307.09288",
+      "url": "https://arxiv.org/abs/2307.09288",
+      "files": [
+        "worlds/c/hacktricks/src/AI/AI-llm-architecture/2.-data-sampling.md"
+      ],
+      "count": 1,
+      "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models"
+    },
+    {
+      "id": "2307.14461",
+      "url": "https://arxiv.org/abs/2307.14461",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Obstructions to Compositionality"
+    },
+    {
+      "id": "2308.02630",
+      "url": "https://arxiv.org/abs/2308.02630",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Does Quantum Mechanics Breed Larger, More Intricate Quantum Theories? The Case for Experience-Centric Quantum Theory and the Interactome of Quantum Theories"
+    },
+    {
+      "id": "2308.04214",
+      "url": "https://arxiv.org/abs/2308.04214",
+      "files": [
+        "lux/documentation/bookmark/datalog.md"
+      ],
+      "count": 1,
+      "title": "Redacted"
+    },
+    {
+      "id": "2308.12364",
+      "url": "https://arxiv.org/abs/2308.12364",
+      "files": [
+        "worlds/c/hacktricks/src/AI/AI-llm-architecture/2.-data-sampling.md"
+      ],
+      "count": 1,
+      "title": "Saliency-based Video Summarization for Face Anti-spoofing"
+    },
+    {
+      "id": "2309.01933",
+      "url": "https://arxiv.org/abs/2309.01933",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Provably safe systems: the only path to controllable AGI"
+    },
+    {
+      "id": "2309.02983",
+      "url": "https://arxiv.org/abs/2309.02983",
+      "files": [
+        "lux/documentation/bookmark/resource/memory/management/region.md"
+      ],
+      "count": 1,
+      "title": "Reference Capabilities for Flexible Memory Management: Extended Version"
+    },
+    {
+      "id": "2309.07252",
+      "url": "https://arxiv.org/abs/2309.07252",
+      "files": [
+        "CONDENSED-ANIMA-NETWORK-ADDED.md"
+      ],
+      "count": 1,
+      "title": "Towards solid abelian groups: A formal proof of N\u00f6beling's theorem"
+    },
+    {
+      "id": "2309.09493",
+      "url": "https://arxiv.org/abs/2309.09493",
+      "files": [
+        "mlx-audio-lfm/mlx_audio/tts/models/chatterbox/s3gen/hifigan.py"
+      ],
+      "count": 1,
+      "title": "HiFTNet: A Fast High-Quality Neural Vocoder with Harmonic-plus-Noise Filter and Inverse Short Time Fourier Transform"
+    },
+    {
+      "id": "2309.12288",
+      "url": "https://arxiv.org/abs/2309.12288",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\""
+    },
+    {
+      "id": "2309.15070",
+      "url": "https://arxiv.org/abs/2309.15070",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Timeliness criticality in complex systems"
+    },
+    {
+      "id": "2309.15416",
+      "url": "https://arxiv.org/abs/2309.15416",
+      "files": [
+        "lux/to_do.md"
+      ],
+      "count": 1,
+      "title": "The Design and Implementation of an Extensible System Meta-Programming Language"
+    },
+    {
+      "id": "2309.15505",
+      "url": "https://arxiv.org/abs/2309.15505",
+      "files": [
+        "mlx-audio-lfm/mlx_audio/tts/models/spark/modules/finite_scalar_quantization.py"
+      ],
+      "count": 1,
+      "title": "Finite Scalar Quantization: VQ-VAE Made Simple"
+    },
+    {
+      "id": "2309.17290",
+      "url": "https://arxiv.org/abs/2309.17290",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "In search of dispersed memories: Generative diffusion models are associative memory networks"
+    },
+    {
+      "id": "2310.02989",
+      "url": "https://arxiv.org/abs/2310.02989",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "xVal: A Continuous Numerical Tokenization for Scientific Language Models"
+    },
+    {
+      "id": "2310.05384",
+      "url": "https://arxiv.org/abs/2310.05384",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Cartesian double theories: A double-categorical framework for categorical doctrines"
+    },
+    {
+      "id": "2310.13018",
+      "url": "https://arxiv.org/abs/2310.13018",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Getting aligned on representational alignment"
+    },
+    {
+      "id": "2310.15884",
+      "url": "https://arxiv.org/abs/2310.15884",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/scipy/stats/tests/test_multivariate.py"
+      ],
+      "count": 1,
+      "title": "Efficiently generating inverse-Wishart matrices and their Cholesky factors"
+    },
+    {
+      "id": "2311.02206",
+      "url": "https://arxiv.org/abs/2311.02206",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Optimizing Datalog for the GPU"
+    },
+    {
+      "id": "2311.07480",
+      "url": "https://arxiv.org/abs/2311.07480",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/correctness/type_theory/qualified.md"
+      ],
+      "count": 1,
+      "title": "Qualifying System F-sub"
+    },
+    {
+      "id": "2311.09589",
+      "url": "https://arxiv.org/abs/2311.09589",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Mortal Computation: A Foundation for Biomimetic Intelligence"
+    },
+    {
+      "id": "2311.10608",
+      "url": "https://arxiv.org/abs/2311.10608",
+      "files": [
+        "asi/ies/music-topos/TEMPORAL_CORRELATION_ANALYSIS.md"
+      ],
+      "count": 1,
+      "title": "DisCoPy: the Hierarchy of Graphical Languages in Python"
+    },
+    {
+      "id": "2311.11026",
+      "url": "https://arxiv.org/abs/2311.11026",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Higher Topos Theory in Physics"
+    },
+    {
+      "id": "2311.13040",
+      "url": "https://arxiv.org/abs/2311.13040",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Penrose Tiling is a Quantum Error-Correcting Code"
+    },
+    {
+      "id": "2312.02799",
+      "url": "https://arxiv.org/abs/2312.02799",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Conway's Game of Life is Omniperiodic"
+    },
+    {
+      "id": "2312.03653",
+      "url": "https://arxiv.org/abs/2312.03653",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Quantum Picturalism: Learning Quantum Theory in High School"
+    },
+    {
+      "id": "2312.05328",
+      "url": "https://arxiv.org/abs/2312.05328",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding"
+    },
+    {
+      "id": "2312.09125",
+      "url": "https://arxiv.org/abs/2312.09125",
+      "files": [
+        "lux/documentation/bookmark/society/law/property/intellectual/copyright.md"
+      ],
+      "count": 1,
+      "title": "Puppy: A Publicly Verifiable Watermarking Protocol"
+    },
+    {
+      "id": "2312.09230",
+      "url": "https://arxiv.org/abs/2312.09230",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Successor Heads: Recurring, Interpretable Attention Heads In The Wild"
+    },
+    {
+      "id": "2312.10172",
+      "url": "https://arxiv.org/abs/2312.10172",
+      "files": [
+        "lux/documentation/bookmark/load_balancing.md"
+      ],
+      "count": 1,
+      "title": "Load is not what you should balance: Introducing Prequal"
+    },
+    {
+      "id": "2401.0001",
+      "url": "https://arxiv.org/abs/2401.0001",
+      "files": [
+        "gemini-cli/docs/tools/web-fetch.md"
+      ],
+      "count": 1,
+      "title": "(title not resolved)"
+    },
+    {
+      "id": "2401.0002",
+      "url": "https://arxiv.org/abs/2401.0002",
+      "files": [
+        "gemini-cli/docs/tools/web-fetch.md"
+      ],
+      "count": 1,
+      "title": "(title not resolved)"
+    },
+    {
+      "id": "2401.08990",
+      "url": "https://arxiv.org/abs/2401.08990",
+      "files": [
+        "catcolab/packages/catlog/src/refs.rs"
+      ],
+      "count": 1,
+      "title": "Products in double categories, revisited"
+    },
+    {
+      "id": "2401.09536",
+      "url": "https://arxiv.org/abs/2401.09536",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Few-body precursors of topological frustration"
+    },
+    {
+      "id": "2401.14665",
+      "url": "https://arxiv.org/abs/2401.14665",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "PepGB: Facilitating peptide drug discovery via graph neural networks"
+    },
+    {
+      "id": "2402.00206",
+      "url": "https://arxiv.org/abs/2402.00206",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Towards a Unified Theory of Time-Varying Data"
+    },
+    {
+      "id": "2402.01020",
+      "url": "https://arxiv.org/abs/2402.01020",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Quantifying analogy of concepts via ologs and wiring diagrams"
+    },
+    {
+      "id": "2402.01743",
+      "url": "https://arxiv.org/abs/2402.01743",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Reasoning Under Uncertainty Trap: A Structural AI Risk"
+    },
+    {
+      "id": "2402.02997",
+      "url": "https://arxiv.org/abs/2402.02997",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Profunctorial Semantics for Quantum Supermaps"
+    },
+    {
+      "id": "2402.13179",
+      "url": "https://arxiv.org/abs/2402.13179",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "homotopy.io: a proof assistant for finitely-presented globular $n$-categories"
+    },
+    {
+      "id": "2402.14207",
+      "url": "https://arxiv.org/abs/2402.14207",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Assisting in Writing Wikipedia-like Articles From Scratch with Large Language Models"
+    },
+    {
+      "id": "2402.18396",
+      "url": "https://arxiv.org/abs/2402.18396",
+      "files": [
+        "asi/skills/diffdock/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Deep Confident Steps to New Pockets: Strategies for Docking Generalization"
+    },
+    {
+      "id": "2403.00522",
+      "url": "https://arxiv.org/abs/2403.00522",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/mlx_vlm/models/kimi_vl/vision.py"
+      ],
+      "count": 1,
+      "title": "VisionLLaMA: A Unified LLaMA Backbone for Vision Tasks"
+    },
+    {
+      "id": "2403.03925",
+      "url": "https://arxiv.org/abs/2403.03925",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Consciousness qua Mortal Computation"
+    },
+    {
+      "id": "2403.06981",
+      "url": "https://arxiv.org/abs/2403.06981",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Towards a Bayesian mechanics of metacognitive particles: A commentary on \"Path integrals, particular kinds, and strange things\" by Friston, Da Costa, Sakthivadivel, Heins, Pavliotis, Ramstead, and Parr"
+    },
+    {
+      "id": "2403.19647",
+      "url": "https://arxiv.org/abs/2403.19647",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Sparse Feature Circuits: Discovering and Editing Interpretable Causal Graphs in Language Models"
+    },
+    {
+      "id": "2404.02679",
+      "url": "https://arxiv.org/abs/2404.02679",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Rendering string diagrams recursively"
+    },
+    {
+      "id": "2404.02688",
+      "url": "https://arxiv.org/abs/2404.02688",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Reinforcement Learning in Categorical Cybernetics"
+    },
+    {
+      "id": "2404.04374",
+      "url": "https://arxiv.org/abs/2404.04374",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Closing the Loop: How Semantic Closure Enables Open-Ended Evolution?"
+    },
+    {
+      "id": "2404.06757",
+      "url": "https://arxiv.org/abs/2404.06757",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Language Generation in the Limit"
+    },
+    {
+      "id": "2404.14423",
+      "url": "https://arxiv.org/abs/2404.14423",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Mereological Approach to Higher-Order Structure in Complex Systems: from Macro to Micro with M\u00f6bius"
+    },
+    {
+      "id": "2404.16321",
+      "url": "https://arxiv.org/abs/2404.16321",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Pattern Runs on Matter: The Free Monad Monad as a Module over the Cofree Comonad Comonad"
+    },
+    {
+      "id": "2405.07987",
+      "url": "https://arxiv.org/abs/2405.07987",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Platonic Representation Hypothesis"
+    },
+    {
+      "id": "2405.09818",
+      "url": "https://arxiv.org/abs/2405.09818",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models"
+    },
+    {
+      "id": "2405.15429",
+      "url": "https://arxiv.org/abs/2405.15429",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "E(n) Equivariant Topological Neural Networks"
+    },
+    {
+      "id": "2405.16684",
+      "url": "https://arxiv.org/abs/2405.16684",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "gzip Predicts Data-dependent Scaling Laws"
+    },
+    {
+      "id": "2405.18100",
+      "url": "https://arxiv.org/abs/2405.18100",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Pontryagin Perspective on Reinforcement Learning"
+    },
+    {
+      "id": "2405.20233",
+      "url": "https://arxiv.org/abs/2405.20233",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Grokfast: Accelerated Grokking by Amplifying Slow Gradients"
+    },
+    {
+      "id": "2406.08719",
+      "url": "https://arxiv.org/abs/2406.08719",
+      "files": [
+        "worlds/c/hacktricks/src/binary-exploitation/common-binary-protections-and-bypasses/memory-tagging-extension-mte.md"
+      ],
+      "count": 1,
+      "title": "TikTag: Breaking ARM's Memory Tagging Extension with Speculative Execution"
+    },
+    {
+      "id": "2406.11618",
+      "url": "https://arxiv.org/abs/2406.11618",
+      "files": [
+        "worlds/c/hacktricks/src/pentesting-web/regular-expression-denial-of-service-redos.md"
+      ],
+      "count": 1,
+      "title": "SoK: A Literature and Engineering Review of Regular Expression Denial of Service (ReDoS)"
+    },
+    {
+      "id": "2406.12843",
+      "url": "https://arxiv.org/abs/2406.12843",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Can Go AIs be adversarially robust?"
+    },
+    {
+      "id": "2406.14642",
+      "url": "https://arxiv.org/abs/2406.14642",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Measuring time in a timeless universe"
+    },
+    {
+      "id": "2406.17583",
+      "url": "https://arxiv.org/abs/2406.17583",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Towards Compositional Interpretability for XAI"
+    },
+    {
+      "id": "2406.17809",
+      "url": "https://arxiv.org/abs/2406.17809",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Towards a Science Exocortex"
+    },
+    {
+      "id": "2406.20094",
+      "url": "https://arxiv.org/abs/2406.20094",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Scaling Synthetic Data Creation with 1,000,000,000 Personas"
+    },
+    {
+      "id": "2407.01082",
+      "url": "https://arxiv.org/abs/2407.01082",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Turning Up the Heat: Min-p Sampling for Creative and Coherent LLM Outputs"
+    },
+    {
+      "id": "2407.01214",
+      "url": "https://arxiv.org/abs/2407.01214",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Revisiting Random Walks for Learning on Graphs"
+    },
+    {
+      "id": "2407.06285",
+      "url": "https://arxiv.org/abs/2407.06285",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Diagrammatic sets as a model of homotopy types"
+    },
+    {
+      "id": "2407.07909",
+      "url": "https://arxiv.org/abs/2407.07909",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Fitting an Elephant with Four non-Zero Parameters"
+    },
+    {
+      "id": "2407.09468",
+      "url": "https://arxiv.org/abs/2407.09468",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Beyond Euclid: An Illustrated Guide to Modern Machine Learning with Geometric, Topological, and Algebraic Structures"
+    },
+    {
+      "id": "2407.12220",
+      "url": "https://arxiv.org/abs/2407.12220",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Questionable practices in machine learning"
+    },
+    {
+      "id": "2407.12327",
+      "url": "https://arxiv.org/abs/2407.12327",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Spectra: Surprising Effectiveness of Pretraining Ternary Language Models at Scale"
+    },
+    {
+      "id": "2407.17701",
+      "url": "https://arxiv.org/abs/2407.17701",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On Geometry, Arithmetics and Chaos"
+    },
+    {
+      "id": "2407.19737",
+      "url": "https://arxiv.org/abs/2407.19737",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Analyzing the Brain's Dynamic Response to Targeted Stimulation using Generative Modeling"
+    },
+    {
+      "id": "2408.00468",
+      "url": "https://arxiv.org/abs/2408.00468",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Generating three-photon Rabi oscillations without a large-detuning condition"
+    },
+    {
+      "id": "2408.01949",
+      "url": "https://arxiv.org/abs/2408.01949",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Efficient coding with chaotic neural networks: A journey from neuroscience to physics and back"
+    },
+    {
+      "id": "2408.05834",
+      "url": "https://arxiv.org/abs/2408.05834",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Divide-and-Conquer Predictive Coding: a structured Bayesian inference algorithm"
+    },
+    {
+      "id": "2408.06156",
+      "url": "https://arxiv.org/abs/2408.06156",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Graph-based Descriptors for Condensed Matter"
+    },
+    {
+      "id": "2408.07036",
+      "url": "https://arxiv.org/abs/2408.07036",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/science/physics/theory/relativity.md"
+      ],
+      "count": 1,
+      "title": "Visual relativistic mechanics"
+    },
+    {
+      "id": "2408.08083",
+      "url": "https://arxiv.org/abs/2408.08083",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Confidence-weighted integration of human and machine judgments for superior decision-making"
+    },
+    {
+      "id": "2408.09624",
+      "url": "https://arxiv.org/abs/2408.09624",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Attention is a smoothed cubic spline"
+    },
+    {
+      "id": "2408.10234",
+      "url": "https://arxiv.org/abs/2408.10234",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Unbearable Slowness of Being: Why do we live at 10 bits/s?"
+    },
+    {
+      "id": "2408.10438",
+      "url": "https://arxiv.org/abs/2408.10438",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Private Means and the Curious Incident of the Free Lunch"
+    },
+    {
+      "id": "2408.10700",
+      "url": "https://arxiv.org/abs/2408.10700",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "AnyGraph: Graph Foundation Model in the Wild"
+    },
+    {
+      "id": "2408.10920",
+      "url": "https://arxiv.org/abs/2408.10920",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Recurrent Neural Networks Learn to Store and Generate Sequences using Non-Linear Representations"
+    },
+    {
+      "id": "2408.12349",
+      "url": "https://arxiv.org/abs/2408.12349",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Machine-learning certification of multipartite entanglement for noisy quantum hardware"
+    },
+    {
+      "id": "2408.12842",
+      "url": "https://arxiv.org/abs/2408.12842",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Differentially Private Spatiotemporal Trajectory Synthesis with Retained Data Utility"
+    },
+    {
+      "id": "2408.15184",
+      "url": "https://arxiv.org/abs/2408.15184",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Lassos: Pushing Tree Decompositions Forward Along Homomorphisms"
+    },
+    {
+      "id": "2409.01042",
+      "url": "https://arxiv.org/abs/2409.01042",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Annealing-inspired training of an optical neural network with ternary weights"
+    },
+    {
+      "id": "2409.02684",
+      "url": "https://arxiv.org/abs/2409.02684",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Neural timescales from a computational perspective"
+    },
+    {
+      "id": "2409.03639",
+      "url": "https://arxiv.org/abs/2409.03639",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Knots Inside Fractals"
+    },
+    {
+      "id": "2409.09232",
+      "url": "https://arxiv.org/abs/2409.09232",
+      "files": [
+        "asi/ies/music-topos/docs/ecosystem-analysis/ENTROPY_SKILL_CATEGORIZATION.md"
+      ],
+      "count": 1,
+      "title": "What is Entropy?"
+    },
+    {
+      "id": "2409.11087",
+      "url": "https://arxiv.org/abs/2409.11087",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Reactive Environments for Active Inference Agents with RxEnvironments.jl"
+    },
+    {
+      "id": "2409.12182",
+      "url": "https://arxiv.org/abs/2409.12182",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "LifeGPT: Topology-Agnostic Generative Pretrained Transformer Model for Cellular Automata"
+    },
+    {
+      "id": "2410.02536",
+      "url": "https://arxiv.org/abs/2410.02536",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Intelligence at the Edge of Chaos"
+    },
+    {
+      "id": "2410.02543",
+      "url": "https://arxiv.org/abs/2410.02543",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Diffusion Models are Evolutionary Algorithms"
+    },
+    {
+      "id": "2410.04753",
+      "url": "https://arxiv.org/abs/2410.04753",
+      "files": [
+        "asi/skills/chain-of-states/SKILL.md"
+      ],
+      "count": 1,
+      "title": "ImProver: Agent-Based Automated Proof Optimization"
+    },
+    {
+      "id": "2410.05898",
+      "url": "https://arxiv.org/abs/2410.05898",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Manifolds, Random Matrices and Spectral Gaps: The geometric phases of generative diffusion"
+    },
+    {
+      "id": "2410.08373",
+      "url": "https://arxiv.org/abs/2410.08373",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Dynamic task delegation for hierarchical agents"
+    },
+    {
+      "id": "2410.09590",
+      "url": "https://arxiv.org/abs/2410.09590",
+      "files": [
+        "asi/skills/sheaf-uncertainty/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Bayesian Sheaf Neural Networks"
+    },
+    {
+      "id": "2410.11516",
+      "url": "https://arxiv.org/abs/2410.11516",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "TopoLM: brain-like spatio-functional organization in a topographic language model"
+    },
+    {
+      "id": "2410.16098",
+      "url": "https://arxiv.org/abs/2410.16098",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Defending Against Attack on the Cloned: In-Band Active Man-in-the-Middle Detection for the Signal Protocol"
+    },
+    {
+      "id": "2410.17309",
+      "url": "https://arxiv.org/abs/2410.17309",
+      "files": [
+        "asi/skills/hypogenic/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Literature Meets Data: A Synergistic Approach to Hypothesis Generation"
+    },
+    {
+      "id": "2410.20081",
+      "url": "https://arxiv.org/abs/2410.20081",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "emg2qwerty: A Large Dataset with Baselines for Touch Typing using Surface Electromyography"
+    },
+    {
+      "id": "2410.20232",
+      "url": "https://arxiv.org/abs/2410.20232",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "SAFE setup for generative molecular design"
+    },
+    {
+      "id": "2410.20268",
+      "url": "https://arxiv.org/abs/2410.20268",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Centaur: a foundation model of human cognition"
+    },
+    {
+      "id": "2410.23794",
+      "url": "https://arxiv.org/abs/2410.23794",
+      "files": [
+        "vibesnipe-market/docs/DA0DA0_MINUS_ANALYSIS.md"
+      ],
+      "count": 1,
+      "title": "Memes, Markets, and Machines: The Evolution of On Chain Autonomy through Hyperstition"
+    },
+    {
+      "id": "2411.00114",
+      "url": "https://arxiv.org/abs/2411.00114",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Project Sid: Many-agent simulations toward AI civilization"
+    },
+    {
+      "id": "2411.01359",
+      "url": "https://arxiv.org/abs/2411.01359",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Supercritical Fokker-Planck equations for consensus dynamics: large-time behaviour and weighted Nash-type inequalities"
+    },
+    {
+      "id": "2411.09123",
+      "url": "https://arxiv.org/abs/2411.09123",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Quantum multi-output Gaussian Processes based Machine Learning for Line Parameter Estimation in Electrical Grids"
+    },
+    {
+      "id": "2411.09168",
+      "url": "https://arxiv.org/abs/2411.09168",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An AI Theory of Mind Will Enhance Our Collective Intelligence"
+    },
+    {
+      "id": "2411.13010",
+      "url": "https://arxiv.org/abs/2411.13010",
+      "files": [
+        "mlx-env/lib/python3.11/site-packages/transformers/activations.py"
+      ],
+      "count": 1,
+      "title": "Deriving Activation Functions Using Integration"
+    },
+    {
+      "id": "2411.15124",
+      "url": "https://arxiv.org/abs/2411.15124",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Tulu 3: Pushing Frontiers in Open Language Model Post-Training"
+    },
+    {
+      "id": "2411.18498",
+      "url": "https://arxiv.org/abs/2411.18498",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Collective decision making by embodied neural agents"
+    },
+    {
+      "id": "2411.19146",
+      "url": "https://arxiv.org/abs/2411.19146",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Puzzle: Distillation-Based NAS for Inference-Optimized LLMs"
+    },
+    {
+      "id": "2412.00373",
+      "url": "https://arxiv.org/abs/2412.00373",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Approximate Fiber Product: A Preliminary Algebraic-Geometric Perspective on Multimodal Embedding Alignment"
+    },
+    {
+      "id": "2412.04619",
+      "url": "https://arxiv.org/abs/2412.04619",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Sometimes I am a Tree: Data Drives Unstable Hierarchical Generalization"
+    },
+    {
+      "id": "2412.04984",
+      "url": "https://arxiv.org/abs/2412.04984",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Frontier Models are Capable of In-context Scheming"
+    },
+    {
+      "id": "2412.05269",
+      "url": "https://arxiv.org/abs/2412.05269",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Chemist-aligned retrosynthesis by ensembling diverse inductive bias models"
+    },
+    {
+      "id": "2412.05296",
+      "url": "https://arxiv.org/abs/2412.05296",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Revisiting Your Memory: Reconstruction of Affect-Contextualized Memory via EEG-guided Audiovisual Generation"
+    },
+    {
+      "id": "2412.09810",
+      "url": "https://arxiv.org/abs/2412.09810",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Complexity Dynamics of Grokking"
+    },
+    {
+      "id": "2412.10270",
+      "url": "https://arxiv.org/abs/2412.10270",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Cultural Evolution of Cooperation among LLM Agents"
+    },
+    {
+      "id": "2412.15184",
+      "url": "https://arxiv.org/abs/2412.15184",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Data for Mathematical Copilots: Better Ways of Presenting Proofs for Machine Learning"
+    },
+    {
+      "id": "2412.17780",
+      "url": "https://arxiv.org/abs/2412.17780",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion"
+    },
+    {
+      "id": "2412.19752",
+      "url": "https://arxiv.org/abs/2412.19752",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A random walk among random graphs"
+    },
+    {
+      "id": "2412.19803",
+      "url": "https://arxiv.org/abs/2412.19803",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A local automaton for the 2D toric code"
+    },
+    {
+      "id": "2501.02359",
+      "url": "https://arxiv.org/abs/2501.02359",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Quantum mechanics and observers for gravity in a closed universe"
+    },
+    {
+      "id": "2501.03409",
+      "url": "https://arxiv.org/abs/2501.03409",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Empirical Modeling of Magnetic Braking in Millisecond Pulsars to Measure the Local Dark Matter Density and Effects of Orbiting Satellite Galaxies"
+    },
+    {
+      "id": "2501.03890",
+      "url": "https://arxiv.org/abs/2501.03890",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Categorical Diffusion of Weighted Lattices"
+    },
+    {
+      "id": "2501.05707",
+      "url": "https://arxiv.org/abs/2501.05707",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Multiagent Finetuning: Self Improvement with Diverse Reasoning Chains"
+    },
+    {
+      "id": "2501.06606",
+      "url": "https://arxiv.org/abs/2501.06606",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The tardigrade as an emerging model organism for systems neuroscience"
+    },
+    {
+      "id": "2501.06623",
+      "url": "https://arxiv.org/abs/2501.06623",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Nuclear Explosions for Large Scale Carbon Sequestration"
+    },
+    {
+      "id": "2501.06707",
+      "url": "https://arxiv.org/abs/2501.06707",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "ELIZA Reanimated: The world's first chatbot restored on the world's first time sharing system"
+    },
+    {
+      "id": "2501.09331",
+      "url": "https://arxiv.org/abs/2501.09331",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Identifying Information from Observations with Uncertainty and Novelty"
+    },
+    {
+      "id": "2501.10672",
+      "url": "https://arxiv.org/abs/2501.10672",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Homotopical Entropy"
+    },
+    {
+      "id": "2501.11447",
+      "url": "https://arxiv.org/abs/2501.11447",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Decomposing Interventional Causality into Synergistic, Redundant, and Unique Components"
+    },
+    {
+      "id": "2501.13188",
+      "url": "https://arxiv.org/abs/2501.13188",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Topological constraints on self-organisation in locally interacting systems"
+    },
+    {
+      "id": "2501.13229",
+      "url": "https://arxiv.org/abs/2501.13229",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Yoneda embedding in simplicial type theory"
+    },
+    {
+      "id": "2501.14787",
+      "url": "https://arxiv.org/abs/2501.14787",
+      "files": [
+        "lux/documentation/bookmark/philosophy/epistemology/mathematics/calculus/matrix.md"
+      ],
+      "count": 1,
+      "title": "Matrix Calculus (for Machine Learning and Beyond)"
+    },
+    {
+      "id": "2501.17869",
+      "url": "https://arxiv.org/abs/2501.17869",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Logical Aspects of Virtual Double Categories"
+    },
+    {
+      "id": "2502.01568",
+      "url": "https://arxiv.org/abs/2502.01568",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Visual Theory of Mind Enables the Invention of Proto-Writing"
+    },
+    {
+      "id": "2502.03387",
+      "url": "https://arxiv.org/abs/2502.03387",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "LIMO: Less is More for Reasoning"
+    },
+    {
+      "id": "2502.05415",
+      "url": "https://arxiv.org/abs/2502.05415",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "UniCMs: A Unified Consistency Model For Efficient Multimodal Generation and Understanding"
+    },
+    {
+      "id": "2502.05475",
+      "url": "https://arxiv.org/abs/2502.05475",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "You Are What You Eat -- AI Alignment Requires Understanding How Data Shapes Structure and Generalisation"
+    },
+    {
+      "id": "2502.05564",
+      "url": "https://arxiv.org/abs/2502.05564",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "TabICL: A Tabular Foundation Model for In-Context Learning on Large Data"
+    },
+    {
+      "id": "2502.06748",
+      "url": "https://arxiv.org/abs/2502.06748",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Institutional Preferences in the Laboratory"
+    },
+    {
+      "id": "2502.06751",
+      "url": "https://arxiv.org/abs/2502.06751",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "What makes a good feedforward computational graph?"
+    },
+    {
+      "id": "2502.09535",
+      "url": "https://arxiv.org/abs/2502.09535",
+      "files": [
+        "asi/ies/music-topos/BEHAVIORAL_ENTROPY_RESEARCH_SYNTHESIS.md"
+      ],
+      "count": 1,
+      "title": "Entropy Collapse in Mobile Sensors: The Hidden Risks of Sensor-Based Security"
+    },
+    {
+      "id": "2502.10750",
+      "url": "https://arxiv.org/abs/2502.10750",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Human-Centric Community Detection in Hybrid Metaverse Networks with Integrated AI Entities"
+    },
+    {
+      "id": "2502.11886",
+      "url": "https://arxiv.org/abs/2502.11886",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "LIMR: Less is More for RL Scaling"
+    },
+    {
+      "id": "2502.12252",
+      "url": "https://arxiv.org/abs/2502.12252",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Roadmap to fault tolerant quantum computation using topological qubit arrays"
+    },
+    {
+      "id": "2502.13025",
+      "url": "https://arxiv.org/abs/2502.13025",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Agentic Deep Graph Reasoning Yields Self-Organizing Knowledge Networks"
+    },
+    {
+      "id": "2502.14010",
+      "url": "https://arxiv.org/abs/2502.14010",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Which Attention Heads Matter for In-Context Learning?"
+    },
+    {
+      "id": "2502.14337",
+      "url": "https://arxiv.org/abs/2502.14337",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Latent computing by biological neural networks: A dynamical systems framework"
+    },
+    {
+      "id": "2502.14790",
+      "url": "https://arxiv.org/abs/2502.14790",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Bayesian Algorithms for Adversarial Online Learning: from Finite to Infinite Action Spaces"
+    },
+    {
+      "id": "2502.17424",
+      "url": "https://arxiv.org/abs/2502.17424",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs"
+    },
+    {
+      "id": "2502.17779",
+      "url": "https://arxiv.org/abs/2502.17779",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Simulating Time With Square-Root Space"
+    },
+    {
+      "id": "2502.21217",
+      "url": "https://arxiv.org/abs/2502.21217",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Dynamic Markov Blanket Detection for Macroscopic Physics Discovery"
+    },
+    {
+      "id": "2503.00499",
+      "url": "https://arxiv.org/abs/2503.00499",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Shaping Laser Pulses with Reinforcement Learning"
+    },
+    {
+      "id": "2503.00555",
+      "url": "https://arxiv.org/abs/2503.00555",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Safety Tax: Safety Alignment Makes Your Large Reasoning Models Less Reasonable"
+    },
+    {
+      "id": "2503.01890",
+      "url": "https://arxiv.org/abs/2503.01890",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "AutoHete: An Automatic and Efficient Heterogeneous Training System for LLMs"
+    },
+    {
+      "id": "2503.05457",
+      "url": "https://arxiv.org/abs/2503.05457",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Dependent Directed Wiring Diagrams for Composing Instantaneous Systems"
+    },
+    {
+      "id": "2503.06812",
+      "url": "https://arxiv.org/abs/2503.06812",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Can Proof Assistants Verify Multi-Agent Systems?"
+    },
+    {
+      "id": "2503.10963",
+      "url": "https://arxiv.org/abs/2503.10963",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A study of Kock's fat Delta"
+    },
+    {
+      "id": "2503.11718",
+      "url": "https://arxiv.org/abs/2503.11718",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Relativity of Causal Knowledge"
+    },
+    {
+      "id": "2503.13395",
+      "url": "https://arxiv.org/abs/2503.13395",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Causal Emergence 2.0: Quantifying emergent complexity"
+    },
+    {
+      "id": "2503.13877",
+      "url": "https://arxiv.org/abs/2503.13877",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Shock with Confidence: Formal Proofs of Correctness for Hyperbolic Partial Differential Equation Solvers"
+    },
+    {
+      "id": "2503.18608",
+      "url": "https://arxiv.org/abs/2503.18608",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "AutoBayes: A Compositional Framework for Generalized Variational Inference"
+    },
+    {
+      "id": "2503.19058",
+      "url": "https://arxiv.org/abs/2503.19058",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Coding Malware in Fancy Programming Languages for Fun and Profit"
+    },
+    {
+      "id": "2503.19173",
+      "url": "https://arxiv.org/abs/2503.19173",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Graph neural networks extrapolate out-of-distribution for shortest paths"
+    },
+    {
+      "id": "2503.23278",
+      "url": "https://arxiv.org/abs/2503.23278",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Model Context Protocol (MCP): Landscape, Security Threats, and Future Research Directions"
+    },
+    {
+      "id": "2504.03767",
+      "url": "https://arxiv.org/abs/2504.03767",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "MCP Safety Audit: LLMs with the Model Context Protocol Allow Major Security Exploits"
+    },
+    {
+      "id": "2504.05419",
+      "url": "https://arxiv.org/abs/2504.05419",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Reasoning Models Know When They're Right: Probing Hidden States for Self-Verification"
+    },
+    {
+      "id": "2504.08506",
+      "url": "https://arxiv.org/abs/2504.08506",
+      "files": [
+        "asi/SKILL_UPDATES_COMPLETE_SUMMARY.md"
+      ],
+      "count": 1,
+      "title": "Controlled stochastic processes for simulated annealing"
+    },
+    {
+      "id": "2504.09246",
+      "url": "https://arxiv.org/abs/2504.09246",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Type-Constrained Code Generation with Language Models"
+    },
+    {
+      "id": "2504.09614",
+      "url": "https://arxiv.org/abs/2504.09614",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Neural mechanisms of predictive processing: a collaborative community experiment through the OpenScope program"
+    },
+    {
+      "id": "2504.10140",
+      "url": "https://arxiv.org/abs/2504.10140",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The topology of synergy: linking topological and information-theoretic approaches to higher-order interactions in complex systems"
+    },
+    {
+      "id": "2504.11524",
+      "url": "https://arxiv.org/abs/2504.11524",
+      "files": [
+        "asi/skills/hypogenic/SKILL.md"
+      ],
+      "count": 1,
+      "title": "HypoBench: Towards Systematic and Principled Benchmarking for Hypothesis Generation"
+    },
+    {
+      "id": "2504.13612",
+      "url": "https://arxiv.org/abs/2504.13612",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Entropic Time Schedulers for Generative Diffusion Models"
+    },
+    {
+      "id": "2504.13727",
+      "url": "https://arxiv.org/abs/2504.13727",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "High-dimensional dynamics in low-dimensional networks"
+    },
+    {
+      "id": "2504.16940",
+      "url": "https://arxiv.org/abs/2504.16940",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Better artificial intelligence does not mean better models of biology"
+    },
+    {
+      "id": "2504.17113",
+      "url": "https://arxiv.org/abs/2504.17113",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Cybernetic Governance in a Coliving House"
+    },
+    {
+      "id": "2504.18399",
+      "url": "https://arxiv.org/abs/2504.18399",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Optimal Control for Network of Coupled Oscillators"
+    },
+    {
+      "id": "2504.18920",
+      "url": "https://arxiv.org/abs/2504.18920",
+      "files": [
+        "lux/documentation/bookmark/abstraction/control_flow/pattern_matching.md"
+      ],
+      "count": 1,
+      "title": "The Algebra of Patterns (Extended Version)"
+    },
+    {
+      "id": "2504.19389",
+      "url": "https://arxiv.org/abs/2504.19389",
+      "files": [
+        "catcolab/packages/catlog/src/tt/util/dtry.rs"
+      ],
+      "count": 1,
+      "title": "Directories: A Convenient and Well-Behaved Formalism for Hierarchical Organization in Categorical Systems Theory"
+    },
+    {
+      "id": "2504.19413",
+      "url": "https://arxiv.org/abs/2504.19413",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory"
+    },
+    {
+      "id": "2504.20238",
+      "url": "https://arxiv.org/abs/2504.20238",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Testing the Limit of Atmospheric Predictability with a Machine Learning Weather Model"
+    },
+    {
+      "id": "2504.20461",
+      "url": "https://arxiv.org/abs/2504.20461",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Efficient Graph-Based Approximate Nearest Neighbor Search Achieving: Low Latency Without Throughput Loss"
+    },
+    {
+      "id": "2505.00807",
+      "url": "https://arxiv.org/abs/2505.00807",
+      "files": [
+        "lux/documentation/bookmark/engineering/of/software/tool/compiler/optimization.md"
+      ],
+      "count": 1,
+      "title": "E-Graphs With Bindings"
+    },
+    {
+      "id": "2505.03193",
+      "url": "https://arxiv.org/abs/2505.03193",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A study on audio synchronous steganography detection and distributed guide inference model based on sliding spectral features and intelligent inference drive"
+    },
+    {
+      "id": "2505.05522",
+      "url": "https://arxiv.org/abs/2505.05522",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Continuous Thought Machines"
+    },
+    {
+      "id": "2505.08058",
+      "url": "https://arxiv.org/abs/2505.08058",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Hypernym Mercury: Token Optimization Through Semantic Field Constriction And Reconstruction From Hypernyms. A New Text Compression Method"
+    },
+    {
+      "id": "2505.10779",
+      "url": "https://arxiv.org/abs/2505.10779",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Qualia Optimization"
+    },
+    {
+      "id": "2505.11076",
+      "url": "https://arxiv.org/abs/2505.11076",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Addition is almost all you need: Compressing neural networks with double binary factorization"
+    },
+    {
+      "id": "2505.12540",
+      "url": "https://arxiv.org/abs/2505.12540",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Harnessing the Universal Geometry of Embeddings"
+    },
+    {
+      "id": "2505.12933",
+      "url": "https://arxiv.org/abs/2505.12933",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Formalising the Bruhat-Tits Tree"
+    },
+    {
+      "id": "2505.14442",
+      "url": "https://arxiv.org/abs/2505.14442",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Creative Preference Optimization"
+    },
+    {
+      "id": "2505.15116",
+      "url": "https://arxiv.org/abs/2505.15116",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Graph Foundation Models: A Comprehensive Survey"
+    },
+    {
+      "id": "2505.15811",
+      "url": "https://arxiv.org/abs/2505.15811",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "On the creation of narrow AI: hierarchy and nonlocality of neural network skills"
+    },
+    {
+      "id": "2505.17024",
+      "url": "https://arxiv.org/abs/2505.17024",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An Affective-Taxis Hypothesis for Alignment and Interpretability"
+    },
+    {
+      "id": "2505.17117",
+      "url": "https://arxiv.org/abs/2505.17117",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "From Tokens to Thoughts: How LLMs and Humans Trade Compression for Meaning"
+    },
+    {
+      "id": "2505.17939",
+      "url": "https://arxiv.org/abs/2505.17939",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Directed Semi-Simplicial Learning with Applications to Brain Activity Decoding"
+    },
+    {
+      "id": "2505.18091",
+      "url": "https://arxiv.org/abs/2505.18091",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Data Mixing Can Induce Phase Transitions in Knowledge Acquisition"
+    },
+    {
+      "id": "2505.18329",
+      "url": "https://arxiv.org/abs/2505.18329",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Towards a double operadic theory of systems"
+    },
+    {
+      "id": "2505.20662",
+      "url": "https://arxiv.org/abs/2505.20662",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "AutoReproduce: Automatic AI Experiment Reproduction with Paper Lineage"
+    },
+    {
+      "id": "2505.22749",
+      "url": "https://arxiv.org/abs/2505.22749",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Self-orthogonalizing attractor neural networks emerging from the free energy principle"
+    },
+    {
+      "id": "2505.22785",
+      "url": "https://arxiv.org/abs/2505.22785",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Navigating the Latent Space Dynamics of Neural Models"
+    },
+    {
+      "id": "2505.24599",
+      "url": "https://arxiv.org/abs/2505.24599",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Wild Betti sheaves"
+    },
+    {
+      "id": "2506.01197",
+      "url": "https://arxiv.org/abs/2506.01197",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Incorporating Hierarchical Semantics in Sparse Autoencoder Architectures"
+    },
+    {
+      "id": "2506.07927",
+      "url": "https://arxiv.org/abs/2506.07927",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Solving Inequality Proofs with Large Language Models"
+    },
+    {
+      "id": "2506.15385",
+      "url": "https://arxiv.org/abs/2506.15385",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Provable Maximum Entropy Manifold Exploration via Diffusion Models"
+    },
+    {
+      "id": "2506.15769",
+      "url": "https://arxiv.org/abs/2506.15769",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Breakdown of the thermodynamic limit in quantum spin and dimer models"
+    },
+    {
+      "id": "2507.01226",
+      "url": "https://arxiv.org/abs/2507.01226",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Obstructions to Reality: Torsors & Visual Paradox"
+    },
+    {
+      "id": "2507.03732",
+      "url": "https://arxiv.org/abs/2507.03732",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Transforming Calabi-Yau Constructions: Generating New Calabi-Yau Manifolds with Transformers"
+    },
+    {
+      "id": "2507.07696",
+      "url": "https://arxiv.org/abs/2507.07696",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Turing complete Navier-Stokes steady states via cosymplectic geometry"
+    },
+    {
+      "id": "2507.08892",
+      "url": "https://arxiv.org/abs/2507.08892",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Multi-Actor Generative Artificial Intelligence as a Game Engine"
+    },
+    {
+      "id": "2507.11520",
+      "url": "https://arxiv.org/abs/2507.11520",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "HIF: The hypergraph interchange format for higher-order networks"
+    },
+    {
+      "id": "2507.12547",
+      "url": "https://arxiv.org/abs/2507.12547",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Modeling Open-World Cognition as On-Demand Synthesis of Probabilistic Models"
+    },
+    {
+      "id": "2507.12821",
+      "url": "https://arxiv.org/abs/2507.12821",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Assessing Adaptive World Models in Machines with Novel Games"
+    },
+    {
+      "id": "2507.14805",
+      "url": "https://arxiv.org/abs/2507.14805",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Subliminal Learning: Language models transmit behavioral traits via hidden signals in data"
+    },
+    {
+      "id": "2507.16075",
+      "url": "https://arxiv.org/abs/2507.16075",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Deep Researcher with Test-Time Diffusion"
+    },
+    {
+      "id": "2507.21053",
+      "url": "https://arxiv.org/abs/2507.21053",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Flow Matching Policy Gradients"
+    },
+    {
+      "id": "2507.21509",
+      "url": "https://arxiv.org/abs/2507.21509",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Persona Vectors: Monitoring and Controlling Character Traits in Language Models"
+    },
+    {
+      "id": "2507.22950",
+      "url": "https://arxiv.org/abs/2507.22950",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Consequences of Undecidability in Physics on the Theory of Everything"
+    },
+    {
+      "id": "2508.02723",
+      "url": "https://arxiv.org/abs/2508.02723",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Mathematical Foundations of Geometric Deep Learning"
+    },
+    {
+      "id": "2508.14704",
+      "url": "https://arxiv.org/abs/2508.14704",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "MCP-Universe: Benchmarking Large Language Models with Real-World Model Context Protocol Servers"
+    },
+    {
+      "id": "2508.19897",
+      "url": "https://arxiv.org/abs/2508.19897",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The Information Dynamics of Generative Diffusion"
+    },
+    {
+      "id": "2509.04526",
+      "url": "https://arxiv.org/abs/2509.04526",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "A Quantum Guitar"
+    },
+    {
+      "id": "2509.04664",
+      "url": "https://arxiv.org/abs/2509.04664",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Why Language Models Hallucinate"
+    },
+    {
+      "id": "2509.14185",
+      "url": "https://arxiv.org/abs/2509.14185",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Discovery of Unstable Singularities"
+    },
+    {
+      "id": "2509.19087",
+      "url": "https://arxiv.org/abs/2509.19087",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Zero-Shot Multi-Spectral Learning: Reimagining a Generalist Multimodal Gemini 2.5 Model for Remote Sensing Applications"
+    },
+    {
+      "id": "2510.03368",
+      "url": "https://arxiv.org/abs/2510.03368",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An Adaptive Responsible AI Governance Framework for Decentralized Organizations"
+    },
+    {
+      "id": "2510.04871",
+      "url": "https://arxiv.org/abs/2510.04871",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Less is More: Recursive Reasoning with Tiny Networks"
+    },
+    {
+      "id": "2510.07443",
+      "url": "https://arxiv.org/abs/2510.07443",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "The condensed homotopy type of a scheme"
+    },
+    {
+      "id": "2510.12269",
+      "url": "https://arxiv.org/abs/2510.12269",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Tensor Logic: The Language of AI"
+    },
+    {
+      "id": "2510.15511",
+      "url": "https://arxiv.org/abs/2510.15511",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Language Models are Injective and Hence Invertible"
+    },
+    {
+      "id": "2510.15795",
+      "url": "https://arxiv.org/abs/2510.15795",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Synthetic perspectives on spaces and categories"
+    },
+    {
+      "id": "2510.16234",
+      "url": "https://arxiv.org/abs/2510.16234",
+      "files": [
+        "asi/skills/scholar-evaluation/SKILL.md"
+      ],
+      "count": 1,
+      "title": "ScholarEval: Research Idea Evaluation Grounded in Literature"
+    },
+    {
+      "id": "2510.17417",
+      "url": "https://arxiv.org/abs/2510.17417",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Causal Coverage in Ordered Locales and Spacetimes"
+    },
+    {
+      "id": "2510.20695",
+      "url": "https://arxiv.org/abs/2510.20695",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "From Drag to Invariance: The Experimental Pressure Behind Special Relativity"
+    },
+    {
+      "id": "2510.21614",
+      "url": "https://arxiv.org/abs/2510.21614",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Huxley-G\u00f6del Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine"
+    },
+    {
+      "id": "2510.21755",
+      "url": "https://arxiv.org/abs/2510.21755",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Eigenvector Geometry as a New Route to Criticality in Random Multiplicative Systems"
+    },
+    {
+      "id": "2510.23972",
+      "url": "https://arxiv.org/abs/2510.23972",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "An efficient probabilistic hardware architecture for diffusion-like models"
+    },
+    {
+      "id": "2511.07312",
+      "url": "https://arxiv.org/abs/2511.07312",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Superhuman AI for Stratego Using Self-Play Reinforcement Learning and Test-Time Search"
+    },
+    {
+      "id": "2511.08923",
+      "url": "https://arxiv.org/abs/2511.08923",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "TiDAR: Think in Diffusion, Talk in Autoregression"
+    },
+    {
+      "id": "2511.13968",
+      "url": "https://arxiv.org/abs/2511.13968",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Universal Routing of Light via Optical Thermodynamics"
+    },
+    {
+      "id": "2511.15304",
+      "url": "https://arxiv.org/abs/2511.15304",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Adversarial Poetry as a Universal Single-Turn Jailbreak Mechanism in Large Language Models"
+    },
+    {
+      "id": "2511.16652",
+      "url": "https://arxiv.org/abs/2511.16652",
+      "files": [
+        "asi/ies/music-topos/data/signal_arxiv_papers.txt"
+      ],
+      "count": 1,
+      "title": "Evolution Strategies at the Hyperscale"
+    },
+    {
+      "id": "2512.10317",
+      "url": "https://arxiv.org/abs/2512.10317",
+      "files": [
+        "asi/skills/chain-of-states/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Translating Informal Proofs into Formal Proofs Using a Chain of States"
+    },
+    {
+      "id": "2512.10685",
+      "url": "https://arxiv.org/abs/2512.10685",
+      "files": [
+        "asi/skills/real-estate-shark/SKILL.md"
+      ],
+      "count": 1,
+      "title": "Sharp Monocular View Synthesis in Less Than a Second"
+    }
+  ]
+}

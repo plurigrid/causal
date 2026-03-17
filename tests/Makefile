@@ -39,6 +39,7 @@ info-tests					\
 isearch-tests					\
 make-mode-tests					\
 man-tests					\
+org-tests					\
 re-builder-tests				\
 timezone-tests					\
 ucm-tests
@@ -67,6 +68,7 @@ info-tests					\
 isearch-tests					\
 make-mode-tests					\
 man-tests					\
+org-tests					\
 re-builder-tests				\
 timezone-tests					\
 ucm-tests
@@ -135,6 +137,9 @@ make-mode-tests:
 	$(MAKE) -C $(SRC_DIR) $@
 
 man-tests:
+	$(MAKE) -C $(SRC_DIR) $@
+
+org-tests:
 	$(MAKE) -C $(SRC_DIR) $@
 
 re-builder-tests:

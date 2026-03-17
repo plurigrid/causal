@@ -1,8 +1,8 @@
 * Man
 #+CINDEX: Man
-#+VINDEX: causal-man-tmenu
+#+VINDEX: causal-man
 
-Causal Man is a user interface for ~Man-mode~, a Man page reader.
+Causal Man (library: ~causal-man~) is a user interface for ~Man-mode~, a Man page reader.
 
 [[file:images/causal-man-screenshot.png]]
 
@@ -46,6 +46,7 @@ The following keybindings are recommended to support consistent behavior between
 
 ** Man Usage
 #+CINDEX: Man Usage
+#+VINDEX: causal-man-tmenu
 
 [[file:images/causal-man-screenshot.png]]
 
@@ -59,12 +60,12 @@ The following sections are offered in the menu:
 - Link :: Jump to other Man pages referenced in the current Man page.
 - Page :: If the Man page reader is configured to display all manual pages for a given search key, navigation commands for multiple pages is provided.
 
-#+TEXINFO: @subheading Options Navigation
+#+TEXINFO: @subsubheading Options Navigation
 #+VINDEX: causal-man-occur-options
 
 ~causal-man-tmenu~ provides the menu item {{{kbd(o)}}} which runs the command ~causal-man-occur-options~. This will invoke ~occur~ with a regexp that searches for command line options (for example, "--foo", "-a") that can be navigated via the ~occur~ interface.
 
-#+TEXINFO: @subheading Man Settings
+#+TEXINFO: @subsubheading Man Settings
 #+VINDEX: causal-man-settings-tmenu
 
 By default, the Man page reader will /not/ display all manual pages for given search key. This can be changed in the Settings menu ~causal-man-settings-tmenu~ that can be invoked by pressing {{{kbd(\,)}}} in ~causal-man-tmenu~. 
@@ -75,7 +76,7 @@ Press ‘s’ and configure ~Man-switches~ to have the value "-a" to get all man
 [[file:images/causal-man-settings.png]]
 
 
-#+TEXINFO: @subheading Man Unicode Symbol Support
+#+TEXINFO: @subsubheading Man Unicode Symbol Support
 By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Man will use Unicode symbols as appropriate in its menus.
 
 For more info on using Unicode symbols, please refer to [[#ux-conventions][UX Conventions]].

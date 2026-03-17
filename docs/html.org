@@ -2,11 +2,10 @@
 :PROPERTIES:
 :CUSTOM_ID: html-top
 :END:
-
 #+CINDEX: HTML
-#+VINDEX: causal-html-tmenu
+#+VINDEX: causal-html
 
-Causal HTML is a user interface for ~html-mode~ ([[info:emacs#HTML Mode][html-mode]]). 
+Causal HTML (library: ~causal-html~) is a user interface for ~html-mode~ ([[info:emacs#HTML Mode][html-mode]]). 
 
 [[file:images/causal-html-screenshot.png]]
 Causal also has support for CSS editing ([[#css-top][CSS]]).
@@ -24,19 +23,19 @@ In your initialization file, bind the Transient ~causal-html-tmenu~ to your key 
   (keymap-set html-mode-map "M-m" #'causal-html-tmenu)
 #+end_src
 
-A different binding ({{{kbd(M-m)}}}) is used as ~causal-html-tmenu~ is intended to work alongside with [[#editkit-install][Causal EditKit]].
-
 It is convenient to also bind ~causal-html-tags-tmenu~ as well.
 
 #+begin_src elisp :lexical no
   (keymap-set html-mode-map "C-c m" #'causal-html-tags-tmenu)
 #+end_src
 
+The binding {{{kbd(M-m)}}} is intended to complement the binding {{{kbd(C-o)}}} used by [[#editkit-install][EditKit]].
+
 If HTML Tree-sitter support is enabled, use the keymap ~html-ts-mode-map~ in place of ~html-mode-map~.
 
 ** HTML Usage
 #+CINDEX: HTML Usage
-
+#+VINDEX: causal-html-tmenu
 [[file:images/causal-html-screenshot.png]]
 
 The following sections are offered in the menu:
@@ -49,21 +48,21 @@ The following sections are offered in the menu:
 Note that the item “{{{kbd(d)}}} Delete” (bound to ~sgml-delete-tag~) is not available when HTML Tree-sitter support is enabled.
 
 
-#+TEXINFO: @subheading HTML Tags
+#+TEXINFO: @subsubheading HTML Tags
 #+VINDEX: causal-html-tags-tmenu
 
 This menu provides support for HTML tag-related commands provided by ~html-mode~.
 
 [[file:images/causal-html-tags-screenshot.png]]
 
-#+TEXINFO: @subheading HTML Settings
+#+TEXINFO: @subsubheading HTML Settings
 #+VINDEX: causal-html-settings-tmenu
 
 SGML/HTML mode related settings can be customized using the menu ~causal-html-settings-tmenu~.
 
 [[file:images/causal-html-settings-screenshot.png]]
 
-#+TEXINFO: @subheading HTML Unicode Symbol Support
+#+TEXINFO: @subsubheading HTML Unicode Symbol Support
 
 By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal html will use Unicode symbols as appropriate in its menus.
 

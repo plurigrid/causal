@@ -63,7 +63,7 @@
 
 (defun causal-editkit-package-symbol-overlay-installed-p ()
   "Predicate to test if package `symbol-overlay' is installed."
-  (package-installed-p 'symbol-overlay))
+  (package-installed-p 'symbol-overlay)) ;note that this might be an issue for people using third-party package managers
 
 (defun causal-editkit-package-magit-installed-p ()
   "Predicate to test if package `magit' is installed."
@@ -408,6 +408,8 @@ Commands pertaining to delete can be accessed here."
     ("p" "Pair" delete-pair)]
 
    [("b" "Blank Lines" delete-blank-lines)
+    ("D" "Duplicate Lines" delete-duplicate-lines
+     :inapt-if-not use-region-p)
     ("w" "Whitespace Cleanup" whitespace-cleanup)
     ("d" "Delete Trailing Whitespace" delete-trailing-whitespace)]
 
@@ -890,7 +892,7 @@ accessed here."
 (defun causal-editkit-copy-defun ()
   "Copy defun point is in."
   (interactive)
-  (save-excursion
+  (save-excursion			;maybe `save-mark-and-excursion'?
     (mark-defun)
     (kill-ring-save (region-beginning) (region-end))))
 
@@ -1074,7 +1076,7 @@ with no space between."
   "Current project label."
   (let* ((project (project-current)))
     (if project
-        (format "Project: %s" (nth 2 project))
+        (format "Project: %s" (project-name project)) ; you are assuming that project is always a VC project, but the project.el interface doesn't promise this
       "Project")))
 
 (provide 'causal-editkit-utils)

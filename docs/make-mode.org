@@ -1,10 +1,11 @@
 * Make
 #+CINDEX: Make
-#+VINDEX: causal-make-tmenu 
+#+VINDEX: causal-make
 
-Causal Make is a user interface for ~make-mode~, a mode tailored for editing a Makefile.
+Causal Make (library: ~causal-make~) is a user interface for ~make-mode~, a mode for editing a Makefile.
 
 [[file:images/causal-make-screenshot.png]]
+
 
 ** Make Install
 :PROPERTIES:
@@ -18,8 +19,11 @@ In your initialization file, bind the Transient ~causal-make-tmenu~ to your key 
   (keymap-set makefile-mode-map "M-m" #'causal-make-tmenu)
 #+end_src
 
+The binding {{{kbd(M-m)}}} is intended to complement the binding {{{kbd(C-o)}}} used by [[#editkit-install][EditKit]].
+
 ** Make Usage
 #+CINDEX: Make Usage
+#+VINDEX: causal-make-tmenu
 
 [[file:images/causal-make-screenshot.png]]
 
