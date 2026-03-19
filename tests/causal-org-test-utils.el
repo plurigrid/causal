@@ -1,4 +1,4 @@
-;;; casual-org-test-utils.el --- Casual Test Utils       -*- lexical-binding: t; -*-
+;;; causal-org-test-utils.el --- Causal Test Utils       -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2026  Charles Y. Choi
 
@@ -24,18 +24,18 @@
 
 ;;; Code:
 (require 'ert)
-(require 'casual-lib)
+(require 'causal-lib)
 (require 'kmacro)
 
-(defun casualt-org-setup ()
-  "Casual Org setup."
+(defun causalt-org-setup ()
+  "Causal Org setup."
   ;;(message "Default Directory: %s" default-directory)
-  (switch-to-buffer (find-file "../tests/test-casual-org.org"))
+  (switch-to-buffer (find-file "../tests/test-causal-org.org"))
   (goto-char (point-min)))
 
-(defun casualt-org-breakdown ()
-  "Casual Org breakdown."
-  (kill-buffer "test-casual-org.org"))
+(defun causalt-org-breakdown ()
+  "Causal Org breakdown."
+  (kill-buffer "test-causal-org.org"))
 
-(provide 'casual-org-test-utils)
-;;; casual-org-test-utils.el ends here
+(provide 'causal-org-test-utils)
+;;; causal-org-test-utils.el ends here

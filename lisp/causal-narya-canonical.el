@@ -271,6 +271,7 @@ layer and the canonical Lisp proof schemata defined here."
             (causal-narya-canonical-all))
     nil t)))
 
+;;;###autoload
 (defun causal-narya-canonical-show (schema-id)
   "Display the canonical schema identified by SCHEMA-ID."
   (interactive (list (causal-narya-canonical-read-schema)))
@@ -283,6 +284,7 @@ layer and the canonical Lisp proof schemata defined here."
         (pp (causal-narya-canonical-olog schema-id)))
     (user-error "Unknown canonical schema: %s" schema-id)))
 
+;;;###autoload
 (defun causal-narya-canonical-show-awareness (awareness)
   "Display all schemata up to AWARENESS."
   (interactive "nMaximum awareness level: ")

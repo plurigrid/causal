@@ -1,20 +1,20 @@
 * Org
 #+CINDEX: Org
-#+VINDEX: casual-org
+#+VINDEX: causal-org
 
-Casual Org (library: ~casual-org~) is a keyboard-driven user interface for Org mode ([[info:org#Top][org#Top]]). It endeavors to provide /context-sensitive/ assistance by providing structure-related commands based on where the point (cursor) is in an Org document.
+Causal Org (library: ~causal-org~) is a keyboard-driven user interface for Org mode ([[info:org#Top][org#Top]]). It endeavors to provide /context-sensitive/ assistance by providing structure-related commands based on where the point (cursor) is in an Org document.
 
-The Casual Org main menu (~casual-org-tmenu~) supports basic Emacs-style point navigation ([[info:emacs#Moving Point][emacs#Moving Point]]) in the buffer while the menu is still raised. As the point is moved, the menu will adjust to provide structure-related commands.
+The Causal Org main menu (~causal-org-tmenu~) supports basic Emacs-style point navigation ([[info:emacs#Moving Point][emacs#Moving Point]]) in the buffer while the menu is still raised. As the point is moved, the menu will adjust to provide structure-related commands.
 
 For example, if the point is in an Org headline, the following menu is shown with headline-related commands at the top of the menu.
 
-[[file:images/casual-org-headline-screenshot.png]]
+[[file:images/causal-org-headline-screenshot.png]]
 
 If the point is moved to a table section, the upper part of the menu adjusts to provide table-related commands.
 
-[[file:images/casual-org-table-screenshot.png]]
+[[file:images/causal-org-table-screenshot.png]]
 
-Casual Org has no intent to [[#motivations][exhaustively support all Org commands]]. Rather, Casual Org is an opinionated UX design exercise in providing a curated set of context-sensitive commands to a user.
+Causal Org has no intent to [[#motivations][exhaustively support all Org commands]]. Rather, Causal Org is an opinionated UX design exercise in providing a curated set of context-sensitive commands to a user.
 
 # TODO: Add Design Assumptions
 
@@ -25,22 +25,22 @@ Casual Org has no intent to [[#motivations][exhaustively support all Org command
 
 #+CINDEX: Org Install
 
-In your initialization file, bind the Transient menus ~casual-org-tmenu~ and ~casual-org-table-fedit-tmenu~ to your key binding of preference.
+In your initialization file, bind the Transient menus ~causal-org-tmenu~ and ~causal-org-table-fedit-tmenu~ to your key binding of preference.
 
 #+begin_src elisp :lexical no
-  (keymap-set org-mode-map "M-m" #'casual-org-tmenu)
-  (keymap-set org-table-fedit-map "M-m" #'casual-org-table-fedit-tmenu)
+  (keymap-set org-mode-map "M-m" #'causal-org-tmenu)
+  (keymap-set org-table-fedit-map "M-m" #'causal-org-table-fedit-tmenu)
 #+end_src
 
 The binding {{{kbd(M-m)}}} is intended to complement the binding {{{kbd(C-o)}}} used by [[#editkit-install][EditKit]].
 
 ** Org Usage
 #+CINDEX: Org Usage
-#+VINDEX: casual-org-tmenu
+#+VINDEX: causal-org-tmenu
 
-Usage of Casual Org is primarily done through the Transient menu ~casual-org-tmenu~. This menu dynamically adjusts with respect to where the point (cursor) is in an Org document's structure ([[info:org#Document Structure][org#Document Structure]]). For example, if the point is in a headline the menu displayed will be different from that of a table.
+Usage of Causal Org is primarily done through the Transient menu ~causal-org-tmenu~. This menu dynamically adjusts with respect to where the point (cursor) is in an Org document's structure ([[info:org#Document Structure][org#Document Structure]]). For example, if the point is in a headline the menu displayed will be different from that of a table.
 
-Based on where the point is in an Org buffer, the following variants of ~casual-org-tmenu~ are supported:
+Based on where the point is in an Org buffer, the following variants of ~causal-org-tmenu~ are supported:
 
 - Headline
 - Body
@@ -62,13 +62,13 @@ Many of the menu variants have a common set of command sections. These sections 
 - Mark :: Structural-marking commands.
 - Util ::  Org utility commands.
 
-Note that not all of these command sections are offered in all menu variants. This is because the design intent for Casual Org is to /constrain/ choice based on context.
+Note that not all of these command sections are offered in all menu variants. This is because the design intent for Causal Org is to /constrain/ choice based on context.
 
 #+TEXINFO: @subsubheading Navigation
 
-The menus in the Casual Org package (~casual-org~) are designed to allow for navigation of the current Org buffer using key bindings /not/ used by the Casual menu. This means that basic Emacs point (cursor) navigation not involving the arrow keys will be available ([[info:emacs#Moving Point][emacs#Moving Point]]). It is also possible to inadvertently insert text when a Casual Org menu is raised. Accidental changes can be undone using the “{{{kbd(U)}}} Undo” command.
+The menus in the Causal Org package (~causal-org~) are designed to allow for navigation of the current Org buffer using key bindings /not/ used by the Causal menu. This means that basic Emacs point (cursor) navigation not involving the arrow keys will be available ([[info:emacs#Moving Point][emacs#Moving Point]]). It is also possible to inadvertently insert text when a Causal Org menu is raised. Accidental changes can be undone using the “{{{kbd(U)}}} Undo” command.
 
-To use Casual Org effectively, it is recommended that the user is familiar with Org outline editing ([[info:org#Structure Editing][org#Structure Editing]]).
+To use Causal Org effectively, it is recommended that the user is familiar with Org outline editing ([[info:org#Structure Editing][org#Structure Editing]]).
 
 *** Org Headline
 :PROPERTIES:
@@ -78,9 +78,9 @@ To use Casual Org effectively, it is recommended that the user is familiar with 
 #+CINDEX: Org Headline
 
 
-[[file:images/casual-org-headline-screenshot.png]]
+[[file:images/causal-org-headline-screenshot.png]]
 
-When the point is in a headline ([[info:org#Headlines][org#Headlines]]) the following command sections are displayed in ~casual-org-tmenu~:
+When the point is in a headline ([[info:org#Headlines][org#Headlines]]) the following command sections are displayed in ~causal-org-tmenu~:
 
 - Headline :: Commands that operate on a headline.
 - Add :: Commands that add a headline.
@@ -96,9 +96,9 @@ When the point is in a headline ([[info:org#Headlines][org#Headlines]]) the foll
 :END:
 #+CINDEX: Org Body
 
-If the point is in a part of an Org document that is not considered structure, this menu variant of ~casual-org-tmenu~ is displayed.
+If the point is in a part of an Org document that is not considered structure, this menu variant of ~causal-org-tmenu~ is displayed.
 
-[[file:images/casual-org-body-screenshot.png]]
+[[file:images/causal-org-body-screenshot.png]]
 
 Variant-specific command sections provided are:
 
@@ -112,7 +112,7 @@ Variant-specific command sections provided are:
 :END:
 #+CINDEX: Org List
 
-When the point is in a list item ([[info:org#Plain Lists][org#Plain Lists]]), the following list-related commands are displayed in ~casual-org-tmenu~:
+When the point is in a list item ([[info:org#Plain Lists][org#Plain Lists]]), the following list-related commands are displayed in ~causal-org-tmenu~:
 
 - {{{kbd(a)}}} Add :: Inserts a list item.
 - {{{kbd(b)}}} To Checkbox :: Converts a list item to a checkbox.
@@ -121,7 +121,7 @@ When the point is in a list item ([[info:org#Plain Lists][org#Plain Lists]]), th
 
 If the point is at the very start of the list, then then certain commands like “{{{kbd(b)}}} To Checkbox” will affect all items in the list.
 
-[[file:images/casual-org-item-screenshot.png]]
+[[file:images/causal-org-item-screenshot.png]]
 
 
 #+TEXINFO: @subsubheading Checkbox
@@ -132,7 +132,7 @@ When an item is converted to a checkbox, the heading of the section changes from
 - {{{kbd(-)}}} In Progress :: Change a checkbox from an unchecked (~[ ]~) to an in-progress (~[-]~) state.
   Use the “{{{kbd(C-c)}}} Toggle” command to reset from the in-progress state.
 
-[[file:images/casual-org-checkbox-screenshot.png]]
+[[file:images/causal-org-checkbox-screenshot.png]]
 
 Use the “{{{kbd(b)}}} To Item” command to revert a checkbox back to a plain item.
 
@@ -143,7 +143,7 @@ Use the “{{{kbd(b)}}} To Item” command to revert a checkbox back to a plain 
 :END:
 #+CINDEX: Org Table
 
-When the point is in a table ([[info:org#Tables][org#Tables]]) the following sections are displayed in ~casual-org-tmenu~:
+When the point is in a table ([[info:org#Tables][org#Tables]]) the following sections are displayed in ~causal-org-tmenu~:
 
 - Table :: Miscellaneous table-related commands.
 - Edit :: Table-specific editing commands.
@@ -152,29 +152,29 @@ When the point is in a table ([[info:org#Tables][org#Tables]]) the following sec
 - Display :: Table-specific display commands.
 
 
-[[file:images/casual-org-table-screenshot.png]]
+[[file:images/causal-org-table-screenshot.png]]
 
 #+TEXINFO: @subsubheading Table Formulas (TBLFM)
 
-If the point is on a ~TBLFM~ keyword ([[info:org#Field and range formulas][org#Field and range formulas]]), then the following menu variant of ~casual-org-tmenu~ is shown.
+If the point is on a ~TBLFM~ keyword ([[info:org#Field and range formulas][org#Field and range formulas]]), then the following menu variant of ~causal-org-tmenu~ is shown.
 
-[[file:images/casual-org-tblfm-screenshot.png]]
+[[file:images/causal-org-tblfm-screenshot.png]]
 
 #+TEXINFO: @subsubheading Org Table Layout
-#+VINDEX: casual-org-table-structure-tmenu
+#+VINDEX: causal-org-table-structure-tmenu
 
-From the *Table* section in ~casual-org-tmenu~, selecting “{{{kbd(l)}}} Layout” will raise the table layout menu (~casual-org-table-structure-tmenu~). Use this menu to make structural edits to the table.
+From the *Table* section in ~causal-org-tmenu~, selecting “{{{kbd(l)}}} Layout” will raise the table layout menu (~causal-org-table-structure-tmenu~). Use this menu to make structural edits to the table.
 
 
-[[file:images/casual-org-table-layout-screenshot.png]]
+[[file:images/causal-org-table-layout-screenshot.png]]
 
 
 #+TEXINFO: @subsubheading Org Table Formula Edit
-#+VINDEX: casual-org-table-fedit-tmenu
+#+VINDEX: causal-org-table-fedit-tmenu
 
-When editing formulas for a table, the menu ~casual-org-table-fedit-tmenu~ can be raised to provide assistance with table references.
+When editing formulas for a table, the menu ~causal-org-table-fedit-tmenu~ can be raised to provide assistance with table references.
 
-[[file:images/casual-org-table-fedit-screenshot.png]]
+[[file:images/causal-org-table-fedit-screenshot.png]]
 
 
 *** Org Block
@@ -183,11 +183,11 @@ When editing formulas for a table, the menu ~casual-org-table-fedit-tmenu~ can b
 :END:
 #+CINDEX: Org Block
 
-When the point is in a block ([[info:org#Blocks][org#Blocks]]) the following variant is displayed in ~casual-org-tmenu~:
+When the point is in a block ([[info:org#Blocks][org#Blocks]]) the following variant is displayed in ~causal-org-tmenu~:
 
-[[file:images/casual-org-block-src-screenshot.png]]
+[[file:images/causal-org-block-src-screenshot.png]]
 
-Numerous different block types are recognized by ~casual-org-tmenu~. They are:
+Numerous different block types are recognized by ~causal-org-tmenu~. They are:
 
 - Source (~#+BEGIN_SRC~)
 - Example (~#+BEGIN_EXAMPLE~)
@@ -201,7 +201,7 @@ Numerous different block types are recognized by ~casual-org-tmenu~. They are:
 If the point is within an Org source block, then the following menu variant is shown.
 
 
-[[file:images/casual-org-in-block-src-screenshot.png]]
+[[file:images/causal-org-in-block-src-screenshot.png]]
 
 
 *** Org Keyword
@@ -210,9 +210,9 @@ If the point is within an Org source block, then the following menu variant is s
 :END:
 #+CINDEX: Org Keyword
 
-When the point is in an Org keyword the following variant is displayed in ~casual-org-tmenu~:
+When the point is in an Org keyword the following variant is displayed in ~causal-org-tmenu~:
 
-[[file:images/casual-org-keyword-screenshot.png]]
+[[file:images/causal-org-keyword-screenshot.png]]
 
 
 *** Org Property Drawer
@@ -221,11 +221,11 @@ When the point is in an Org keyword the following variant is displayed in ~casua
 :END:
 #+CINDEX: Org Property Drawer
 
-This menu variant of ~casual-org-tmenu~ is shown when the point is on a property drawer ([[info:org#Properties and Columns][org#Properties and Columns]]).
+This menu variant of ~causal-org-tmenu~ is shown when the point is on a property drawer ([[info:org#Properties and Columns][org#Properties and Columns]]).
 
 With this menu, one can add a property.
 
-[[file:images/casual-org-property-drawer-screenshot.png]]
+[[file:images/causal-org-property-drawer-screenshot.png]]
 
 
 *** Org Property
@@ -234,11 +234,11 @@ With this menu, one can add a property.
 :END:
 #+CINDEX: Org Property
 
-This menu variant of ~casual-org-tmenu~ is shown when the point is on a property ([[info:org#Property Syntax][org#Property Syntax]]).
+This menu variant of ~causal-org-tmenu~ is shown when the point is on a property ([[info:org#Property Syntax][org#Property Syntax]]).
 
 With this menu, one can either add another property or perform an action on the current property.
 
-[[file:images/casual-org-property-screenshot.png]]
+[[file:images/causal-org-property-screenshot.png]]
 
 
 *** Org Drawer
@@ -247,9 +247,9 @@ With this menu, one can either add another property or perform an action on the 
 :END:
 #+CINDEX: Org Drawer
 
-This menu variant of ~casual-org-tmenu~ is shown when the point is on a drawer [[info:org#Drawers][(org#Drawers]]).
+This menu variant of ~causal-org-tmenu~ is shown when the point is on a drawer [[info:org#Drawers][(org#Drawers]]).
 
-[[file:images/casual-org-drawer-screenshot.png]]
+[[file:images/causal-org-drawer-screenshot.png]]
 
 
 *** Org Clock Log
@@ -258,9 +258,9 @@ This menu variant of ~casual-org-tmenu~ is shown when the point is on a drawer [
 :END:
 #+CINDEX: Org Clock Log
 
-This menu variant of ~casual-org-tmenu~ is shown when the point is on a clock log ([[info:org#Clocking commands][org#Clocking commands]]).
+This menu variant of ~causal-org-tmenu~ is shown when the point is on a clock log ([[info:org#Clocking commands][org#Clocking commands]]).
 
-[[file:images/casual-org-clock-log-screenshot.png]]
+[[file:images/causal-org-clock-log-screenshot.png]]
 Two command sections are provided:
 
 - Clock :: Clock in or out of the current item.
@@ -273,11 +273,11 @@ Two command sections are provided:
 :END:
 #+CINDEX: Org Settings
 
-Use the Casual Org Settings menu to gain access to commonly customized Org settings.
+Use the Causal Org Settings menu to gain access to commonly customized Org settings.
 
-[[file:images/casual-org-settings-screenshot.png]]
+[[file:images/causal-org-settings-screenshot.png]]
 
 
 #+TEXINFO: @subsubheading Org Unicode Symbol Support
 
-By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Casual Org will use Unicode symbols as appropriate in its menus.
+By enabling “{{{kbd(u)}}} Use Unicode Symbols” from the Settings menu, Causal Org will use Unicode symbols as appropriate in its menus.

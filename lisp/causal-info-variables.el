@@ -33,7 +33,7 @@
 (defcustom causal-info-use-unicode-symbols nil
   "If non-nil then use Unicode symbols whenever appropriate for labels."
   :type 'boolean
-  :group 'casual)				;here again, please use your own group!
+  :group 'causal)				;here again, please use your own group!
 
 (provide 'causal-info-variables)
 ;;; causal-info-variables.el ends here

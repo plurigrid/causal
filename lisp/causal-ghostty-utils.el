@@ -84,7 +84,7 @@
   "Show about information for Causal Ghostty."
   (interactive)
   (message "Causal Ghostty: Transient porcelain for ghostty-emacs (libghostty-vt)
-Part of plurigrid/causal — fork of kickingvegas/casual
+Part of plurigrid/causal — fork of kickingvegas/causal
 Terminal engine: libghostty-vt by Mitchell Hashimoto
 Rendering: Canvas 2D (two-pass) | Trapezoid GPU (future)"))
 

@@ -56,7 +56,7 @@ This variable requires GNU ‘ls’ from coreutils installed.
 
 See the man page `ls(1)' for details."
   :type '(repeat string)
-  :group 'casual)
+  :group 'causal)
 
 (define-obsolete-variable-alias 'causal-dired-use-unicode-symbols
   'causal-lib-use-unicode
@@ -65,7 +65,7 @@ See the man page `ls(1)' for details."
 (defcustom causal-dired-use-unicode-symbols nil
   "If non-nil then use Unicode symbols whenever appropriate for labels."
   :type 'boolean
-  :group 'casual)
+  :group 'causal)
 
 (provide 'causal-dired-variables)
 ;;; causal-dired-variables.el ends here
