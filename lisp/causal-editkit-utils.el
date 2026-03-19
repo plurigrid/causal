@@ -73,6 +73,57 @@
   "Predicate to test if package `transpose-frame' is installed."
   (package-installed-p 'transpose-frame))
 
+(defun causal-editkit-winner-mode-enabled-p ()
+  "Predicate to test if `winner-mode' is enabled."
+  (bound-and-true-p winner-mode))
+
+(defun causal-editkit-package-golden-ratio-installed-p ()
+  "Predicate to test if package `golden-ratio' is installed."
+  (package-installed-p 'golden-ratio))
+
+(defun causal-editkit-ghostty-available-p ()
+  "Predicate to test if ghostty-emacs commands are available."
+  (fboundp 'ghostty-open-split))
+
+(defvar causal-editkit--zoom-saved-config nil
+  "Saved window configuration before zoom.")
+
+(defun causal-editkit-zoom-toggle ()
+  "Toggle zoom: maximize current window or restore previous layout."
+  (interactive)
+  (if causal-editkit--zoom-saved-config
+      (progn
+        (set-window-configuration causal-editkit--zoom-saved-config)
+        (setq causal-editkit--zoom-saved-config nil)
+        (message "Layout restored"))
+    (setq causal-editkit--zoom-saved-config (current-window-configuration))
+    (delete-other-windows)
+    (message "Zoomed (press again to restore)")))
+
+(defun causal-editkit-save-layout-to-register ()
+  "Save current window layout to a register."
+  (interactive)
+  (let ((reg (read-char "Save layout to register: ")))
+    (window-configuration-to-register reg)
+    (message "Layout saved to register '%c'" reg)))
+
+(defun causal-editkit-restore-layout-from-register ()
+  "Restore window layout from a register."
+  (interactive)
+  (let ((reg (read-char "Restore layout from register: ")))
+    (jump-to-register reg)
+    (message "Layout restored from register '%c'" reg)))
+
+(defun causal-editkit-golden-ratio-toggle ()
+  "Toggle `golden-ratio-mode' if installed."
+  (interactive)
+  (if (fboundp 'golden-ratio-mode)
+      (progn
+        (call-interactively #'golden-ratio-mode)
+        (message "golden-ratio-mode %s"
+                 (if (bound-and-true-p golden-ratio-mode) "enabled" "disabled")))
+    (message "golden-ratio not installed")))
+
 (defun causal-editkit-transpose-frame ()
   "Dynamically dispatch command call to `transpose-frame'."
   (interactive)
@@ -548,6 +599,39 @@ Commands pertaining to window management operations can be accessed here."
    ["Transpose"
     :if causal-editkit-package-transpose-frame-installed-p
     ("t" "Transpose" causal-editkit-transpose-frame)]]
+
+  [["Layout"
+    :pad-keys t
+    ("=" "Balance" balance-windows
+     :description (lambda () (causal-editkit-unicode-get :balance))
+     :transient t)
+    ("z" "Zoom" causal-editkit-zoom-toggle
+     :description (lambda () (causal-editkit-unicode-get :zoom)))]
+
+   ["History"
+    :if causal-editkit-winner-mode-enabled-p
+    ("u" "Undo" winner-undo
+     :description (lambda () (causal-editkit-unicode-get :undo-layout))
+     :transient t)
+    ("r" "Redo" winner-redo
+     :description (lambda () (causal-editkit-unicode-get :redo-layout))
+     :transient t)]
+
+   ["Register"
+    ("C-s" "Save" causal-editkit-save-layout-to-register
+     :description (lambda () (causal-editkit-unicode-get :save-layout)))
+    ("C-r" "Restore" causal-editkit-restore-layout-from-register
+     :description (lambda () (causal-editkit-unicode-get :restore-layout)))]
+
+   ["Auto"
+    :if causal-editkit-package-golden-ratio-installed-p
+    ("g" "Golden φ" causal-editkit-golden-ratio-toggle
+     :description (lambda () (causal-editkit-unicode-get :golden-ratio)))]
+
+   ["Terminal"
+    :if causal-editkit-ghostty-available-p
+    ("T" "Ghostty ━" ghostty-open-split)
+    ("V" "Ghostty ┃" ghostty-open-vsplit)]]
 
   causal-editkit-navigation-group)
 
