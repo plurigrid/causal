@@ -53,7 +53,13 @@ jobs:
           CAUSAL_TLS_KEY: /tmp/causal-test-key.pem
           CAUSAL_TLS_CA: /tmp/causal-test-cert.pem
           CAUSAL_STORE_DIR: /tmp/causal-test-store
-        run: nats-server -t -c server.conf
+        run: |
+          openssl req -x509 -newkey rsa:2048 -nodes -days 1 \
+            -subj /CN=localhost \
+            -addext 'subjectAltName=DNS:localhost,IP:127.0.0.1' \
+            -keyout "$CAUSAL_TLS_KEY" -out "$CAUSAL_TLS_CERT" \
+            >/dev/null 2>&1
+          nats-server -t -c server.conf
 
       - name: Reject generated secrets from source
         run: |
