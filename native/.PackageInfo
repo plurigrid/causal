@@ -1,0 +1,15 @@
+name            causal_chat
+version         0.4.0-1
+architecture    x86_64
+summary         "Native multichannel NATS chat for Haiku"
+description     "A small native Haiku room client using BApplication, libroot-compatible sockets, and NATS."
+packager        "Plurigrid"
+vendor          "Plurigrid"
+copyrights      { "2026 Plurigrid contributors" }
+licenses        { "GNU GPL v3" }
+provides        { causal_chat = 0.4.0 }
+requires {
+  haiku
+  lib:libcrypto >= 3
+  lib:libssl >= 3
+}

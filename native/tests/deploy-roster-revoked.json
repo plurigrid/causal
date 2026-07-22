@@ -1,0 +1,13 @@
+{
+  "admin": {
+    "user": "admin",
+    "bcrypt": "$2a$11$5IyFt.zoF2G8OmzyNDEmb.p/9Fuj8grCPxpyc33wDKsTahKq1jNYq"
+  },
+  "members": [
+    {
+      "user": "alice",
+      "consumer": "alice",
+      "bcrypt": "$2a$11$YUH6GUJ2y2f.uoVsuqJzzug8SMu6itGAyMtvYel7An88.QBl0ueAS"
+    }
+  ]
+}

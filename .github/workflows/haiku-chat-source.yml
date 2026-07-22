@@ -1,0 +1,61 @@
+name: Haiku Chat source checks
+
+on:
+  push:
+    branches: [feature/haiku-causal-chat-v0.4]
+    paths: ["native/**", "HAIKU_CHAT.md", ".github/workflows/haiku-chat-source.yml"]
+  pull_request:
+    paths: ["native/**", "HAIKU_CHAT.md", ".github/workflows/haiku-chat-source.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  operator-bundle:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Python sources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in ("native/deploy/render_users.py", "native/deploy/bootstrap.py"):
+              path = Path(name)
+              compile(path.read_text(), str(path), "exec")
+          PY
+
+      - name: Render test authorization include
+        run: |
+          python3 native/deploy/render_users.py \
+            native/tests/deploy-roster.json native/deploy/users.conf
+          test "$(stat -c %a native/deploy/users.conf)" = 600
+
+      - name: Install checksum-pinned NATS Server
+        env:
+          NATS_SERVER_VERSION: 2.14.3
+          NATS_SERVER_SHA256: f3d0c820c749f81d717310fb00d4903919e70e3e66b268bd352a088b9788eb93
+        run: |
+          archive="nats-server-v${NATS_SERVER_VERSION}-linux-amd64.tar.gz"
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/$archive" \
+            "https://github.com/nats-io/nats-server/releases/download/v${NATS_SERVER_VERSION}/$archive"
+          echo "$NATS_SERVER_SHA256  $RUNNER_TEMP/$archive" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/$archive" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/nats-server-v${NATS_SERVER_VERSION}-linux-amd64" >> "$GITHUB_PATH"
+
+      - name: Validate strict server configuration
+        working-directory: native/deploy
+        env:
+          CAUSAL_LISTEN: 127.0.0.1:44523
+          CAUSAL_TLS_CERT: /tmp/causal-test-cert.pem
+          CAUSAL_TLS_KEY: /tmp/causal-test-key.pem
+          CAUSAL_TLS_CA: /tmp/causal-test-cert.pem
+          CAUSAL_STORE_DIR: /tmp/causal-test-store
+        run: nats-server -t -c server.conf
+
+      - name: Reject generated secrets from source
+        run: |
+          git check-ignore native/deploy/users.conf
+          test -z "$(git status --short --untracked-files=all | grep -v 'native/deploy/users.conf' || true)"
