@@ -68,8 +68,27 @@ constexpr rgb_color kCanvas{242, 239, 233, 255};
 constexpr rgb_color kSurface{255, 254, 251, 255};
 constexpr rgb_color kMuted{101, 111, 126, 255};
 constexpr rgb_color kLine{221, 218, 211, 255};
+constexpr rgb_color kBlue{48, 125, 208, 255};
 constexpr rgb_color kTeal{35, 154, 139, 255};
+constexpr rgb_color kAmber{218, 126, 55, 255};
 constexpr rgb_color kCoral{219, 83, 82, 255};
+
+enum class StatusTone : int32 {
+  kConnecting,
+  kOnline,
+  kRetrying,
+  kError,
+};
+
+rgb_color ToneColor(StatusTone tone) {
+  switch (tone) {
+    case StatusTone::kOnline: return kTeal;
+    case StatusTone::kRetrying: return kAmber;
+    case StatusTone::kError: return kCoral;
+    case StatusTone::kConnecting: return kBlue;
+  }
+  return kBlue;
+}
 
 rgb_color Mix(rgb_color from, rgb_color to, float amount) {
   auto blend = [amount](uint8 a, uint8 b) {
@@ -179,7 +198,7 @@ std::string JsonField(const std::string& json, const char* name) {
 }
 
 rgb_color ChannelColor(const std::string& channel) {
-  if (channel == "lobby") return {48, 125, 208, 255};
+  if (channel == "lobby") return kBlue;
   if (channel == "meta") return {121, 91, 190, 255};
   if (channel == "games") return {218, 126, 55, 255};
   uint32 hash = 2166136261u;
@@ -284,10 +303,12 @@ class HistoryStore {
 class HeaderView : public BView {
  public:
   HeaderView(std::string endpoint, bool tls)
-      : BView("header", B_WILL_DRAW), endpoint_(std::move(endpoint)), tls_(tls) {
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 86));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 86));
-    SetViewColor(B_TRANSPARENT_COLOR);
+      : BView("header", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
+        endpoint_(std::move(endpoint)), tls_(tls) {
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 104));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 104));
+    SetViewColor(kNavy);
+    SetLowColor(kNavy);
   }
 
   void SetRoom(const std::string& room) {
@@ -297,46 +318,62 @@ class HeaderView : public BView {
 
   void Draw(BRect /*update*/) override {
     BRect bounds = Bounds();
+    rgb_color accent = ChannelColor(room_.empty() ? "lobby" : room_);
     SetHighColor(kNavy);
     FillRect(bounds);
 
-    rgb_color accent = ChannelColor(room_.empty() ? "lobby" : room_);
-    SetHighColor(Mix(kNavy, accent, 0.55f));
-    FillRect(BRect(bounds.left, bounds.bottom - 3, bounds.right, bounds.bottom));
-    SetHighColor(Mix(kNavy, accent, 0.72f));
-    StrokeEllipse(BPoint(bounds.right - 56, bounds.top + 41), 46, 46);
-    StrokeEllipse(BPoint(bounds.right - 56, bounds.top + 41), 30, 30);
+    SetHighColor(Mix(kNavy, accent, 0.25f));
+    FillRect(BRect(bounds.left, bounds.bottom - 28, bounds.right,
+                   bounds.bottom));
+    SetHighColor(Mix(kNavy, accent, 0.68f));
+    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 58, 58);
+    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 39, 39);
+    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 20, 20);
+    FillEllipse(BPoint(bounds.right - 99, bounds.top + 46), 3, 3);
+    SetHighColor(Mix(kNavy, accent, 0.75f));
+    FillRect(BRect(bounds.left, bounds.bottom - 4, bounds.right,
+                   bounds.bottom));
 
     SetHighColor(accent);
-    FillEllipse(BPoint(26, 29), 9, 9);
+    FillEllipse(BPoint(30, 34), 9, 9);
     SetHighColor(Mix(kNavy, kSurface, 0.75f));
-    StrokeEllipse(BPoint(26, 29), 16, 16);
+    StrokeEllipse(BPoint(30, 34), 17, 17);
+    SetHighColor(Mix(kNavy, accent, 0.55f));
+    StrokeEllipse(BPoint(30, 34), 13, 13);
 
     SetHighColor(kSurface);
     BFont title(*be_bold_font);
-    title.SetSize(19);
+    title.SetSize(20);
     SetFont(&title);
-    DrawString("CAUSAL / CHAT", BPoint(52, 34));
+    DrawString("CAUSAL", BPoint(59, 38));
+    float mark = 59 + StringWidth("CAUSAL") + 8;
+    SetHighColor(accent);
+    DrawString("/", BPoint(mark, 38));
+    SetHighColor(kSurface);
+    DrawString("CHAT", BPoint(mark + StringWidth("/") + 8, 38));
     BFont subtitle_font(*be_plain_font);
     subtitle_font.SetSize(11);
     SetFont(&subtitle_font);
     SetHighColor(Mix(kNavy, kSurface, 0.72f));
-    std::string subtitle = endpoint_ + "  /  native Haiku";
-    DrawString(subtitle.c_str(), BPoint(52, 57));
+    std::string subtitle = endpoint_ + "   /   native Haiku";
+    DrawString(subtitle.c_str(), BPoint(59, 61));
 
-    const char* badge = tls_ ? "TLS REQUIRED" : "PUBLIC LINK";
+    const char* badge = tls_ ? "VERIFIED TLS" : "OPEN / PLAINTEXT";
     float badge_width = StringWidth(badge) + 24;
-    BRect badge_frame(bounds.right - badge_width - 18, 18,
-                      bounds.right - 18, 45);
-    SetHighColor(Mix(kNavy, accent, 0.42f));
+    BRect badge_frame(bounds.right - badge_width - 24, 19,
+                      bounds.right - 24, 47);
+    rgb_color transport = tls_ ? kTeal : kAmber;
+    SetHighColor(Mix(kNavy, transport, 0.58f));
     FillRoundRect(badge_frame, 13, 13);
     SetHighColor(kSurface);
     DrawString(badge, BPoint(badge_frame.left + 12, badge_frame.top + 18));
 
     std::string room = "# " + (room_.empty() ? std::string("lobby") : room_);
-    room = FitText(this, room, 170);
-    SetHighColor(Mix(kNavy, kSurface, 0.72f));
-    DrawString(room.c_str(), BPoint(bounds.right - 188, 66));
+    room = FitText(this, room, 184);
+    SetHighColor(Mix(kNavy, kSurface, 0.84f));
+    DrawString(room.c_str(), BPoint(bounds.right - 208, 88));
+    SetHighColor(accent);
+    FillEllipse(BPoint(bounds.right - 219, 84), 3, 3);
   }
 
  private:
@@ -357,13 +394,15 @@ class AccentButton : public BButton {
 
   void Draw(BRect /*update*/) override {
     BRect bounds = Bounds();
-    rgb_color fill = primary_ ? rgb_color{48, 125, 208, 255}
+    SetHighColor(kCanvas);
+    FillRect(bounds);
+    rgb_color fill = primary_ ? kBlue
                               : rgb_color{230, 226, 218, 255};
     if (!IsEnabled()) fill = Mix(fill, kCanvas, 0.65f);
     if (Value() == B_CONTROL_ON) fill = Mix(fill, kInk, 0.16f);
-    BRect frame = bounds.InsetByCopy(1, 2);
+    BRect frame = bounds.InsetByCopy(1, 1);
     SetHighColor(fill);
-    FillRoundRect(frame, 8, 8);
+    FillRoundRect(frame, 9, 9);
     if (IsFocus()) {
       SetHighColor(primary_ ? kSurface : ChannelColor("lobby"));
       StrokeRoundRect(frame.InsetByCopy(2, 2), 6, 6);
@@ -386,10 +425,11 @@ class AccentButton : public BButton {
 
 class RoomTitleView : public BView {
  public:
-  RoomTitleView() : BView("room-title", B_WILL_DRAW) {
+  RoomTitleView()
+      : BView("room-title", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
     SetViewColor(kSurface);
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 42));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 42));
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 50));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 50));
   }
 
   void SetRoom(const std::string& room, size_t messages) {
@@ -404,20 +444,21 @@ class RoomTitleView : public BView {
     FillRect(bounds);
     rgb_color accent = ChannelColor(room_.empty() ? "lobby" : room_);
     SetHighColor(accent);
-    FillEllipse(BPoint(16, bounds.Height() / 2), 4, 4);
+    FillRoundRect(BRect(0, 0, 4, bounds.bottom - 1), 2, 2);
+    FillEllipse(BPoint(20, bounds.Height() / 2), 4, 4);
     BFont title(*be_bold_font);
-    title.SetSize(13);
+    title.SetSize(14);
     SetFont(&title);
     SetHighColor(kInk);
     std::string label = "# " + room_;
-    DrawString(label.c_str(), BPoint(28, 26));
+    DrawString(label.c_str(), BPoint(34, 31));
     BFont detail(*be_plain_font);
     detail.SetSize(10);
     SetFont(&detail);
     SetHighColor(kMuted);
     std::string count = std::to_string(messages_) +
-                        (messages_ == 1 ? " message" : " messages");
-    DrawString(count.c_str(), BPoint(bounds.right - StringWidth(count.c_str()) - 12, 26));
+                        (messages_ == 1 ? " SIGNAL" : " SIGNALS");
+    DrawString(count.c_str(), BPoint(bounds.right - StringWidth(count.c_str()) - 16, 30));
     SetHighColor(kLine);
     StrokeLine(BPoint(0, bounds.bottom), BPoint(bounds.right, bounds.bottom));
   }
@@ -430,16 +471,16 @@ class RoomTitleView : public BView {
 class StatusBarView : public BView {
  public:
   StatusBarView(bool tls, bool history, bool durable)
-      : BView("status", B_WILL_DRAW), tls_(tls), history_(history),
-        durable_(durable) {
+      : BView("status", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE), tls_(tls),
+        history_(history), durable_(durable) {
     SetViewColor(kCanvas);
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 34));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 34));
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 40));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 40));
   }
 
-  void SetStatus(std::string text, bool error) {
+  void SetStatus(std::string text, StatusTone tone) {
     text_ = std::move(text);
-    error_ = error;
+    tone_ = tone;
     Invalidate();
   }
 
@@ -447,45 +488,95 @@ class StatusBarView : public BView {
     BRect bounds = Bounds();
     SetHighColor(kCanvas);
     FillRect(bounds);
-    SetHighColor(error_ ? kCoral : kTeal);
-    FillEllipse(BPoint(8, 17), 4, 4);
+    rgb_color tone = ToneColor(tone_);
+    SetHighColor(Mix(kCanvas, tone, 0.17f));
+    FillEllipse(BPoint(10, 20), 9, 9);
+    SetHighColor(tone);
+    FillEllipse(BPoint(10, 20), 4, 4);
     BFont font(*be_plain_font);
     font.SetSize(10);
     SetFont(&font);
-    SetHighColor(error_ ? rgb_color{160, 54, 54, 255} : rgb_color{30, 105, 92, 255});
-    std::string right = std::string(tls_ ? "TLS" : "PUBLIC") +
-                        (durable_ ? "  /  REPLAY" : "") +
-                        (history_ ? "  /  HISTORY ON" : "  /  EPHEMERAL");
-    float right_width = StringWidth(right.c_str());
-    std::string status = FitText(this, text_, bounds.Width() - right_width - 38);
-    DrawString(status.c_str(), BPoint(19, 21));
-    SetHighColor(kMuted);
-    DrawString(right.c_str(), BPoint(bounds.right - right_width, 21));
+    SetHighColor(Mix(kInk, tone, 0.30f));
+
+    float right = bounds.right;
+    DrawPill(tls_ ? "TLS" : "OPEN", tls_ ? kTeal : kAmber, right);
+    if (durable_) DrawPill("REPLAY", kBlue, right);
+    DrawPill(history_ ? "HISTORY" : "EPHEMERAL", kMuted, right);
+    std::string status = FitText(this, text_, right - 40);
+    DrawString(status.c_str(), BPoint(25, 24));
   }
 
  private:
+  void DrawPill(const char* label, rgb_color color, float& right) {
+    float width = StringWidth(label) + 18;
+    BRect pill(right - width, 9, right, 31);
+    SetHighColor(Mix(kCanvas, color, 0.16f));
+    FillRoundRect(pill, 10, 10);
+    SetHighColor(Mix(kInk, color, 0.34f));
+    DrawString(label, BPoint(pill.left + 9, 24));
+    right = pill.left - 6;
+  }
+
   bool tls_;
   bool history_;
   bool durable_;
-  bool error_{false};
+  StatusTone tone_{StatusTone::kConnecting};
   std::string text_{"Connecting..."};
+};
+
+class RoomRailHeaderView : public BView {
+ public:
+  RoomRailHeaderView()
+      : BView("room-rail-header", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
+    SetViewColor(kSurface);
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 50));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 50));
+  }
+
+  void SetCount(int32 count) {
+    count_ = count;
+    Invalidate();
+  }
+
+  void Draw(BRect /*update*/) override {
+    BRect bounds = Bounds();
+    SetHighColor(kSurface);
+    FillRect(bounds);
+    BFont label(*be_bold_font);
+    label.SetSize(10);
+    SetFont(&label);
+    SetHighColor(kMuted);
+    DrawString("ROOMS", BPoint(4, 30));
+    std::string count = std::to_string(count_) + " JOINED";
+    SetHighColor(Mix(kMuted, kBlue, 0.35f));
+    DrawString(count.c_str(),
+               BPoint(bounds.right - StringWidth(count.c_str()) - 5, 30));
+    SetHighColor(kLine);
+    StrokeLine(BPoint(0, bounds.bottom), BPoint(bounds.right, bounds.bottom));
+  }
+
+ private:
+  int32 count_{0};
 };
 
 class ChannelItem : public BStringItem {
  public:
-  explicit ChannelItem(const char* label) : BStringItem(label) { SetHeight(40); }
+  explicit ChannelItem(const char* label) : BStringItem(label) { SetHeight(46); }
 
   void DrawItem(BView* owner, BRect frame, bool complete) override {
     rgb_color color = ChannelColor(Text());
     if (IsSelected()) {
-      owner->SetHighColor(Mix(kSurface, color, 0.16f));
-      owner->FillRoundRect(frame.InsetByCopy(5, 3), 8, 8);
+      owner->SetHighColor(Mix(kSurface, color, 0.15f));
+      owner->FillRoundRect(frame.InsetByCopy(4, 3), 9, 9);
+      owner->SetHighColor(color);
+      owner->FillRoundRect(BRect(frame.left + 4, frame.top + 9,
+                                 frame.left + 8, frame.bottom - 9), 2, 2);
     } else if (complete) {
       owner->SetHighColor(kSurface);
       owner->FillRect(frame);
     }
     owner->SetHighColor(color);
-    owner->FillEllipse(BPoint(frame.left + 18, frame.top + frame.Height() / 2), 4, 4);
+    owner->FillEllipse(BPoint(frame.left + 21, frame.top + frame.Height() / 2), 4, 4);
     owner->SetHighColor(kInk);
     BFont font(*be_plain_font);
     if (IsSelected()) font.SetFace(B_BOLD_FACE);
@@ -493,7 +584,7 @@ class ChannelItem : public BStringItem {
     owner->SetFont(&font);
     std::string label = std::string("# ") + Text();
     owner->DrawString(label.c_str(),
-                      BPoint(frame.left + 31, frame.top + BaselineOffset()));
+                      BPoint(frame.left + 35, frame.top + BaselineOffset()));
   }
 };
 
@@ -501,28 +592,31 @@ class MessageItem : public BListItem {
  public:
   MessageItem(ChatMessage message, rgb_color accent, bool mine)
       : message_(std::move(message)), accent_(accent), mine_(mine) {
-    SetHeight(76);
+    size_t lines = std::max<size_t>(
+        1, std::min<size_t>(5, (message_.text.size() + 63) / 64));
+    height_ = std::max(72.0f, 52.0f + static_cast<float>(lines) * 16);
+    SetHeight(height_);
   }
 
   void Update(BView* owner, const BFont* font) override {
     BListItem::Update(owner, font);
-    SetHeight(76);
+    SetHeight(height_);
   }
 
   void DrawItem(BView* owner, BRect frame, bool /*complete*/) override {
     owner->SetHighColor(kCanvas);
     owner->FillRect(frame);
 
-    BRect bubble = frame.InsetByCopy(8, 5);
-    if (mine_) bubble.left += frame.Width() * 0.20f;
-    else bubble.right -= frame.Width() * 0.12f;
-    owner->SetHighColor(mine_ ? Mix(kSurface, accent_, 0.13f) : kSurface);
-    owner->FillRoundRect(bubble, 10, 10);
+    BRect bubble = frame.InsetByCopy(10, 5);
+    if (mine_) bubble.left += frame.Width() * 0.18f;
+    else bubble.right -= frame.Width() * 0.10f;
+    owner->SetHighColor(mine_ ? Mix(kSurface, accent_, 0.14f) : kSurface);
+    owner->FillRoundRect(bubble, 11, 11);
     owner->SetHighColor(IsSelected() ? accent_ : kLine);
-    owner->StrokeRoundRect(bubble, 10, 10);
+    owner->StrokeRoundRect(bubble, 11, 11);
     if (!mine_) {
       owner->SetHighColor(accent_);
-      owner->FillRoundRect(BRect(bubble.left, bubble.top + 8,
+      owner->FillRoundRect(BRect(bubble.left, bubble.top + 9,
                                  bubble.left + 3, bubble.bottom - 8), 2, 2);
     }
 
@@ -530,14 +624,15 @@ class MessageItem : public BListItem {
     sender.SetSize(10);
     owner->SetFont(&sender);
     owner->SetHighColor(accent_);
-    std::string sender_label = message_.sender + (mine_ ? "  /  you" : "");
+    std::string sender_label = message_.sender + (mine_ ? "   /   YOU" : "");
+    sender_label = FitText(owner, sender_label, bubble.Width() - 26);
     owner->DrawString(sender_label.c_str(),
                       BPoint(bubble.left + 13, bubble.top + 17));
     BFont body(*be_plain_font);
     body.SetSize(11);
     owner->SetFont(&body);
     owner->SetHighColor(kInk);
-    auto lines = WrapText(owner, message_.text, bubble.Width() - 26, 2);
+    auto lines = WrapText(owner, message_.text, bubble.Width() - 26, 5);
     for (size_t i = 0; i < lines.size(); ++i)
       owner->DrawString(lines[i].c_str(),
                         BPoint(bubble.left + 13, bubble.top + 38 + i * 15));
@@ -547,11 +642,14 @@ class MessageItem : public BListItem {
   ChatMessage message_;
   rgb_color accent_;
   bool mine_;
+  float height_{72};
 };
 
 class TranscriptListView : public BListView {
  public:
-  TranscriptListView() : BListView("transcript", B_SINGLE_SELECTION_LIST) {}
+  TranscriptListView() : BListView("transcript", B_SINGLE_SELECTION_LIST) {
+    SetFlags(Flags() | B_FULL_UPDATE_ON_RESIZE);
+  }
 
   void Draw(BRect update) override {
     BListView::Draw(update);
@@ -559,24 +657,26 @@ class TranscriptListView : public BListView {
     BRect bounds = Bounds();
     rgb_color accent = ChannelColor(room_);
     BPoint center(bounds.left + bounds.Width() / 2,
-                  bounds.top + bounds.Height() / 2 - 14);
+                  bounds.top + bounds.Height() / 2 - 20);
     SetHighColor(Mix(kCanvas, accent, 0.20f));
-    FillEllipse(center, 27, 27);
+    FillEllipse(center, 30, 30);
     SetHighColor(accent);
-    StrokeEllipse(center, 16, 16);
+    StrokeEllipse(center, 20, 20);
+    StrokeEllipse(center, 11, 11);
     FillEllipse(center, 4, 4);
     BFont title(*be_bold_font);
     title.SetSize(13);
     SetFont(&title);
     SetHighColor(kInk);
-    const char* headline = "This room is quiet";
-    DrawString(headline,
-               BPoint(center.x - StringWidth(headline) / 2, center.y + 51));
+    std::string headline = "#" + room_ + " is quiet";
+    DrawString(headline.c_str(),
+               BPoint(center.x - StringWidth(headline.c_str()) / 2,
+                      center.y + 51));
     BFont detail(*be_plain_font);
     detail.SetSize(10);
     SetFont(&detail);
     SetHighColor(kMuted);
-    const char* prompt = "Send the first signal.";
+    const char* prompt = "Send a signal. The room appears on first use.";
     DrawString(prompt,
                BPoint(center.x - StringWidth(prompt) / 2, center.y + 70));
   }
@@ -708,11 +808,12 @@ class NatsClient {
     bool control;
   };
 
-  void ReportStatus(const std::string& text, bool error = false) {
-    if (error) std::cerr << text << std::endl;
+  void ReportStatus(const std::string& text,
+                    StatusTone tone = StatusTone::kConnecting) {
+    if (tone == StatusTone::kError) std::cerr << text << std::endl;
     BMessage message(kStatus);
     message.AddString("text", text.c_str());
-    message.AddBool("error", error);
+    message.AddInt32("tone", static_cast<int32>(tone));
     target_.SendMessage(&message);
   }
 
@@ -799,7 +900,7 @@ class NatsClient {
         std::vector<std::string> token;
         for (std::string word; words >> word;) token.push_back(word);
         if (token.size() < 4) {
-          ReportStatus("Malformed NATS MSG header", true);
+          ReportStatus("Malformed NATS MSG header", StatusTone::kError);
           input.erase(0, line_end + 2);
           continue;
         }
@@ -807,7 +908,7 @@ class NatsClient {
         try {
           bytes = static_cast<size_t>(std::stoull(token.back()));
         } catch (...) {
-          ReportStatus("Invalid NATS payload length", true);
+          ReportStatus("Invalid NATS payload length", StatusTone::kError);
           input.erase(0, line_end + 2);
           continue;
         }
@@ -822,7 +923,8 @@ class NatsClient {
         input.erase(0, payload_start + bytes + 2);
         continue;
       }
-      if (line.rfind("-ERR", 0) == 0) ReportStatus(line, true);
+      if (line.rfind("-ERR", 0) == 0)
+        ReportStatus(line, StatusTone::kError);
       input.erase(0, line_end + 2);
     }
   }
@@ -837,7 +939,8 @@ class NatsClient {
       int fd = ConnectTcp(host_, port_, &running_);
       if (fd < 0) {
         ReportStatus("Offline; retrying " + host_ + ":" + port_ + " in " +
-                         std::to_string(retry_seconds) + "s", true);
+                         std::to_string(retry_seconds) + "s",
+                     StatusTone::kRetrying);
         WaitBeforeRetry(retry_seconds);
         retry_seconds = std::min(retry_seconds * 2, 8u);
         continue;
@@ -875,7 +978,8 @@ class NatsClient {
       retry_seconds = 1;
       ReportStatus(std::string(tls_ ? "TLS connected to " : "Connected to ") +
                    host_ + ":" + port_ +
-                   (jetstream_ ? " / durable replay" : ""));
+                   (jetstream_ ? " / durable replay" : ""),
+                   StatusTone::kOnline);
       char chunk[8192];
       std::string input;
       while (running_) {
@@ -899,7 +1003,7 @@ class NatsClient {
       PurgeControlFrames();
       CloseCurrent(fd);
       if (running_) {
-        ReportStatus("Connection lost; retrying in 1s", true);
+        ReportStatus("Connection lost; retrying in 1s", StatusTone::kRetrying);
         WaitBeforeRetry(1);
       }
     }
@@ -909,23 +1013,27 @@ class NatsClient {
     const bool has_token = !token_.empty();
     const bool has_user = !user_.empty() || !password_.empty();
     if (has_token && has_user) {
-      ReportStatus("Choose either NATS_TOKEN or NATS_USER/NATS_PASSWORD", true);
+      ReportStatus("Choose either NATS_TOKEN or NATS_USER/NATS_PASSWORD",
+                   StatusTone::kError);
       return false;
     }
     if (has_user && (user_.empty() || password_.empty())) {
-      ReportStatus("NATS_USER and NATS_PASSWORD must be supplied together", true);
+      ReportStatus("NATS_USER and NATS_PASSWORD must be supplied together",
+                   StatusTone::kError);
       return false;
     }
     if ((has_token || has_user) && !tls_) {
-      ReportStatus("Refusing to send NATS credentials over plaintext", true);
+      ReportStatus("Refusing to send NATS credentials over plaintext",
+                   StatusTone::kError);
       return false;
     }
     if (jetstream_ && (!ValidNatsName(stream_) || !ValidNatsName(consumer_))) {
-      ReportStatus("NATS_STREAM and NATS_CONSUMER must be simple NATS names", true);
+      ReportStatus("NATS_STREAM and NATS_CONSUMER must be simple NATS names",
+                   StatusTone::kError);
       return false;
     }
     if (jetstream_ && !tls_) {
-      ReportStatus("Durable replay requires verified TLS", true);
+      ReportStatus("Durable replay requires verified TLS", StatusTone::kError);
       return false;
     }
     return true;
@@ -953,7 +1061,7 @@ class NatsClient {
   bool StartTls(int fd) {
     ssl_ctx_ = SSL_CTX_new(TLS_client_method());
     if (!ssl_ctx_) {
-      ReportStatus(LastTlsError(), true);
+      ReportStatus(LastTlsError(), StatusTone::kError);
       return false;
     }
     SSL_CTX_set_min_proto_version(ssl_ctx_, TLS1_2_VERSION);
@@ -962,18 +1070,22 @@ class NatsClient {
         ? SSL_CTX_set_default_verify_paths(ssl_ctx_)
         : SSL_CTX_load_verify_locations(ssl_ctx_, ca_file_.c_str(), nullptr);
     if (trust_ok != 1) {
-      ReportStatus("Cannot load TLS trust roots: " + LastTlsError(), true);
+      ReportStatus("Cannot load TLS trust roots: " + LastTlsError(),
+                   StatusTone::kError);
       return false;
     }
     ssl_ = SSL_new(ssl_ctx_);
     if (!ssl_ || SSL_set_fd(ssl_, fd) != 1 ||
         SSL_set_tlsext_host_name(ssl_, tls_name_.c_str()) != 1 ||
         SSL_set1_host(ssl_, tls_name_.c_str()) != 1 || SSL_connect(ssl_) != 1) {
-      ReportStatus("TLS verification failed for " + tls_name_ + ": " + LastTlsError(), true);
+      ReportStatus("TLS verification failed for " + tls_name_ + ": " +
+                       LastTlsError(),
+                   StatusTone::kError);
       return false;
     }
     if (SSL_get_verify_result(ssl_) != X509_V_OK) {
-      ReportStatus("TLS certificate chain rejected for " + tls_name_, true);
+      ReportStatus("TLS certificate chain rejected for " + tls_name_,
+                   StatusTone::kError);
       return false;
     }
     return true;
@@ -1036,7 +1148,7 @@ class NatsClient {
 class ChatWindow : public BWindow {
  public:
   ChatWindow()
-      : BWindow(BRect(80, 80, 1000, 700), "Causal Chat - nonlocal.info",
+      : BWindow(BRect(70, 70, 1170, 830), "Causal Chat - nonlocal.info",
                 B_TITLED_WINDOW, B_QUIT_ON_WINDOW_CLOSE),
         host_(EnvOr("NATS_HOST", "nonlocal.info")),
         port_(EnvOr("NATS_PORT", "4222")),
@@ -1044,51 +1156,46 @@ class ChatWindow : public BWindow {
         durable_(EnvOr("NATS_JETSTREAM", "0") == "1"),
         petname_(EnvOr("CAUSAL_PETNAME", "haiku")) {
     SetTitle(("Causal Chat - " + host_).c_str());
+    SetSizeLimits(820, 1800, 560, 1400);
     header_ = new HeaderView(host_ + ":" + port_, tls_);
-    petname_input_ = new BTextControl("petname", "NAME", petname_.c_str(), nullptr);
-    petname_input_->SetExplicitMaxSize(BSize(230, B_SIZE_UNLIMITED));
+    petname_input_ = new BTextControl("petname", "IDENTITY", petname_.c_str(), nullptr);
+    petname_input_->SetExplicitMaxSize(BSize(270, B_SIZE_UNLIMITED));
     channel_input_ = new BTextControl("channel", "ROOM", "lobby", nullptr);
     auto* join = new AccentButton("join", "JOIN / CREATE", new BMessage(kJoin), false);
     channels_ = new BListView("channels", B_SINGLE_SELECTION_LIST);
-    channels_->SetExplicitMinSize(BSize(168, B_SIZE_UNSET));
+    channels_->SetExplicitMinSize(BSize(190, B_SIZE_UNSET));
     channels_->SetSelectionMessage(new BMessage(kSelectChannel));
     channels_->SetViewColor(kSurface);
     transcript_ = new TranscriptListView();
     transcript_->SetViewColor(kCanvas);
-    input_ = new BTextControl("message", "MESSAGE", "", new BMessage(kSend));
-    auto* send = new AccentButton("send", "SEND", new BMessage(kSend), true);
+    input_ = new BTextControl("message", "TO #lobby", "", new BMessage(kSend));
+    auto* send = new AccentButton("send", "SEND SIGNAL", new BMessage(kSend), true);
     room_title_ = new RoomTitleView();
+    room_rail_header_ = new RoomRailHeaderView();
     status_ = new StatusBarView(tls_, history_.enabled(), durable_);
 
-    StyleField(petname_input_, 45);
+    StyleField(petname_input_, 62);
     StyleField(channel_input_, 46);
-    StyleField(input_, 62);
-
-    auto* rooms_label = new BStringView("rooms-label", "ROOMS");
-    BFont section_font(*be_bold_font);
-    section_font.SetSize(10);
-    rooms_label->SetFont(&section_font);
-    rooms_label->SetHighColor(kMuted);
-    rooms_label->SetExplicitMinSize(BSize(B_SIZE_UNSET, 34));
+    StyleField(input_, 64);
 
     auto* backdrop = new BView("backdrop", B_WILL_DRAW);
     backdrop->SetViewColor(kCanvas);
     BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
         .SetInsets(0)
         .Add(backdrop);
-    BLayoutBuilder::Group<>(backdrop, B_VERTICAL, 10)
+    BLayoutBuilder::Group<>(backdrop, B_VERTICAL, 12)
         .SetInsets(0)
         .Add(header_)
-        .AddGroup(B_HORIZONTAL, 8)
-          .SetInsets(16, 2, 16, 0)
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(20, 2, 20, 0)
           .Add(petname_input_)
           .Add(channel_input_, 1)
           .Add(join)
         .End()
-        .AddGroup(B_HORIZONTAL, 10, 1)
-          .SetInsets(16, 0, 16, 0)
-          .AddGroup(B_VERTICAL, 0, 0.23)
-            .Add(rooms_label)
+        .AddGroup(B_HORIZONTAL, 12, 1)
+          .SetInsets(20, 0, 20, 0)
+          .AddGroup(B_VERTICAL, 0, 0.22)
+            .Add(room_rail_header_)
             .Add(new BScrollView("channel-scroll", channels_, 0, false, true,
                                  B_NO_BORDER), 1)
           .End()
@@ -1098,13 +1205,13 @@ class ChatWindow : public BWindow {
                                  B_NO_BORDER), 1)
           .End()
         .End()
-        .AddGroup(B_HORIZONTAL, 8)
-          .SetInsets(16, 0, 16, 0)
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(20, 0, 20, 0)
           .Add(input_, 1)
           .Add(send)
         .End()
         .AddGroup(B_HORIZONTAL, 0)
-          .SetInsets(16, 0, 16, 6)
+          .SetInsets(20, 0, 20, 8)
           .Add(status_)
         .End();
 
@@ -1158,7 +1265,8 @@ class ChatWindow : public BWindow {
           if (channel.rfind(prefix, 0) == 0) channel.erase(0, prefix.size());
           if (!ValidChannel(channel)) {
             if (reply && client_) client_->Acknowledge(reply);
-            status_->SetStatus("Ignored message on invalid room subject", true);
+            status_->SetStatus("Ignored message on invalid room subject",
+                               StatusTone::kError);
             break;
           }
           ChatMessage chat{JsonField(payload, "id"), JsonField(payload, "sender"),
@@ -1180,10 +1288,13 @@ class ChatWindow : public BWindow {
       }
       case kStatus: {
         const char* text = nullptr;
-        bool error = false;
+        int32 tone = static_cast<int32>(StatusTone::kConnecting);
         message->FindString("text", &text);
-        message->FindBool("error", &error);
-        status_->SetStatus(text ? text : "", error);
+        message->FindInt32("tone", &tone);
+        if (tone < static_cast<int32>(StatusTone::kConnecting) ||
+            tone > static_cast<int32>(StatusTone::kError))
+          tone = static_cast<int32>(StatusTone::kError);
+        status_->SetStatus(text ? text : "", static_cast<StatusTone>(tone));
         break;
       }
       default:
@@ -1221,7 +1332,8 @@ class ChatWindow : public BWindow {
 
   void Join(const std::string& channel, bool subscribe) {
     if (!ValidChannel(channel)) {
-      status_->SetStatus("Room: letters, digits, dash or underscore; max 48", true);
+      status_->SetStatus("Room: letters, digits, dash or underscore; max 48",
+                         StatusTone::kError);
       return;
     }
     for (int32 i = 0; i < channels_->CountItems(); ++i) {
@@ -1234,8 +1346,10 @@ class ChatWindow : public BWindow {
       }
     }
     channels_->AddItem(new ChannelItem(channel.c_str()));
+    room_rail_header_->SetCount(channels_->CountItems());
     if (subscribe && client_ && !client_->Subscribe(Subject(channel)))
-      status_->SetStatus("Room added; subscription waits for connection", true);
+      status_->SetStatus("Room added; subscription waits for connection",
+                         StatusTone::kRetrying);
     channels_->Select(channels_->CountItems() - 1);
     current_ = channel;
     Render();
@@ -1255,7 +1369,7 @@ class ChatWindow : public BWindow {
       input_->SetText("");
       input_->MakeFocus(true);
     } else {
-      status_->SetStatus("Send failed: not connected", true);
+      status_->SetStatus("Send failed: not connected", StatusTone::kError);
     }
   }
 
@@ -1269,6 +1383,7 @@ class ChatWindow : public BWindow {
     header_->SetRoom(current_);
     room_title_->SetRoom(current_, messages_[current_].size());
     transcript_->SetRoom(current_);
+    input_->SetLabel(("TO #" + current_).c_str());
     if (transcript_->CountItems() > 0) {
       BRect last = transcript_->ItemFrame(transcript_->CountItems() - 1);
       transcript_->ScrollTo(0, std::max(0.0f, last.bottom - transcript_->Bounds().Height()));
@@ -1302,6 +1417,7 @@ class ChatWindow : public BWindow {
   BTextControl* channel_input_{};
   HeaderView* header_{};
   RoomTitleView* room_title_{};
+  RoomRailHeaderView* room_rail_header_{};
   BListView* channels_{};
   TranscriptListView* transcript_{};
   BTextControl* input_{};

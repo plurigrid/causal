@@ -31,7 +31,7 @@ mimeset -f "$stage/apps/CausalChat/CausalChat"
 
 if test "${1:-}" = "--package"; then
   package create -C "$stage" -i "$here/.PackageInfo" \
-    "$build/causal_chat-0.4.0-1-x86_64.hpkg"
+    "$build/causal_chat-0.4.0-2-x86_64.hpkg"
 fi
 
 echo "built $build/CausalChat"
