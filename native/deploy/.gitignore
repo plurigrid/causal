@@ -1,0 +1,7 @@
+users.conf
+*.key
+*.pem
+*.crt
+!trust/
+!trust/causal-chat-ca-v1.crt
+store/

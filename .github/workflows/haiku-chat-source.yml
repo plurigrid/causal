@@ -1,0 +1,143 @@
+name: Haiku Chat source checks
+
+on:
+  push:
+    branches: [feature/haiku-causal-chat-v0.4]
+    paths: ["native/**", "HAIKU_CHAT.md", ".github/workflows/haiku-chat-source.yml"]
+  pull_request:
+    paths: ["native/**", "HAIKU_CHAT.md", ".github/workflows/haiku-chat-source.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  operator-bundle:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Python sources
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for name in (
+              "native/deploy/render_users.py",
+              "native/deploy/bootstrap.py",
+              "native/deploy/generate_roster.py",
+              "native/deploy/member_probe.py",
+              "native/deploy/provision_server.py",
+              "native/tests/provision_server_test.py",
+          ):
+              path = Path(name)
+              compile(path.read_text(), str(path), "exec")
+          PY
+
+      - name: Test provisioner invariants
+        run: python3 native/tests/provision_server_test.py
+
+      - name: Validate Haiku shell entrypoints
+        run: sh -n native/build-haiku.sh native/external-install-check.sh
+
+      - name: Render test authorization include
+        run: |
+          python3 native/deploy/render_users.py \
+            native/tests/deploy-roster.json native/deploy/users.conf
+          test "$(stat -c %a native/deploy/users.conf)" = 600
+
+      - name: Install checksum-pinned NATS Server
+        env:
+          NATS_SERVER_VERSION: 2.14.3
+          NATS_SERVER_SHA256: f3d0c820c749f81d717310fb00d4903919e70e3e66b268bd352a088b9788eb93
+        run: |
+          archive="nats-server-v${NATS_SERVER_VERSION}-linux-amd64.tar.gz"
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/$archive" \
+            "https://github.com/nats-io/nats-server/releases/download/v${NATS_SERVER_VERSION}/$archive"
+          echo "$NATS_SERVER_SHA256  $RUNNER_TEMP/$archive" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/$archive" -C "$RUNNER_TEMP"
+          server="$RUNNER_TEMP/nats-server-v${NATS_SERVER_VERSION}-linux-amd64/nats-server"
+          echo "$(dirname "$server")" >> "$GITHUB_PATH"
+          echo "NATS_SERVER=$server" >> "$GITHUB_ENV"
+
+      - name: Install checksum-pinned NATS CLI
+        env:
+          NATS_CLI_VERSION: 0.4.0
+          NATS_CLI_SHA256: 8dbd437c826b953dbd7432cf890ef22ba3c33dccc3dce5e71b3e8d055427849c
+        run: |
+          archive="nats-${NATS_CLI_VERSION}-linux-amd64.zip"
+          curl --fail --location --silent --show-error \
+            --output "$RUNNER_TEMP/$archive" \
+            "https://github.com/nats-io/natscli/releases/download/v${NATS_CLI_VERSION}/$archive"
+          echo "$NATS_CLI_SHA256  $RUNNER_TEMP/$archive" | sha256sum --check
+          mkdir "$RUNNER_TEMP/nats-cli"
+          unzip -q "$RUNNER_TEMP/$archive" -d "$RUNNER_TEMP/nats-cli"
+          cli=$(find "$RUNNER_TEMP/nats-cli" -type f -name nats -print -quit)
+          test -n "$cli"
+          chmod 0755 "$cli"
+          echo "NATS_CLI=$cli" >> "$GITHUB_ENV"
+
+      - name: Validate strict server configuration
+        working-directory: native/deploy
+        env:
+          CAUSAL_LISTEN: 127.0.0.1:44523
+          CAUSAL_TLS_CERT: /tmp/causal-test-cert.pem
+          CAUSAL_TLS_KEY: /tmp/causal-test-key.pem
+          CAUSAL_TLS_CA: /tmp/causal-test-cert.pem
+          CAUSAL_STORE_DIR: /tmp/causal-test-store
+        run: |
+          openssl req -x509 -newkey rsa:2048 -nodes -days 1 \
+            -subj /CN=localhost \
+            -addext 'subjectAltName=DNS:localhost,IP:127.0.0.1' \
+            -keyout "$CAUSAL_TLS_KEY" -out "$CAUSAL_TLS_CERT" \
+            >/dev/null 2>&1
+          nats-server -t -c server.conf
+
+      - name: Validate packaged staging trust anchor
+        run: |
+          fingerprint=$(openssl x509 \
+            -in native/deploy/trust/causal-chat-ca-v1.crt \
+            -noout -fingerprint -sha256)
+          test "$fingerprint" = \
+            "sha256 Fingerprint=C2:57:DD:C9:C1:DD:D7:48:9E:07:A6:54:45:B0:7E:54:6D:9B:86:A4:20:4D:FE:CE:AE:49:79:10:B6:AC:05:0E"
+
+      - name: Provision an independent rootless service
+        run: |
+          port=$(python3 - <<'PY'
+          import socket
+          with socket.socket() as value:
+              value.bind(("127.0.0.1", 0))
+              print(value.getsockname()[1])
+          PY
+          )
+          state="$RUNNER_TEMP/causal-independent"
+          python3 native/deploy/provision_server.py "$state" \
+            --host localhost --listen-port "$port" --port "$port" \
+            --member amber --member violet \
+            --nats-server "$NATS_SERVER" --nats-cli "$NATS_CLI" \
+            > "$RUNNER_TEMP/provision-result.json"
+          jq -e '
+            .service == null and
+            .smoke.probe.action == "replay-roundtrip" and
+            .smoke.probe.acknowledged >= 1 and
+            .smoke.probe.user == "amber" and
+            .smoke.postcheck.messages == 1 and
+            (.smoke.postcheck.consumers[] |
+              select(.consumer == "amber") |
+              .pending == 0 and .ack_pending == 0)
+          ' "$RUNNER_TEMP/provision-result.json"
+          test "$(stat -c %a "$state")" = 700
+          test "$(stat -c %a "$state/config/server.conf")" = 600
+          test "$(stat -c %a "$state/tls/ca.key")" = 600
+          test "$(stat -c %a "$state/secrets/client-amber.json")" = 600
+          for profile in "$state/secrets/admin.json" "$state/secrets/client-"*.json; do
+            password=$(jq -r .password "$profile")
+            ! grep -R -F -- "$password" \
+              "$state/config" "$state/logs" "$state/manifest.json"
+          done
+          ! ss -lntH "sport = :$port" | grep -q .
+
+      - name: Reject generated secrets from source
+        run: |
+          git check-ignore native/deploy/users.conf
+          test -z "$(git status --short --untracked-files=all | grep -v 'native/deploy/users.conf' || true)"
