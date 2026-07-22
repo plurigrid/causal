@@ -7,10 +7,12 @@ through `BMessenger`.
 
 Version 0.4 presents that model as a room workspace rather than a generic
 socket form: stable semantic room colors, native message cards, distinct
-local/remote messages, bounded adaptive previews, and a persistent transport
-and history status rail. The visual layer does not invent authority: room
-color is presentation, while TLS and authentication remain separately
-verified transport properties.
+local/remote messages, bounded adaptive previews, a low-cost causal field, and
+a persistent transport and history status rail. The window is centered against
+the live Haiku screen frame so its composer is visible on first launch, and its
+cards remain legible at the enforced minimum size. The visual layer does not
+invent authority: room color is presentation, while TLS and authentication
+remain separately verified transport properties.
 
 ## First run and credentials
 
@@ -51,6 +53,29 @@ Replay mode requires verified TLS and simple stream/consumer names. Every
 accepted JetStream message is acknowledged after it reaches the UI/history
 boundary. A 500-message pull window matches the stream's per-room retention
 bound and is renewed without granting consumer-admin subjects to the client.
+
+## Trusted staging endpoint
+
+The measured staging service is available to authorized tailnet peers at
+`causality-2.pirate-dragon.ts.net:10000`. It uses end-to-end TLS terminated by
+NATS, a bounded `CAUSAL` stream, and a distinct credential/cursor per member.
+Use these setup fields with the private handoff from the operator:
+
+```text
+HOST       causality-2.pirate-dragon.ts.net
+PORT       10000
+TLS        on
+TLS NAME   causality-2.pirate-dragon.ts.net
+CA FILE    /boot/system/apps/CausalChat/deploy/trust/causal-chat-ca-v1.crt
+STREAM     CAUSAL
+CONSUMER   value from the member handoff
+```
+
+The CA certificate is public; its expected SHA-256 fingerprint is
+`C2:57:DD:C9:C1:DD:D7:48:9E:07:A6:54:45:B0:7E:54:6D:9B:86:A4:20:4D:FE:CE:AE:49:79:10:B6:AC:05:0E`.
+The password is not in the package and should remain session-only. This address
+is not yet generally internet-reachable: the owner must enable Funnel before a
+person outside the tailnet can use the same endpoint.
 
 On a Haiku development installation:
 

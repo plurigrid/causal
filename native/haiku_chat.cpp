@@ -21,6 +21,7 @@
 #include <Messenger.h>
 #include <OS.h>
 #include <Path.h>
+#include <Screen.h>
 #include <ScrollView.h>
 #include <StringItem.h>
 #include <StringView.h>
@@ -75,6 +76,7 @@ constexpr rgb_color kSurface{255, 254, 251, 255};
 constexpr rgb_color kMuted{101, 111, 126, 255};
 constexpr rgb_color kLine{221, 218, 211, 255};
 constexpr rgb_color kBlue{48, 125, 208, 255};
+constexpr rgb_color kSky{91, 178, 224, 255};
 constexpr rgb_color kTeal{35, 154, 139, 255};
 constexpr rgb_color kAmber{218, 126, 55, 255};
 constexpr rgb_color kCoral{219, 83, 82, 255};
@@ -102,6 +104,24 @@ rgb_color Mix(rgb_color from, rgb_color to, float amount) {
   };
   return {blend(from.red, to.red), blend(from.green, to.green),
           blend(from.blue, to.blue), 255};
+}
+
+BRect CenteredWindowFrame(float ideal_width, float ideal_height,
+                          float minimum_width, float minimum_height) {
+  BScreen screen;
+  BRect bounds = screen.IsValid() ? screen.Frame()
+                                  : BRect(0, 0, 1279, 799);
+  constexpr float margin = 24;
+  const float available_width = std::max(320.0f, bounds.Width() - 2 * margin);
+  const float available_height = std::max(320.0f, bounds.Height() - 2 * margin);
+  float width = std::min(ideal_width, available_width);
+  float height = std::min(ideal_height, available_height);
+  if (available_width >= minimum_width) width = std::max(width, minimum_width);
+  if (available_height >= minimum_height)
+    height = std::max(height, minimum_height);
+  const float left = bounds.left + (bounds.Width() - width) / 2;
+  const float top = bounds.top + (bounds.Height() - height) / 2;
+  return BRect(left, top, left + width, top + height);
 }
 
 std::string FitText(BView* view, std::string text, float width) {
@@ -305,8 +325,8 @@ class HeaderView : public BView {
   HeaderView(std::string endpoint, bool tls)
       : BView("header", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
         endpoint_(std::move(endpoint)), tls_(tls) {
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 104));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 104));
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 116));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 116));
     SetViewColor(kNavy);
     SetLowColor(kNavy);
   }
@@ -322,14 +342,35 @@ class HeaderView : public BView {
     SetHighColor(kNavy);
     FillRect(bounds);
 
-    SetHighColor(Mix(kNavy, accent, 0.25f));
-    FillRect(BRect(bounds.left, bounds.bottom - 28, bounds.right,
+    // Three quiet planes give the header depth without introducing an image
+    // asset or any per-frame rendering work.
+    SetHighColor(Mix(kNavy, kInk, 0.26f));
+    FillRect(BRect(bounds.left, bounds.top, bounds.right,
+                   bounds.top + 24));
+    SetHighColor(Mix(kNavy, accent, 0.18f));
+    FillRect(BRect(bounds.left, bounds.bottom - 34, bounds.right,
                    bounds.bottom));
+    SetHighColor(Mix(kNavy, kSky, 0.12f));
+    FillRect(BRect(bounds.left, bounds.top + 24, bounds.right,
+                   bounds.bottom - 34));
+
+    // A small causal constellation makes the active room's stable color
+    // visible as structure rather than as decoration alone.
+    const BPoint nodes[] = {
+        {bounds.right - 174, 35}, {bounds.right - 137, 52},
+        {bounds.right - 92, 35}, {bounds.right - 50, 59}};
+    SetHighColor(Mix(kNavy, accent, 0.52f));
+    StrokeLine(nodes[0], nodes[1]);
+    StrokeLine(nodes[1], nodes[2]);
+    StrokeLine(nodes[2], nodes[3]);
+    StrokeLine(nodes[0], nodes[2]);
+    for (const auto& node : nodes) {
+      FillEllipse(node, 3, 3);
+      StrokeEllipse(node, 8, 8);
+    }
     SetHighColor(Mix(kNavy, accent, 0.68f));
-    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 58, 58);
-    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 39, 39);
-    StrokeEllipse(BPoint(bounds.right - 60, bounds.top + 46), 20, 20);
-    FillEllipse(BPoint(bounds.right - 99, bounds.top + 46), 3, 3);
+    StrokeEllipse(BPoint(bounds.right - 50, bounds.top + 59), 48, 48);
+    StrokeEllipse(BPoint(bounds.right - 50, bounds.top + 59), 29, 29);
     SetHighColor(Mix(kNavy, accent, 0.75f));
     FillRect(BRect(bounds.left, bounds.bottom - 4, bounds.right,
                    bounds.bottom));
@@ -343,14 +384,14 @@ class HeaderView : public BView {
 
     SetHighColor(kSurface);
     BFont title(*be_bold_font);
-    title.SetSize(20);
+    title.SetSize(22);
     SetFont(&title);
-    DrawString("CAUSAL", BPoint(59, 38));
+    DrawString("CAUSAL", BPoint(59, 47));
     float mark = 59 + StringWidth("CAUSAL") + 8;
     SetHighColor(accent);
-    DrawString("/", BPoint(mark, 38));
+    DrawString("/", BPoint(mark, 47));
     SetHighColor(kSurface);
-    DrawString("CHAT", BPoint(mark + StringWidth("/") + 8, 38));
+    DrawString("CHAT", BPoint(mark + StringWidth("/") + 8, 47));
     BFont subtitle_font(*be_plain_font);
     subtitle_font.SetSize(11);
     SetFont(&subtitle_font);
@@ -358,12 +399,12 @@ class HeaderView : public BView {
     std::string subtitle = FitText(
         this, endpoint_ + "   /   native Haiku",
         std::max(180.0f, bounds.Width() - 350));
-    DrawString(subtitle.c_str(), BPoint(59, 61));
+    DrawString(subtitle.c_str(), BPoint(59, 70));
 
     const char* badge = tls_ ? "VERIFIED TLS" : "OPEN / PLAINTEXT";
     float badge_width = StringWidth(badge) + 24;
-    BRect badge_frame(bounds.right - badge_width - 24, 19,
-                      bounds.right - 24, 47);
+    BRect badge_frame(bounds.right - badge_width - 24, 76,
+                      bounds.right - 24, 104);
     rgb_color transport = tls_ ? kTeal : kAmber;
     SetHighColor(Mix(kNavy, transport, 0.58f));
     FillRoundRect(badge_frame, 13, 13);
@@ -373,9 +414,9 @@ class HeaderView : public BView {
     std::string room = "# " + (room_.empty() ? std::string("lobby") : room_);
     room = FitText(this, room, 184);
     SetHighColor(Mix(kNavy, kSurface, 0.84f));
-    DrawString(room.c_str(), BPoint(bounds.right - 208, 88));
+    DrawString(room.c_str(), BPoint(59, 103));
     SetHighColor(accent);
-    FillEllipse(BPoint(bounds.right - 219, 84), 3, 3);
+    FillEllipse(BPoint(49, 99), 3, 3);
   }
 
  private:
@@ -430,8 +471,8 @@ class RoomTitleView : public BView {
   RoomTitleView()
       : BView("room-title", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
     SetViewColor(kSurface);
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 50));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 50));
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 58));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 58));
   }
 
   void SetRoom(const std::string& room, size_t messages) {
@@ -447,9 +488,14 @@ class RoomTitleView : public BView {
     rgb_color accent = ChannelColor(room_.empty() ? "lobby" : room_);
     SetHighColor(accent);
     FillRoundRect(BRect(0, 0, 4, bounds.bottom - 1), 2, 2);
-    FillEllipse(BPoint(20, bounds.Height() / 2), 4, 4);
+    FillEllipse(BPoint(20, 35), 4, 4);
+    BFont eyebrow(*be_bold_font);
+    eyebrow.SetSize(8);
+    SetFont(&eyebrow);
+    SetHighColor(Mix(kMuted, accent, 0.38f));
+    DrawString("ACTIVE ROOM", BPoint(34, 17));
     BFont title(*be_bold_font);
-    title.SetSize(14);
+    title.SetSize(15);
     SetFont(&title);
     SetHighColor(kInk);
     std::string count = std::to_string(messages_) +
@@ -457,12 +503,13 @@ class RoomTitleView : public BView {
     std::string label = FitText(
         this, "# " + room_,
         std::max(60.0f, bounds.Width() - StringWidth(count.c_str()) - 72));
-    DrawString(label.c_str(), BPoint(34, 31));
+    DrawString(label.c_str(), BPoint(34, 42));
     BFont detail(*be_plain_font);
     detail.SetSize(10);
     SetFont(&detail);
     SetHighColor(kMuted);
-    DrawString(count.c_str(), BPoint(bounds.right - StringWidth(count.c_str()) - 16, 30));
+    DrawString(count.c_str(),
+               BPoint(bounds.right - StringWidth(count.c_str()) - 16, 37));
     SetHighColor(kLine);
     StrokeLine(BPoint(0, bounds.bottom), BPoint(bounds.right, bounds.bottom));
   }
@@ -533,8 +580,8 @@ class RoomRailHeaderView : public BView {
   RoomRailHeaderView()
       : BView("room-rail-header", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
     SetViewColor(kSurface);
-    SetExplicitMinSize(BSize(B_SIZE_UNSET, 50));
-    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 50));
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 58));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 58));
   }
 
   void SetCount(int32 count) {
@@ -550,11 +597,22 @@ class RoomRailHeaderView : public BView {
     label.SetSize(10);
     SetFont(&label);
     SetHighColor(kMuted);
-    DrawString("ROOMS", BPoint(4, 30));
+    DrawString("ROOMS", BPoint(4, 22));
+    BFont detail(*be_plain_font);
+    detail.SetSize(9);
+    SetFont(&detail);
+    SetHighColor(kMuted);
+    DrawString("first use creates", BPoint(4, 41));
+    BFont count_font(*be_bold_font);
+    count_font.SetSize(9);
+    SetFont(&count_font);
     std::string count = std::to_string(count_) + " JOINED";
-    SetHighColor(Mix(kMuted, kBlue, 0.35f));
-    DrawString(count.c_str(),
-               BPoint(bounds.right - StringWidth(count.c_str()) - 5, 30));
+    float width = StringWidth(count.c_str()) + 16;
+    BRect pill(bounds.right - width - 4, 14, bounds.right - 4, 38);
+    SetHighColor(Mix(kSurface, kBlue, 0.14f));
+    FillRoundRect(pill, 11, 11);
+    SetHighColor(Mix(kInk, kBlue, 0.34f));
+    DrawString(count.c_str(), BPoint(pill.left + 8, 30));
     SetHighColor(kLine);
     StrokeLine(BPoint(0, bounds.bottom), BPoint(bounds.right, bounds.bottom));
   }
@@ -613,10 +671,20 @@ class MessageItem : public BListItem {
     owner->SetHighColor(kCanvas);
     owner->FillRect(frame);
 
-    BRect bubble = frame.InsetByCopy(10, 5);
-    if (mine_) bubble.left += frame.Width() * 0.18f;
-    else bubble.right -= frame.Width() * 0.10f;
-    owner->SetHighColor(mine_ ? Mix(kSurface, accent_, 0.14f) : kSurface);
+    const float bubble_width = std::min(760.0f, frame.Width() - 78.0f);
+    BRect bubble;
+    if (mine_)
+      bubble = BRect(frame.right - bubble_width - 43, frame.top + 5,
+                     frame.right - 43, frame.bottom - 7);
+    else
+      bubble = BRect(frame.left + 43, frame.top + 5,
+                     frame.left + 43 + bubble_width, frame.bottom - 7);
+    rgb_color fill = mine_ ? Mix(kSurface, accent_, 0.14f) : kSurface;
+    BRect shadow = bubble;
+    shadow.OffsetBy(0, 2);
+    owner->SetHighColor(Mix(kCanvas, kInk, 0.075f));
+    owner->FillRoundRect(shadow, 12, 12);
+    owner->SetHighColor(fill);
     owner->FillRoundRect(bubble, 11, 11);
     owner->SetHighColor(IsSelected() ? accent_ : kLine);
     owner->StrokeRoundRect(bubble, 11, 11);
@@ -626,14 +694,50 @@ class MessageItem : public BListItem {
                                  bubble.left + 3, bubble.bottom - 8), 2, 2);
     }
 
+    const float avatar_x = mine_ ? frame.right - 22 : frame.left + 22;
+    const float avatar_y = bubble.top + 18;
+    owner->SetHighColor(Mix(kCanvas, accent_, 0.24f));
+    owner->FillEllipse(BPoint(avatar_x, avatar_y), 15, 15);
+    owner->SetHighColor(accent_);
+    owner->FillEllipse(BPoint(avatar_x, avatar_y), 11, 11);
+    BFont avatar(*be_bold_font);
+    avatar.SetSize(10);
+    owner->SetFont(&avatar);
+    owner->SetHighColor(kSurface);
+    char initial[2] = {'?', '\0'};
+    if (!message_.sender.empty())
+      initial[0] = static_cast<char>(
+          std::toupper(static_cast<unsigned char>(message_.sender.front())));
+    owner->DrawString(initial,
+                      BPoint(avatar_x - owner->StringWidth(initial) / 2,
+                             avatar_y + 4));
+
     BFont sender(*be_bold_font);
     sender.SetSize(10);
     owner->SetFont(&sender);
     owner->SetHighColor(accent_);
-    std::string sender_label = message_.sender + (mine_ ? "   /   YOU" : "");
-    sender_label = FitText(owner, sender_label, bubble.Width() - 26);
+    std::string sender_label = message_.sender;
+    const char* provenance = mine_ ? "YOU" : "SIGNAL";
+    BFont provenance_font(*be_bold_font);
+    provenance_font.SetSize(8);
+    owner->SetFont(&provenance_font);
+    float provenance_width = owner->StringWidth(provenance) + 14;
+    owner->SetFont(&sender);
+    sender_label = FitText(
+        owner, sender_label,
+        std::max(40.0f, bubble.Width() - provenance_width - 42));
     owner->DrawString(sender_label.c_str(),
                       BPoint(bubble.left + 13, bubble.top + 17));
+    owner->SetFont(&provenance_font);
+    BRect provenance_pill(bubble.right - provenance_width - 10,
+                          bubble.top + 7, bubble.right - 10,
+                          bubble.top + 25);
+    owner->SetHighColor(Mix(fill, accent_, 0.18f));
+    owner->FillRoundRect(provenance_pill, 8, 8);
+    owner->SetHighColor(Mix(kInk, accent_, 0.36f));
+    owner->DrawString(provenance,
+                      BPoint(provenance_pill.left + 7,
+                             provenance_pill.top + 12));
     BFont body(*be_plain_font);
     body.SetSize(11);
     owner->SetFont(&body);
@@ -659,9 +763,13 @@ class TranscriptListView : public BListView {
 
   void Draw(BRect update) override {
     BListView::Draw(update);
-    if (CountItems() != 0) return;
     BRect bounds = Bounds();
     rgb_color accent = ChannelColor(room_);
+    float field_top = bounds.top + 24;
+    if (CountItems() != 0)
+      field_top = ItemFrame(CountItems() - 1).bottom + 18;
+    DrawCausalField(bounds, field_top, accent);
+    if (CountItems() != 0) return;
     BPoint center(bounds.left + bounds.Width() / 2,
                   bounds.top + bounds.Height() / 2 - 20);
     SetHighColor(Mix(kCanvas, accent, 0.20f));
@@ -696,6 +804,34 @@ class TranscriptListView : public BListView {
   }
 
  private:
+  void DrawCausalField(BRect bounds, float top, rgb_color accent) {
+    if (top > bounds.bottom - 72) return;
+    const float left = bounds.left + 54;
+    const float right = bounds.right - 54;
+    const float span = std::max(80.0f, right - left);
+    const float height = bounds.bottom - top;
+    const BPoint nodes[] = {
+        {left, top + height * 0.30f},
+        {left + span * 0.18f, top + height * 0.16f},
+        {left + span * 0.35f, top + height * 0.46f},
+        {left + span * 0.54f, top + height * 0.27f},
+        {left + span * 0.72f, top + height * 0.58f},
+        {right, top + height * 0.34f}};
+    SetHighColor(Mix(kCanvas, accent, 0.10f));
+    StrokeLine(nodes[0], nodes[1]);
+    StrokeLine(nodes[1], nodes[2]);
+    StrokeLine(nodes[2], nodes[3]);
+    StrokeLine(nodes[3], nodes[4]);
+    StrokeLine(nodes[4], nodes[5]);
+    StrokeLine(nodes[1], nodes[3]);
+    StrokeLine(nodes[2], nodes[4]);
+    SetHighColor(Mix(kCanvas, accent, 0.18f));
+    for (const auto& node : nodes) {
+      FillEllipse(node, 3, 3);
+      StrokeEllipse(node, 8, 8);
+    }
+  }
+
   std::string room_{"lobby"};
 };
 
@@ -1160,7 +1296,7 @@ class NatsClient {
 class ChatWindow : public BWindow {
  public:
   explicit ChatWindow(const ConnectionProfile& profile)
-      : BWindow(BRect(70, 70, 1170, 830), "Causal Chat",
+      : BWindow(CenteredWindowFrame(1100, 760, 820, 560), "Causal Chat",
                 B_TITLED_WINDOW, B_QUIT_ON_WINDOW_CLOSE),
         host_(profile.host), port_(profile.port), tls_(profile.tls),
         durable_(profile.jetstream), petname_(profile.petname),
@@ -1661,7 +1797,8 @@ class SetupStatusView : public BView {
 class ConnectionWindow : public BWindow {
  public:
   ConnectionWindow(ConnectionProfile profile, status_t load_status)
-      : BWindow(BRect(110, 70, 1170, 850), "Causal Chat - Connect",
+      : BWindow(CenteredWindowFrame(1060, 780, 900, 720),
+                "Causal Chat - Connect",
                 B_TITLED_WINDOW, 0),
         loaded_profile_(std::move(profile)),
         profile_was_loaded_(load_status == B_OK) {

@@ -23,6 +23,8 @@ the falsifiable test ledger in
 [`native/tests/DEPLOYMENT_EVIDENCE.md`](native/tests/DEPLOYMENT_EVIDENCE.md).
 
 The public `nonlocal.info:4222` service remains an unencrypted compatibility
-surface and must not carry secrets. A production deployment is only equivalent
-to the tested system when it satisfies the TLS, authentication, permissions,
-bounded storage, replay and revocation checks in the ledger.
+surface and must not carry secrets. A second endpoint at
+`causality-2.pirate-dragon.ts.net:10000` now satisfies the TLS,
+authentication, permissions, bounded storage and replay checks, but is
+tailnet-only until its owner enables Tailscale Funnel. Its public CA is packaged
+under `deploy/trust`; client passwords remain private per-user handoffs.

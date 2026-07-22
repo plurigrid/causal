@@ -14,6 +14,16 @@ A direct probe on 2026-07-21 found:
 | `4223`, `4443`, `8222` | Closed |
 | JetStream | Not advertised or otherwise proven |
 
+A separately staged service now has stronger evidence:
+
+| Surface | Result |
+| --- | --- |
+| `causality-2.pirate-dragon.ts.net:10000` | End-to-end private-CA TLS; tailnet-only |
+| NATS | 2.14.3, strict JetStream API level 4, authentication required |
+| Storage | Loopback service, bounded local JetStream, persistent `launchd` process |
+| Identities | Three independent bcrypt credentials and durable cursors |
+| Public promotion | Prepared, but blocked on the tailnet owner's Funnel toggle |
+
 NATS documents that its default server has no authentication or authorization
 and is suitable only for development or simple embedded uses. Accounts isolate
 subject namespaces, while per-user permissions constrain publish and subscribe
@@ -80,8 +90,8 @@ against a strict local NATS 2.14.3 service:
 
 Exact evidence and remaining limits are recorded in
 [`tests/DEPLOYMENT_EVIDENCE.md`](tests/DEPLOYMENT_EVIDENCE.md). These checks prove
-the release candidate and deployment procedure, not the current production
-state of `nonlocal.info`.
+the release candidate and the staged tailnet service, not the production state
+of `nonlocal.info` or general internet reachability.
 
 The UI labels the current public connection `OPEN / PLAINTEXT`; replay and
 credentials refuse to start without verified TLS. The first-run profile saves

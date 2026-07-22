@@ -21,7 +21,12 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          for name in ("native/deploy/render_users.py", "native/deploy/bootstrap.py"):
+          for name in (
+              "native/deploy/render_users.py",
+              "native/deploy/bootstrap.py",
+              "native/deploy/generate_roster.py",
+              "native/deploy/member_probe.py",
+          ):
               path = Path(name)
               compile(path.read_text(), str(path), "exec")
           PY
@@ -60,6 +65,14 @@ jobs:
             -keyout "$CAUSAL_TLS_KEY" -out "$CAUSAL_TLS_CERT" \
             >/dev/null 2>&1
           nats-server -t -c server.conf
+
+      - name: Validate packaged staging trust anchor
+        run: |
+          fingerprint=$(openssl x509 \
+            -in native/deploy/trust/causal-chat-ca-v1.crt \
+            -noout -fingerprint -sha256)
+          test "$fingerprint" = \
+            "sha256 Fingerprint=C2:57:DD:C9:C1:DD:D7:48:9E:07:A6:54:45:B0:7E:54:6D:9B:86:A4:20:4D:FE:CE:AE:49:79:10:B6:AC:05:0E"
 
       - name: Reject generated secrets from source
         run: |

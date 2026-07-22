@@ -1,5 +1,5 @@
 name            causal_chat
-version         0.4.0-3
+version         0.4.0-4
 architecture    x86_64
 summary         "Native multichannel NATS chat for Haiku"
 description     "A small native Haiku room client using BApplication, libroot-compatible sockets, and NATS."

@@ -85,12 +85,67 @@ fixtures only.
     measured `pending=0` and `ack_pending=0`. The isolated profile remained
     mode `0600` and contained no fixture-password bytes.
 
+## Visual rebuild candidate
+
+1. Revision `0.4.0-4` compiled on the native Haiku host without warnings and
+   its connection-profile fixture passed. The HPKG reported the matching
+   revision and retained the same Haiku, OpenSSL 3 and license metadata.
+2. The standalone and clean-extracted package binaries matched byte-for-byte
+   at SHA-256 `6381a5af0dbcf3fba1489aede166bce915a2f28e5bcd4fbcc6ff866ab5891e43`.
+   The final HPKG, rebuilt to include the public CA and dependency-free operator
+   probes, had SHA-256
+   `0e20a2d6870946e429e7ccb8c397f3b8adf8882e1bafd786806be34265201fc7`.
+3. Native screenshots witnessed the semantic room header, remote/local signal
+   cards, causal field and composer at both the normal frame and the enforced
+   `820 x 560` minimum. The first screenshot exposed an off-screen default
+   frame; a screen-aware centered frame corrected it before this evidence was
+   accepted. The clean-package normal screenshot SHA-256 was
+   `bfac932112e1e79231277be9776f09f26c4fdf23ddeae284238ac3c3f23e3806`;
+   the minimum-frame screenshot SHA-256 was
+   `542341db015f8e02eb72c5e96e3e8fcf1c26ce1bee7d5c76149c5c52d9167c41`.
+4. Six scripted minimum, wide and tall frame transitions preserved one Haiku
+   application team. After the trajectory, the same team retained an
+   established socket to `nonlocal.info:4222`.
+5. The clean-extracted HPKG binary replaced the standalone validation process,
+   opened visibly as team `11990`, and established the public socket. The
+   public endpoint remains plaintext; the UI therefore continued to label it
+   `OPEN / PLAINTEXT` rather than implying transport authority.
+
+## Independent staged-service extension
+
+1. The official NATS Server 2.14.3 Darwin archive was re-used only after its
+   SHA-256 matched the upstream `SHA256SUMS`. The stable binary retained version
+   2.14.3 and was installed outside the repository.
+2. The server binds only `127.0.0.1:44524`; Tailscale Serve carries raw TCP on
+   tailnet port `10000`. NATS itself terminates TLS 1.3 with hostname-checked
+   certificate `causality-2.pirate-dragon.ts.net`. The tracked CA certificate
+   matched the live trust anchor at fingerprint
+   `C2:57:DD:C9:C1:DD:D7:48:9E:07:A6:54:45:B0:7E:54:6D:9B:86:A4:20:4D:FE:CE:AE:49:79:10:B6:AC:05:0E`.
+   Its PEM file SHA-256 is
+   `331405fb79800d44645ec1dd83972b0ece5e89ab874718d3cad3b2fb2ae6c639`.
+3. Three randomly generated per-member credentials exist only as mode-`0600`
+   private handoffs. The server consumes a bcrypt-only roster. Anonymous access
+   was rejected and `member-b` was denied `member-a`'s pull subject.
+4. Two independently routed Linux hosts used different credentials and the
+   packaged CA to complete exact room publish/subscribe roundtrips through
+   `100.69.33.107:10000`. Their temporary credential copies were removed.
+5. A user `launchd` service restarted NATS, restored five stream messages and
+   all three cursors, and retained a loopback-only listener. A post-restart
+   authenticated roundtrip passed.
+6. The clean-extracted Haiku package connected through verified TLS as
+   `member-b`, rendered all five offline signals, and acknowledged them. An
+   operator postcondition measured `member-b pending=0, ack_pending=0`, while
+   `member-a` and `guest` independently remained at `pending=5`.
+7. The accepted native screenshot SHA-256 is
+   `3bb584693a95ca6dfdcce489535695a382a924b57f512ec2592bb7242db10e15`.
+   A prior black frame was rejected because it showed the screen blanker rather
+   than the application.
+
 ## What this does not prove
 
 - `nonlocal.info:4222` still advertises neither TLS nor authentication and is
   not the service described above.
-- No public DNS certificate, production storage volume, backup policy, public
-  trusted-service deployment, or independent third-party installation has yet
-  been observed. Public RC1 and RC2 package downloads exist, but that alone is
-  not outside-user validation.
+- The staged service has persistent storage and independent-machine evidence,
+  but remains tailnet-only. Public Funnel activation and an independently
+  operated third-party installation have not yet been observed.
 - A display petname is not cryptographic identity.

@@ -5,7 +5,7 @@ here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 build=${CAUSAL_BUILD_DIR:-"$here/build"}
 stage="$build/package-root"
 
-mkdir -p "$build" "$stage/apps/CausalChat/deploy"
+mkdir -p "$build" "$stage/apps/CausalChat/deploy/trust"
 
 c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
   ${TLS_CXXFLAGS:-} "$here/haiku_chat.cpp" "$here/connection_profile.cpp" \
@@ -22,17 +22,27 @@ cp "$here/tests/DEPLOYMENT_EVIDENCE.md" \
   "$stage/apps/CausalChat/DEPLOYMENT_EVIDENCE.md"
 cp "$here/deploy/README.md" "$stage/apps/CausalChat/deploy/README.md"
 cp "$here/deploy/server.conf" "$stage/apps/CausalChat/deploy/server.conf"
+cp "$here/deploy/server-funnel.conf" \
+  "$stage/apps/CausalChat/deploy/server-funnel.conf"
 cp "$here/deploy/users.example.json" \
   "$stage/apps/CausalChat/deploy/users.example.json"
 cp "$here/deploy/render_users.py" "$stage/apps/CausalChat/deploy/render_users.py"
 cp "$here/deploy/bootstrap.py" "$stage/apps/CausalChat/deploy/bootstrap.py"
+cp "$here/deploy/generate_roster.py" \
+  "$stage/apps/CausalChat/deploy/generate_roster.py"
+cp "$here/deploy/member_probe.py" \
+  "$stage/apps/CausalChat/deploy/member_probe.py"
+cp "$here/deploy/trust/causal-chat-ca-v1.crt" \
+  "$stage/apps/CausalChat/deploy/trust/causal-chat-ca-v1.crt"
 chmod 0755 "$stage/apps/CausalChat/deploy/render_users.py" \
-  "$stage/apps/CausalChat/deploy/bootstrap.py"
+  "$stage/apps/CausalChat/deploy/bootstrap.py" \
+  "$stage/apps/CausalChat/deploy/generate_roster.py" \
+  "$stage/apps/CausalChat/deploy/member_probe.py"
 mimeset -f "$stage/apps/CausalChat/CausalChat"
 
 if test "${1:-}" = "--package"; then
   package create -C "$stage" -i "$here/.PackageInfo" \
-    "$build/causal_chat-0.4.0-3-x86_64.hpkg"
+    "$build/causal_chat-0.4.0-4-x86_64.hpkg"
 fi
 
 echo "built $build/CausalChat"

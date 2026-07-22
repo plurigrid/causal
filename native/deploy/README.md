@@ -64,6 +64,52 @@ python3 bootstrap.py /run/secrets/causal-users.json \
 The same command is idempotent. Add `--check` for a read-only readiness probe.
 Its output contains counts and consumer names, never passwords or hashes.
 
+### TLS-terminating Funnel deployment
+
+`server-funnel.conf` is a deliberately separate topology for a local trusted
+proxy that terminates public TLS. It contains no NATS TLS block and must never
+listen on a LAN or public interface. Bind it to loopback, then expose it with a
+TLS-terminated TCP Funnel:
+
+```sh
+CAUSAL_LISTEN=127.0.0.1:44524 \
+CAUSAL_STORE_DIR=/private/causal/store \
+  nats-server -c server-funnel.conf
+
+tailscale funnel --bg --tls-terminated-tcp=10000 \
+  tcp://127.0.0.1:44524
+```
+
+The client verifies the public `.ts.net` certificate while the only plaintext
+segment is kernel loopback between Funnel and NATS. Do not describe this as
+process-terminated TLS. `generate_roster.py` can create independent credentials
+without printing their plaintext values:
+
+```sh
+python3 generate_roster.py /private/causal/secrets \
+  --nats-cli /path/to/nats \
+  --host node.example.ts.net --port 10000 \
+  --member amber --member violet
+python3 render_users.py /private/causal/secrets/roster.json ./users.conf
+```
+
+Every `client-USER.json` is a mode-`0600` handoff containing one credential.
+Transfer it through a separately authenticated private channel, then delete the
+recipient copy after onboarding. The server consumes only `roster.json` hashes
+and the rendered `users.conf`.
+
+For end-to-end TLS behind a raw TCP proxy, use `server.conf` and distribute only
+the public trust anchor. This staging deployment's anchor is
+`trust/causal-chat-ca-v1.crt`; its private key is never stored in the repository.
+Verify its SHA-256 fingerprint before importing it. `member_probe.py` is a
+dependency-free cross-platform check of the same TLS, authentication and room
+roundtrip used by the native client:
+
+```sh
+python3 member_probe.py client-amber.json \
+  --ca trust/causal-chat-ca-v1.crt
+```
+
 ## Connect a Haiku member
 
 Each person receives only their own plaintext password, CA path, and durable
