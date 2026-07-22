@@ -3,8 +3,11 @@
 // Build on Haiku:
 //   c++ -std=c++17 -O2 -Wall -Wextra haiku_chat.cpp -lbe -lnetwork -o CausalChat
 
+#include "connection_profile.h"
+
 #include <Application.h>
 #include <Button.h>
+#include <CheckBox.h>
 #include <Directory.h>
 #include <FindDirectory.h>
 #include <Font.h>
@@ -61,6 +64,9 @@ constexpr uint32 kSend = 'send';
 constexpr uint32 kSelectChannel = 'slct';
 constexpr uint32 kIncoming = 'nmsg';
 constexpr uint32 kStatus = 'nsta';
+constexpr uint32 kSetupConnect = 'cnct';
+constexpr uint32 kSetupChanged = 'schg';
+constexpr uint32 kSecretDone = 'sdon';
 
 constexpr rgb_color kInk{24, 34, 52, 255};
 constexpr rgb_color kNavy{25, 45, 78, 255};
@@ -131,11 +137,6 @@ std::vector<std::string> WrapText(BView* view, const std::string& source,
   if (lines.empty()) lines.emplace_back();
   if (lines.size() > max_lines) lines.resize(max_lines);
   return lines;
-}
-
-std::string EnvOr(const char* name, const char* fallback) {
-  const char* value = std::getenv(name);
-  return value && *value ? value : fallback;
 }
 
 bool ValidChannel(const std::string& value) {
@@ -217,11 +218,10 @@ struct ChatMessage {
 
 class HistoryStore {
  public:
-  HistoryStore() {
-    enabled_ = EnvOr("CAUSAL_HISTORY", "1") != "0";
+  HistoryStore(bool enabled, const std::string& custom_path) {
+    enabled_ = enabled;
     if (!enabled_) return;
-    const char* custom_path = std::getenv("CAUSAL_HISTORY_PATH");
-    if (custom_path && *custom_path) {
+    if (!custom_path.empty()) {
       path_ = custom_path;
       return;
     }
@@ -355,7 +355,9 @@ class HeaderView : public BView {
     subtitle_font.SetSize(11);
     SetFont(&subtitle_font);
     SetHighColor(Mix(kNavy, kSurface, 0.72f));
-    std::string subtitle = endpoint_ + "   /   native Haiku";
+    std::string subtitle = FitText(
+        this, endpoint_ + "   /   native Haiku",
+        std::max(180.0f, bounds.Width() - 350));
     DrawString(subtitle.c_str(), BPoint(59, 61));
 
     const char* badge = tls_ ? "VERIFIED TLS" : "OPEN / PLAINTEXT";
@@ -450,14 +452,16 @@ class RoomTitleView : public BView {
     title.SetSize(14);
     SetFont(&title);
     SetHighColor(kInk);
-    std::string label = "# " + room_;
+    std::string count = std::to_string(messages_) +
+                        (messages_ == 1 ? " SIGNAL" : " SIGNALS");
+    std::string label = FitText(
+        this, "# " + room_,
+        std::max(60.0f, bounds.Width() - StringWidth(count.c_str()) - 72));
     DrawString(label.c_str(), BPoint(34, 31));
     BFont detail(*be_plain_font);
     detail.SetSize(10);
     SetFont(&detail);
     SetHighColor(kMuted);
-    std::string count = std::to_string(messages_) +
-                        (messages_ == 1 ? " SIGNAL" : " SIGNALS");
     DrawString(count.c_str(), BPoint(bounds.right - StringWidth(count.c_str()) - 16, 30));
     SetHighColor(kLine);
     StrokeLine(BPoint(0, bounds.bottom), BPoint(bounds.right, bounds.bottom));
@@ -582,7 +586,9 @@ class ChannelItem : public BStringItem {
     if (IsSelected()) font.SetFace(B_BOLD_FACE);
     font.SetSize(11);
     owner->SetFont(&font);
-    std::string label = std::string("# ") + Text();
+    std::string label = FitText(
+        owner, std::string("# ") + Text(),
+        std::max(24.0f, frame.Width() - 45));
     owner->DrawString(label.c_str(),
                       BPoint(frame.left + 35, frame.top + BaselineOffset()));
   }
@@ -676,9 +682,12 @@ class TranscriptListView : public BListView {
     detail.SetSize(10);
     SetFont(&detail);
     SetHighColor(kMuted);
-    const char* prompt = "Send a signal. The room appears on first use.";
-    DrawString(prompt,
-               BPoint(center.x - StringWidth(prompt) / 2, center.y + 70));
+    std::string prompt = FitText(
+        this, "Send a signal. The room appears on first use.",
+        std::max(100.0f, bounds.Width() - 30));
+    DrawString(prompt.c_str(),
+               BPoint(center.x - StringWidth(prompt.c_str()) / 2,
+                      center.y + 70));
   }
 
   void SetRoom(const std::string& room) {
@@ -737,23 +746,23 @@ int ConnectTcp(const std::string& host, const std::string& port,
 
 class NatsClient {
  public:
-  explicit NatsClient(BMessenger target)
-      : target_(target), host_(EnvOr("NATS_HOST", "nonlocal.info")),
-        port_(EnvOr("NATS_PORT", "4222")),
-        tls_(EnvOr("NATS_TLS", "0") == "1"),
-        tls_name_(EnvOr("NATS_TLS_NAME", host_.c_str())),
-        ca_file_(EnvOr("NATS_CA_FILE", "")),
-        token_(EnvOr("NATS_TOKEN", "")), user_(EnvOr("NATS_USER", "")),
-        password_(EnvOr("NATS_PASSWORD", "")),
-        jetstream_(EnvOr("NATS_JETSTREAM", "0") == "1"),
-        stream_(EnvOr("NATS_STREAM", "CAUSAL")),
-        consumer_(EnvOr("NATS_CONSUMER", "")) {
+  NatsClient(BMessenger target, const ConnectionProfile& profile)
+      : target_(target), host_(profile.host), port_(profile.port),
+        tls_(profile.tls),
+        tls_name_(profile.tls_name.empty() ? profile.host : profile.tls_name),
+        ca_file_(profile.ca_file), token_(profile.token), user_(profile.user),
+        password_(profile.password), jetstream_(profile.jetstream),
+        stream_(profile.stream), consumer_(profile.consumer) {
     replay_inbox_ = "_INBOX.CAUSAL." +
                     (consumer_.empty() ? std::string("anonymous") : consumer_) +
                     "." + std::to_string(real_time_clock_usecs());
   }
 
-  ~NatsClient() { Stop(); }
+  ~NatsClient() {
+    Stop();
+    SecureClear(token_);
+    SecureClear(password_);
+  }
 
   void Start(const std::vector<std::string>& initial_subjects) {
     {
@@ -952,7 +961,10 @@ class NatsClient {
         retry_seconds = std::min(retry_seconds * 2, 8u);
         continue;
       }
-      if (!WireSendAll(ConnectFrame())) {
+      std::string connect_frame = ConnectFrame();
+      bool connected = WireSendAll(connect_frame);
+      SecureClear(connect_frame);
+      if (!connected) {
         CloseCurrent(fd);
         WaitBeforeRetry(retry_seconds);
         retry_seconds = std::min(retry_seconds * 2, 8u);
@@ -1147,14 +1159,12 @@ class NatsClient {
 
 class ChatWindow : public BWindow {
  public:
-  ChatWindow()
-      : BWindow(BRect(70, 70, 1170, 830), "Causal Chat - nonlocal.info",
+  explicit ChatWindow(const ConnectionProfile& profile)
+      : BWindow(BRect(70, 70, 1170, 830), "Causal Chat",
                 B_TITLED_WINDOW, B_QUIT_ON_WINDOW_CLOSE),
-        host_(EnvOr("NATS_HOST", "nonlocal.info")),
-        port_(EnvOr("NATS_PORT", "4222")),
-        tls_(EnvOr("NATS_TLS", "0") == "1"),
-        durable_(EnvOr("NATS_JETSTREAM", "0") == "1"),
-        petname_(EnvOr("CAUSAL_PETNAME", "haiku")) {
+        host_(profile.host), port_(profile.port), tls_(profile.tls),
+        durable_(profile.jetstream), petname_(profile.petname),
+        history_(profile.history, profile.history_path) {
     SetTitle(("Causal Chat - " + host_).c_str());
     SetSizeLimits(820, 1800, 560, 1400);
     header_ = new HeaderView(host_ + ":" + port_, tls_);
@@ -1222,7 +1232,7 @@ class ChatWindow : public BWindow {
     channels_->Select(0);
     current_ = "lobby";
     Render();
-    client_ = new NatsClient(BMessenger(this));
+    client_ = new NatsClient(BMessenger(this), profile);
     client_->Start(Subjects());
   }
 
@@ -1436,10 +1446,609 @@ class ChatWindow : public BWindow {
   NatsClient* client_{};
 };
 
+class SetupHeaderView : public BView {
+ public:
+  explicit SetupHeaderView(bool saved)
+      : BView("setup-header", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
+        saved_(saved) {
+    SetViewColor(kNavy);
+    SetLowColor(kNavy);
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 106));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 106));
+  }
+
+  void Draw(BRect /*update*/) override {
+    BRect bounds = Bounds();
+    SetHighColor(kNavy);
+    FillRect(bounds);
+    SetHighColor(Mix(kNavy, kBlue, 0.26f));
+    FillRect(BRect(0, bounds.bottom - 30, bounds.right, bounds.bottom));
+    SetHighColor(Mix(kNavy, kBlue, 0.70f));
+    StrokeEllipse(BPoint(bounds.right - 64, 49), 61, 61);
+    StrokeEllipse(BPoint(bounds.right - 64, 49), 40, 40);
+    StrokeEllipse(BPoint(bounds.right - 64, 49), 20, 20);
+    SetHighColor(kBlue);
+    FillEllipse(BPoint(31, 36), 10, 10);
+    SetHighColor(Mix(kNavy, kSurface, 0.76f));
+    StrokeEllipse(BPoint(31, 36), 18, 18);
+
+    BFont title(*be_bold_font);
+    title.SetSize(20);
+    SetFont(&title);
+    SetHighColor(kSurface);
+    DrawString("CAUSAL", BPoint(62, 40));
+    float mark = 62 + StringWidth("CAUSAL") + 8;
+    SetHighColor(kBlue);
+    DrawString("/", BPoint(mark, 40));
+    SetHighColor(kSurface);
+    DrawString("CONNECT", BPoint(mark + StringWidth("/") + 8, 40));
+
+    BFont detail(*be_plain_font);
+    detail.SetSize(11);
+    SetFont(&detail);
+    SetHighColor(Mix(kNavy, kSurface, 0.74f));
+    std::string summary = FitText(
+        this,
+        "A native Haiku connection profile. Secrets stay session-only by default.",
+        std::max(220.0f, bounds.Width() - 340));
+    DrawString(summary.c_str(), BPoint(62, 64));
+    SetHighColor(Mix(kNavy, kSurface, 0.86f));
+    DrawString("Configure  /  verify  /  connect", BPoint(62, 94));
+
+    const char* badge = saved_ ? "SAVED PROFILE" : "FIRST RUN";
+    float width = StringWidth(badge) + 24;
+    BRect pill(bounds.right - width - 24, 18, bounds.right - 24, 46);
+    SetHighColor(Mix(kNavy, kBlue, 0.58f));
+    FillRoundRect(pill, 13, 13);
+    SetHighColor(kSurface);
+    DrawString(badge, BPoint(pill.left + 12, pill.top + 18));
+  }
+
+ private:
+  bool saved_;
+};
+
+class SetupSectionView : public BView {
+ public:
+  SetupSectionView(const char* title, const char* detail, rgb_color accent)
+      : BView(title, B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE),
+        title_(title), detail_(detail), accent_(accent) {
+    SetViewColor(kCanvas);
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 22));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 22));
+  }
+
+  void Draw(BRect /*update*/) override {
+    BRect bounds = Bounds();
+    SetHighColor(kCanvas);
+    FillRect(bounds);
+    BFont label(*be_bold_font);
+    label.SetSize(9);
+    SetFont(&label);
+    SetHighColor(accent_);
+    constexpr float inset = 22;
+    DrawString(title_.c_str(), BPoint(inset, 15));
+    float line_start = inset + StringWidth(title_.c_str()) + 12;
+    SetHighColor(Mix(kLine, accent_, 0.24f));
+    StrokeLine(BPoint(line_start, 11), BPoint(bounds.right - inset, 11));
+    if (bounds.Width() > 500 && !detail_.empty()) {
+      BFont detail(*be_plain_font);
+      detail.SetSize(9);
+      SetFont(&detail);
+      SetHighColor(kMuted);
+      std::string text = FitText(this, detail_, bounds.Width() * 0.42f);
+      float text_left = bounds.right - inset - StringWidth(text.c_str());
+      SetHighColor(kCanvas);
+      FillRect(BRect(text_left - 6, 1, bounds.right - inset + 2,
+                     bounds.bottom - 1));
+      SetHighColor(kMuted);
+      DrawString(text.c_str(),
+                 BPoint(text_left, 15));
+    }
+  }
+
+ private:
+  std::string title_;
+  std::string detail_;
+  rgb_color accent_;
+};
+
+class SetupTrustView : public BView {
+ public:
+  SetupTrustView()
+      : BView("transport-trust", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
+    SetViewColor(kCanvas);
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 46));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 46));
+  }
+
+  void SetMode(bool tls, bool replay) {
+    tls_ = tls;
+    replay_ = replay;
+    Invalidate();
+  }
+
+  void Draw(BRect /*update*/) override {
+    BRect bounds = Bounds().InsetByCopy(22, 2);
+    rgb_color tone = tls_ ? kTeal : kAmber;
+    SetHighColor(Mix(kCanvas, tone, 0.13f));
+    FillRoundRect(bounds, 10, 10);
+    SetHighColor(Mix(kLine, tone, 0.45f));
+    StrokeRoundRect(bounds, 10, 10);
+
+    BFont badge_font(*be_bold_font);
+    badge_font.SetSize(9);
+    SetFont(&badge_font);
+    const char* badge = tls_ ? "TLS REQUIRED" : "OPEN / PLAINTEXT";
+    float badge_width = StringWidth(badge) + 20;
+    BRect badge_frame(bounds.left + 10, bounds.top + 9,
+                      bounds.left + 10 + badge_width, bounds.bottom - 9);
+    SetHighColor(tone);
+    FillRoundRect(badge_frame, 10, 10);
+    SetHighColor(kSurface);
+    DrawString(badge, BPoint(badge_frame.left + 10, badge_frame.top + 15));
+
+    BFont detail(*be_plain_font);
+    detail.SetSize(10);
+    SetFont(&detail);
+    SetHighColor(Mix(kInk, tone, 0.20f));
+    std::string message = tls_
+        ? "Certificate chain and hostname will be checked before credentials."
+        : "Public messages only; credentials and durable replay stay blocked.";
+    float text_left = badge_frame.right + 14;
+    float reserve = replay_ ? 92.0f : 12.0f;
+    message = FitText(this, message,
+                      std::max(80.0f, bounds.right - text_left - reserve));
+    DrawString(message.c_str(), BPoint(text_left, bounds.top + 25));
+
+    if (replay_) {
+      const char* replay = tls_ ? "REPLAY ON" : "REPLAY BLOCKED";
+      SetFont(&badge_font);
+      float width = StringWidth(replay) + 18;
+      BRect pill(bounds.right - width - 10, bounds.top + 9,
+                 bounds.right - 10, bounds.bottom - 9);
+      rgb_color replay_tone = tls_ ? kBlue : kCoral;
+      SetHighColor(Mix(kCanvas, replay_tone, 0.22f));
+      FillRoundRect(pill, 10, 10);
+      SetHighColor(Mix(kInk, replay_tone, 0.28f));
+      DrawString(replay, BPoint(pill.left + 9, pill.top + 15));
+    }
+  }
+
+ private:
+  bool tls_{false};
+  bool replay_{false};
+};
+
+class SetupStatusView : public BView {
+ public:
+  SetupStatusView()
+      : BView("setup-status", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE) {
+    SetViewColor(kCanvas);
+    SetExplicitMinSize(BSize(B_SIZE_UNSET, 38));
+    SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 38));
+  }
+
+  void SetStatus(std::string text, rgb_color tone) {
+    text_ = std::move(text);
+    tone_ = tone;
+    Invalidate();
+  }
+
+  void Draw(BRect /*update*/) override {
+    BRect bounds = Bounds().InsetByCopy(0, 2);
+    SetHighColor(Mix(kCanvas, tone_, 0.10f));
+    FillRoundRect(bounds, 9, 9);
+    SetHighColor(Mix(kLine, tone_, 0.38f));
+    StrokeRoundRect(bounds, 9, 9);
+    SetHighColor(Mix(kCanvas, tone_, 0.22f));
+    FillEllipse(BPoint(bounds.left + 17, bounds.top + bounds.Height() / 2), 7, 7);
+    SetHighColor(tone_);
+    FillEllipse(BPoint(bounds.left + 17, bounds.top + bounds.Height() / 2), 3, 3);
+    BFont font(*be_plain_font);
+    font.SetSize(10);
+    SetFont(&font);
+    SetHighColor(Mix(kInk, tone_, 0.20f));
+    std::string text = FitText(this, text_, bounds.Width() - 44);
+    DrawString(text.c_str(), BPoint(bounds.left + 33, bounds.top + 23));
+  }
+
+ private:
+  std::string text_{"Ready to validate this profile."};
+  rgb_color tone_{kBlue};
+};
+
+class ConnectionWindow : public BWindow {
+ public:
+  ConnectionWindow(ConnectionProfile profile, status_t load_status)
+      : BWindow(BRect(110, 70, 1170, 850), "Causal Chat - Connect",
+                B_TITLED_WINDOW, 0),
+        loaded_profile_(std::move(profile)),
+        profile_was_loaded_(load_status == B_OK) {
+    SetSizeLimits(900, 1700, 720, 1300);
+    auto* header = new SetupHeaderView(profile_was_loaded_);
+    auto* identity_section = new SetupSectionView(
+        "IDENTITY", "what other observers see", kBlue);
+    auto* transport_section = new SetupSectionView(
+        "TRANSPORT", "where and how signals move", kTeal);
+    auto* authority_section = new SetupSectionView(
+        "AUTHORITY + REPLAY", "session secret and durable delivery", kAmber);
+    host_input_ = Field("host", "HOST", loaded_profile_.host, 50);
+    port_input_ = Field("port", "PORT", loaded_profile_.port, 46);
+    port_input_->SetExplicitMaxSize(BSize(220, 36));
+    tls_box_ = new BCheckBox("tls", "Require and verify TLS",
+                             new BMessage(kSetupChanged));
+    tls_box_->SetValue(loaded_profile_.tls ? B_CONTROL_ON : B_CONTROL_OFF);
+    tls_name_input_ = Field("tls-name", "TLS NAME", loaded_profile_.tls_name, 72);
+    ca_file_input_ = Field("ca-file", "CA FILE", loaded_profile_.ca_file, 62);
+    user_input_ = Field("user", "USER", loaded_profile_.user, 44);
+    secret_input_ = Field("secret", "PASSWORD / TOKEN", "", 112);
+    secret_input_->TextView()->HideTyping(true);
+    secret_input_->TextView()->SetMaxBytes(4096);
+    remember_box_ = new BCheckBox(
+        "remember", "Remember in Haiku KeyStore (low security)", nullptr);
+    remember_box_->SetValue(loaded_profile_.remember_secret
+                                ? B_CONTROL_ON : B_CONTROL_OFF);
+    replay_box_ = new BCheckBox("replay", "Durable offline replay",
+                                new BMessage(kSetupChanged));
+    replay_box_->SetValue(loaded_profile_.jetstream
+                              ? B_CONTROL_ON : B_CONTROL_OFF);
+    stream_input_ = Field("stream", "STREAM", loaded_profile_.stream, 58);
+    consumer_input_ = Field("consumer", "CONSUMER",
+                            loaded_profile_.consumer, 78);
+    petname_input_ = Field("petname", "DISPLAY NAME",
+                           loaded_profile_.petname, 96);
+    history_box_ = new BCheckBox("history", "Keep bounded local history", nullptr);
+    history_box_->SetValue(loaded_profile_.history
+                               ? B_CONTROL_ON : B_CONTROL_OFF);
+
+    trust_ = new SetupTrustView();
+    auto* key_note = new BStringView(
+        "key-note",
+        "REMEMBER is opt-in: Haiku R1 KeyStore is permission-gated but unencrypted on disk.");
+    BFont small(*be_plain_font);
+    small.SetSize(10);
+    key_note->SetFont(&small);
+    key_note->SetHighColor(kMuted);
+    key_note->SetExplicitMinSize(BSize(B_SIZE_UNSET, 20));
+    key_note->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 20));
+    status_ = new SetupStatusView();
+    connect_ = new AccentButton("connect", "SAVE & CONNECT",
+                                new BMessage(kSetupConnect), true);
+    connect_->SetExplicitMinSize(BSize(154, 38));
+
+    auto* backdrop = new BView("setup-backdrop", B_WILL_DRAW);
+    backdrop->SetViewColor(kCanvas);
+    BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
+        .SetInsets(0)
+        .Add(backdrop);
+    BLayoutBuilder::Group<>(backdrop, B_VERTICAL, 7)
+        .SetInsets(0)
+        .Add(header)
+        .Add(identity_section)
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(petname_input_, 1)
+          .Add(history_box_, 0)
+        .End()
+        .Add(transport_section)
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(host_input_, 1)
+          .Add(port_input_, 0)
+        .End()
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(tls_box_)
+          .Add(replay_box_)
+          .AddGlue()
+        .End()
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(tls_name_input_, 1)
+          .Add(ca_file_input_, 1)
+        .End()
+        .Add(trust_)
+        .Add(authority_section)
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(user_input_, 0.42)
+          .Add(secret_input_, 0.58)
+        .End()
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(remember_box_)
+          .AddGlue()
+        .End()
+        .AddGroup(B_HORIZONTAL, 10)
+          .SetInsets(22, 0, 22, 0)
+          .Add(stream_input_, 0.46)
+          .Add(consumer_input_, 0.54)
+        .End()
+        .AddGroup(B_HORIZONTAL, 0)
+          .SetInsets(22, 0, 22, 0)
+          .Add(key_note)
+        .End()
+        .AddGlue()
+        .AddGroup(B_HORIZONTAL, 12)
+          .SetInsets(22, 0, 22, 14)
+          .Add(status_, 1)
+          .Add(connect_)
+        .End();
+
+    UpdateSecurityText();
+    if (load_status != B_OK && load_status != B_ENTRY_NOT_FOUND)
+      ShowError(std::string("Saved profile could not be read: ") +
+                strerror(load_status));
+    host_input_->MakeFocus(true);
+  }
+
+  ~ConnectionWindow() override {
+    SecureClear(pending_.token);
+    SecureClear(pending_.password);
+    if (secret_input_) secret_input_->SetText("");
+  }
+
+  bool QuitRequested() override {
+    if (!handing_off_) be_app->PostMessage(B_QUIT_REQUESTED);
+    return true;
+  }
+
+  void MessageReceived(BMessage* message) override {
+    switch (message->what) {
+      case kSetupChanged:
+        UpdateSecurityText();
+        break;
+      case kSetupConnect:
+        BeginConnect();
+        break;
+      case kSecretDone:
+        FinishSecretOperation(message);
+        break;
+      default:
+        BWindow::MessageReceived(message);
+    }
+  }
+
+ private:
+  enum class SecretOperation : int32 { kRetrieve, kStore, kRemove };
+
+  BTextControl* Field(const char* name, const char* label,
+                      const std::string& value, float divider) {
+    auto* field = new BTextControl(name, label, value.c_str(), nullptr);
+    field->SetDivider(divider);
+    field->SetViewColor(kCanvas);
+    field->SetLowColor(kCanvas);
+    field->SetHighColor(kMuted);
+    field->TextView()->SetViewColor(kSurface);
+    field->TextView()->SetLowColor(kSurface);
+    field->TextView()->SetHighColor(kInk);
+    BFont font(*be_plain_font);
+    font.SetSize(11);
+    field->TextView()->SetFontAndColor(&font, B_FONT_ALL, &kInk);
+    field->SetExplicitMinSize(BSize(B_SIZE_UNSET, 34));
+    field->SetExplicitMaxSize(BSize(B_SIZE_UNLIMITED, 34));
+    return field;
+  }
+
+  ConnectionProfile GatherProfile() const {
+    ConnectionProfile profile = loaded_profile_;
+    profile.host = host_input_->Text();
+    profile.port = port_input_->Text();
+    profile.tls = tls_box_->Value() == B_CONTROL_ON;
+    profile.tls_name = tls_name_input_->Text();
+    profile.ca_file = ca_file_input_->Text();
+    profile.user = user_input_->Text();
+    profile.remember_secret = remember_box_->Value() == B_CONTROL_ON;
+    profile.jetstream = replay_box_->Value() == B_CONTROL_ON;
+    profile.stream = stream_input_->Text();
+    profile.consumer = consumer_input_->Text();
+    profile.petname = petname_input_->Text();
+    profile.history = history_box_->Value() == B_CONTROL_ON;
+    profile.token.clear();
+    profile.password.clear();
+    std::string secret = secret_input_->Text();
+    if (profile.user.empty()) profile.token = std::move(secret);
+    else profile.password = std::move(secret);
+    return profile;
+  }
+
+  void BeginConnect() {
+    ConnectionProfile profile = GatherProfile();
+    if (profile.remember_secret && profile.token.empty() &&
+        profile.password.empty()) {
+      if (!profile_was_loaded_ || !loaded_profile_.remember_secret) {
+        ShowError("Enter a password or token before asking KeyStore to remember it.");
+        return;
+      }
+      pending_ = profile;
+      BeginSecretOperation(SecretOperation::kRetrieve, profile, "");
+      return;
+    }
+
+    if (!profile.remember_secret && profile_was_loaded_ &&
+        loaded_profile_.remember_secret && profile.token.empty() &&
+        profile.password.empty()) {
+      pending_ = profile;
+      BeginSecretOperation(SecretOperation::kRemove, loaded_profile_, "");
+      return;
+    }
+
+    std::string validation_error;
+    if (ValidateConnectionProfile(profile, validation_error) != B_OK) {
+      ShowError(validation_error);
+      SecureClear(profile.token);
+      SecureClear(profile.password);
+      return;
+    }
+    pending_ = std::move(profile);
+    if (pending_.remember_secret) {
+      std::string secret = pending_.user.empty()
+          ? pending_.token : pending_.password;
+      BeginSecretOperation(SecretOperation::kStore, pending_, secret);
+      SecureClear(secret);
+    } else if (profile_was_loaded_ && loaded_profile_.remember_secret) {
+      BeginSecretOperation(SecretOperation::kRemove, loaded_profile_, "");
+    } else {
+      FinishConnection();
+    }
+  }
+
+  void BeginSecretOperation(SecretOperation operation,
+                            ConnectionProfile identity,
+                            std::string secret) {
+    connect_->SetEnabled(false);
+    if (operation == SecretOperation::kRetrieve)
+      status_->SetStatus(
+          "Requesting the remembered secret from Haiku KeyStore...", kBlue);
+    else if (operation == SecretOperation::kStore)
+      status_->SetStatus(
+          "Asking Haiku KeyStore to remember this secret...", kBlue);
+    else
+      status_->SetStatus("Removing the previously remembered secret...", kBlue);
+
+    SecureClear(identity.token);
+    SecureClear(identity.password);
+    ConnectionProfile old_identity = loaded_profile_;
+    SecureClear(old_identity.token);
+    SecureClear(old_identity.password);
+    BMessenger target(this);
+    std::thread([target, operation, identity = std::move(identity),
+                 old_identity = std::move(old_identity),
+                 secret = std::move(secret)]() mutable {
+      status_t result = B_OK;
+      std::string retrieved;
+      if (operation == SecretOperation::kRetrieve) {
+        result = ConnectionSecretStore::Retrieve(identity, retrieved);
+      } else if (operation == SecretOperation::kStore) {
+        if (old_identity.remember_secret &&
+            (ConnectionSecretStore::Identifier(old_identity) !=
+                 ConnectionSecretStore::Identifier(identity) ||
+             ConnectionSecretStore::SecondaryIdentifier(old_identity) !=
+                 ConnectionSecretStore::SecondaryIdentifier(identity))) {
+          result = ConnectionSecretStore::Remove(old_identity);
+        }
+        if (result == B_OK)
+          result = ConnectionSecretStore::Store(identity, secret);
+      } else {
+        result = ConnectionSecretStore::Remove(identity);
+      }
+      BMessage done(kSecretDone);
+      done.AddInt32("operation", static_cast<int32>(operation));
+      done.AddInt32("status", result);
+      if (result == B_OK && operation == SecretOperation::kRetrieve)
+        done.AddString("secret", retrieved.c_str());
+      target.SendMessage(&done);
+      SecureClear(retrieved);
+      SecureClear(secret);
+    }).detach();
+  }
+
+  void FinishSecretOperation(BMessage* message) {
+    connect_->SetEnabled(true);
+    int32 operation_value = 0;
+    int32 result = B_ERROR;
+    message->FindInt32("operation", &operation_value);
+    message->FindInt32("status", &result);
+    auto operation = static_cast<SecretOperation>(operation_value);
+    if (result != B_OK) {
+      ShowError(std::string("KeyStore operation failed: ") + strerror(result));
+      return;
+    }
+    if (operation == SecretOperation::kRetrieve) {
+      const char* secret = nullptr;
+      if (message->FindString("secret", &secret) != B_OK || !secret || !*secret) {
+        ShowError("The remembered KeyStore entry was empty; enter it again.");
+        return;
+      }
+      if (pending_.user.empty()) pending_.token = secret;
+      else pending_.password = secret;
+      message->ReplaceString("secret", "");
+      std::string validation_error;
+      if (ValidateConnectionProfile(pending_, validation_error) != B_OK) {
+        ShowError(validation_error);
+        return;
+      }
+    }
+    if (operation == SecretOperation::kRemove &&
+        pending_.token.empty() && pending_.password.empty()) {
+      pending_.remember_secret = false;
+      status_t save_result = ConnectionProfileStore::Save(pending_);
+      if (save_result != B_OK) {
+        ShowError(std::string("Secret was removed, but the profile could not be saved: ") +
+                  strerror(save_result));
+        return;
+      }
+      loaded_profile_ = pending_;
+      loaded_profile_.remember_secret = false;
+      status_->SetStatus(
+          "Remembered secret removed. Enter it once to connect this session.",
+          kTeal);
+      return;
+    }
+    FinishConnection();
+  }
+
+  void FinishConnection() {
+    status_t result = ConnectionProfileStore::Save(pending_);
+    if (result != B_OK) {
+      ShowError(std::string("Profile could not be saved: ") + strerror(result));
+      return;
+    }
+    secret_input_->SetText("");
+    handing_off_ = true;
+    (new ChatWindow(pending_))->Show();
+    SecureClear(pending_.token);
+    SecureClear(pending_.password);
+    Quit();
+  }
+
+  void ShowError(const std::string& text) {
+    status_->SetStatus(text, kCoral);
+  }
+
+  void UpdateSecurityText() {
+    trust_->SetMode(tls_box_->Value() == B_CONTROL_ON,
+                    replay_box_->Value() == B_CONTROL_ON);
+  }
+
+  ConnectionProfile loaded_profile_;
+  ConnectionProfile pending_;
+  bool profile_was_loaded_{false};
+  bool handing_off_{false};
+  BTextControl* host_input_{};
+  BTextControl* port_input_{};
+  BCheckBox* tls_box_{};
+  BTextControl* tls_name_input_{};
+  BTextControl* ca_file_input_{};
+  BTextControl* user_input_{};
+  BTextControl* secret_input_{};
+  BCheckBox* remember_box_{};
+  BCheckBox* replay_box_{};
+  BTextControl* stream_input_{};
+  BTextControl* consumer_input_{};
+  BTextControl* petname_input_{};
+  BCheckBox* history_box_{};
+  SetupTrustView* trust_{};
+  SetupStatusView* status_{};
+  AccentButton* connect_{};
+};
+
 class ChatApplication : public BApplication {
  public:
   ChatApplication() : BApplication("application/x-vnd.plurigrid-causal-chat") {}
-  void ReadyToRun() override { (new ChatWindow())->Show(); }
+  void ReadyToRun() override {
+    if (HasConnectionEnvironment()) {
+      ConnectionProfile profile = ConnectionProfileFromEnvironment();
+      (new ChatWindow(profile))->Show();
+      SecureClear(profile.token);
+      SecureClear(profile.password);
+      return;
+    }
+    ConnectionProfile profile;
+    status_t result = ConnectionProfileStore::Load(profile);
+    (new ConnectionWindow(std::move(profile), result))->Show();
+  }
 };
 
 }  // namespace

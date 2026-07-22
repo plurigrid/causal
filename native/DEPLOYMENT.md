@@ -83,9 +83,12 @@ Exact evidence and remaining limits are recorded in
 the release candidate and deployment procedure, not the current production
 state of `nonlocal.info`.
 
-The UI labels the current public connection `PUBLIC`; replay mode refuses to
-start without verified TLS. Package documentation continues to describe
-petnames as presentation only.
+The UI labels the current public connection `OPEN / PLAINTEXT`; replay and
+credentials refuse to start without verified TLS. The first-run profile saves
+only non-secret connection choices. Secrets remain session-only unless the
+user explicitly opts into Haiku R1 KeyStore, whose upstream documentation
+describes its on-disk storage as unencrypted and low-security. Package
+documentation continues to describe petnames as presentation only.
 
 The client's bounded local history alone is not evidence of delivery to another
 observer. Version 0.4 can instead use an acknowledged, operator-owned durable

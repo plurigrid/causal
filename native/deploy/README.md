@@ -67,7 +67,13 @@ Its output contains counts and consumer names, never passwords or hashes.
 ## Connect a Haiku member
 
 Each person receives only their own plaintext password, CA path, and durable
-consumer name:
+consumer name. Launching `CausalChat` normally opens the native profile window;
+enter the server, TLS name, CA file, member user/password, `CAUSAL` stream and
+that member's consumer. Leave **Remember in Haiku KeyStore** off for a
+session-only password. Its opt-in storage is permission-gated but unencrypted
+on disk in Haiku R1.
+
+Environment variables provide the equivalent automation path:
 
 ```sh
 NATS_HOST=chat.example.org NATS_PORT=4222 \

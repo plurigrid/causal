@@ -7,10 +7,34 @@ through `BMessenger`.
 
 Version 0.4 presents that model as a room workspace rather than a generic
 socket form: stable semantic room colors, native message cards, distinct
-local/remote messages, bounded two-line previews, and a persistent transport
+local/remote messages, bounded adaptive previews, and a persistent transport
 and history status rail. The visual layer does not invent authority: room
 color is presentation, while TLS and authentication remain separately
 verified transport properties.
+
+## First run and credentials
+
+Without connection environment variables, the app opens a native connection
+profile window. It saves the non-secret endpoint, TLS, replay, display-name and
+history choices to `~/config/settings/CausalChat/profile` using an atomic
+replacement and mode `0600`. Passwords and tokens are never flattened into
+that file.
+
+Secrets are session-only by default. The optional **Remember in Haiku
+KeyStore** checkbox uses a dedicated `CausalChat` keyring from a worker thread,
+so the system permission prompt cannot freeze the window. This option is
+explicitly labeled low-security: Haiku R1's own documentation says KeyStore is
+permission-gated but unencrypted on disk. Unchecking it removes the prior key;
+the app then asks for the secret once per session.
+
+The setup window enforces the same transport gates as the network client:
+credentials and durable replay are rejected on plaintext. A blank `USER`
+means the secret field is a token; a nonblank `USER` makes it a password.
+
+Environment variables remain the highest-priority automation and recovery
+surface. If any connection variable is present, the app bypasses the profile
+window and does not rewrite the saved profile. Tests can isolate profiles with
+`CAUSAL_PROFILE_PATH=/path/to/profile`.
 
 With an operator-provisioned JetStream cursor, the same client provides
 server-backed, acknowledged replay. The client is deliberately not allowed to
@@ -105,6 +129,24 @@ NATS_HOST=127.0.0.1 NATS_PORT=44222 ./build/CausalChat &
 
 The expected visible sequence is `Connected` → `Offline; retrying` →
 `Connected`, without replacing the application team.
+
+The profile and optional KeyStore boundaries have native fixtures:
+
+```sh
+c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
+  tests/connection_profile_test.cpp connection_profile.cpp -lbe \
+  -o build/connection-profile-test
+build/connection-profile-test /tmp/causal-profile-test/profile
+
+c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
+  tests/connection_keystore_test.cpp connection_profile.cpp -lbe \
+  -o build/connection-keystore-test
+build/connection-keystore-test
+```
+
+The second test uses only a disposable, non-sensitive fixture and deliberately
+exercises Haiku's real keyring authorization prompt. It removes the key before
+returning success.
 
 Each message emitted by the visual client carries a unique `id`, `sender`, and
 `text`. A bounded 4096-entry identity window suppresses duplicate delivery,

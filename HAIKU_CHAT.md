@@ -9,6 +9,8 @@ The release contains:
 
 - a native `BApplication` using Interface Kit, `BMessenger`, libnetwork and
   OpenSSL 3;
+- a native first-run connection profile with atomic non-secret persistence,
+  session-only secrets by default, and explicitly low-security KeyStore opt-in;
 - verified TLS and hostname checks before credentials are transmitted;
 - per-user server permissions and operator-owned durable JetStream cursors;
 - acknowledged, bounded offline replay and opt-out local history;

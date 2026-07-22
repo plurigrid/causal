@@ -8,7 +8,8 @@ stage="$build/package-root"
 mkdir -p "$build" "$stage/apps/CausalChat/deploy"
 
 c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
-  ${TLS_CXXFLAGS:-} "$here/haiku_chat.cpp" -lbe -lnetwork \
+  ${TLS_CXXFLAGS:-} "$here/haiku_chat.cpp" "$here/connection_profile.cpp" \
+  -lbe -lnetwork \
   ${TLS_LIBS:--lssl -lcrypto} -o "$build/CausalChat"
 c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
   "$here/nats_chat.cpp" -lnetwork -o "$build/nats-chat"
@@ -31,7 +32,7 @@ mimeset -f "$stage/apps/CausalChat/CausalChat"
 
 if test "${1:-}" = "--package"; then
   package create -C "$stage" -i "$here/.PackageInfo" \
-    "$build/causal_chat-0.4.0-2-x86_64.hpkg"
+    "$build/causal_chat-0.4.0-3-x86_64.hpkg"
 fi
 
 echo "built $build/CausalChat"
