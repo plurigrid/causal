@@ -21,6 +21,24 @@ static bool send_all(int fd, const std::string& s) {
   return true;
 }
 
+static bool flush_server(int fd) {
+  if (!send_all(fd, "PING\r\n")) return false;
+  std::string input;
+  char buf[4096];
+  while (input.size() < 64 * 1024) {
+    ssize_t n = recv(fd, buf, sizeof(buf), 0);
+    if (n <= 0) return false;
+    input.append(buf, static_cast<size_t>(n));
+    if (input.find("-ERR") != std::string::npos) return false;
+    if (input.find("PING\r\n") != std::string::npos &&
+        !send_all(fd, "PONG\r\n")) {
+      return false;
+    }
+    if (input.find("PONG\r\n") != std::string::npos) return true;
+  }
+  return false;
+}
+
 static int connect_tcp(const char* host, const char* port) {
   addrinfo hints{};
   hints.ai_socktype = SOCK_STREAM;
@@ -72,6 +90,10 @@ static int run(int argc, char** argv) {
   } else {
     const std::string body = argv[3];
     if (!send_all(fd, "PUB " + subject + " " + std::to_string(body.size()) + "\r\n" + body + "\r\n")) {
+      close(fd); return 1;
+    }
+    if (!flush_server(fd)) {
+      std::cerr << "server did not acknowledge the publish flush\n";
       close(fd); return 1;
     }
   }

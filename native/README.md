@@ -142,6 +142,33 @@ single payload:
 ./build/nats-chat say chat.room.lobby '{"sender":"amber","text":"hello"}'
 ```
 
+## Independent public receipt
+
+An outside Haiku tester can validate a downloaded RC6 without receiving any
+credential. Download the HPKG and checksum sidecar from the release, extract
+the expected hash, and run the packaged check:
+
+```sh
+expected=$(awk '{print $1}' causal_chat-0.4.0-6-x86_64.hpkg.sha256)
+receipt_bundle=$(mktemp -d "${TMPDIR:-/tmp}/causal-rc6-bundle.XXXXXX")
+package extract -C "$receipt_bundle" causal_chat-0.4.0-6-x86_64.hpkg
+sh "$receipt_bundle/apps/CausalChat/external-install-check.sh" \
+  causal_chat-0.4.0-6-x86_64.hpkg "$expected"
+```
+
+If `/tmp` is on a small boot volume, set and export a spacious `TMPDIR`, for
+example `/NPSPACE/tmp`, before these commands. The evidence directory is
+reported separately on stderr for local inspection and is not part of the
+pasteable receipt.
+
+The check verifies package checksum and metadata, clean-extracts the native programs,
+launches the exact `BApplication`, publishes a unique non-sensitive marker,
+observes it after the UI/history boundary, checks deduplication, quits cleanly,
+and prints a receipt containing hashes and coarse OS facts but no hostname,
+username, address, local path, or message body. It deliberately uses the public
+plaintext compatibility room and therefore proves distribution and basic
+multiplayer function—not the separate trusted-service claims.
+
 The `nonlocal.info` endpoint currently uses unencrypted NATS transport. Petnames are
 presentation labels, not authenticated identities, and direct messages must
 not be treated as private until server-side accounts, permissions, and TLS are

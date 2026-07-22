@@ -36,6 +36,9 @@ jobs:
       - name: Test provisioner invariants
         run: python3 native/tests/provision_server_test.py
 
+      - name: Validate Haiku shell entrypoints
+        run: sh -n native/build-haiku.sh native/external-install-check.sh
+
       - name: Render test authorization include
         run: |
           python3 native/deploy/render_users.py \

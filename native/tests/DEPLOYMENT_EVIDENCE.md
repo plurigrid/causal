@@ -194,6 +194,27 @@ fixtures only.
    1011 by 735 active-window screenshot SHA-256 is
    `bb73b378f04b10e2ebb01a21e7d8f3118e6996b1dfa8bad4b3205374ddcc8f2f`.
 
+## External-install receipt extension
+
+1. Candidate `0.4.0-6` adds a packaged, POSIX-shell receipt check and makes the
+   native `nats-chat say` path wait for a server `PONG` after publishing. A
+   successful diagnostic publish therefore crosses the server flush boundary;
+   it is not inferred from a completed local `send` call.
+2. The packaged checker refused to start while an existing Causal Chat window
+   was active and left its title and team untouched. Its first clean run then
+   failed on the native host's 504 KiB-free `/tmp`, preserving the partial
+   directory rather than deleting it. Re-running with `TMPDIR` on `/NPSPACE`
+   passed.
+3. That clean run verified package metadata and checksum, extracted the native
+   binaries, launched the exact `BApplication`, published a non-sensitive
+   unique marker through `nonlocal.info:4222`, observed exactly one record after
+   the UI/history boundary, and quit cleanly. The receipt reported Haiku
+   x86_64, `roundtrip=pass`, `history_marker_count=1`, and application SHA-256
+   `6381a5af0dbcf3fba1489aede166bce915a2f28e5bcd4fbcc6ff866ab5891e43`.
+4. Pasteable receipt stdout excludes hostname, username, network address,
+   message body and local paths. The evidence directory is retained and named
+   only on stderr for the operator who ran the check.
+
 ## What this does not prove
 
 - `nonlocal.info:4222` still advertises neither TLS nor authentication and is
@@ -204,4 +225,7 @@ fixtures only.
 - The rootless extension proves independent machine installation, restart,
   cursors and transport. Both machines were still operated within this
   investigation; this is not evidence of an unaffiliated human installation.
+- The receipt mechanism is independently runnable, but the first receipt above
+  was still operated by this investigation and is not the missing third-party
+  human witness.
 - A display petname is not cryptographic identity.

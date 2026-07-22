@@ -37,6 +37,8 @@ c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
 
 cp "$build/CausalChat" "$stage/apps/CausalChat/CausalChat"
 cp "$build/nats-chat" "$stage/apps/CausalChat/nats-chat"
+cp "$here/external-install-check.sh" \
+  "$stage/apps/CausalChat/external-install-check.sh"
 cp "$here/README.md" "$stage/apps/CausalChat/README.md"
 cp "$here/DEPLOYMENT.md" "$stage/apps/CausalChat/DEPLOYMENT.md"
 cp "$here/tests/DEPLOYMENT_EVIDENCE.md" \
@@ -55,6 +57,7 @@ cp "$here/deploy/member_probe.py" \
   "$stage/apps/CausalChat/deploy/member_probe.py"
 cp "$here/deploy/provision_server.py" \
   "$stage/apps/CausalChat/deploy/provision_server.py"
+chmod 0755 "$stage/apps/CausalChat/external-install-check.sh"
 cp "$here/deploy/trust/causal-chat-ca-v1.crt" \
   "$stage/apps/CausalChat/deploy/trust/causal-chat-ca-v1.crt"
 chmod 0755 "$stage/apps/CausalChat/deploy/render_users.py" \
@@ -66,7 +69,7 @@ mimeset -f "$stage/apps/CausalChat/CausalChat"
 
 if test "${1:-}" = "--package"; then
   package create -C "$stage" -i "$here/.PackageInfo" \
-    "$build/causal_chat-0.4.0-5-x86_64.hpkg"
+    "$build/causal_chat-0.4.0-6-x86_64.hpkg"
 fi
 
 echo "built $build/CausalChat"
