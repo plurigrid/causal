@@ -4,13 +4,34 @@ set -eu
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 build=${CAUSAL_BUILD_DIR:-"$here/build"}
 stage="$build/package-root"
+tls_cxxflags=${TLS_CXXFLAGS:-}
+tls_libs=${TLS_LIBS:-}
 
 mkdir -p "$build" "$stage/apps/CausalChat/deploy/trust"
 
+if test -n "${OPENSSL3_DEVEL_ROOT:-}"; then
+  openssl_headers="$OPENSSL3_DEVEL_ROOT/develop/headers"
+  test -f "$openssl_headers/openssl/err.h"
+  tls_cxxflags="$tls_cxxflags -I$openssl_headers"
+  if test -z "$tls_libs"; then
+    openssl_links="$build/openssl-link"
+    mkdir -p "$openssl_links"
+    test -f /boot/system/lib/libssl.so.3
+    test -f /boot/system/lib/libcrypto.so.3
+    ln -sf /boot/system/lib/libssl.so.3 "$openssl_links/libssl.so"
+    ln -sf /boot/system/lib/libcrypto.so.3 "$openssl_links/libcrypto.so"
+    tls_libs="-L$openssl_links -lssl -lcrypto"
+  fi
+fi
+
+if test -z "$tls_libs"; then
+  tls_libs="-lssl -lcrypto"
+fi
+
 c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
-  ${TLS_CXXFLAGS:-} "$here/haiku_chat.cpp" "$here/connection_profile.cpp" \
+  $tls_cxxflags "$here/haiku_chat.cpp" "$here/connection_profile.cpp" \
   -lbe -lnetwork \
-  ${TLS_LIBS:--lssl -lcrypto} -o "$build/CausalChat"
+  $tls_libs -o "$build/CausalChat"
 c++ -std=c++17 -O2 -Wall -Wextra -pedantic \
   "$here/nats_chat.cpp" -lnetwork -o "$build/nats-chat"
 
@@ -32,17 +53,20 @@ cp "$here/deploy/generate_roster.py" \
   "$stage/apps/CausalChat/deploy/generate_roster.py"
 cp "$here/deploy/member_probe.py" \
   "$stage/apps/CausalChat/deploy/member_probe.py"
+cp "$here/deploy/provision_server.py" \
+  "$stage/apps/CausalChat/deploy/provision_server.py"
 cp "$here/deploy/trust/causal-chat-ca-v1.crt" \
   "$stage/apps/CausalChat/deploy/trust/causal-chat-ca-v1.crt"
 chmod 0755 "$stage/apps/CausalChat/deploy/render_users.py" \
   "$stage/apps/CausalChat/deploy/bootstrap.py" \
   "$stage/apps/CausalChat/deploy/generate_roster.py" \
-  "$stage/apps/CausalChat/deploy/member_probe.py"
+  "$stage/apps/CausalChat/deploy/member_probe.py" \
+  "$stage/apps/CausalChat/deploy/provision_server.py"
 mimeset -f "$stage/apps/CausalChat/CausalChat"
 
 if test "${1:-}" = "--package"; then
   package create -C "$stage" -i "$here/.PackageInfo" \
-    "$build/causal_chat-0.4.0-4-x86_64.hpkg"
+    "$build/causal_chat-0.4.0-5-x86_64.hpkg"
 fi
 
 echo "built $build/CausalChat"

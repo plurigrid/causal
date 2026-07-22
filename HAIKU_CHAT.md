@@ -16,6 +16,8 @@ The release contains:
 - acknowledged, bounded offline replay and opt-out local history;
 - an x86_64 Haiku package plus SHA-256 sidecar;
 - a standard-library-only server bootstrap with no checked-in secrets.
+- a rootless provisioner that checksum-pins upstream binaries, creates private
+  PKI/member handoffs, and refuses success until durable replay is acknowledged.
 
 Start with [`native/README.md`](native/README.md). Server operators should use
 [`native/deploy/README.md`](native/deploy/README.md), and reviewers can inspect

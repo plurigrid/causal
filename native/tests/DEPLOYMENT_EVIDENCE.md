@@ -141,6 +141,59 @@ fixtures only.
    A prior black frame was rejected because it showed the screen blanker rather
    than the application.
 
+## Independent rootless-operator extension
+
+1. A fresh aarch64 Linux host used `provision_server.py` to fetch the pinned
+   NATS Server 2.14.3 and NATS CLI 0.4.0 assets, create new RSA-3072 private PKI,
+   generate two unrelated member handoffs, start a user systemd service, and
+   complete its default durable publish/pull/ack smoke test. No root-owned
+   package installation or Docker container carries the service.
+2. The first user-service sandbox failed closed because that host cannot apply
+   `PrivateDevices` or `ProtectKernelModules` in its user manager. The unit was
+   rolled back while state remained mode `0700`. Removing only those two
+   unsupported directives preserved `NoNewPrivileges`, `PrivateTmp`, strict
+   system/home protection, kernel-tunable/control-group protection, SUID/SGID
+   and personality restrictions, and an AF_UNIX/INET/INET6 allowlist.
+3. An intermediate handoff explicitly separated `host=100.107.33.61` from
+   `tls_name=c124b1.pirate-dragon.ts.net`. This repaired two real negative
+   controls: ZeroTier carried the TCP handshake but stalled the RSA certificate
+   flight, while MagicDNS was not configured on the client. A later probe also
+   showed that Tailscale's netfilter chain admitted the port before the proposed
+   peer-specific UFW rule, so that route was rejected as the final perimeter.
+   Transport reachability was never renamed certificate authority or peer
+   restriction.
+4. A second aarch64 Linux machine consumed `external-a` through verified TLS.
+   The service then restarted with a different PID while retaining two stream
+   messages and independent cursor state. `external-b` subsequently
+   acknowledged three messages; after the transferred source directory was
+   removed and the service restarted again, `external-a` acknowledged its two
+   pending messages using the probe copied from the installed state itself.
+5. The final service binds only `10.7.0.1:44525` on the dedicated two-host
+   cluster link. `10.7.0.3` timed out while the live listener existed, then
+   connected only after UFW admitted that source, destination, interface and
+   TCP port. Anonymous authentication and `external-b` access to `external-a`'s
+   pull subject were both rejected. Every transient profile/CA copy was deleted;
+   the authoritative mode-`0600` handoffs remain only in the operator state.
+6. The user service is enabled and Linux lingering is enabled for its account.
+   Its self-contained `tools/` directory replaced the transferred source as the
+   management surface.
+7. Revision candidate `0.4.0-5` rebuilt on the native x86_64 Haiku host at
+   `hrev59861` with GCC 13.3.0 and OpenSSL 3.5.7 headers. Because `/boot` had
+   only 504 KiB free, source, temporary files and package staging remained on
+   `/NPSPACE`; a build-local linker view used the installed versioned OpenSSL
+   runtime without mutating the boot volume. The native connection-profile
+   fixture passed.
+8. The standalone and clean-extracted package executables were byte-identical
+   at SHA-256
+   `6381a5af0dbcf3fba1489aede166bce915a2f28e5bcd4fbcc6ff866ab5891e43`.
+   The package reports `0.4.0-5`, x86_64, Haiku, OpenSSL 3 and GPLv3 metadata,
+   and includes the five self-contained operator tools.
+9. The exact extracted executable rendered three deterministic observer cards
+   from a loopback fixture. Six minimum, wide and tall frame transitions kept
+   the same application team (`13351`) and established socket. The final
+   1011 by 735 active-window screenshot SHA-256 is
+   `bb73b378f04b10e2ebb01a21e7d8f3118e6996b1dfa8bad4b3205374ddcc8f2f`.
+
 ## What this does not prove
 
 - `nonlocal.info:4222` still advertises neither TLS nor authentication and is
@@ -148,4 +201,7 @@ fixtures only.
 - The staged service has persistent storage and independent-machine evidence,
   but remains tailnet-only. Public Funnel activation and an independently
   operated third-party installation have not yet been observed.
+- The rootless extension proves independent machine installation, restart,
+  cursors and transport. Both machines were still operated within this
+  investigation; this is not evidence of an unaffiliated human installation.
 - A display petname is not cryptographic identity.

@@ -14,6 +14,68 @@ The scripts use only Python's standard library. `bootstrap.py` speaks the NATS
 and JetStream wire protocols directly so a second client SDK is not part of the
 trusted deployment path.
 
+## Rootless quickstart
+
+`provision_server.py` turns a new private directory into a complete service in
+one command. It downloads checksum-pinned NATS Server 2.14.3 and NATS CLI
+0.4.0 releases, generates a private CA and RSA-3072 server certificate, creates
+independent member credentials, reconciles the bounded stream/cursors, and
+requires a hostname-verified durable publish/pull/ack roundtrip before it
+reports success:
+
+Run it on Linux (x86_64 or arm64) or macOS (arm64). The Haiku package carries
+the operator bundle for inspection and transfer, but the native Haiku program
+is the room client; the provisioner does not claim Haiku server support.
+
+```sh
+python3 provision_server.py ~/.local/share/causal-chat \
+  --host chat.example.org \
+  --listen-host 0.0.0.0 --listen-port 4222 --port 4222 \
+  --member amber --member violet \
+  --service auto
+```
+
+The destination must not already exist; the provisioner never rotates or
+replaces credentials implicitly. It prints paths and verification state, never
+passwords. Give each person only their own mode-`0600`
+`secrets/client-MEMBER.json` plus the public `tls/ca.crt`. On Linux,
+`--service auto` installs an enabled user systemd unit. An administrator must
+also enable lingering for that user if the service must start before login and
+survive logout; the result reports `service_persistence` honestly. On macOS it
+installs a per-user LaunchAgent.
+
+The state is self-contained after provisioning. Check or repair it with the
+copies under `tools/`; the transferred source directory is not a runtime
+dependency:
+
+```sh
+CAUSAL_ADMIN_USER=causal-operator \
+python3 ~/.local/share/causal-chat/tools/bootstrap.py \
+  ~/.local/share/causal-chat/secrets/roster.json \
+  --host 127.0.0.1 --port 4222 --tls-name chat.example.org \
+  --ca ~/.local/share/causal-chat/tls/ca.crt --check
+```
+
+If service-manager activation fails after the cryptographic state passes its
+own checks, the unit is rolled back while the private state is retained. Repair
+the reported host condition and resume without rotating credentials:
+
+```sh
+python3 provision_server.py ~/.local/share/causal-chat \
+  --resume-service --service auto
+```
+
+The safe default binds only `127.0.0.1`. Binding `0.0.0.0` does not edit a
+firewall, router, DNS record, or cloud policy; the operator must expose only the
+chosen TLS port and verify it from a genuinely external network. `--no-smoke`
+exists for offline staging but deliberately removes the end-to-end completion
+claim.
+
+When routing uses an IP or tunnel name different from the certificate identity,
+set `--connect-host` separately. Member handoffs then preserve both facts:
+`host` is the TCP destination and `tls_name` is the identity that must verify.
+The provisioner never silently treats reachability as authority.
+
 ## Provision
 
 Install current `nats-server` and the `nats` CLI from their signed or
@@ -109,6 +171,10 @@ roundtrip used by the native client:
 python3 member_probe.py client-amber.json \
   --ca trust/causal-chat-ca-v1.crt
 ```
+
+Add `--jetstream` to require the profile's own durable cursor. It drains and
+acknowledges bounded backlog until its new readiness signal arrives, then fails
+unless every delivered signal carried a valid acknowledgement subject.
 
 ## Connect a Haiku member
 

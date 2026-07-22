@@ -98,6 +98,17 @@ CAUSAL_BUILD_DIR=/NPSPACE/causal-build TMPDIR=/NPSPACE/tmp \
   sh build-haiku.sh --package
 ```
 
+If the matching `openssl3_devel` package has been extracted onto that larger
+volume instead of activated through packagefs, point the build at its root.
+The script uses those headers and creates a build-local linker view of the
+installed versioned OpenSSL 3 runtime; it does not mutate `/boot`:
+
+```sh
+OPENSSL3_DEVEL_ROOT=/NPSPACE/causal-deps/openssl3-devel \
+CAUSAL_BUILD_DIR=/NPSPACE/causal-build TMPDIR=/NPSPACE/tmp \
+  sh build-haiku.sh --package
+```
+
 The server and local display petname are configurable:
 
 ```sh

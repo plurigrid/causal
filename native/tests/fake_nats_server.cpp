@@ -43,6 +43,8 @@ int main(int argc, char** argv) {
                   "\"max_payload\":1048576}\r\n");
   auto deadline = std::chrono::steady_clock::now() + std::chrono::seconds(lifetime);
   char buffer[4096];
+  std::string input;
+  bool fixture_sent = false;
   while (std::chrono::steady_clock::now() < deadline) {
     fd_set reads;
     FD_ZERO(&reads);
@@ -53,8 +55,34 @@ int main(int argc, char** argv) {
     if (ready > 0) {
       ssize_t count = recv(client, buffer, sizeof(buffer), 0);
       if (count <= 0) break;
+      input.append(buffer, static_cast<size_t>(count));
       std::cout.write(buffer, count);
       std::cout.flush();
+      const std::string prefix = "SUB chat.room.lobby ";
+      size_t start = input.find(prefix);
+      if (!fixture_sent && start != std::string::npos) {
+        start += prefix.size();
+        size_t end = input.find("\r\n", start);
+        if (end != std::string::npos) {
+          const std::string sid = input.substr(start, end - start);
+          const std::string messages[] = {
+              "{\"id\":\"visual-aurora\",\"sender\":\"aurora\","
+              "\"text\":\"The room recovered its durable signal.\"}",
+              "{\"id\":\"visual-cobalt\",\"sender\":\"cobalt\","
+              "\"text\":\"A second observer joined without changing the room.\"}",
+              "{\"id\":\"visual-coral\",\"sender\":\"coral\","
+              "\"text\":\"Color names the path; transport still names authority.\"}",
+          };
+          for (const std::string& payload : messages) {
+            if (!SendAll(client, "MSG chat.room.lobby " + sid + " " +
+                                  std::to_string(payload.size()) + "\r\n" +
+                                  payload + "\r\n")) {
+              break;
+            }
+          }
+          fixture_sent = true;
+        }
+      }
     } else if (!SendAll(client, "PING\r\n")) {
       break;
     }

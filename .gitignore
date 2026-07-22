@@ -1,5 +1,8 @@
 # Compiled
 *.elc
+*.py[cod]
+__pycache__/
+/native/build/
 
 # Packaging
 .cask
