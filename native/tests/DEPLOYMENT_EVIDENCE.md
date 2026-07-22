@@ -214,6 +214,19 @@ fixtures only.
 4. Pasteable receipt stdout excludes hostname, username, network address,
    message body and local paths. The evidence directory is retained and named
    only on stderr for the operator who ran the check.
+5. GitHub Actions run
+   [`29895628287`](https://github.com/plurigrid/causal/actions/runs/29895628287)
+   then booted a fresh Haiku R1/beta5 x86_64 VM without checking out this
+   repository. The workflow downloaded the public RC6 HPKG and sidecar,
+   reproduced package SHA-256
+   `61d3c961749ff5ee4ea7a48a2b5a727804f5a0fbbcce94a5e651094b8a2123de`,
+   and reproduced application SHA-256
+   `6381a5af0dbcf3fba1489aede166bce915a2f28e5bcd4fbcc6ff866ab5891e43`.
+6. The packaged native application launched inside that clean VM, crossed the
+   live public endpoint, recorded its unique marker exactly once, and emitted
+   `roundtrip=pass`. The job completed in 44 seconds. Its VM action is pinned
+   to commit `5ea7e8e4677bd726033a10b094ba1c5762b15dee` (v1.3.0), so the executed
+   action cannot drift behind a moving tag.
 
 ## What this does not prove
 
@@ -228,4 +241,8 @@ fixtures only.
 - The receipt mechanism is independently runnable, but the first receipt above
   was still operated by this investigation and is not the missing third-party
   human witness.
+- The clean GitHub-hosted VM separates the runtime, disk image and network path
+  from the implementation host. The workflow and expected hashes were still
+  authored here, and the pinned upstream action commit is unsigned; this is
+  not evidence of independent human judgment or upstream supply-chain review.
 - A display petname is not cryptographic identity.

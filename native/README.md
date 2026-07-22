@@ -169,6 +169,14 @@ username, address, local path, or message body. It deliberately uses the public
 plaintext compatibility room and therefore proves distribution and basic
 multiplayer function—not the separate trusted-service claims.
 
+The same procedure runs without a source checkout in a fresh GitHub-hosted
+Haiku R1/beta5 VM. The workflow pins its VM action by commit, downloads only
+the public RC6 package and checksum sidecar, and rejects different package or
+application hashes. The first such run completed the native round trip in
+[44 seconds](https://github.com/plurigrid/causal/actions/runs/29895628287).
+This is independent runtime evidence, not a claim that an unaffiliated person
+operated the check.
+
 The `nonlocal.info` endpoint currently uses unencrypted NATS transport. Petnames are
 presentation labels, not authenticated identities, and direct messages must
 not be treated as private until server-side accounts, permissions, and TLS are

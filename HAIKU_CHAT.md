@@ -20,11 +20,15 @@ The release contains:
   PKI/member handoffs, and refuses success until durable replay is acknowledged.
 - a privacy-minimized external-install receipt that exercises the downloaded
   native package end to end without distributing a credential.
+- a pinned clean-Haiku-VM workflow that downloads the public release rather
+  than reusing the checkout, then validates the native receipt invariants.
 
 Start with [`native/README.md`](native/README.md). Server operators should use
 [`native/deploy/README.md`](native/deploy/README.md), and reviewers can inspect
 the falsifiable test ledger in
 [`native/tests/DEPLOYMENT_EVIDENCE.md`](native/tests/DEPLOYMENT_EVIDENCE.md).
+The first clean external-runtime receipt is preserved in
+[GitHub Actions run 29895628287](https://github.com/plurigrid/causal/actions/runs/29895628287).
 
 The public `nonlocal.info:4222` service remains an unencrypted compatibility
 surface and must not carry secrets. A second endpoint at
