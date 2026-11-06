@@ -1,0 +1,61 @@
+name: Haiku RC6 external receipt
+description: Report an independent, non-sensitive Causal Chat installation check
+title: "[Haiku RC6 receipt] "
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for testing [Causal Chat RC6](https://github.com/plurigrid/causal/releases/tag/haiku-chat-v0.4.0-rc6).
+
+        Run the packaged `external-install-check.sh` as documented in
+        `native/README.md`. Paste only its stdout receipt below. Do not post
+        credentials, hostnames, IP addresses, private messages, or the stderr
+        evidence-directory path.
+  - type: textarea
+    id: receipt
+    attributes:
+      label: Receipt
+      description: Paste the complete key-value receipt printed on stdout.
+      render: shell
+      placeholder: |
+        receipt_schema=causal-haiku-external-v1
+        release=haiku-chat-v0.4.0-rc6
+        package_sha256=...
+        application_sha256=...
+        os=Haiku
+        roundtrip=pass
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Relationship to this implementation
+      description: >-
+        This separates an outside installation from an author-operated check.
+      options:
+        - I did not implement or operate this release
+        - I contributed code or operated prior validation
+        - Prefer not to say
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What appeared on screen?
+      description: A short observation is enough; do not include private content.
+      placeholder: >-
+        The native window opened, showed the public test signal, and closed
+        after the receipt passed.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I used only the generated non-sensitive public test marker.
+          required: true
+        - label: >-
+            I removed credentials, hostnames, addresses, private text, and local
+            paths from this report.
+          required: true

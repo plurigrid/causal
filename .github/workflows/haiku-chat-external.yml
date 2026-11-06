@@ -1,0 +1,73 @@
+name: Haiku Chat external receipt
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/haiku-chat-external.yml"
+      - "native/external-install-check.sh"
+      - "native/.PackageInfo"
+
+permissions:
+  contents: read
+
+jobs:
+  clean-haiku-vm:
+    name: Public RC6 on clean Haiku VM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Start clean Haiku R1/beta5 VM
+        uses: cross-platform-actions/action@5ea7e8e4677bd726033a10b094ba1c5762b15dee # v1.3.0
+        with:
+          operating_system: haiku
+          architecture: x86-64
+          version: r1beta5
+          memory: 4G
+          cpu_count: 2
+          sync_files: false
+
+      - name: Download and exercise the public release
+        shell: cpa.sh {0}
+        run: |
+          set -eu
+
+          release=haiku-chat-v0.4.0-rc6
+          package_name=causal_chat-0.4.0-6-x86_64.hpkg
+          expected_package=61d3c961749ff5ee4ea7a48a2b5a727804f5a0fbbcce94a5e651094b8a2123de
+          expected_application=6381a5af0dbcf3fba1489aede166bce915a2f28e5bcd4fbcc6ff866ab5891e43
+          base=https://github.com/plurigrid/causal/releases/download/$release
+          work=$(mktemp -d /tmp/causal-public-rc6.XXXXXX)
+          bundle=$work/bundle
+          mkdir "$bundle" "$work/tmp"
+          cd "$work"
+
+          curl --fail --location --silent --show-error \
+            --output "$package_name" "$base/$package_name"
+          curl --fail --location --silent --show-error \
+            --output "$package_name.sha256" "$base/$package_name.sha256"
+
+          sidecar_package=$(awk '{print $1}' "$package_name.sha256")
+          test "$sidecar_package" = "$expected_package"
+          actual_package=$(sha256sum "$package_name" | awk '{print $1}')
+          test "$actual_package" = "$expected_package"
+
+          package extract -C "$bundle" "$package_name"
+          TMPDIR=$work/tmp sh "$bundle/apps/CausalChat/external-install-check.sh" \
+            "$package_name" "$expected_package" \
+            >"$work/receipt.txt" 2>"$work/receipt.stderr"
+
+          cat "$work/receipt.txt"
+          grep -Fx 'receipt_schema=causal-haiku-external-v1' "$work/receipt.txt"
+          grep -Fx "release=$release" "$work/receipt.txt"
+          grep -Fx "package_sha256=$expected_package" "$work/receipt.txt"
+          grep -Fx "application_sha256=$expected_application" "$work/receipt.txt"
+          grep -Fx 'os=Haiku' "$work/receipt.txt"
+          grep -Fx 'machine=x86_64' "$work/receipt.txt"
+          grep -Fx 'transport=public-plaintext-nonsensitive-check-only' "$work/receipt.txt"
+          grep -Fx 'roundtrip=pass' "$work/receipt.txt"
+          grep -Fx 'history_marker_count=1' "$work/receipt.txt"
+          test "$(grep -c '^marker_sha256=[0-9a-f][0-9a-f]*$' "$work/receipt.txt")" -eq 1
+          test "$(wc -l < "$work/receipt.txt" | tr -d ' ')" -eq 12
+
+          printf '%s\n' 'independent_runtime=github-hosted-clean-haiku-vm'

@@ -1,0 +1,18 @@
+{
+  "admin": {
+    "user": "causal-operator",
+    "bcrypt": "$2a$11$REPLACE_WITH_NATS_SERVER_PASSWD_OUTPUT"
+  },
+  "members": [
+    {
+      "user": "amber",
+      "consumer": "amber",
+      "bcrypt": "$2a$11$REPLACE_WITH_NATS_SERVER_PASSWD_OUTPUT"
+    },
+    {
+      "user": "violet",
+      "consumer": "violet",
+      "bcrypt": "$2a$11$REPLACE_WITH_NATS_SERVER_PASSWD_OUTPUT"
+    }
+  ]
+}
